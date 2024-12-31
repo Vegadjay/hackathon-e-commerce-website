@@ -14,7 +14,6 @@ export default function CartPage() {
   const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   const handleCheckout = () => {
-    // Implement checkout logic here
     clearCart();
     router.push('/checkout-success');
   };
