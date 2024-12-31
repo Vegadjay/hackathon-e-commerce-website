@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -7,6 +7,7 @@ import { ProductFilters } from "@/components/products/product-filters";
 import { ProductSkeleton } from "@/components/products/product-skeleton";
 import { PaginationControls } from "@/components/ui/pagination-controls";
 import { products } from "@/lib/data";
+import PhotoCarousel from "@/components/products/product-corosal";
 
 const PRODUCTS_PER_PAGE = 15;
 
@@ -44,6 +45,9 @@ export function ProductGrid() {
 
   return (
     <main className="mx-auto max-w-[1800px] px-4 py-8 sm:px-6 lg:px-8">
+
+    <PhotoCarousel />
+
       <ProductFilters
         selectedCategory={selectedCategory}
         onCategoryChange={setSelectedCategory}
@@ -65,7 +69,11 @@ export function ProductGrid() {
                 <ProductSkeleton key={`skeleton-${i}`} />
               ))
             : paginatedProducts.map((product) => (
-                <ProductCard key={product.id} {...product} />
+                <ProductCard
+                  key={product.id}
+                  {...product}
+                  image={`https://picsum.photos/500?random=${product.id}`}
+                />
               ))}
         </motion.div>
       </AnimatePresence>

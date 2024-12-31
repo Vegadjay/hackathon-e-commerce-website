@@ -1,6 +1,5 @@
 import { getProductImage } from './images';
 
-// Product type definitions
 type Category = 'Men' | 'Women' | 'Unisex';
 type Product = {
   id: number;
@@ -13,7 +12,6 @@ type Product = {
   colors: string[];
 };
 
-// Product name components
 const STYLES = ['Classic', 'Modern', 'Vintage', 'Urban', 'Elegant', 'Casual', 'Premium', 'Designer'];
 const TYPES = {
   Men: ['Suit', 'Blazer', 'Polo', 'Chinos', 'Oxford Shirt', 'Sweater', 'Jeans', 'T-Shirt'],
@@ -21,12 +19,10 @@ const TYPES = {
   Unisex: ['Hoodie', 'T-Shirt', 'Sweatshirt', 'Jacket', 'Denim', 'Tank Top', 'Sweater', 'Coat']
 };
 
-// Generate a realistic product description
 function generateDescription(style: string, type: string, category: Category): string {
   return `${style} ${type} perfect for any occasion. Made with premium materials for ultimate comfort and style. This ${category === 'Unisex' ? 'versatile' : category.toLowerCase()}'s piece features excellent craftsmanship and attention to detail.`;
 }
 
-// Generate products
 export const products: Product[] = Array.from({ length: 200 }, (_, index) => {
   const category = ['Men', 'Women', 'Unisex'][Math.floor(Math.random() * 3)] as Category;
   const style = STYLES[Math.floor(Math.random() * STYLES.length)];
