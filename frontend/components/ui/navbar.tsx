@@ -11,7 +11,7 @@ import {
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ShoppingBag, ShoppingCart, Menu } from "lucide-react";
+import { ShoppingBag, ShoppingCart, Menu,CircleUser } from "lucide-react";
 import { useState } from "react";
 import { useCart } from "@/lib/store";
 
@@ -92,13 +92,11 @@ export function Navbar() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo Section */}
           <Link href="/" className="flex items-center gap-2">
             <ShoppingBag className="h-6 w-6" />
             <span className="text-xl font-bold">Fashion Store</span>
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden lg:block flex-1 px-8">
             <MainMenu />
           </div>
@@ -121,8 +119,24 @@ export function Navbar() {
                 </motion.span>
               )}
             </Link>
+            <Link
+              href="/Login"
+              className="relative flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2 text-gray-600 hover:bg-gray-200"
+            >
+              {/* //! Login Button Is Here Where user is login than we show that icon of user's logo that show here */}
+              <CircleUser />
+              <span className="hidden sm:inline">Login</span>
+              {itemCount > 0 && (
+                <motion.span
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs text-white"
+                >
+                  {itemCount}
+                </motion.span>
+              )}
+            </Link>
 
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setMenuOpen(!isMenuOpen)}
               className="lg:hidden rounded-full bg-gray-100 p-2 text-gray-600 hover:bg-gray-200"
@@ -132,7 +146,6 @@ export function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
