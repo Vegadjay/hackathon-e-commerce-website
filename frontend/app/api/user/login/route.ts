@@ -23,7 +23,7 @@ export async function POST(req: Request) {
 	try {
 		const body = await req.json();
 		const { identifier, password } = loginSchema.parse(body);
-
+		
 		await dbConnect();
 
 		const user = await User.findOne({
@@ -31,11 +31,13 @@ export async function POST(req: Request) {
 		});
 
 		if (!user) {
+			console.log("user is not found")
 			return NextResponse.json({ error: 'User not found' }, { status: 400 });
 		}
 
 		const isPasswordValid = await bcrypt.compare(password, user.password);
 		if (!isPasswordValid) {
+			console.log("Passoword is not valid")
 			return NextResponse.json({ error: 'Invalid password' }, { status: 400 });
 		}
 
@@ -61,6 +63,7 @@ export async function POST(req: Request) {
 			maxAge: 29 * 24 * 60 * 60,
 			path: '/',
 		});
+	
 		return response;
 	} catch (error) {
 		if (error instanceof z.ZodError) {

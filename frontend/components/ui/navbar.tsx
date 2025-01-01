@@ -15,6 +15,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ShoppingBag, ShoppingCart, Menu, CircleUser } from "lucide-react";
 import { useState } from "react";
 import { useCart } from "@/lib/store";
+import router from "next/router";
+import { useRouter } from 'next/navigation'
+
 
 const collections = {
   "New Arrivals": [
@@ -83,6 +86,7 @@ export function MainMenu() {
 }
 
 export function Navbar() {
+  const router = useRouter();
   const items = useCart((state) => state.items);
   const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -132,7 +136,7 @@ export function Navbar() {
                   className="flex items-center gap-2 cursor-pointer"
                 >
                   <img
-                    src={session.user?.image || "/default-image.jpeg"}
+                    src={session.user?.image || "./default-image.jpeg"}
                     alt="User Avatar"
                     className="h-10 w-10 rounded-full border border-gray-300"
                   />
@@ -155,9 +159,12 @@ export function Navbar() {
                   )}
                 </AnimatePresence>
               </div>
-            ) : (
+            ) :
+            // todo: Here while we click on this button like signIn than this is redirect to that official page of google signin so make sure that change that page and make to best.
+            (
               <button
-                onClick={() => signIn()}
+                // onClick={() => signIn()}
+                onClick={()=>{router.push('/login')}}
                 className="relative flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2 text-gray-600 hover:bg-gray-200"
               >
                 <CircleUser />
