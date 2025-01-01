@@ -13,4 +13,6 @@ localhost:3000/api/auth/login
 http://localhost:3000/api/user/signup
 http://localhost:3000/api/user/udpate
 http://localhost:3000/api/user/login
-http://localhost:3000/api/user/delete
+http://localhost:3000/api/user/delete => userId,(jwt in header) =>return (status,message,user)
+http://localhost:3000/api/user/sendotp => email =>return (status,message)
+http://localhost:3000/api/user/verifyotp => email,otp =>return (status,message,status)
