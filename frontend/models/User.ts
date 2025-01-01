@@ -8,6 +8,11 @@ interface IAddress {
 	country: string;
 }
 
+interface Verification {
+	email: boolean;
+	phone: boolean;
+}
+
 interface IUser extends Document {
 	username: string;
 	email: string;
@@ -15,6 +20,9 @@ interface IUser extends Document {
 	phone: string;
 	address: IAddress;
 	token: string;
+	otp: number;
+	otpExpiry: Date;
+	verified: Verification;
 	role: 'user' | 'admin';
 	createdAt: Date;
 	updatedAt: Date;
@@ -35,6 +43,12 @@ const UserSchema: Schema = new Schema({
 	phone: { type: String, required: true, unique: true },
 	address: { type: AddressSchema, required: true },
 	token: { type: String, required: true },
+	otp: { type: Number, required: false },
+	otpExpiry: { type: Date, required: false },
+	verified: {
+		email: { type: Boolean, default: false },
+		phone: { type: Boolean, default: false }
+	},
 	role: { type: String, enum: ['user', 'admin'], default: 'user' },
 	createdAt: { type: Date, default: Date.now },
 	updatedAt: { type: Date, default: Date.now }
