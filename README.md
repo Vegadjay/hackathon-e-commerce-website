@@ -8,3 +8,9 @@ apis- /
 
 
 localhost:3000/api/auth/login
+
+-- Backend Apis
+http://localhost:3000/api/user/signup
+http://localhost:3000/api/user/udpate
+http://localhost:3000/api/user/login
+http://localhost:3000/api/user/delete
