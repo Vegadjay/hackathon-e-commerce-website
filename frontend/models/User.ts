@@ -1,0 +1,41 @@
+import mongoose, { Schema, Document } from 'mongoose';
+
+interface IAddress {
+	street: string;
+	city: string;
+	state: string;
+	zipCode: string;
+	country: string;
+}
+
+interface IUser extends Document {
+	username: string;
+	email: string;
+	password: string;
+	phone: string;
+	address: IAddress[];
+	role: 'user' | 'admin';
+	createdAt: Date;
+	updatedAt: Date;
+}
+
+const AddressSchema: Schema = new Schema({
+	street: { type: String, required: true },
+	city: { type: String, required: true },
+	state: { type: String, required: true },
+	zipCode: { type: String, required: true },
+	country: { type: String, required: true }
+});
+
+const UserSchema: Schema = new Schema({
+	username: { type: String, required: true, unique: true },
+	email: { type: String, required: true, unique: true },
+	password: { type: String, required: true },
+	phone: { type: String, required: true, unique: true },
+	address: { type: [AddressSchema], required: true },
+	role: { type: String, enum: ['user', 'admin'], default: 'user' },
+	createdAt: { type: Date, default: Date.now },
+	updatedAt: { type: Date, default: Date.now }
+});
+
+export default (mongoose.models.Users) || mongoose.model<IUser>('Users', UserSchema);
