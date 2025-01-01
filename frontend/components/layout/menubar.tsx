@@ -73,7 +73,6 @@ export function MainMenu() {
           </NavigationMenuItem>
         ))}
 
-        {/* Cart Button */}
         <NavigationMenuItem>
           <Link
             href="/cart"

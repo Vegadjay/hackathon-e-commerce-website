@@ -61,8 +61,6 @@ export async function POST(req: Request) {
 			maxAge: 29 * 24 * 60 * 60,
 			path: '/',
 		});
-
-		console.log(response);
 		return response;
 	} catch (error) {
 		if (error instanceof z.ZodError) {

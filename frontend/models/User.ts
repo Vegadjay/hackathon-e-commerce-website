@@ -13,7 +13,8 @@ interface IUser extends Document {
 	email: string;
 	password: string;
 	phone: string;
-	address: IAddress[];
+	address: IAddress;
+	token: string;
 	role: 'user' | 'admin';
 	createdAt: Date;
 	updatedAt: Date;
@@ -32,7 +33,8 @@ const UserSchema: Schema = new Schema({
 	email: { type: String, required: true, unique: true },
 	password: { type: String, required: true },
 	phone: { type: String, required: true, unique: true },
-	address: { type: [AddressSchema], required: true },
+	address: { type: AddressSchema, required: true },
+	token: { type: String, required: true },
 	role: { type: String, enum: ['user', 'admin'], default: 'user' },
 	createdAt: { type: Date, default: Date.now },
 	updatedAt: { type: Date, default: Date.now }

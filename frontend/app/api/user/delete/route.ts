@@ -19,10 +19,8 @@ async function authenticate(req: Request) {
 
 export async function DELETE(req: Request) {
 	try {
-		// Parse request body
 		const { userId } = await req.json();
 
-		// Authenticate the user
 		const authenticatedUser = await authenticate(req);
 
 		if (authenticatedUser.id !== userId) {

@@ -93,9 +93,6 @@ const FashionCarousel = () => {
 
   return (
     <div className="w-full">
-      <h2 className="text-4xl font-bold text-center my-8 bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">
-        Fashion Collection
-      </h2>
       <Carousel
         opts={{
           align: 'start',
