@@ -13,15 +13,13 @@ const updateUserSchema = z.object({
 		.string()
 		.regex(/^\d{10}$/, 'Phone number must be 10 digits')
 		.optional(),
-	address: z.array(
-		z.object({
+	address: z.object({
 			street: z.string().nonempty('Street is required').optional(),
 			city: z.string().nonempty('City is required').optional(),
 			state: z.string().nonempty('State is required').optional(),
-			zipCode: z.string().regex(/^\d{5}$/, 'Zip code must be 5 digits').optional(),
+			zipCode: z.string().regex(/^\d{6}$/, 'Zip code must be 6 digits').optional(),
 			country: z.string().nonempty('Country is required').optional(),
-		})
-	).optional(),
+		}).optional(),
 });
 
 async function authenticate(req: Request) {
@@ -31,8 +29,11 @@ async function authenticate(req: Request) {
 	}
 
 	try {
-		const decoded = jwt.verify(token, process.env.JWT_SECRET || 'your-secret-key');
-		return decoded as { id: string; role: string };
+		const decoded: any = jwt.verify(token, process.env.JWT_SECRET as string);
+		if (decoded?.userId) {
+			return decoded;
+		}
+		return false;
 	} catch (error) {
 		throw new Error('Unauthorized: Invalid token');
 	}
@@ -47,11 +48,16 @@ export async function PUT(req: Request) {
 
 		await dbConnect();
 
-		const updatedUser = await User.findByIdAndUpdate(
-			authenticatedUser.id,
-			{
-				$set: validatedData,
-			},
+		if (!authenticatedUser) {
+			return NextResponse.json(
+				{ error: 'You are not authorized to update this account' },
+				{ status: 403 }
+			);
+		}
+
+		let updatedUser = await User.findOneAndUpdate(
+			{ email: authenticatedUser.userId },
+			validatedData,
 			{ new: true }
 		);
 
@@ -64,18 +70,24 @@ export async function PUT(req: Request) {
 			await updatedUser.save();
 		}
 
-		return NextResponse.json({
-			message: 'User updated successfully',
-			user: {
-				id: updatedUser._id,
-				username: updatedUser.username,
-				email: updatedUser.email,
-				phone: updatedUser.phone,
-				address: updatedUser.address,
+		return NextResponse.json(
+			{
+				message: 'User updated successfully',
+				user: {
+					id: updatedUser._id,
+					username: updatedUser.username,
+					email: updatedUser.email,
+					phone: updatedUser.phone,
+					address: updatedUser.address,
+				},
 			},
-		}, { status: 200 });
+			{ status: 200 }
+		);
 	} catch (error) {
 		console.error(error);
-		return NextResponse.json({ error: (error as Error).message || 'Internal server error' }, { status: 500 });
+		return NextResponse.json(
+			{ error: (error as Error).message || 'Internal server error' },
+			{ status: 500 }
+		);
 	}
 }

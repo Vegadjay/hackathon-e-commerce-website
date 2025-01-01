@@ -37,6 +37,7 @@ export async function POST(req: Request) {
 
 		user.otp = null;
 		user.otpExpiry = null;
+		user.verified.email = true;
 		await user.save();
 
 		return NextResponse.json({ success: true, message: 'OTP verified successfully' }, { status: 200 });

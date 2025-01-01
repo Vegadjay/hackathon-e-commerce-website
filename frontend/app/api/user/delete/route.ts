@@ -3,15 +3,18 @@ import jwt from 'jsonwebtoken';
 import dbConnect from '@/lib/dbConnect';
 import User from '@/models/User';
 
-async function authenticate(req: Request) {
+async function authenticate(req: Request, user: any) {
 	const token = req.headers.get('authorization')?.split(' ')[1];
 	if (!token) {
 		throw new Error('Unauthorized: Token is missing');
 	}
 
 	try {
-		const decoded = jwt.verify(token, process.env.JWT_SECRET as string);
-		return decoded as { id: string; role: string };
+		const decoded: any = jwt.verify(token, process.env.JWT_SECRET as string);
+		if (decoded?.userId !== user.email) {
+			return false;
+		}
+		return true;
 	} catch (error) {
 		throw new Error('Unauthorized: Invalid token');
 	}
@@ -21,13 +24,18 @@ export async function DELETE(req: Request) {
 	try {
 		const { userId } = await req.json();
 
-		const authenticatedUser = await authenticate(req);
+		await dbConnect();
 
-		if (authenticatedUser.id !== userId) {
-			return NextResponse.json({ error: 'You are not authorized to delete this account' }, { status: 403 });
+		const user = await User.findById(userId);
+		if (!user) {
+			return NextResponse.json({ error: 'User not found' }, { status: 404 });
 		}
 
-		await dbConnect();
+		const authenticatedUser = await authenticate(req, user);
+
+		if (!authenticatedUser) {
+			return NextResponse.json({ error: 'You are not authorized to delete this account' }, { status: 403 });
+		}
 
 		const deletedUser = await User.findByIdAndDelete(userId);
 

@@ -41,7 +41,7 @@ const UserSchema: Schema = new Schema({
 	email: { type: String, required: true, unique: true },
 	password: { type: String, required: true },
 	phone: { type: String, required: true, unique: true },
-	address: { type: AddressSchema, required: true },
+	address: { type: AddressSchema, required: false },
 	token: { type: String, required: true },
 	otp: { type: Number, required: false },
 	otpExpiry: { type: Date, required: false },

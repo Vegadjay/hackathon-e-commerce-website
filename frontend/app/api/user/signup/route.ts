@@ -18,7 +18,7 @@ const signupSchema = z.object({
 		street: z.string().nonempty('Street is required'),
 		city: z.string().nonempty('City is required'),
 		state: z.string().nonempty('State is required'),
-		zipCode: z.string().regex(/^\d{6}$/, 'Zip code must be 5 digits'),
+		zipCode: z.string().regex(/^\d{6}$/, 'Zip code must be 6 digits'),
 		country: z.string().nonempty('Country is required'),
 	}),
 });
@@ -26,7 +26,6 @@ const signupSchema = z.object({
 export async function POST(req: Request) {
 	try {
 		const body = await req.json();
-		console.log(body);
 		const { username, email, password, phone, address } = signupSchema.parse(body);
 
 		await dbConnect();
