@@ -1,6 +1,8 @@
 "use client";
 
-import { signIn, signOut, useSession } from "next-auth/react";
+
+// todo: Where you use google login than use this all things like signIn and signOut method.
+import { signOut, useSession } from "next-auth/react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -15,6 +17,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ShoppingBag, ShoppingCart, Menu, X, ChevronDown } from 'lucide-react';
 import { useState, useEffect } from "react";
 import { useCart } from "@/lib/store";
+import { useRouter } from "next/navigation";
+
 
 const collections = {
   "New Arrivals": [
@@ -62,6 +66,7 @@ export function MainMenu({ isMobile = false, onLinkClick = () => {} }) {
       setOpenCategory(openCategory === category ? null : category);
     }
   };
+
 
   if (isMobile) {
     return (
@@ -146,6 +151,7 @@ export function MainMenu({ isMobile = false, onLinkClick = () => {} }) {
 }
 
 export function Navbar() {
+    const router = useRouter();
   const items = useCart((state) => state.items);
   const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -207,7 +213,7 @@ export function Navbar() {
               </button>
             ) : (
               <button
-                onClick={() => signIn()}
+                onClick={() => {router.push('/register')}}
                 className="relative flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2 text-gray-600 hover:bg-gray-200"
               >
                 Login

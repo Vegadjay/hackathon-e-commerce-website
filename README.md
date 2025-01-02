@@ -7,7 +7,21 @@ New Feautures
 apis- /
 
 
+Frontend End Points
+/login
+/register
+
+
+
 localhost:3000/api/auth/login
+
+
+
+
+
+
+
+
 
 -- Backend Apis
 http://localhost:3000/api/user/signup
