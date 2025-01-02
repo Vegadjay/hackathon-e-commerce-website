@@ -80,6 +80,8 @@ export function MainMenu({ isMobile = false, onLinkClick = () => {} }) {
                 )}
               />
             </button>
+
+            
             <AnimatePresence initial={false}>
               {openCategory === category && (
                 <motion.div
