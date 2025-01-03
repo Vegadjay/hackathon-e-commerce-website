@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { ProductCard } from "@/components/ui/product-card";
 import { ProductFilters } from "@/components/products/product-filters";
 import { ProductSkeleton } from "@/components/products/product-skeleton";
-import { PaginationControls } from "@/components/ui/pagination-controls";
 import { products } from "@/lib/data";
 import PhotoCarousel from "@/components/products/product-corosal";
 
@@ -74,8 +73,6 @@ export function ProductGrid() {
         </div>
       </div>
 
-
-
       <ProductFilters
         selectedCategory={selectedCategory}
         onCategoryChange={setSelectedCategory}
@@ -114,12 +111,6 @@ export function ProductGrid() {
               ))}
         </motion.div>
       </AnimatePresence>
-
-      <PaginationControls
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={setCurrentPage}
-      />
     </main>
   );
 }

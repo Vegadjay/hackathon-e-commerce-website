@@ -1,3 +1,5 @@
+// todo: Check out this code and go through that ...
+
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -25,34 +27,22 @@ const FashionCarousel = () => {
   const staticImages = [
     {
       id: 'static1',
-      imageUrl: 'https://wallpaperaccess.com/full/4161698.jpg',
-      title: 'Summer Collection',
-      source: 'Fashion Gallery',
+      imageUrl: '/corosal/corosal1.webp',
+      title: 'New Year Collcections',
+      source: 'New year collection in jaipuri styles',
     },
     {
       id: 'static2',
-      imageUrl: 'https://wallpaperaccess.com/full/288747.jpg',
-      title: 'Winter Wear',
-      source: 'Style Studio',
+      imageUrl: '/corosal/corosal2.webp',
+      title: 'Wedding Specials',
+      source: 'New wedding collection in jaipuri styles',
     },
     {
       id: 'static3',
-      imageUrl: 'https://wallpaperaccess.com/full/7333817.jpg',
-      title: 'Autumn Elegance',
-      source: 'Style Studio',
-    },
-    {
-      id: 'static4',
-      imageUrl: 'https://wallpaperaccess.com/full/6567939.jpg',
-      title: 'Spring Fashion',
-      source: 'Style Studio',
-    },
-    {
-      id: 'static5',
-      imageUrl: 'https://wallpaperaccess.com/full/8045724.jpg',
-      title: 'Evening Collection',
-      source: 'Style Studio',
-    },
+      imageUrl: '/corosal/corosal3.webp',
+      title: 'Wedding Western',
+      source: 'New wedding in jaipuri and western styles',
+    }
   ];
 
   const slideVariants = {
