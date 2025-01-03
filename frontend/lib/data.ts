@@ -1,4 +1,8 @@
+// todo: In this code do changes do like change all the catagory like dress and kurtis
+// ! This data is for product discriptions
+
 import { getProductImage } from './images';
+
 
 type Category = 'Men' | 'Women' | 'Unisex';
 type Product = {
@@ -20,7 +24,7 @@ const TYPES = {
 };
 
 function generateDescription(style: string, type: string, category: Category): string {
-  return `${style} ${type} perfect for any occasion. Made with premium materials for ultimate comfort and style. This ${category === 'Unisex' ? 'versatile' : category.toLowerCase()}'s piece features excellent craftsmanship and attention to detail.`;
+  return `${style} ${type} perfect for any occasion. Made with premium materials for ultimate comfort and style. This ${category === 'Women' ? 'versatile' : category.toLowerCase()}'s piece features excellent craftsmanship and attention to detail.`;
 }
 
 export const products: Product[] = Array.from({ length: 200 }, (_, index) => {
@@ -43,4 +47,4 @@ export const products: Product[] = Array.from({ length: 200 }, (_, index) => {
   };
 });
 
-export const categories = ['All', 'Men', 'Women', 'Unisex'] as const;
+export const categories = ['All', 'Women'] as const;

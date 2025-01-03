@@ -20,7 +20,8 @@ interface InputFieldProps {
   type: string;
   placeholder: string;
   value: string;
-  className ? :string
+  className ? :string;
+  error:string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 

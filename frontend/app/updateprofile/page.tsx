@@ -1,11 +1,9 @@
-// !!! DONE UNTIL FORM ... 
-
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { InputField } from '@/components/layout/inputBox';
+import { InputField }  from '@/components/layout/inputBox';
 import { useRouter } from 'next/navigation';
 
 const containerVariants = {
@@ -30,11 +28,10 @@ const itemVariants = {
   }
 };
 
-export default function Register() {
+export default function UpdateProfile() {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
-    password: '',
     phone: '',
     address: {
       street: '',
@@ -48,16 +45,45 @@ export default function Register() {
   const [errors, setErrors] = useState<any>({});
   const [isLoading, setIsLoading] = useState(false);
   const [apiMessage, setApiMessage] = useState<string | null>(null);
+  const [isDataLoaded, setIsDataLoaded] = useState(false);
 
   const router = useRouter();
+
+  // Fetch user data when component mounts
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await fetch('/api/user/profile', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (response.ok) {
+          const userData = await response.json();
+          setFormData(userData);
+        } else {
+          setApiMessage('Failed to load user data');
+        }
+      } catch (error) {
+        setApiMessage('Error loading user data');
+        console.error('Error fetching user data:', error);
+      } finally {
+        setIsDataLoaded(true);
+      }
+    };
+
+    fetchUserData();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     setApiMessage('');
 
-    if (!formData.username || !formData.email || !formData.password) {
-        setApiMessage('All fields are required.');
+    if (!formData.username || !formData.email) {
+        setApiMessage('Username and email are required.');
         setIsLoading(false);
         return;
     }
@@ -69,15 +95,9 @@ export default function Register() {
         return;
     }
 
-    if (formData.password.length < 6) {
-        setApiMessage('Password must be at least 6 characters.');
-        setIsLoading(false);
-        return;
-    }
-
     try {
-        const response = await fetch('/api/user/signup', {
-            method: 'POST',
+        const response = await fetch('/api/user/update', {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -87,16 +107,16 @@ export default function Register() {
         const data = await response.json();
 
         if (response.ok) {
-            setApiMessage('Registration successful!');
-            console.log(data);
-            router.push('/');
+            setApiMessage('Profile updated successfully!');
+            setTimeout(() => {
+                router.push('/profile');
+            }, 1500);
         } else {
-            setApiMessage(data.error || 'Registration failed.');
-            console.error('Registration failed:', data);
+            setApiMessage(data.error || 'Update failed.');
         }
     } catch (error) {
         setApiMessage('An error occurred. Please try again.');
-        console.error('Error during registration:', error);
+        console.error('Error during update:', error);
     } finally {
         setIsLoading(false);
     }
@@ -121,6 +141,14 @@ export default function Register() {
     }
   };
 
+  if (!isDataLoaded) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="fixed inset-0 -z-10"
@@ -139,16 +167,15 @@ export default function Register() {
       >
         <div className="bg-white/80 backdrop-blur-sm shadow-2xl rounded-3xl overflow-hidden border-2 border-pink-100">
           <div className="relative px-8 py-12">
-            {/* Top Section with Animation */}
             <motion.div
               className="relative text-center mb-12"
               variants={itemVariants}
             >
               <h2 className="text-5xl font-bold bg-gradient-to-r from-orange-600 to-pink-600 bg-clip-text text-transparent">
-                Create Account
+                Update Profile
               </h2>
               <p className="mt-4 text-lg text-orange-600">
-                Join our vibrant community
+                Modify your account information
               </p>
             </motion.div>
 
@@ -173,15 +200,6 @@ export default function Register() {
                 value={formData.email}
                 onChange={handleInputChange}
                 error={errors.email}
-              />
-              <InputField
-                label="Password"
-                name="password"
-                type="password"
-                placeholder="Choose a password"
-                value={formData.password}
-                onChange={handleInputChange}
-                error={errors.password}
               />
               <InputField
                 label="Phone Number"
@@ -247,21 +265,25 @@ export default function Register() {
                   disabled={isLoading}
                   className="w-full px-8 py-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-xl font-medium hover:opacity-90 transition-opacity shadow-lg"
                 >
-                  {isLoading ? 'Registering...' : 'Register'}
+                  {isLoading ? 'Updating...' : 'Update Profile'}
                 </motion.button>
-                <p className="text-center text-gray-600">
-                  Already have an account?{' '}
-                  <Link href="/login" className="text-orange-600 hover:text-orange-700 font-medium">
-                    Log in
-                  </Link>
-                </p>
+                <Link href="/profile">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    type="button"
+                    className="w-full px-8 py-3 bg-gray-100 text-gray-700 rounded-xl font-medium hover:bg-gray-200 transition-colors"
+                  >
+                    Cancel
+                  </motion.button>
+                </Link>
               </motion.div>
             </motion.form>
 
             {apiMessage && (
               <motion.div
                 className={`mt-4 p-3 rounded-md text-center ${
-                  apiMessage.includes('successful') ? 'text-green-600' : 'text-red-600'
+                  apiMessage.includes('successfully') ? 'text-green-600' : 'text-red-600'
                 }`}
                 variants={itemVariants}
               >
