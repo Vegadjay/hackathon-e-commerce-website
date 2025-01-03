@@ -35,50 +35,32 @@ export default function Login() {
   });
   const [apiMessage, setApiMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setApiMessage('');
+  e.preventDefault();
+  setIsLoading(true);
+  setApiMessage('');
 
-    if (!formData.email || !formData.password) {
-      setApiMessage('Both email and password are required.');
-      setIsLoading(false);
-      return;
+  try {
+    const result = await signIn('credentials', {
+      identifier: formData.email,
+      password: formData.password,
+      redirect: false,
+    });
+
+    if (result?.error) {
+      setApiMessage(result.error);
+    } else {
+      router.push('/');
     }
+  } catch (error) {
+    setApiMessage('An error occurred. Please try again.');
+  } finally {
+    setIsLoading(false);
+  }
+};
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      setApiMessage('Please enter a valid email address.');
-      setIsLoading(false);
-      return;
-    }
-
-    try {
-      const response = await fetch('/api/user/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        console.log('Login successful:', data);
-        // Redirect or update state after successful login
-      } else {
-        setApiMessage(data.error || 'Login failed. Please check your credentials.');
-        console.error('Login failed:', data);
-      }
-    } catch (error) {
-      setApiMessage('An error occurred. Please try again.');
-      console.error('Error during login:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

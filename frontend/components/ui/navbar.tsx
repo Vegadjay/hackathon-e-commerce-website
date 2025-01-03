@@ -1,31 +1,28 @@
 "use client";
 
-
-// todo: Where you use google login than use this all things like signIn and signOut method.
 import { signOut, useSession } from "next-auth/react";
-import {
+import { 
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
+  NavigationMenuTrigger 
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShoppingBag, ShoppingCart, Menu, X, ChevronDown } from 'lucide-react';
+import { ShoppingBag, ShoppingCart, Menu, X, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useCart } from "@/lib/store";
 import { useRouter } from "next/navigation";
 
-
 const collections = {
   "New Arrivals": [
     { title: "Latest Collections", href: "/new-arrivals" },
-    { title: "LOUNGE WEAR", href: "/lounge-wear" },
+    { title: "Lounge Wear", href: "/lounge-wear" },
     { title: "Solid Wear Clothing", href: "/solid-wear" },
-    { title: "PLUS SIZE SUITS", href: "/plus-size" },
+    { title: "Plus Size Suits", href: "/plus-size" },
     { title: "Bedsheets", href: "/bedsheets" }
   ],
   "Ethnic Wear": [
@@ -67,7 +64,6 @@ export function MainMenu({ isMobile = false, onLinkClick = () => {} }) {
     }
   };
 
-
   if (isMobile) {
     return (
       <div className="w-full space-y-1">
@@ -86,7 +82,6 @@ export function MainMenu({ isMobile = false, onLinkClick = () => {} }) {
               />
             </button>
 
-            
             <AnimatePresence initial={false}>
               {openCategory === category && (
                 <motion.div
@@ -101,7 +96,7 @@ export function MainMenu({ isMobile = false, onLinkClick = () => {} }) {
                       <Link
                         key={item.title}
                         href={item.href}
-                        onClick={() => onLinkClick()}
+                        onClick={onLinkClick}
                         className="block rounded-md px-3 py-2 text-sm text-gray-600 hover:bg-gray-100"
                       >
                         {item.title}
@@ -151,22 +146,67 @@ export function MainMenu({ isMobile = false, onLinkClick = () => {} }) {
 }
 
 export function Navbar() {
-    const router = useRouter();
+  const router = useRouter();
   const items = useCart((state) => state.items);
   const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1024);
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
   }, []);
+
+  const handleSignOut = async () => {
+    await signOut({ redirect: false });
+    router.push("/");
+  };
 
   const handleCloseMenu = () => {
     setMenuOpen(false);
+  };
+
+  const renderAuthButton = () => {
+    if (status === "loading") {
+      return (
+        <button
+          className="rounded-full bg-gray-200 px-4 py-2 text-gray-600"
+          disabled
+        >
+          Loading...
+        </button>
+      );
+    }
+
+    if (session) {
+      return (
+        <div className="flex items-center gap-2">
+          <span className="hidden md:inline text-sm text-gray-600">
+            Hello, {session.user?.name}
+          </span>
+          <button
+            onClick={handleSignOut}
+            className="rounded-full bg-red-500 px-4 py-2 text-white hover:bg-red-600 transition-colors"
+          >
+            Logout
+          </button>
+        </div>
+      );
+    }
+
+    return (
+      <button
+        onClick={() => router.push("/login")}
+        className="rounded-full bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+      >
+        Login
+      </button>
+    );
   };
 
   return (
@@ -204,22 +244,7 @@ export function Navbar() {
               )}
             </Link>
 
-            {session ? (
-              <button
-                onClick={() => signOut()}
-                className="rounded-full bg-red-500 px-4 py-2 text-white hover:bg-red-600"
-              >
-                Logout
-              </button>
-            ) : (
-              <button
-                onClick={() => {router.push('/register')}}
-                className="relative flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2 text-gray-600 hover:bg-gray-200"
-              >
-                Login
-              </button>
-            )}
-
+            {renderAuthButton()}
             <button
               onClick={() => setMenuOpen(!isMenuOpen)}
               className="lg:hidden rounded-full bg-gray-100 p-2 text-gray-600 hover:bg-gray-200"
@@ -257,5 +282,3 @@ export function Navbar() {
     </motion.nav>
   );
 }
-
-export default Navbar;

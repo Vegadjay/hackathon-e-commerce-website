@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { InputField } from '@/components/layout/inputBox';
 import { useRouter } from 'next/navigation';
+import { signIn } from 'next-auth/react';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -52,55 +53,40 @@ export default function Register() {
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setApiMessage('');
+  e.preventDefault();
+  setIsLoading(true);
+  setApiMessage('');
 
-    if (!formData.username || !formData.email || !formData.password) {
-        setApiMessage('All fields are required.');
-        setIsLoading(false);
-        return;
+  try {
+    const response = await fetch('/api/user/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      const result = await signIn('credentials', {
+        identifier: formData.email,
+        password: formData.password,
+        redirect: false,
+      });
+
+      if (result?.error) {
+        setApiMessage(result.error);
+      } else {
+        router.push('/');
+      }
+    } else {
+      setApiMessage(data.error || 'Registration failed.');
     }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-        setApiMessage('Please enter a valid email address.');
-        setIsLoading(false);
-        return;
-    }
-
-    if (formData.password.length < 6) {
-        setApiMessage('Password must be at least 6 characters.');
-        setIsLoading(false);
-        return;
-    }
-
-    try {
-        const response = await fetch('/api/user/signup', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-            setApiMessage('Registration successful!');
-            console.log(data);
-            router.push('/');
-        } else {
-            setApiMessage(data.error || 'Registration failed.');
-            console.error('Registration failed:', data);
-        }
-    } catch (error) {
-        setApiMessage('An error occurred. Please try again.');
-        console.error('Error during registration:', error);
-    } finally {
-        setIsLoading(false);
-    }
-  };
+  } catch (error) {
+    setApiMessage('An error occurred. Please try again.');
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
