@@ -37,8 +37,10 @@ export async function POST(req: Request) {
 
 		const hashedPassword = await bcrypt.hash(password, 10);
 
+		// Generate JWT token
 		const token = jwt.sign({ userId: email }, JWT_SECRET as string, { expiresIn: '7d' });
 
+		// Create user in the database
 		const newUser = new User({
 			username,
 			email,
@@ -51,6 +53,14 @@ export async function POST(req: Request) {
 
 		await newUser.save();
 
+		const session = {
+			userId: newUser._id,
+			username: newUser.username,
+			email: newUser.email,
+			role: newUser.role,
+			token,
+		};
+
 		return NextResponse.json({
 			message: 'Signup successful',
 			user: {
@@ -58,8 +68,8 @@ export async function POST(req: Request) {
 				username: newUser.username,
 				email: newUser.email,
 				role: newUser.role,
-				token,
 			},
+			session,
 		}, { status: 200 });
 	} catch (error) {
 		if (error instanceof z.ZodError) {
