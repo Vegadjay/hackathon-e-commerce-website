@@ -1,13 +1,12 @@
-import { Skeleton } from "@/components/ui/skeleton";
-
 export function ProductSkeleton() {
   return (
-    <div className="rounded-lg border bg-card p-4">
-      <Skeleton className="aspect-square w-full rounded-lg" />
-      <div className="mt-4 space-y-2">
-        <Skeleton className="h-4 w-2/3" />
-        <Skeleton className="h-4 w-1/3" />
-        <Skeleton className="h-4 w-1/4" />
+    <div className="animate-pulse space-y-4">
+      <div className="h-48 w-full rounded bg-gray-300"></div>
+      <div className="h-4 w-3/4 rounded bg-gray-300"></div>
+      <div className="h-4 w-1/2 rounded bg-gray-300"></div>
+      <div className="flex items-center space-x-2">
+        <div className="h-6 w-6 rounded-full bg-gray-300"></div>
+        <div className="h-4 w-1/3 rounded bg-gray-300"></div>
       </div>
     </div>
   );

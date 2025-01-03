@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { signIn } from 'next-auth/react'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -54,7 +55,7 @@ export default function Login() {
     }
 
     try {
-      const response = await fetch('    /api/user/login', {
+      const response = await fetch('/api/user/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -174,6 +175,20 @@ export default function Login() {
                 </p>
               </div>
             </motion.form>
+
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center justify-center w-full px-8 py-3 mt-6 border rounded-xl text-gray-600 bg-white hover:shadow-md transition-shadow"
+              onClick={() => signIn("google")}
+             >
+              <img
+                src="/google.svg"
+                alt="Google Logo"
+                className="w-6 h-6 mr-3 bg-transparent"
+              />
+              Continue with Google
+            </motion.button>
           </div>
         </div>
       </motion.div>
