@@ -1,5 +1,3 @@
-// todo: Check out this code and go through that ...
-
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -10,99 +8,84 @@ import {
 import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 
-const FashionCarousel = () => {
-  interface Photo {
-    id: string;
-    imageUrl: string;
-    title: string;
-    source: string;
-    tags?: string;
-  }
+interface Photo {
+  id: string;
+  imageUrl: string;
+  title: string;
+  source: string;
+  tags?: string;
+}
 
+const slideVariants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? 1000 : -1000,
+    opacity: 0,
+    scale: 0.8,
+  }),
+  center: {
+    zIndex: 1,
+    x: 0,
+    opacity: 1,
+    scale: 1,
+  },
+  exit: (direction: number) => ({
+    zIndex: 0,
+    x: direction < 0 ? 1000 : -1000,
+    opacity: 0,
+    scale: 0.8,
+  }),
+};
+
+const overlayVariants = {
+  enter: { opacity: 0, y: 100 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { when: "beforeChildren", staggerChildren: 0.2 },
+  },
+  exit: {
+    opacity: 0,
+    y: -100,
+    transition: {
+      when: "afterChildren",
+      staggerChildren: 0.1,
+      staggerDirection: -1,
+    },
+  },
+};
+
+const textVariants = {
+  enter: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1 },
+  exit: { y: -20, opacity: 0 },
+};
+
+const staticImages: Photo[] = [
+  {
+    id: 'static1',
+    imageUrl: '/corosal/corosal1.webp',
+    title: 'New Year Collections',
+    source: 'New year collection in jaipuri styles',
+  },
+  {
+    id: 'static2',
+    imageUrl: '/corosal/corosal2.webp',
+    title: 'Wedding Specials',
+    source: 'New wedding collection in jaipuri styles',
+  },
+  {
+    id: 'static3',
+    imageUrl: '/corosal/corosal3.webp',
+    title: 'Wedding Western',
+    source: 'New wedding in jaipuri and western styles',
+  },
+];
+
+const FashionCarousel = () => {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
-
-  const staticImages = [
-    {
-      id: 'static1',
-      imageUrl: '/corosal/corosal1.webp',
-      title: 'New Year Collcections',
-      source: 'New year collection in jaipuri styles',
-    },
-    {
-      id: 'static2',
-      imageUrl: '/corosal/corosal2.webp',
-      title: 'Wedding Specials',
-      source: 'New wedding collection in jaipuri styles',
-    },
-    {
-      id: 'static3',
-      imageUrl: '/corosal/corosal3.webp',
-      title: 'Wedding Western',
-      source: 'New wedding in jaipuri and western styles',
-    }
-  ];
-
-  const slideVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0,
-      scale: 0.8,
-    }),
-    center: {
-      zIndex: 1,
-      x: 0,
-      opacity: 1,
-      scale: 1,
-    },
-    exit: (direction: number) => ({
-      zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0,
-      scale: 0.8,
-    }),
-  };
-
-  const overlayVariants = {
-    enter: {
-      opacity: 0,
-      y: 100,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        when: "beforeChildren",
-        staggerChildren: 0.2,
-      },
-    },
-    exit: {
-      opacity: 0,
-      y: -100,
-      transition: {
-        when: "afterChildren",
-        staggerChildren: 0.1,
-        staggerDirection: -1,
-      },
-    },
-  };
-
-  const textVariants = {
-    enter: {
-      y: 20,
-      opacity: 0,
-    },
-    visible: {
-      y: 0,
-      opacity: 1,
-    },
-    exit: {
-      y: -20,
-      opacity: 0,
-    },
-  };
 
   useEffect(() => {
     setLoading(true);
@@ -148,7 +131,7 @@ const FashionCarousel = () => {
         }}
         className="w-full"
       >
-        <CarouselContent className="h-[80vh]">
+        <CarouselContent className="h-[50vh] md:h-[60vh] lg:h-[80vh]">
           {loading ? (
             <CarouselItem>
               <Card className="border-none w-full h-full">
@@ -175,44 +158,46 @@ const FashionCarousel = () => {
                 >
                   <Card className="border-none w-full h-full relative overflow-hidden">
                     <CardContent className="p-0 w-full h-full">
-                      <motion.img
-                        key={photos[currentIndex].imageUrl}
-                        src={photos[currentIndex].imageUrl}
-                        alt={photos[currentIndex].title}
-                        className="w-full h-full object-cover"
-                        initial={{ scale: 1.2 }}
-                        animate={{ scale: 1 }}
-                        transition={{ duration: 5 }}
-                      />
-                      <motion.div
-                        variants={overlayVariants}
-                        initial="enter"
-                        animate="visible"
-                        exit="exit"
-                        className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent px-8 py-16"
-                      >
-                        <div className="max-w-7xl mx-auto">
-                          <motion.p 
-                            variants={textVariants}
-                            className="text-white text-4xl font-bold mb-4"
-                          >
-                            {photos[currentIndex].title}
-                          </motion.p>
-                          <motion.p 
-                            variants={textVariants}
-                            className="text-white/80 text-2xl mb-3"
-                          >
-                            By: {photos[currentIndex].source}
-                          </motion.p>
-                          {photos[currentIndex].tags && (
+                      <motion.div className="relative w-full h-full">
+                        <motion.img
+                          key={photos[currentIndex].imageUrl}
+                          src={photos[currentIndex].imageUrl}
+                          alt={photos[currentIndex].title}
+                          className="absolute inset-0 w-full h-full object-cover object-center"
+                          initial={{ scale: 1.2 }}
+                          animate={{ scale: 1 }}
+                          transition={{ duration: 5 }}
+                        />
+                        <motion.div
+                          variants={overlayVariants}
+                          initial="enter"
+                          animate="visible"
+                          exit="exit"
+                          className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent px-4 md:px-8 py-8 md:py-16"
+                        >
+                          <div className="max-w-7xl mx-auto">
                             <motion.p 
                               variants={textVariants}
-                              className="text-white/60 text-xl"
+                              className="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-2 md:mb-4"
                             >
-                              {photos[currentIndex].tags}
+                              {photos[currentIndex].title}
                             </motion.p>
-                          )}
-                        </div>
+                            <motion.p 
+                              variants={textVariants}
+                              className="text-white/80 text-lg md:text-xl lg:text-2xl mb-2 md:mb-3"
+                            >
+                              By: {photos[currentIndex].source}
+                            </motion.p>
+                            {photos[currentIndex].tags && (
+                              <motion.p 
+                                variants={textVariants}
+                                className="text-white/60 text-base md:text-lg lg:text-xl"
+                              >
+                                {photos[currentIndex].tags}
+                              </motion.p>
+                            )}
+                          </div>
+                        </motion.div>
                       </motion.div>
                     </CardContent>
                   </Card>
@@ -226,7 +211,7 @@ const FashionCarousel = () => {
       <motion.button
         initial={{ opacity: 0 }}
         whileHover={{ opacity: 1, scale: 1.1 }}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/10 backdrop-blur-md p-3 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity"
+        className="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 bg-white/10 backdrop-blur-md p-2 md:p-3 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity"
         onClick={handlePrev}
       >
         ←
@@ -234,7 +219,7 @@ const FashionCarousel = () => {
       <motion.button
         initial={{ opacity: 0 }}
         whileHover={{ opacity: 1, scale: 1.1 }}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/10 backdrop-blur-md p-3 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity"
+        className="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 bg-white/10 backdrop-blur-md p-2 md:p-3 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity"
         onClick={handleNext}
       >
         →
@@ -244,10 +229,12 @@ const FashionCarousel = () => {
         {photos.map((_, index) => (
           <motion.div
             key={index}
-            className={`h-2 rounded-full ${index === currentIndex ? 'w-8 bg-white' : 'w-2 bg-white/50'}`}
+            className={`h-1.5 md:h-2 rounded-full ${
+              index === currentIndex ? 'w-6 md:w-8 bg-white' : 'w-1.5 md:w-2 bg-white/50'
+            }`}
             initial={false}
             animate={{
-              width: index === currentIndex ? 32 : 8,
+              width: index === currentIndex ? 24 : 6,
               backgroundColor: index === currentIndex ? '#fff' : 'rgba(255,255,255,0.5)',
             }}
             transition={{ duration: 0.3 }}

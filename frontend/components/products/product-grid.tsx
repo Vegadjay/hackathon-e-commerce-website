@@ -7,6 +7,7 @@ import { ProductFilters } from "@/components/products/product-filters";
 import { ProductSkeleton } from "@/components/products/product-skeleton";
 import { products } from "@/lib/data";
 import PhotoCarousel from "@/components/products/product-corosal";
+import Footer from "@/components/layout/footer";
 
 const PRODUCTS_PER_PAGE = 15;
 
@@ -111,6 +112,9 @@ export function ProductGrid() {
               ))}
         </motion.div>
       </AnimatePresence>
+      <div>
+        <Footer />
+      </div>
     </main>
   );
 }
