@@ -1,10 +1,14 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { signIn } from 'next-auth/react'
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { InputField } from '@/components/layout/inputBox';
+import { signIn, useSession } from 'next-auth/react';
+import { useRenderContext } from "@/contexts/RenderContext";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -33,34 +37,41 @@ export default function Login() {
     email: '',
     password: '',
   });
-  const [apiMessage, setApiMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+  const { triggerRender } = useRenderContext();
+  const { data: session, status } = useSession();  // Use session hook to get session data
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setIsLoading(true);
-  setApiMessage('');
+    e.preventDefault();
+    setIsLoading(true);
 
-  try {
-    const result = await signIn('credentials', {
-      identifier: formData.email,
-      password: formData.password,
-      redirect: false,
-    });
+    try {
+      const result = await fetch('/api/user/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          identifier: formData.email,
+          password: formData.password
+        }),
+      }).then((res) => res.json());
 
-    if (result?.error) {
-      setApiMessage(result.error);
-    } else {
-      router.push('/');
+      if (result.success) {
+        toast.success('Logged in successfully!');
+        setFormData({ email: '', password: '' });
+        setTimeout(() => {
+          triggerRender();
+          router.push('/');
+        }, 1100);
+      } else {
+        toast.error('Login failed, please try again.');
+      }
+    } catch (error) {
+      toast.error('An error occurred. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
-  } catch (error) {
-    setApiMessage('An error occurred. Please try again.');
-  } finally {
-    setIsLoading(false);
-  }
-};
-
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -70,15 +81,37 @@ export default function Login() {
     }));
   };
 
+  const loginWithGoogle = async () => {
+    try {
+      await signIn('google', { redirect: false });
+      if (status === "authenticated" && session?.user?.token) {
+        document.cookie = `token=${session.user.token}; path=/; max-age=3600; secure; samesite=strict`;
+        toast.success('Logged in successfully!');
+        triggerRender();
+        router.push('/');
+      } else if (status === "authenticated" && !session?.user?.token) {
+        toast.error(session?.user?.message || 'Login failed, please try again.');
+      }
+    } catch (error) {
+      console.error('Error logging in with Google:', error);
+    }
+  };
+
+  useEffect(()=>{
+    const token = document.cookie.split('; ').find(row => row.startsWith('token='));
+    if (token) {
+      triggerRender();
+      router.push('/');
+    }
+  },[]);
+
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div 
+      <div
         className="fixed inset-0 -z-10"
         style={{
-          backgroundImage: `
-            linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
-            url('/jaipuri-bg.svg')
-          `,
+          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+            url('/jaipuri-bg.svg')`,
           backgroundSize: '400px',
           backgroundRepeat: 'repeat',
         }}
@@ -90,7 +123,7 @@ export default function Login() {
         variants={containerVariants}
         className="max-w-4xl mx-auto"
       >
-        <div className="bg-white/80 backdrop-blur-sm shadow-2xl rounded-3xl overflow-hidden border-2 border-pink-100">
+        <div className="bg-white/80 shadow-2xl rounded-3xl overflow-hidden border-2 border-pink-100">
           <div className="relative px-8 py-12">
             <div className="absolute top-0 left-0 w-32 h-32 bg-pink-100 rounded-full -translate-x-16 -translate-y-16" />
             <div className="absolute top-0 right-0 w-32 h-32 bg-orange-100 rounded-full translate-x-16 -translate-y-16" />
@@ -108,32 +141,28 @@ export default function Login() {
               </p>
             </motion.div>
 
-            {apiMessage && (
-              <motion.div
-                className={`mt-4 p-3 rounded-md text-center ${
-                  apiMessage.includes('success') ? 'text-green-600' : 'text-red-600'
-                }`}
-                variants={itemVariants}
-              >
-                {apiMessage}
-              </motion.div>
-            )}
-
             <motion.form
               onSubmit={handleSubmit}
               className="relative grid grid-cols-1 gap-6"
             >
-              {['email', 'password'].map((field) => (
-                <input
-                  key={field}
-                  name={field}
-                  type={field === 'password' ? 'password' : 'text'}
-                  placeholder={`Enter your ${field}`}
-                  value={formData[field as keyof typeof formData]}
-                  onChange={handleInputChange}
-                  className="w-full p-3 border rounded-md"
-                />
-              ))}
+              <InputField
+                name="email"
+                type="text"
+                placeholder="Enter your email or phone"
+                value={formData.email}
+                onChange={handleInputChange}
+                label="Email"
+                error=""
+              />
+              <InputField
+                name="password"
+                type="password"
+                placeholder="Enter your password"
+                value={formData.password}
+                onChange={handleInputChange}
+                label="Password"
+                error=""
+              />
 
               <motion.button
                 whileHover={{ scale: 1.02 }}
@@ -161,9 +190,9 @@ export default function Login() {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="flex items-center justify-center w-full px-8 py-3 mt-6 border rounded-xl text-gray-600 bg-white hover:shadow-md transition-shadow"
-              onClick={() => signIn("google")}
-             >
+              className="flex items-center -z-50 justify-center w-full px-8 py-3 mt-6 border rounded-xl text-gray-600 bg-white hover:shadow-md transition-shadow"
+              onClick={loginWithGoogle}
+            >
               <img
                 src="/google.svg"
                 alt="Google Logo"
@@ -171,9 +200,11 @@ export default function Login() {
               />
               Continue with Google
             </motion.button>
+
           </div>
         </div>
       </motion.div>
+      <ToastContainer position="bottom-right" autoClose={3000} />
     </div>
   );
 }

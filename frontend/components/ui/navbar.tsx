@@ -1,13 +1,13 @@
 "use client";
 
 import { signOut, useSession } from "next-auth/react";
-import { 
+import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger 
+  NavigationMenuTrigger
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -16,6 +16,7 @@ import { ShoppingBag, ShoppingCart, Menu, X, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useCart } from "@/lib/store";
 import { useRouter } from "next/navigation";
+import { useRenderContext } from '@/contexts/RenderContext'
 
 const collections = {
   "New Arrivals": [
@@ -55,7 +56,7 @@ const collections = {
   ]
 };
 
-export function MainMenu({ isMobile = false, onLinkClick = () => {} }) {
+export function MainMenu({ isMobile = false, onLinkClick = () => { } }) {
   const [openCategory, setOpenCategory] = useState<string | null>(null);
 
   const handleCategoryClick = (category: string) => {
@@ -152,61 +153,38 @@ export function Navbar() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const { data: session, status } = useSession();
   const [isMobile, setIsMobile] = useState(false);
+  const [login, setLogin] = useState(false);
+  const { shouldRender, triggerRender } = useRenderContext();
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1024);
     checkMobile();
+    setLogin(!!document.cookie.split('; ').find(row => row.startsWith('token=')));
     window.addEventListener("resize", checkMobile);
     return () => {
       window.removeEventListener("resize", checkMobile);
     };
   }, []);
 
+  useEffect(() => {
+    const jwt = document.cookie.split('; ').find(row => row.startsWith('token='))?.split('=')[1];
+    if (jwt) {
+      console.log(jwt);
+      setLogin(true);
+    }
+  }, [shouldRender]);
+
   const handleSignOut = async () => {
     await signOut({ redirect: false });
+    document.cookie = "token=; path=/; max-age=0";
+    triggerRender();
+    setLogin(false);
+
     router.push("/");
   };
 
   const handleCloseMenu = () => {
     setMenuOpen(false);
-  };
-
-  const renderAuthButton = () => {
-    if (status === "loading") {
-      return (
-        <button
-          className="rounded-full bg-gray-200 px-4 py-2 text-gray-600"
-          disabled
-        >
-          Loading...
-        </button>
-      );
-    }
-
-    if (session) {
-      return (
-        <div className="flex items-center gap-2">
-          <span className="hidden md:inline text-sm text-gray-600">
-            Hello, {session.user?.name}
-          </span>
-          <button
-            onClick={handleSignOut}
-            className="rounded-full bg-red-500 px-4 py-2 text-white hover:bg-red-600 transition-colors"
-          >
-            Logout
-          </button>
-        </div>
-      );
-    }
-
-    return (
-      <button
-        onClick={() => router.push("/login")}
-        className="rounded-full bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-      >
-        Login
-      </button>
-    );
   };
 
   return (
@@ -244,7 +222,12 @@ export function Navbar() {
               )}
             </Link>
 
-            {renderAuthButton()}
+            <button
+              onClick={login ? handleSignOut : () => router.push("/login")}
+              className={`rounded-full px-4 py-2 text-white ${login ? "bg-red-500 hover:bg-red-600" : "bg-blue-500 hover:bg-blue-600"}`}
+            >
+              {login ? "Logout" : "Login"}
+            </button>
             <button
               onClick={() => setMenuOpen(!isMenuOpen)}
               className="lg:hidden rounded-full bg-gray-100 p-2 text-gray-600 hover:bg-gray-200"
