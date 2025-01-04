@@ -14,7 +14,7 @@ export const handler = NextAuth({
 		async jwt({ token, account, profile }) {
 			if (account) {
 				token.accessToken = account.access_token;
-				token.email = profile?.email; // Add email to the token
+				token.email = profile?.email;
 			}
 			return token;
 		},
