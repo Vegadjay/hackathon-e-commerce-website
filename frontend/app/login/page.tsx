@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+<<<<<<< HEAD
 import { useRouter } from 'next/navigation';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,6 +11,9 @@ import { InputField } from '@/components/layout/inputBox';
 import { signIn, useSession } from 'next-auth/react';
 import { useRenderContext } from "@/contexts/RenderContext";
 import Cookies from 'js-cookie';
+=======
+import { signIn } from 'next-auth/react'
+>>>>>>> master
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -57,6 +61,7 @@ export default function Login() {
         }),
       }).then((res) => res.json());
 
+<<<<<<< HEAD
       if (result.success) {
         toast.success('Logged in successfully!');
         setFormData({ email: '', password: '' });
@@ -64,6 +69,12 @@ export default function Login() {
           triggerRender();
           router.push('/');
         }, 1100);
+=======
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log('Login successful:', data);
+>>>>>>> master
       } else {
         toast.error('Login failed, please try again.');
       }

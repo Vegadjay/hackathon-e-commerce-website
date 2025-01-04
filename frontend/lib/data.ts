@@ -37,7 +37,7 @@ export const products: Product[] = Array.from({ length: 200 }, (_, index) => {
     name: `${style} ${type}`,
     price: Math.floor(Math.random() * 150) + 20,
     description: generateDescription(style, type, category),
-    image: getProductImage(category, index),
+    image: category === 'Unisex' ? getProductImage('Men', index) : getProductImage(category, index),
     category,
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     colors: ['Black', 'White', 'Blue', 'Red', 'Green'].slice(
