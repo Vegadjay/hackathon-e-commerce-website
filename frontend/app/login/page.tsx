@@ -67,7 +67,6 @@ export default function Login() {
 
       if (response.ok) {
         console.log('Login successful:', data);
-        // Redirect or update state after successful login
       } else {
         setApiMessage(data.error || 'Login failed. Please check your credentials.');
         console.error('Login failed:', data);
