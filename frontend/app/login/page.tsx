@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react'
 
 const containerVariants = {
@@ -67,7 +66,6 @@ export default function Login() {
 
       if (response.ok) {
         console.log('Login successful:', data);
-        // Redirect or update state after successful login
       } else {
         setApiMessage(data.error || 'Login failed. Please check your credentials.');
         console.error('Login failed:', data);
