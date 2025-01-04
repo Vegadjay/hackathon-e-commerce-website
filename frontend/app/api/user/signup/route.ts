@@ -65,11 +65,11 @@ export async function POST(req: Request) {
 		}, { status: 200 });
 
 		// Set the JWT token cookie
-		response.cookies.set('jwt', token, {
-			httpOnly: true,   // Prevents JavaScript from accessing the cookie
-			secure: true,  // Ensures the cookie is sent over HTTPS in production
-			maxAge: 7 * 24 * 60 * 60,  // 7 days expiration
-			path: '/',  // Make the cookie accessible to the entire app
+		response.cookies.set('token', token, {
+			httpOnly: false,   // Prevents JavaScript from accessing the cookie
+			secure: false,  // Ensures the cookie is sent over HTTPS in production
+			maxAge: 7 * 24 * 60 * 60,
+			path: '/', 
 		});
 
 		return response;

@@ -18,7 +18,7 @@ export const handler = NextAuth({
 			}
 			return token;
 		},
-		async session({ session, token }) {
+		async session({ session, token }: {session: any, token : any}) {
 			try {
 				await dbConnect();
 				const user = await User.findOne({ email: token.email });

@@ -16,7 +16,8 @@ import { ShoppingBag, ShoppingCart, Menu, X, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useCart } from "@/lib/store";
 import { useRouter } from "next/navigation";
-import { useRenderContext } from '@/contexts/RenderContext'
+import { useRenderContext } from '@/contexts/RenderContext';
+import Cookies from "js-cookie";
 
 const collections = {
   "New Arrivals": [
@@ -159,7 +160,11 @@ export function Navbar() {
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1024);
     checkMobile();
-    setLogin(!!document.cookie.split('; ').find(row => row.startsWith('token=')));
+    let token = Cookies.get('token');
+    if(token != undefined)
+    {
+      setLogin(true);
+    }
     window.addEventListener("resize", checkMobile);
     return () => {
       window.removeEventListener("resize", checkMobile);
@@ -167,16 +172,21 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    const jwt = document.cookie.split('; ').find(row => row.startsWith('token='))?.split('=')[1];
-    if (jwt) {
-      console.log(jwt);
+    console.log("Renderd Navbar");
+    const jwt = Cookies.get('token');
+    console.log(jwt, " is my jwt");
+    if (jwt != undefined) {
+      console.log("called Inside", jwt);
       setLogin(true);
     }
   }, [shouldRender]);
 
   const handleSignOut = async () => {
     await signOut({ redirect: false });
-    document.cookie = "token=; path=/; max-age=0";
+    let allCokies = Cookies.get();
+    for (const cookie in allCokies) {
+      Cookies.remove(cookie);
+    }
     triggerRender();
     setLogin(false);
 
@@ -222,12 +232,20 @@ export function Navbar() {
               )}
             </Link>
 
-            <button
-              onClick={login ? handleSignOut : () => router.push("/login")}
-              className={`rounded-full px-4 py-2 text-white ${login ? "bg-red-500 hover:bg-red-600" : "bg-blue-500 hover:bg-blue-600"}`}
+            {login ? <button
+              onClick={handleSignOut}
+              className={`rounded-full px-4 py-2 text-white bg-red-500 hover:bg-red-600`}
             >
-              {login ? "Logout" : "Login"}
+              Logout
             </button>
+              :
+              <button
+                onClick={() => router.push("/login")}
+                className={`rounded-full px-4 py-2 text-white bg-blue-500 hover:bg-blue-600`}
+              >
+                Login
+              </button>}
+
             <button
               onClick={() => setMenuOpen(!isMenuOpen)}
               className="lg:hidden rounded-full bg-gray-100 p-2 text-gray-600 hover:bg-gray-200"
