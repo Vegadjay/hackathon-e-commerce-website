@@ -79,6 +79,31 @@ const staticImages: Photo[] = [
     title: 'Wedding Western',
     source: 'New wedding in jaipuri and western styles',
   },
+  {
+    id: 'static4',
+    imageUrl: '/corosal/corosal4.webp',
+    title: 'Buy one get one free offer',
+    source: 'By Jaipuri Adda',
+  },
+  {
+    id: 'static5',
+    imageUrl: '/corosal/corosal5.webp',
+    title: 'Western wedding dresses',
+    source: 'New wedding in jaipuri and western styles',
+  },
+  {
+    id: 'static6',
+    imageUrl: '/corosal/corosal6.webp',
+    title: 'Weddin Collections',
+    source: 'New Collections From Jaipuri adda',
+  },
+  {
+    id: 'static7',
+    imageUrl: '/corosal/corosal7.webp',
+    title: 'Saree From Jaipuri Collection',
+    source: 'By Addaa',
+  },
+
 ];
 
 const FashionCarousel = () => {

@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Star, 
-  ShoppingCart, 
-  Shield, 
-  Truck, 
+import { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  Star,
+  ShoppingCart,
+  Shield,
+  Truck,
   Heart,
   Share2,
   ChevronRight,
@@ -14,13 +14,13 @@ import {
   Gift,
   Check,
   AlertCircle,
-  Package
-} from 'lucide-react';
+  Package,
+} from "lucide-react";
 
 const ProductDetail = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
-  
+
   const product = {
     name: "PlayStation 5 Console - God of War Ragnarök Bundle",
     price: 499.99,
@@ -34,10 +34,10 @@ const ProductDetail = () => {
     category: "Video Games",
     model: "PS5-GOW-Bundle",
     images: [
-      "/api/placeholder/600/600",
-      "/api/placeholder/600/600",
-      "/api/placeholder/600/600",
-      "/api/placeholder/600/600"
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyNcnpaIMXx1JgU84-PPiidjoOhTIV_c8pTg&s",
+      "https://5.imimg.com/data5/SELLER/Default/2022/9/KA/BZ/PG/159593777/img-20220907-wa0211.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhuP-o48sd0F49mqDkHHCnwkj_KsV-xORAmw&s",
+      "https://m.theblockart.com/ImageStorage/BA2028112022073440961090.jpeg",
     ],
     features: [
       "Includes PS5 Console and God of War Ragnarök full game download",
@@ -55,15 +55,14 @@ Key Features:
 
 • A war for power: A war for control of Marvel's New York has broken out between a devious energy corporation and a high-tech criminal army. With his new home at the heart of the battle, Miles must learn the cost of becoming a hero and decide what he must sacrifice for the greater good.
 
-• A vibrant new home: Traverse the snowy streets of his new, vibrant and bustling neighborhood as Miles searches for a sense of belonging. When the lines blur between his personal and crime-fighting lives, he discovers who he can trust, and what it feels like to truly be home.`
+• A vibrant new home: Traverse the snowy streets of his new, vibrant and bustling neighborhood as Miles searches for a sense of belonging. When the lines blur between his personal and crime-fighting lives, he discovers who he can trust, and what it feels like to truly be home.`,
   };
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation Breadcrumb */}
       <nav className="bg-gray-100 py-2 text-sm">
         <div className="max-w-7xl mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="flex items-center gap-2 text-gray-600"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -77,30 +76,31 @@ Key Features:
         </div>
       </nav>
 
-      {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Left Column - Image Gallery */}
-          <motion.div 
+          <motion.div
             className="lg:col-span-1"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
           >
             <div className="sticky top-8 space-y-4">
-              {/* Main Image */}
-              <motion.div 
-                className="aspect-square rounded-lg overflow-hidden bg-gray-100 hover:bg-gray-200 cursor-zoom-in"
+              <motion.div
+                className="aspect-square rounded-lg overflow-hidden bg-gray-100 hover:bg-gray-200 relative cursor-zoom-in"
                 layoutId="productImage"
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.05 }}
               >
                 <img
-                  src={product.images[selectedImage]}
+                  src={product.images[selectedImage]} 
                   alt={product.name}
                   className="w-full h-full object-cover"
                 />
+                <div
+                  className="absolute inset-0 bg-black bg-opacity-20 hidden hover:flex justify-center items-center"
+                  style={{ cursor: "zoom-in" }}
+                >
+                  <span className="text-white text-lg">Zoom In</span>
+                </div>
               </motion.div>
-              
-              {/* Thumbnail Images */}
               <div className="grid grid-cols-4 gap-2">
                 {product.images.map((img, index) => (
                   <motion.button
@@ -109,7 +109,9 @@ Key Features:
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setSelectedImage(index)}
                     className={`border-2 rounded-md overflow-hidden ${
-                      selectedImage === index ? 'border-blue-500' : 'border-gray-200'
+                      selectedImage === index
+                        ? "border-blue-500"
+                        : "border-gray-200"
                     }`}
                   >
                     <img src={img} alt="" className="w-full h-full object-cover" />
@@ -117,7 +119,6 @@ Key Features:
                 ))}
               </div>
 
-              {/* Share Buttons */}
               <div className="flex items-center gap-4 pt-4 border-t">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
@@ -139,14 +140,12 @@ Key Features:
             </div>
           </motion.div>
 
-          {/* Middle Column - Product Details */}
-          <motion.div 
+          <motion.div
             className="lg:col-span-1"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            {/* Product Title and Badges */}
             <div className="space-y-4">
               <h1 className="text-3xl font-bold text-gray-900">{product.name}</h1>
               <div className="flex items-center gap-4">
@@ -155,8 +154,6 @@ Key Features:
                 </span>
                 <span className="text-gray-500">Model: {product.model}</span>
               </div>
-
-              {/* Ratings */}
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
@@ -164,8 +161,8 @@ Key Features:
                       key={i}
                       className={`w-5 h-5 ${
                         i < Math.floor(product.rating)
-                          ? 'text-yellow-400 fill-yellow-400'
-                          : 'text-gray-300'
+                          ? "text-yellow-400 fill-yellow-400"
+                          : "text-gray-300"
                       }`}
                     />
                   ))}
@@ -180,7 +177,6 @@ Key Features:
                 </div>
               </div>
 
-              {/* Price */}
               <div className="border-b border-gray-200 pb-4">
                 <div className="flex items-baseline gap-2">
                   <span className="text-sm text-gray-500">Price:</span>
@@ -193,7 +189,6 @@ Key Features:
                 </div>
               </div>
 
-              {/* Key Features */}
               <div className="space-y-4">
                 <h2 className="font-bold text-lg">About this item</h2>
                 <ul className="space-y-2">
@@ -214,19 +209,16 @@ Key Features:
             </div>
           </motion.div>
 
-          {/* Right Column - Purchase Options */}
-          <motion.div 
+          <motion.div
             className="lg:col-span-1"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
           >
             <div className="sticky top-8 space-y-6 bg-gray-50 rounded-lg p-6 border">
-              {/* Price */}
               <div className="text-3xl text-gray-900">
                 ${product.price.toFixed(2)}
               </div>
 
-              {/* Delivery */}
               <div className="space-y-2">
                 <div className="flex items-center gap-2 text-green-600">
                   <Truck className="w-5 h-5" />
@@ -244,10 +236,9 @@ Key Features:
 
               {/* Stock Status */}
               <div className="text-xl text-green-600 font-medium">
-                {product.inStock ? 'In Stock' : 'Currently unavailable'}
+                {product.inStock ? "In Stock" : "Currently unavailable"}
               </div>
 
-              {/* Quantity Selector */}
               <div className="space-y-2">
                 <label className="text-sm text-gray-600">Quantity:</label>
                 <select
@@ -263,7 +254,6 @@ Key Features:
                 </select>
               </div>
 
-              {/* Action Buttons */}
               <div className="space-y-3">
                 <motion.button
                   whileHover={{ scale: 1.02 }}
@@ -297,7 +287,6 @@ Key Features:
                 </div>
               </div>
 
-              {/* Return Policy */}
               <div className="text-sm text-gray-600 border-t pt-4">
                 <div className="flex items-start gap-2">
                   <AlertCircle className="w-4 h-4 flex-shrink-0 mt-1" />
@@ -310,8 +299,7 @@ Key Features:
           </motion.div>
         </div>
 
-        {/* Product Description */}
-        <motion.div 
+        <motion.div
           className="mt-12 border-t pt-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
