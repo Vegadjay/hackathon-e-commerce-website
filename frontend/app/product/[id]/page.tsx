@@ -1,3 +1,6 @@
+// todo: in this code do that one thing that id is not come from user url so please do that one thing like id is come from user and that product is shown
+
+
 "use client";
 
 import { useState } from "react";
@@ -21,42 +24,96 @@ const ProductDetail = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
 
-  const product = {
-    name: "PlayStation 5 Console - God of War Ragnarök Bundle",
-    price: 499.99,
-    rating: 4.8,
-    reviews: 12584,
-    answers: 234,
-    inStock: true,
-    delivery: "FREE delivery",
-    deliveryDate: "Tomorrow, Jan 4",
-    seller: "Sony Interactive Entertainment",
-    category: "Video Games",
-    model: "PS5-GOW-Bundle",
-    images: [
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyNcnpaIMXx1JgU84-PPiidjoOhTIV_c8pTg&s",
-      "https://5.imimg.com/data5/SELLER/Default/2022/9/KA/BZ/PG/159593777/img-20220907-wa0211.jpg",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhuP-o48sd0F49mqDkHHCnwkj_KsV-xORAmw&s",
-      "https://m.theblockart.com/ImageStorage/BA2028112022073440961090.jpeg",
+  const product = [
+  {
+    "id": 1,
+    "name": "Indigo Dream Suit Set",
+    "price": 3199.00,
+    "rating": 4.5,
+    "reviews": 10000,
+    "answers": 234,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5-6 working days",
+    "seller": "Indigo Apparel Co.",
+    "category": "Cotton Suit Sets",
+    "model": "JA-729",
+    "images": [
+      "./detailphotos/1.1.webp",
+      "./detailphotos/1.2.webp",
+      "./detailphotos/1.3.webp",
+      "./detailphotos/1.4.webp"
     ],
-    features: [
-      "Includes PS5 Console and God of War Ragnarök full game download",
-      "Lightning Speed - Harness the power of a custom CPU, GPU, and SSD with Integrated I/O",
-      "Stunning Games - Marvel at incredible graphics and experience new PS5 features",
-      "Breathtaking Immersion - Discover a deeper gaming experience with haptic feedback",
-      "Ray Tracing - Immerse yourself in worlds with a new level of realism",
+    "features": [
+      "Dispatch Time: 5 To 6 Working Days",
+      "Fabric: Pure Cotton",
+      "Fit: Relaxed",
+      "Washing instruction: Quick dip wash or Dry clean, separate wash in cold water, dry in shadow",
+      "Kurta length: 46 inches",
+      "Pant length: 38 inches"
     ],
-    description: `Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man. In the latest adventure in the Marvel's Spider-Man universe, teenager Miles Morales is adjusting to his new home while following in the footsteps of his mentor, Peter Parker, as a new Spider-Man.
-
-But when a fierce power struggle threatens to destroy his new home, the aspiring hero realizes that with great power, there must also come great responsibility. To save all of Marvel's New York, Miles must take up the mantle of Spider-Man and own it.
-
-Key Features:
-• The rise of Miles Morales: Miles Morales discovers explosive powers that set him apart from his mentor, Peter Parker. Master his unique, bio-electric venom blast attacks and covert camouflage power alongside spectacular web-slinging acrobatics, gadgets and skills.
-
-• A war for power: A war for control of Marvel's New York has broken out between a devious energy corporation and a high-tech criminal army. With his new home at the heart of the battle, Miles must learn the cost of becoming a hero and decide what he must sacrifice for the greater good.
-
-• A vibrant new home: Traverse the snowy streets of his new, vibrant and bustling neighborhood as Miles searches for a sense of belonging. When the lines blur between his personal and crime-fighting lives, he discovers who he can trust, and what it feels like to truly be home.`,
-  };
+    "description": "A captivating ensemble embodying elegance and grace. This three-piece set features 3/4 sleeves, exquisite neckline work, and a beautiful lotus motif print throughout. Completing the look is a stunning dupatta adorned with playful tassels. Embrace the allure of the 'Indigo Dream' and let your style shine with its timeless charm."
+  },
+  {
+    "id": 2,
+    "name": "Mogra Gher Mul Cotton Suit Set",
+    "price": 2899.00,
+    "rating": 4.7,
+    "reviews": 11000,
+    "answers": 184,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "9-12 working days",
+    "seller": "Cotton Elegance",
+    "category": "Cotton Suit Sets",
+    "model": "JA-792",
+    "images": [
+      "./detailphotos/2.1.webp",
+      "./detailphotos/2.2.webp",
+      "./detailphotos/2.3.webp",
+      "./detailphotos/2.4.webp"
+    ],
+    "features": [
+      "Fit: Relaxed",
+      "Dispatch Time: 9 To 12 Working Days",
+      "Fabric: Pure Cotton",
+      "Washing instruction: Hand wash separately in cold water, use mild detergent",
+      "Kurta length: 46 inches",
+      "Pant length: 38 inches"
+    ],
+    "description": "Indulge in the luxury of the Mogra Gher Mul Cotton Suit Set. This premium set is made from high-quality cotton for a luxurious feel and features intricate Mogra Gher weaving. Elevate your style with this elegant and exclusive suit set."
+  },
+  {
+    "id": 3,
+    "name": "Tarin Green Floral Print Embroidered Suit Set",
+    "price": 3199.00,
+    "rating": 4.6,
+    "reviews": 9000,
+    "answers": 150,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "4-5 working days",
+    "seller": "Green Threads",
+    "category": "Cotton Suit Sets",
+    "model": "JA-704",
+    "images": [
+      "./detailphotos/3.1.webp",
+      "./detailphotos/3.2.webp",
+      "./detailphotos/4.3.webp",
+      "./detailphotos/5.4.webp"
+    ],
+    "features": [
+      "Fit: Relaxed",
+      "Dispatch Time: 4-5 working days",
+      "Fabric: Pure Cotton",
+      "Washing instruction: Hand wash separately in cold water, dry in shade",
+      "Kurta length: 46 inches",
+      "Pant length: 38 inches"
+    ],
+    "description": "A Verdant Green Cotton Kalidar Kurta Adorned With Intricate Floral Prints And Delicate Thread Work On The Neckline. This Charming Ensemble Combines Comfort With Elegance, Making It Ideal For Both Casual Outings And Festive Occasions."
+  }
+]
+;
 
   return (
     <div className="min-h-screen bg-white">
