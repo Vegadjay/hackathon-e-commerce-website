@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, PanInfo } from 'framer-motion';
 import {
   Carousel,
+  CarouselApi,
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel';
@@ -111,6 +112,8 @@ const FashionCarousel = () => {
   const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [api, setApi] = useState<CarouselApi>();
+  const [dragStart, setDragStart] = useState(0);
 
   useEffect(() => {
     setLoading(true);
@@ -140,6 +143,23 @@ const FashionCarousel = () => {
     );
   };
 
+  const handleDragStart = (_: any, info: PanInfo) => {
+    setDragStart(info.point.x);
+  };
+
+  const handleDragEnd = (_: any, info: PanInfo) => {
+    const dragThreshold = 50; 
+    const dragDistance = info.point.x - dragStart;
+    
+    if (Math.abs(dragDistance) > dragThreshold) {
+      if (dragDistance > 0) {
+        handlePrev();
+      } else {
+        handleNext();
+      }
+    }
+  };
+
   const handlePrev = () => {
     setDirection(-1);
     setCurrentIndex((prevIndex) => 
@@ -154,6 +174,7 @@ const FashionCarousel = () => {
           align: 'start',
           loop: true,
         }}
+        setApi={setApi}
         className="w-full"
       >
         <CarouselContent className="h-[50vh] md:h-[60vh] lg:h-[80vh]">
@@ -174,12 +195,17 @@ const FashionCarousel = () => {
                   initial="enter"
                   animate="center"
                   exit="exit"
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.3}
+                  onDragStart={handleDragStart}
+                  onDragEnd={handleDragEnd}
                   transition={{
                     x: { type: "spring", stiffness: 300, damping: 30 },
                     opacity: { duration: 0.5 },
                     scale: { duration: 0.5 },
                   }}
-                  className="w-full h-full"
+                  className="w-full h-full cursor-grab active:cursor-grabbing"
                 >
                   <Card className="border-none w-full h-full relative overflow-hidden">
                     <CardContent className="p-0 w-full h-full">
@@ -192,37 +218,9 @@ const FashionCarousel = () => {
                           initial={{ scale: 1.2 }}
                           animate={{ scale: 1 }}
                           transition={{ duration: 5 }}
+                          draggable={false} // Prevent native image dragging
                         />
-                        <motion.div
-                          variants={overlayVariants}
-                          initial="enter"
-                          animate="visible"
-                          exit="exit"
-                          className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent px-4 md:px-8 py-8 md:py-16"
-                        >
-                          <div className="max-w-7xl mx-auto">
-                            <motion.p 
-                              variants={textVariants}
-                              className="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-2 md:mb-4"
-                            >
-                              {photos[currentIndex].title}
-                            </motion.p>
-                            <motion.p 
-                              variants={textVariants}
-                              className="text-white/80 text-lg md:text-xl lg:text-2xl mb-2 md:mb-3"
-                            >
-                              By: {photos[currentIndex].source}
-                            </motion.p>
-                            {photos[currentIndex].tags && (
-                              <motion.p 
-                                variants={textVariants}
-                                className="text-white/60 text-base md:text-lg lg:text-xl"
-                              >
-                                {photos[currentIndex].tags}
-                              </motion.p>
-                            )}
-                          </div>
-                        </motion.div>
+                        {/* ... keep existing overlay content ... */}
                       </motion.div>
                     </CardContent>
                   </Card>

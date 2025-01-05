@@ -1,4 +1,24 @@
-export const products = [{
+export interface Products {
+  id: number;
+  name: string;
+  price: number;
+  rating: number;
+  reviews: number;
+  answers: number;
+  inStock: boolean;
+  delivery: string;
+  deliveryDate: string;
+  seller: string;
+  category: string;
+  model: string;
+  images: string[];
+  features: string[];
+  description: string;
+}
+
+
+
+export const products: Products[] = [{
     "id": 1,
     "name": "Indigo Dream Suit Set",
     "price": 3199.0,
@@ -12,10 +32,10 @@ export const products = [{
     "category": "Cotton Suit Sets",
     "model": "JA-729)",
     "images": [
-      "./detailphotos/1.1.webp",
-      "./detailphotos/1.2.webp",
-      "./detailphotos/1.3.webp",
-      "./detailphotos/1.4.webp"
+      "/detailphotos/1.1.webp",
+      "/detailphotos/1.2.webp",
+      "/detailphotos/1.3.webp",
+      "/detailphotos/1.4.webp"
     ],
     "features": [
       "Dispatch Time : 5 To 6 Working days",
@@ -41,10 +61,10 @@ export const products = [{
     "category": "Cotton Suit Sets",
     "model": "Fit - Relaxed (Code JA-792)",
     "images": [
-      "./detailphotos/2.1.webp",
-      "./detailphotos/2.2.webp",
-      "./detailphotos/2.3.webp",
-      "./detailphotos/2.4.webp"
+      "/detailphotos/2.1.webp",
+      "/detailphotos/2.2.webp",
+      "/detailphotos/2.3.webp",
+      "/detailphotos/2.4.webp"
     ],
     "features": [
       "Fit - Relaxed (Code JA-792)",
@@ -70,10 +90,10 @@ export const products = [{
     "category": "Cotton Suit Sets",
     "model": "Fit - Relaxed (Code JA-704)",
     "images": [
-      "./detailphotos/3.1.webp",
-      "./detailphotos/3.2.webp",
-      "./detailphotos/3.3.webp",
-      "./detailphotos/3.4.webp"
+      "/detailphotos/3.1.webp",
+      "/detailphotos/3.2.webp",
+      "/detailphotos/3.3.webp",
+      "/detailphotos/3.4.webp"
     ],
     "features": [
       "Fit - Relaxed (Code JA-704)",
@@ -99,10 +119,10 @@ export const products = [{
     "category": "Original Handblock Suit Set",
     "model": "Fit - Relaxed (Code JA-701)",
     "images": [
-      "./detailphotos/4.1.webp",
-      "./detailphotos/4.2.webp",
-      "./detailphotos/4.3.webp",
-      "./detailphotos/4.4.webp"
+      "/detailphotos/4.1.webp",
+      "/detailphotos/4.2.webp",
+      "/detailphotos/4.3.webp",
+      "/detailphotos/4.4.webp"
     ],
     "features": [
       "Fit - Relaxed (Code JA-701)",
@@ -128,10 +148,10 @@ export const products = [{
     "category": "Original Handblock Suit Set",
     "model": "Fit - Relaxed (Code JA-478)",
     "images": [
-      "./detailphotos/5.1.webp",
-      "./detailphotos/5.2.webp",
-      "./detailphotos/5.3.webp",
-      "./detailphotos/5.4.webp"
+      "/detailphotos/5.1.webp",
+      "/detailphotos/5.2.webp",
+      "/detailphotos/5.3.webp",
+      "/detailphotos/5.4.webp"
     ],
     "features": [
       "Fit - Relaxed (Code JA-478)",
@@ -157,10 +177,10 @@ export const products = [{
     "category": "Original Handblock Suit Set",
     "model": "Fit - Relaxed (Code JA-718)",
     "images": [
-      "./detailphotos/6.1.webp",
-      "./detailphotos/6.2.webp",
-      "./detailphotos/6.3.webp",
-      "./detailphotos/6.4.webp"
+      "/detailphotos/6.1.webp",
+      "/detailphotos/6.2.webp",
+      "/detailphotos/6.3.webp",
+      "/detailphotos/6.4.webp"
     ],
     "features": [
       "Fit - Relaxed (Code JA-718)",
@@ -186,10 +206,10 @@ export const products = [{
     "category": "Kurta Sets",
     "model": "Fit - Relaxed (Code JA-SKU-769)",
     "images": [
-      "./detailphotos/7.1.webp",
-      "./detailphotos/7.2.webp",
-      "./detailphotos/7.3.webp",
-      "./detailphotos/7.4.webp"
+      "/detailphotos/7.1.webp",
+      "/detailphotos/7.2.webp",
+      "/detailphotos/7.3.webp",
+      "/detailphotos/7.4.webp"
     ],
     "features": [
       "Fit - Relaxed (Code JA-SKU-769)",
@@ -215,10 +235,10 @@ export const products = [{
     "category": "Kurta Sets",
     "model": "Fit - Relaxed (Code JA-657 WD)",
     "images": [
-      "./detailphotos/8.1.webp",
-      "./detailphotos/3.2.webp",
-      "./detailphotos/3.3.webp",
-      "./detailphotos/3.4.webp"
+      "/detailphotos/8.1.webp",
+      "/detailphotos/3.2.webp",
+      "/detailphotos/3.3.webp",
+      "/detailphotos/3.4.webp"
     ],
     "features": [
       "Fit - Relaxed (Code JA-657 WD)",
@@ -244,10 +264,10 @@ export const products = [{
     "category": "Kurta Sets",
     "model": "Fit - Relaxed (Code JA-453 WD)",
     "images": [
-      "./detailphotos/9.1.webp",
-      "./detailphotos/9.2.webp",
-      "./detailphotos/9.3.webp",
-      "./detailphotos/9.4.webp"
+      "/detailphotos/9.1.webp",
+      "/detailphotos/9.2.webp",
+      "/detailphotos/9.3.webp",
+      "/detailphotos/9.4.webp"
     ],
     "features": [
       "Fit - Relaxed (Code JA-453 WD)",
@@ -273,10 +293,10 @@ export const products = [{
     "category": "Shorts Kurtas",
     "model": "Fit - Relaxed (Code JA_607_SKP)",
     "images": [
-      "./detailphotos/10.1.webp",
-      "./detailphotos/10.2.webp",
-      "./detailphotos/10.3.webp",
-      "./detailphotos/10.4.webp"
+      "/detailphotos/10.1.webp",
+      "/detailphotos/10.2.webp",
+      "/detailphotos/10.3.webp",
+      "/detailphotos/10.4.webp"
     ],
     "features": [
       "Fit - Relaxed (Code JA_607_SKP)",
@@ -302,10 +322,10 @@ export const products = [{
     "category": "Shorts Kurtas",
     "model": "Not specified",
     "images": [
-      "./detailphotos/11.1.webp",
-      "./detailphotos/11.2.webp",
-      "./detailphotos/11.3.webp",
-      "./detailphotos/11.4.webp"
+      "/detailphotos/11.1.webp",
+      "/detailphotos/11.2.webp",
+      "/detailphotos/11.3.webp",
+      "/detailphotos/11.4.webp"
     ],
     "features": [
       "Fit - Relaxed (code : JA-649-SKP)",
@@ -331,10 +351,10 @@ export const products = [{
     "category": "Shorts Kurtas",
     "model": "Not specified",
     "images": [
-      "./detailphotos/12.1.webp",
-      "./detailphotos/12.2.webp",
-      "./detailphotos/12.3.webp",
-      "./detailphotos/12.4.webp"
+      "/detailphotos/12.1.webp",
+      "/detailphotos/12.2.webp",
+      "/detailphotos/12.3.webp",
+      "/detailphotos/12.4.webp"
     ],
     "features": [
       "Fit - Relaxed (code : JA-589-SK)",
@@ -360,10 +380,10 @@ export const products = [{
     "category": "Anarkali Suits",
     "model": "Fit - Relaxed (Code JA-792)",
     "images": [
-      "./detailphotos/13.1.webp",
-      "./detailphotos/13.2.webp",
-      "./detailphotos/13.3.webp",
-      "./detailphotos/13.4.webp"
+      "/detailphotos/13.1.webp",
+      "/detailphotos/13.2.webp",
+      "/detailphotos/13.3.webp",
+      "/detailphotos/13.4.webp"
     ],
     "features": [
       "Fit - Relaxed (Code JA-792)",
@@ -389,10 +409,10 @@ export const products = [{
     "category": "Anarkali Suits",
     "model": "Not specified",
     "images": [
-      "./detailphotos/14.1.webp",
-      "./detailphotos/14.2.webp",
-      "./detailphotos/14.3.webp",
-      "./detailphotos/14.4.webp"
+      "/detailphotos/14.1.webp",
+      "/detailphotos/14.2.webp",
+      "/detailphotos/14.3.webp",
+      "/detailphotos/14.4.webp"
     ],
     "features": [
       "Fit - Relaxed (code : JA-589-SK)",
@@ -418,10 +438,10 @@ export const products = [{
     "category": "Anarkali Suits",
     "model": "Fit - Relaxed (Code JA-687)",
     "images": [
-      "./detailphotos/15.1.webp",
-      "./detailphotos/15.2.webp",
-      "./detailphotos/15.3.webp",
-      "./detailphotos/15.4.webp"
+      "/detailphotos/15.1.webp",
+      "/detailphotos/15.2.webp",
+      "/detailphotos/15.3.webp",
+      "/detailphotos/15.4.webp"
     ],
     "features": [
       "Fit - Relaxed (Code JA-687)",
@@ -447,10 +467,10 @@ export const products = [{
     "category": "Premium Chanderi Suit-Sets",
     "model": "Fit - Relaxed (Code JA-819)",
     "images": [
-      "./detailphotos/16.1.webp",
-      "./detailphotos/16.2.webp",
-      "./detailphotos/16.3.webp",
-      "./detailphotos/16.4.webp"
+      "/detailphotos/16.1.webp",
+      "/detailphotos/16.2.webp",
+      "/detailphotos/16.3.webp",
+      "/detailphotos/16.4.webp"
     ],
     "features": [
       "Fit - Relaxed (Code JA-819)",
@@ -476,10 +496,10 @@ export const products = [{
     "category": "Premium Chanderi Suit-Sets",
     "model": "Fit - Relaxed (Code JA-649)",
     "images": [
-      "./detailphotos/17.1.webp",
-      "./detailphotos/17.2.webp",
-      "./detailphotos/17.3.webp",
-      "./detailphotos/17.4.webp"
+      "/detailphotos/17.1.webp",
+      "/detailphotos/17.2.webp",
+      "/detailphotos/17.3.webp",
+      "/detailphotos/17.4.webp"
     ],
     "features": [
       "Fit - Relaxed (Code JA-649)",
@@ -505,10 +525,10 @@ export const products = [{
     "category": "Premium Chanderi Suit-Sets",
     "model": "Not specified",
     "images": [
-      "./detailphotos/18.1.webp",
-      "./detailphotos/18.2.webp",
-      "./detailphotos/18.3.webp",
-      "./detailphotos/18.4.webp"
+      "/detailphotos/18.1.webp",
+      "/detailphotos/18.2.webp",
+      "/detailphotos/18.3.webp",
+      "/detailphotos/18.4.webp"
     ],
     "features": [
       "Fit - Relaxed code  JA-789",
@@ -534,10 +554,10 @@ export const products = [{
     "category": "Premium Handwork Suit Sets",
     "model": "Fit - Relaxed (Code JA-622)",
     "images": [
-      "./detailphotos/19.1.webp",
-      "./detailphotos/19.2.webp",
-      "./detailphotos/19.3.webp",
-      "./detailphotos/19.4.webp"
+      "/detailphotos/19.1.webp",
+      "/detailphotos/19.2.webp",
+      "/detailphotos/19.3.webp",
+      "/detailphotos/19.4.webp"
     ],
     "features": [
       "Fit - Relaxed (Code JA-622)",
@@ -563,10 +583,10 @@ export const products = [{
     "category": "Premium Handwork Suit Sets",
     "model": "Fit - Relaxed (Code JA-615)",
     "images": [
-      "./detailphotos/20.1.webp",
-      "./detailphotos/20.2.webp",
-      "./detailphotos/20.3.webp",
-      "./detailphotos/20.4.webp"
+      "/detailphotos/20.1.webp",
+      "/detailphotos/20.2.webp",
+      "/detailphotos/20.3.webp",
+      "/detailphotos/20.4.webp"
     ],
     "features": [
       "Fit - Relaxed (Code JA-615)",
@@ -592,10 +612,10 @@ export const products = [{
     "category": "Premium Handwork Suit Sets",
     "model": "Fit - Relaxed (Code JA-627)",
     "images": [
-      "./detailphotos/21.1.webp",
-      "./detailphotos/22.2.webp",
-      "./detailphotos/23.3.webp",
-      "./detailphotos/23.4.webp"
+      "/detailphotos/21.1.webp",
+      "/detailphotos/22.2.webp",
+      "/detailphotos/23.3.webp",
+      "/detailphotos/23.4.webp"
     ],
     "features": [
       "Fit - Relaxed (Code JA-627)",
