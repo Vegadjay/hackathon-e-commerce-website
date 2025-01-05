@@ -35,6 +35,7 @@ const Layout = () => {
     <div className="container mx-auto p-4">
       <Product 
         id={selectedProduct.id}
+        // @ts-ignore
         name={selectedProduct.name}
         price={selectedProduct.price}
         rating={selectedProduct.rating}
