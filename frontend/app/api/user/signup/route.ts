@@ -53,24 +53,26 @@ export async function POST(req: Request) {
 
 		await newUser.save();
 
-		const session = {
-			userId: newUser._id,
-			username: newUser.username,
-			email: newUser.email,
-			role: newUser.role,
-			token,
-		};
-
-		return NextResponse.json({
+		// Create response and set the JWT token as a cookie
+		const response = NextResponse.json({
 			message: 'Signup successful',
 			user: {
 				id: newUser._id,
 				username: newUser.username,
 				email: newUser.email,
 				role: newUser.role,
-			},
-			session,
+			}
 		}, { status: 200 });
+
+		// Set the JWT token cookie
+		response.cookies.set('token', token, {
+			httpOnly: false,   // Prevents JavaScript from accessing the cookie
+			secure: false,  // Ensures the cookie is sent over HTTPS in production
+			maxAge: 7 * 24 * 60 * 60,
+			path: '/', 
+		});
+
+		return response;
 	} catch (error) {
 		if (error instanceof z.ZodError) {
 			return NextResponse.json({ error: error.errors.map((err) => err.message) }, { status: 400 });

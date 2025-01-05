@@ -46,6 +46,7 @@ export async function POST(req: Request) {
 		);
 
 		const response = NextResponse.json({
+			success: true,
 			message: 'Login successful',
 			user: {
 				id: user._id,
@@ -56,8 +57,8 @@ export async function POST(req: Request) {
 		}, { status: 200 });
 
 		response.cookies.set('token', token, {
-			httpOnly: true,
-			secure: true,
+			httpOnly: false,
+			secure: false,
 			maxAge: 29 * 24 * 60 * 60,
 			path: '/',
 		});

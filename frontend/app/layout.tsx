@@ -1,8 +1,9 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import Providers  from '@/app/session_providers/SessionProvider';
+import Providers from '@/app/session_providers/SessionProvider';
 import { Navbar } from '@/components/ui/navbar';
+import { RenderProvider } from "@/contexts/RenderContext";
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,10 +20,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>
-          <Navbar />
-          {children}
-        </Providers>
+        <RenderProvider>
+          <Providers>
+            <Navbar />
+            {children}
+          </Providers>
+        </RenderProvider>
       </body>
     </html>
   );

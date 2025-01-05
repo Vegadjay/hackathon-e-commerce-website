@@ -1,7 +1,5 @@
 "use client";
 
-
-// todo: Where you use google login than use this all things like signIn and signOut method.
 import { signOut, useSession } from "next-auth/react";
 import {
   NavigationMenu,
@@ -9,23 +7,24 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
+  NavigationMenuTrigger
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShoppingBag, ShoppingCart, Menu, X, ChevronDown } from 'lucide-react';
+import { ShoppingBag, ShoppingCart, Menu, X, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useCart } from "@/lib/store";
 import { useRouter } from "next/navigation";
-
+import { useRenderContext } from '@/contexts/RenderContext';
+import Cookies from "js-cookie";
 
 const collections = {
   "New Arrivals": [
     { title: "Latest Collections", href: "/new-arrivals" },
-    { title: "LOUNGE WEAR", href: "/lounge-wear" },
+    { title: "Lounge Wear", href: "/lounge-wear" },
     { title: "Solid Wear Clothing", href: "/solid-wear" },
-    { title: "PLUS SIZE SUITS", href: "/plus-size" },
+    { title: "Plus Size Suits", href: "/plus-size" },
     { title: "Bedsheets", href: "/bedsheets" }
   ],
   "Ethnic Wear": [
@@ -58,7 +57,7 @@ const collections = {
   ]
 };
 
-export function MainMenu({ isMobile = false, onLinkClick = () => {} }) {
+export function MainMenu({ isMobile = false, onLinkClick = () => { } }) {
   const [openCategory, setOpenCategory] = useState<string | null>(null);
 
   const handleCategoryClick = (category: string) => {
@@ -66,7 +65,6 @@ export function MainMenu({ isMobile = false, onLinkClick = () => {} }) {
       setOpenCategory(openCategory === category ? null : category);
     }
   };
-
 
   if (isMobile) {
     return (
@@ -86,7 +84,6 @@ export function MainMenu({ isMobile = false, onLinkClick = () => {} }) {
               />
             </button>
 
-            
             <AnimatePresence initial={false}>
               {openCategory === category && (
                 <motion.div
@@ -101,7 +98,7 @@ export function MainMenu({ isMobile = false, onLinkClick = () => {} }) {
                       <Link
                         key={item.title}
                         href={item.href}
-                        onClick={() => onLinkClick()}
+                        onClick={onLinkClick}
                         className="block rounded-md px-3 py-2 text-sm text-gray-600 hover:bg-gray-100"
                       >
                         {item.title}
@@ -151,19 +148,50 @@ export function MainMenu({ isMobile = false, onLinkClick = () => {} }) {
 }
 
 export function Navbar() {
-    const router = useRouter();
+  const router = useRouter();
   const items = useCart((state) => state.items);
   const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const [isMobile, setIsMobile] = useState(false);
+  const [login, setLogin] = useState(false);
+  const { shouldRender, triggerRender } = useRenderContext();
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1024);
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    let token = Cookies.get('token');
+    if(token != undefined)
+    {
+      setLogin(true);
+    }
+    window.addEventListener("resize", checkMobile);
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
   }, []);
+
+  useEffect(() => {
+    console.log("Renderd Navbar");
+    const jwt = Cookies.get('token');
+    console.log(jwt, " is my jwt");
+    if (jwt != undefined) {
+      console.log("called Inside", jwt);
+      setLogin(true);
+    }
+  }, [shouldRender]);
+
+  const handleSignOut = async () => {
+    await signOut({ redirect: false });
+    let allCokies = Cookies.get();
+    for (const cookie in allCokies) {
+      Cookies.remove(cookie);
+    }
+    triggerRender();
+    setLogin(false);
+
+    router.push("/");
+  };
 
   const handleCloseMenu = () => {
     setMenuOpen(false);
@@ -204,21 +232,19 @@ export function Navbar() {
               )}
             </Link>
 
-            {session ? (
+            {login ? <button
+              onClick={handleSignOut}
+              className={`rounded-full px-4 py-2 text-white bg-red-500 hover:bg-red-600`}
+            >
+              Logout
+            </button>
+              :
               <button
-                onClick={() => signOut()}
-                className="rounded-full bg-red-500 px-4 py-2 text-white hover:bg-red-600"
-              >
-                Logout
-              </button>
-            ) : (
-              <button
-                onClick={() => {router.push('/register')}}
-                className="relative flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2 text-gray-600 hover:bg-gray-200"
+                onClick={() => router.push("/login")}
+                className={`rounded-full px-4 py-2 text-white bg-blue-500 hover:bg-blue-600`}
               >
                 Login
-              </button>
-            )}
+              </button>}
 
             <button
               onClick={() => setMenuOpen(!isMenuOpen)}
@@ -257,5 +283,3 @@ export function Navbar() {
     </motion.nav>
   );
 }
-
-export default Navbar;

@@ -1,5 +1,3 @@
-// !!! DONE UNTIL FORM ... 
-
 'use client';
 
 import React, { useState } from 'react';
@@ -7,10 +5,13 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { InputField } from '@/components/layout/inputBox';
 import { useRouter } from 'next/navigation';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useRenderContext } from '@/contexts/RenderContext';
 
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: { 
+  visible: {
     opacity: 1,
     transition: {
       staggerChildren: 0.1
@@ -20,7 +21,7 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
-  visible: { 
+  visible: {
     y: 0,
     opacity: 1,
     transition: {
@@ -31,6 +32,7 @@ const itemVariants = {
 };
 
 export default function Register() {
+  const { triggerRender } = useRenderContext();
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -47,58 +49,36 @@ export default function Register() {
 
   const [errors, setErrors] = useState<any>({});
   const [isLoading, setIsLoading] = useState(false);
-  const [apiMessage, setApiMessage] = useState<string | null>(null);
-
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    setApiMessage('');
-
-    if (!formData.username || !formData.email || !formData.password) {
-        setApiMessage('All fields are required.');
-        setIsLoading(false);
-        return;
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-        setApiMessage('Please enter a valid email address.');
-        setIsLoading(false);
-        return;
-    }
-
-    if (formData.password.length < 6) {
-        setApiMessage('Password must be at least 6 characters.');
-        setIsLoading(false);
-        return;
-    }
 
     try {
-        const response = await fetch('/api/user/signup', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        });
+      const response = await fetch('/api/user/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
 
-        const data = await response.json();
-
-        if (response.ok) {
-            setApiMessage('Registration successful!');
-            console.log(data);
-            router.push('/');
-        } else {
-            setApiMessage(data.error || 'Registration failed.');
-            console.error('Registration failed:', data);
-        }
-    } catch (error) {
-        setApiMessage('An error occurred. Please try again.');
-        console.error('Error during registration:', error);
-    } finally {
-        setIsLoading(false);
+      const data = await response.json();
+      if (data.error) {
+        toast.error(data.error);
+        setIsLoading(false)
+      }
+      else {
+        toast.success(data.message);
+        setTimeout(() => {
+          triggerRender();
+          router.push('/');
+        }, 1000);
+      }
+    }
+    catch (error) {
+      setIsLoading(false)
+      console.error('An error occurred:', error);
+      setErrors(error)
     }
   };
 
@@ -137,7 +117,7 @@ export default function Register() {
         variants={containerVariants}
         className="max-w-4xl mx-auto"
       >
-        <div className="bg-white/80 backdrop-blur-sm shadow-2xl rounded-3xl overflow-hidden border-2 border-pink-100">
+        <div className="bg-white/80 shadow-2xl rounded-3xl overflow-hidden border-2 border-pink-100">
           <div className="relative px-8 py-12">
             {/* Top Section with Animation */}
             <motion.div
@@ -249,6 +229,20 @@ export default function Register() {
                 >
                   {isLoading ? 'Registering...' : 'Register'}
                 </motion.button>
+                {/* <motion.div className="md:col-span-2 mt-6 space-y-4">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    type="button"
+                    onClick={() => {
+                      // Handle Google sign-in logic here
+                    }}
+                    className="w-full px-8 py-3 bg-white text-gray-700 border border-gray-300 rounded-xl font-medium hover:bg-gray-100 transition-colors shadow-lg flex items-center justify-center"
+                  >
+                    <FaGoogle className="w-6 h-6 mr-3" />
+                    Sign in with Google
+                  </motion.button>
+                </motion.div> */}
                 <p className="text-center text-gray-600">
                   Already have an account?{' '}
                   <Link href="/login" className="text-orange-600 hover:text-orange-700 font-medium">
@@ -257,20 +251,10 @@ export default function Register() {
                 </p>
               </motion.div>
             </motion.form>
-
-            {apiMessage && (
-              <motion.div
-                className={`mt-4 p-3 rounded-md text-center ${
-                  apiMessage.includes('successful') ? 'text-green-600' : 'text-red-600'
-                }`}
-                variants={itemVariants}
-              >
-                {apiMessage}
-              </motion.div>
-            )}
           </div>
         </div>
       </motion.div>
+      <ToastContainer position='bottom-right' autoClose={3000} />
     </div>
   );
 }
