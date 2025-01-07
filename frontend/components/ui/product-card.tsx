@@ -29,7 +29,7 @@ export function ProductCard({ id, name, price, description, category, images }: 
             alt={name}
             width={400}
             height={400}
-            className="h-full w-full object-cover transition-all duration-500 group-hover:scale-110"
+            className="h-[30rem] w-[30rem] -mt-5 object-cover transition-all duration-500 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
             <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full transition-transform duration-300 group-hover:translate-y-0">
@@ -53,7 +53,7 @@ export function ProductCard({ id, name, price, description, category, images }: 
             {name}
           </h3>
 
-          <p className="text-xl font-bold text-primary">${price.toFixed(2)}</p>
+          <p className="text-xl font-bold text-primary">₹ {price.toFixed(2)}</p>
         </div>
       </Link>
     </motion.div>
