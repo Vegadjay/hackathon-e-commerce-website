@@ -1,6 +1,6 @@
 "use client";
 
-import { categories } from "@/lib/data";
+import { products } from "@/lib/data";
 
 interface ProductFiltersProps {
   selectedCategory: string;
@@ -17,8 +17,8 @@ export function ProductFilters({
 }: ProductFiltersProps) {
   return (
     <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
-      <div className="flex flex-wrap gap-2">
-        {categories.map((category) => (
+      {/* <div className="flex flex-wrap gap-2">
+        {products.map((category:any) => (
           <button
             key={category}
             onClick={() => onCategoryChange(category)}
@@ -31,7 +31,7 @@ export function ProductFilters({
             {category}
           </button>
         ))}
-      </div>
+      </div> */}
 
       <select
         value={sortBy}

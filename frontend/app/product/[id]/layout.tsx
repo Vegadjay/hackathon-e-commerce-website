@@ -4,6 +4,7 @@ import { useSearchParams, useParams } from "next/navigation";
 import Product from './page';
 import { products } from './data';
 import { Products } from './data';
+import { Skeleton } from "@/components/ui/skeleton";
 
 const Layout = () => {
   const params = useParams();
@@ -28,7 +29,9 @@ const Layout = () => {
   }, [params, searchParams]);
 
   if (!selectedProduct) {
-    return <div>Loading...</div>;
+    return <div>
+        <Skeleton />
+    </div>;
   }
 
   return (

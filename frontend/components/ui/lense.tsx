@@ -19,8 +19,8 @@ interface LensProps {
 
 export const Lens: React.FC<LensProps> = ({
   children,
-  zoomFactor = 2.0,
-  lensSize = 350,
+  zoomFactor = 2.5,
+  lensSize = 250,
   isStatic = false,
   position = { x: 200, y: 150 },
   hovering,
