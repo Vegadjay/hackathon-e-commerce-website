@@ -267,7 +267,7 @@ export default function UpdateProfile() {
                 >
                   {isLoading ? 'Updating...' : 'Update Profile'}
                 </motion.button>
-                <Link href="/profile">
+                <Link href="/">
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}

@@ -16,7 +16,7 @@ import { ShoppingBag, ShoppingCart, Menu, X, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useCart } from "@/lib/store";
 import { useRouter } from "next/navigation";
-import { useRenderContext } from '@/contexts/RenderContext';
+import { useRenderContext } from "@/contexts/RenderContext";
 import Cookies from "js-cookie";
 
 const collections = {
@@ -57,7 +57,7 @@ const collections = {
   ]
 };
 
-export function MainMenu({ isMobile = false, onLinkClick = () => { } }) {
+export function MainMenu({ isMobile = false, onLinkClick = () => {} }) {
   const [openCategory, setOpenCategory] = useState<string | null>(null);
 
   const handleCategoryClick = (category: string) => {
@@ -156,13 +156,13 @@ export function Navbar() {
   const [isMobile, setIsMobile] = useState(false);
   const [login, setLogin] = useState(false);
   const { shouldRender, triggerRender } = useRenderContext();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1024);
     checkMobile();
-    let token = Cookies.get('token');
-    if(token != undefined)
-    {
+    const token = Cookies.get("token");
+    if (token != undefined) {
       setLogin(true);
     }
     window.addEventListener("resize", checkMobile);
@@ -171,30 +171,16 @@ export function Navbar() {
     };
   }, []);
 
-  useEffect(() => {
-    console.log("Renderd Navbar");
-    const jwt = Cookies.get('token');
-    console.log(jwt, " is my jwt");
-    if (jwt != undefined) {
-      console.log("called Inside", jwt);
-      setLogin(true);
-    }
-  }, [shouldRender]);
-
   const handleSignOut = async () => {
     await signOut({ redirect: false });
-    let allCokies = Cookies.get();
-    for (const cookie in allCokies) {
-      Cookies.remove(cookie);
-    }
+    Object.keys(Cookies.get()).forEach((cookie) => Cookies.remove(cookie));
     triggerRender();
     setLogin(false);
-
     router.push("/");
   };
 
-  const handleCloseMenu = () => {
-    setMenuOpen(false);
+  const handleToggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
   };
 
   return (
@@ -232,54 +218,70 @@ export function Navbar() {
               )}
             </Link>
 
-            {login ? <button
-              onClick={handleSignOut}
-              className={`rounded-full px-4 py-2 text-white bg-red-500 hover:bg-red-600`}
-            >
-              Logout
-            </button>
-              :
+            {login ? (
+              <div id="profile-dropdown" className="relative inline-block text-left">
+                <button
+                  onClick={handleToggleDropdown}
+                  className="flex items-center justify-center font-semibold rounded-full shadow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+                >
+                  <img src="user.avif" className="h-8 w-8 bg-gray-200 rounded-full"></img>
+                </button>
+                {isDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10"
+                  >
+                    <div className="py-1">
+                      <button
+                        onClick={() => router.push("/updateprofile")}
+                        className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      >
+                        Update Profile
+                      </button>
+                      <button
+                        onClick={handleSignOut}
+                        className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      >
+                        Logout
+                      </button>
+                    </div>
+                  </motion.div>
+                )}
+              </div>
+            ) : (
               <button
                 onClick={() => router.push("/login")}
-                className={`rounded-full px-4 py-2 text-white bg-blue-500 hover:bg-blue-600`}
+                className="bg-primary text-black bg-blue-400 font-semibold px-4 py-2 rounded-md shadow hover:bg-primary-dark"
               >
                 Login
-              </button>}
+              </button>
+            )}
 
             <button
               onClick={() => setMenuOpen(!isMenuOpen)}
-              className="lg:hidden rounded-full bg-gray-100 p-2 text-gray-600 hover:bg-gray-200"
+              className="block lg:hidden p-2 rounded-md text-gray-500 hover:bg-gray-100"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
-
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, x: "100%" }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: "100%" }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white shadow-lg overflow-y-auto lg:hidden"
-            >
-              <div className="flex justify-between items-center p-4 border-b">
-                <span className="text-xl font-bold">Menu</span>
-                <button
-                  onClick={handleCloseMenu}
-                  className="rounded-full bg-gray-100 p-2 text-gray-600 hover:bg-gray-200"
-                >
-                  <X className="h-6 w-6" />
-                </button>
-              </div>
-              <div className="py-4">
-                <MainMenu isMobile={true} onLinkClick={handleCloseMenu} />
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
+
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="lg:hidden bg-gray-50 border-t border-gray-200"
+          >
+            <MainMenu isMobile onLinkClick={() => setMenuOpen(false)} />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 }
