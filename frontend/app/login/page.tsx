@@ -1,22 +1,23 @@
 'use client'
 
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { InputField } from '@/components/layout/inputBox';
 import { signIn, useSession } from 'next-auth/react';
 import { useRenderContext } from "@/contexts/RenderContext";
 import Cookies from 'js-cookie';
+import { User, Lock, Mail, ArrowRight } from 'lucide-react';
 
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
     },
   },
 };
@@ -32,6 +33,40 @@ const itemVariants = {
     },
   },
 };
+
+const floatingBubbleVariants = {
+  animate: {
+    y: [0, -15, 0],
+    transition: {
+      duration: 3,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }
+  }
+};
+
+const CustomInput = ({ icon: Icon, error, ...props }) => {
+  return (
+    <motion.div 
+      variants={itemVariants}
+      className="relative group"
+    >
+      <div className="relative">
+        <div className="absolute left-3 top-1/2 -translate-y-1/2 text-purple-400 group-focus-within:text-indigo-600 transition-colors">
+          <Icon size={20} />
+        </div>
+        <input
+          {...props}
+          className={`w-full pl-12 pr-4 py-3 bg-white/50 backdrop-blur-sm border-2 rounded-xl
+          ${error ? 'border-red-400' : 'border-purple-200 group-focus-within:border-indigo-400'}
+          transition-all duration-300 outline-none`}
+        />
+      </div>
+      {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+    </motion.div>
+  );
+};
+
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -106,106 +141,147 @@ export default function Login() {
     }
   }, []);
 
-  return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div
-        className="fixed inset-0 -z-10"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
-            url('/jaipuri-bg.svg')`,
-          backgroundSize: '400px',
-          backgroundRepeat: 'repeat',
-        }}
-      />
+return (
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 -z-10">
+        <motion.div
+          animate={{
+            rotate: 360,
+            transition: { duration: 20, repeat: Infinity, ease: "linear" }
+          }}
+          className="absolute top-1/4 -left-12 w-96 h-96 bg-purple-200/30 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            rotate: -360,
+            transition: { duration: 25, repeat: Infinity, ease: "linear" }
+          }}
+          className="absolute bottom-1/4 -right-12 w-96 h-96 bg-indigo-200/30 rounded-full blur-3xl"
+        />
+      </div>
 
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
-        className="max-w-4xl mx-auto"
-      >
-        <div className="bg-white/80 shadow-2xl rounded-3xl overflow-hidden border-2 border-pink-100">
-          <div className="relative px-8 py-12">
-            <div className="absolute top-0 left-0 w-32 h-32 bg-pink-100 rounded-full -translate-x-16 -translate-y-16" />
-            <div className="absolute top-0 right-0 w-32 h-32 bg-orange-100 rounded-full translate-x-16 -translate-y-16" />
-            <div className="absolute bottom-0 left-1/2 w-32 h-32 bg-yellow-100 rounded-full -translate-x-16 translate-y-16" />
+      <div className="container mx-auto px-4 py-16 relative">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+          className="max-w-md mx-auto"
+        >
+          {/* Floating decorative elements */}
+          <motion.div
+            variants={floatingBubbleVariants}
+            animate="animate"
+            className="absolute -top-4 -left-4 w-16 h-16 bg-purple-400/10 rounded-full backdrop-blur-sm"
+          />
+          <motion.div
+            variants={floatingBubbleVariants}
+            animate="animate"
+            className="absolute top-1/2 -right-8 w-20 h-20 bg-indigo-400/10 rounded-full backdrop-blur-sm"
+          />
 
-            <motion.div
-              className="relative text-center mb-12"
-              variants={itemVariants}
-            >
-              <h2 className="text-5xl font-bold bg-gradient-to-r from-orange-600 to-pink-600 bg-clip-text text-transparent">
-                Welcome Back
-              </h2>
-              <p className="mt-4 text-lg text-orange-600">
-                Log in to your account
-              </p>
-            </motion.div>
-
-            <motion.form
-              onSubmit={handleSubmit}
-              className="relative grid grid-cols-1 gap-6"
-            >
-              <InputField
-                name="email"
-                type="text"
-                placeholder="Enter your email or phone"
-                value={formData.email}
-                onChange={handleInputChange}
-                label="Email"
-                error=""
-              />
-              <InputField
-                name="password"
-                type="password"
-                placeholder="Enter your password"
-                value={formData.password}
-                onChange={handleInputChange}
-                label="Password"
-                error=""
-              />
-
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                type="submit"
-                disabled={isLoading}
-                className="w-full px-8 py-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-xl font-medium hover:opacity-90 transition-opacity shadow-lg"
-              >
-                {isLoading ? 'Logging in...' : 'Log In'}
-              </motion.button>
-
-              <div className="text-center mt-4">
-                <Link href="/forgot-password" className="text-orange-600 hover:underline">
-                  Forgot Password?
-                </Link>
-                <p className="mt-2 text-gray-600">
-                  Don't have an account?{' '}
-                  <Link href="/register" className="text-orange-600 hover:underline">
-                    Sign Up
-                  </Link>
+          <div className="bg-white/40 backdrop-blur-lg rounded-3xl shadow-xl overflow-hidden border border-white/50">
+            <div className="p-8">
+              <motion.div className="text-center mb-10" variants={itemVariants}>
+                <motion.div
+                  className="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-2xl flex items-center justify-center"
+                  whileHover={{ rotate: 5, scale: 1.05 }}
+                >
+                  <User size={40} className="text-white" />
+                </motion.div>
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                  Welcome Back
+                </h2>
+                <p className="mt-3 text-gray-600">
+                  Sign in to continue your journey
                 </p>
-              </div>
-            </motion.form>
+              </motion.div>
 
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="flex items-center -z-50 justify-center w-full px-8 py-3 mt-6 border rounded-xl text-gray-600 bg-white hover:shadow-md transition-shadow"
-              onClick={loginWithGoogle}
-            >
-              <img
-                src="/google.svg"
-                alt="Google Logo"
-                className="w-6 h-6 mr-3 bg-transparent"
-              />
-              Continue with Google
-            </motion.button>
+              <motion.form 
+                onSubmit={handleSubmit}
+                className="space-y-6"
+              >
+                <CustomInput
+                  icon={Mail}
+                  name="email"
+                  type="text"
+                  placeholder="Enter your email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                />
+                <CustomInput
+                  icon={Lock}
+                  name="password"
+                  type="password"
+                  placeholder="Enter your password"
+                  value={formData.password}
+                  onChange={handleInputChange}
+                />
 
+                <motion.button
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-xl
+                    font-medium flex items-center justify-center gap-2 group hover:shadow-lg transition-shadow"
+                >
+                  {isLoading ? 'Signing in...' : (
+                    <>
+                      Sign In
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </>
+                  )}
+                </motion.button>
+
+                <motion.div 
+                  variants={itemVariants}
+                  className="text-center space-y-4"
+                >
+                  <Link 
+                    href="/forgot-password"
+                    className="text-sm text-purple-600 hover:text-indigo-600 transition-colors"
+                  >
+                    Forgot your password?
+                  </Link>
+
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={loginWithGoogle}
+                    className="w-full flex items-center justify-center gap-3 py-3 border-2 border-purple-200
+                      rounded-xl text-gray-700 hover:bg-white/50 hover:border-purple-300 transition-all"
+                  >
+                    <img
+                      src="/google.svg"
+                      alt="Google"
+                      className="w-5 h-5"
+                    />
+                    Continue with Google
+                  </motion.button>
+
+                  <p className="text-gray-600">
+                    Don't have an account?{' '}
+                    <Link 
+                      href="/register"
+                      className="text-purple-600 hover:text-indigo-600 transition-colors font-medium"
+                    >
+                      Sign Up
+                    </Link>
+                  </p>
+                </motion.div>
+              </motion.form>
+            </div>
           </div>
-        </div>
-      </motion.div>
-      <ToastContainer position="bottom-right" autoClose={3000} />
+        </motion.div>
+      </div>
+
+      <ToastContainer 
+        position="bottom-right" 
+        autoClose={3000}
+        theme="light"
+      />
     </div>
   );
 }

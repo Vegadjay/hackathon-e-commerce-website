@@ -61,7 +61,7 @@ export async function POST(req: Request) {
 		await transporter.sendMail(mailOptions);
 
 		user.otp = otp;
-		user.otpExpiry = new Date(Date.now() + 5 * 60 * 1000); //5 min expiry
+		user.otpExpiry = new Date(Date.now() + 5 * 60 * 1000);
 		await user.save();
 
 		return NextResponse.json(
