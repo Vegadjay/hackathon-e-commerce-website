@@ -192,8 +192,7 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <ShoppingBag className="h-6 w-6" />
-            <span className="text-xl font-bold">Fashion Store</span>
+            <img src="/logo/navbar-logo.png" alt="Company logo" className=""/>
           </Link>
 
           <div className="hidden lg:block flex-1 px-8">

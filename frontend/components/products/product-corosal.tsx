@@ -214,13 +214,13 @@ const FashionCarousel = () => {
                           key={photos[currentIndex].imageUrl}
                           src={photos[currentIndex].imageUrl}
                           alt={photos[currentIndex].title}
-                          className="absolute inset-0 w-full h-full object-cover object-center"
+                          // todo: Show this code add that all classed for responsive corosal 
+                          className="absolute inset-0 w-full h-full object-cover object-center sm: lg: md: "
                           initial={{ scale: 1.2 }}
                           animate={{ scale: 1 }}
                           transition={{ duration: 5 }}
-                          draggable={false} // Prevent native image dragging
+                          draggable={false}
                         />
-                        {/* ... keep existing overlay content ... */}
                       </motion.div>
                     </CardContent>
                   </Card>
