@@ -56,7 +56,7 @@ export const products: Products[] = [{
     "delivery": "FREE delivery",
     "deliveryDate": "9 To 12 Working days",
     "seller": "Indigo Apparel Co.",
-    "category": "Cotton Suit Sets",
+    "category": "latest arrival",
     "model": "Fit - Relaxed (Code JA-792)",
     "images": [
       "/detailphotos/2.1.webp",

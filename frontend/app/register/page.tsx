@@ -197,7 +197,7 @@ export default function Register() {
       setFormData((prev) => ({
         ...prev,
         [parent]: {
-          ...prev[parent],
+          ...(typeof prev[parent] === 'object' ? prev[parent] : {}),
           [child]: value,
         },
       }));

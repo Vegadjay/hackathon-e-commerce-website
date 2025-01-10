@@ -44,16 +44,16 @@ export function ProductCard({ id, name, price, description, category, images }: 
           <div className="mb-2">
             {category && (
               <span className="text-xs font-medium text-primary-600 bg-primary-50 px-2 py-1 rounded-full">
-                {category}
+                {category || "New Collections"}
               </span>
             )}
           </div>
 
           <h3 className="text-lg font-semibold text-gray-800 mb-2 line-clamp-1">
-            {name}
+            {name || "Product Name Is Not Printable"}
           </h3>
 
-          <p className="text-xl font-bold text-primary">₹ {price.toFixed(2)}</p>
+          <p className="text-xl font-bold text-primary">₹ {price.toFixed(2) || 2000}</p>
         </div>
       </Link>
     </motion.div>
