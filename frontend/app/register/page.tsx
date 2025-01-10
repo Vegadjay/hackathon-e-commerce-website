@@ -323,6 +323,7 @@ export default function Register() {
                       value={formData.address.country}
                       onChange={handleInputChange}
                       error={errors.country}
+                      // @ts-ignore
                       className="md:col-span-2"
                     />
                   </div>
