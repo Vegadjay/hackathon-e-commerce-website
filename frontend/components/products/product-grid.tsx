@@ -8,6 +8,7 @@ import { ProductSkeleton } from "@/components/products/product-skeleton";
 import { products } from "@/lib/data";
 import PhotoCarousel from "@/components/products/product-corosal";
 import Footer from "@/components/layout/footer";
+import { BackgroundLines } from "@/components/ui/background-lines";
 
 const PRODUCTS_PER_PAGE = 15;
 
@@ -46,33 +47,19 @@ export function ProductGrid() {
   return (
     <main className="mx-auto max-w-[1800px] px-4 py-8 sm:px-6 lg:px-8">
 
-      <PhotoCarousel />
-      <div className="mb-16 text-center">
-        <div className="mb-6">
-          <span className="text-primary text-sm font-semibold uppercase tracking-wider">Welcome to</span>
-          <h1 className="text-5xl font-bold mb-4 mt-2">Luxury Boutique</h1>
-        </div>
-        <div className="max-w-4xl mx-auto space-y-4 text-gray-600">
-          <p className="text-lg">
-            Step into a world of refined elegance and exceptional quality. Our boutique brings you a carefully curated 
-            collection of premium products that blend sophistication with contemporary style.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div className="p-6 bg-gray-50 rounded-xl">
-              <h3 className="font-semibold text-gray-800 mb-2">Premium Quality</h3>
-              <p className="text-sm">Each product is carefully selected to ensure the highest standards of quality and craftsmanship.</p>
-            </div>
-            <div className="p-6 bg-gray-50 rounded-xl">
-              <h3 className="font-semibold text-gray-800 mb-2">Expert Curation</h3>
-              <p className="text-sm">Our team of experts handpicks each item to create a collection that speaks to refined tastes.</p>
-            </div>
-            <div className="p-6 bg-gray-50 rounded-xl">
-              <h3 className="font-semibold text-gray-800 mb-2">Satisfaction Guaranteed</h3>
-              <p className="text-sm">We stand behind every product with our commitment to customer satisfaction.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* <PhotoCarousel /> */}
+      
+      { /* Add that background lines to here */} 
+
+      <BackgroundLines className="flex items-center justify-center w-full flex-col px-4">
+      <h2 className="bg-clip-text text-transparent text-center bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
+        Jaipuri <span className="text-red-400">Adaah</span>, <br /> No.1 Fashion Brand In India.
+      </h2>
+      <p className="max-w-xl mx-auto text-sm md:text-lg text-neutral-700 dark:text-neutral-400 text-center">
+        Get the best advices from our experts, including expert artists,
+        painters, marathon enthusiasts and RDX, totally free.
+      </p>
+    </BackgroundLines>
 
       <ProductFilters
         selectedCategory={selectedCategory}

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import FooterImage from '@/assets/footer.png'
-import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { Facebook, Github, Instagram, Linkedin, Youtube } from 'lucide-react';
 
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -129,10 +129,10 @@ export default function Footer() {
 
             <div className="flex space-x-4 pt-4">
               {[
-                { icon: Facebook, href: '#' },
-                { icon: Instagram, href: '#' },
-                { icon: Youtube, href: '#' },
-                { icon: Linkedin, href: '#' }
+                { icon: Github, href: 'https://github.com/Vegadjay' },
+                { icon: Instagram, href: 'https://instagram.com/jay_vegad_1' },
+                { icon: Youtube, href: 'https://www.youtube.com/@JAY_VEGAD' },
+                { icon: Linkedin, href: 'https://www.linkedin.com/in/vegadjay' }
               ].map((social, index) => (
                 <motion.a
                   key={index}
