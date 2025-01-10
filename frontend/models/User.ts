@@ -45,6 +45,7 @@ const UserSchema: Schema = new Schema({
 	token: { type: String, required: true },
 	otp: { type: Number, required: false },
 	otpExpiry: { type: Date, required: false },
+	cart : { type: Schema.Types.ObjectId, ref: 'Cart', required: false, default: null },
 	verified: {
 		email: { type: Boolean, default: false },
 		phone: { type: Boolean, default: false }
