@@ -40,17 +40,37 @@ const Product: React.FC<ProductProps> = ({ id }) => {
     setShowShareMenu(false);
   };
 
-  const handleAddToCart = async () => {
-    setIsLoading(true);
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      alert("Added to cart successfully!");
-    } catch (error) {
-      alert("Failed to add to cart. Please try again.");
-    } finally {
-      setIsLoading(false);
+const handleAddToCart = async () => {
+  if (!product) {
+    alert('Product not found');
+    return;
+  }
+  setIsLoading(true);
+  try {
+    const response = await fetch('/api/cart', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        itemId: product.id,
+        quantity: 1
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to add to cart');
     }
-  };
+
+    const data = await response.json();
+    alert('Added to cart successfully!');
+  } catch (error) {
+    alert('Failed to add to cart. Please try again.');
+  } finally {
+    setIsLoading(false);
+  }
+};
+
 
   const handleBuyNow = () => {
     if (product) {

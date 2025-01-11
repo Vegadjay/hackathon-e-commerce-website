@@ -1,3 +1,5 @@
+// todo: Change that one thing while for google that is not working in this code kindly so 
+
 'use client'
 
 import React, { useEffect, useState } from 'react';
@@ -90,7 +92,10 @@ export default function Login() {
           identifier: formData.email,
           password: formData.password
         }),
-      }).then((res) => res.json());
+      }).then((res) => {
+        res.json();
+        location.reload();
+      });
 
       if (result.success) {
         toast.success('Logged in successfully!');
@@ -202,21 +207,19 @@ return (
                 className="space-y-6"
               >
                 <CustomInput
-                  icon={Mail}
-                  name="email"
-                  type="text"
-                  placeholder="Enter your email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                />
+                icon={Mail}
+                name="email"
+                type="text"
+                placeholder="Enter your email"
+                value={formData.email}
+                onChange={handleInputChange} error={undefined}/>
                 <CustomInput
-                  icon={Lock}
-                  name="password"
-                  type="password"
-                  placeholder="Enter your password"
-                  value={formData.password}
-                  onChange={handleInputChange}
-                />
+                icon={Lock}
+                name="password"
+                type="password"
+                placeholder="Enter your password"
+                value={formData.password}
+                onChange={handleInputChange} error={undefined}/>
 
                 <motion.button
                   variants={itemVariants}
