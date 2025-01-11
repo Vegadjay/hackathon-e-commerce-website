@@ -110,10 +110,10 @@ export default function Footer() {
               <p className="text-gray-800">
                 Please contact us on email{' '}
                 <a 
-                  href="mailto:contact@jaipuriadaah.com" 
+                  href="mailto:contact@rajwadiposhak.com" 
                   className="text-orange-600 hover:text-orange-700 font-medium block md:inline"
                 >
-                  contact@jaipuriadaah.com
+                  contact@rajwadiposhak.com
                 </a>
               </p>
               <p className="text-gray-800">
@@ -128,7 +128,7 @@ export default function Footer() {
                 between 10:00 to 18:00 Monday to Saturday.
               </p>
               <p className="text-gray-700 italic text-sm">
-                Jaipuriadaah is a part of Ethniclore
+                Rajwadi Poshak is a part of Ethniclore
               </p>
             </div>
           </motion.div>
@@ -182,7 +182,7 @@ export default function Footer() {
           variants={itemVariants}
           className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-orange-200/50 text-center text-gray-800"
         >
-          <p className="text-sm">&copy; {new Date().getFullYear()} Jaipuriadaah. All rights reserved.</p>
+          <p className="text-sm">&copy; {new Date().getFullYear()} Rajwadi Poshak. All rights reserved.</p>
         </motion.div>
       </motion.div>
     </footer>

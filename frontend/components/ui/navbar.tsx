@@ -27,6 +27,7 @@ const collections = {
       { title: "Lounge Wear", category: "lounge-wear" },
       { title: "Solid Wear Clothing", category: "solid-wear-clothing" },
       { title: "Plus Size Suits", category: "plus-size" },
+      { title: "Indian Sarees", category: "indian-sarees" },
       { title: "Bedsheets", category: "bedsheets" }
     ]
   },
@@ -37,7 +38,8 @@ const collections = {
       { title: "Kurta Sets", category: "kurta-sets" },
       { title: "Indian Wear", category: "indian" },
       { title: "Western Wear", category: "western" },
-      { title: "Festive Collection", category: "festive" }
+      { title: "Festive Collection", category: "festive" },
+      { title: "Traditional Sarees", category: "traditional-sarees" },
     ]
   },
   "Bestsellers": {
@@ -47,6 +49,7 @@ const collections = {
       { title: "Trending Now", category: "trending" },
       { title: "Top Rated", category: "top-rated" },
       { title: "Customer Favorites", category: "favorites" },
+      { title: "Tranding Sarees", category: "tranding-sarees" },
       { title: "Premium Collection", category: "premium" }
     ]
   },

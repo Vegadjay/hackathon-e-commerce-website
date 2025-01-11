@@ -1,42 +1,61 @@
 "use client";
 
-import { motion } from 'framer-motion';
-import { CheckCircle } from 'lucide-react';
-import { useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/button';
+import { useSearchParams } from "next/navigation";
+import { motion } from "framer-motion";
+import { products } from "@/lib/data";
+import { ProductCard } from "@/components/products/product-card-detailed";
 
-export default function CheckoutSuccessPage() {
-  const router = useRouter();
+function ProductGrid() {
+  const searchParams = useSearchParams();
+  const category = searchParams.get("category");
+
+  const filteredProducts = products.filter(
+    (product) => product.category === category
+  );
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut"
+      }
+    } 
+  };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="mx-auto max-w-md rounded-lg bg-white p-8 text-center shadow-lg"
-      >
+    <main className="mx-auto max-w-7xl px-6 py-12 sm:px-8 lg:px-10">
+    <motion.div 
+      className="mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-4"
+      variants={containerVariants}
+      initial="hidden"
+      animate="show"
+    >
+      {filteredProducts.map((product) => (
         <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 0.2 }}
+          key={product.id}
+          variants={itemVariants}
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.98 }}
         >
-          <CheckCircle className="mx-auto h-16 w-16 text-green-500" />
+          <ProductCard {...product} />
         </motion.div>
-        <h1 className="mt-6 text-3xl font-bold text-gray-900">
-          Order Successful!
-        </h1>
-        <p className="mt-4 text-gray-600">
-          Thank you for your purchase. Your order has been received and will be
-          processed shortly.
-        </p>
-        <Button
-          onClick={() => router.push('/')}
-          className="mt-8 w-full"
-          size="lg"
-        >
-          Continue Shopping
-        </Button>
-      </motion.div>
-    </div>
+      ))}
+    </motion.div>
+    </main>
   );
 }
+
+export default ProductGrid;
