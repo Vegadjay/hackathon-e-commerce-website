@@ -49,7 +49,6 @@ const collections = {
       { title: "Trending Now", category: "trending" },
       { title: "Top Rated", category: "top-rated" },
       { title: "Customer Favorites", category: "favorites" },
-      { title: "Tranding Sarees", category: "tranding-sarees" },
       { title: "Premium Collection", category: "premium" }
     ]
   },

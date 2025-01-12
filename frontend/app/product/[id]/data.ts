@@ -11,6 +11,7 @@ export interface Products {
   seller: string;
   category: string;
   model: string;
+  size?: string[];
   images: string[];
   features: string[];
   description: string;
@@ -29,6 +30,7 @@ export const products: Products[] = [{
   "seller": "Indigo Apparel Co.",
   "category": "Cotton Suit Sets",
   "model": "JA-729)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/1.1.webp",
     "/detailphotos/1.2.webp",
@@ -58,6 +60,7 @@ export const products: Products[] = [{
   "seller": "Indigo Apparel Co.",
   "category": "latest arrival",
   "model": "Fit - Relaxed (Code JA-792)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/2.1.webp",
     "/detailphotos/2.2.webp",
@@ -87,6 +90,7 @@ export const products: Products[] = [{
   "seller": "Indigo Apparel Co.",
   "category": "Cotton Suit Sets",
   "model": "Fit - Relaxed (Code JA-704)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/3.1.webp",
     "/detailphotos/3.2.webp",
@@ -116,6 +120,7 @@ export const products: Products[] = [{
   "seller": "Indigo Apparel Co.",
   "category": "Original Handblock Suit Set",
   "model": "Fit - Relaxed (Code JA-701)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/4.1.webp",
     "/detailphotos/4.2.webp",
@@ -145,6 +150,7 @@ export const products: Products[] = [{
   "seller": "Indigo Apparel Co.",
   "category": "Original Handblock Suit Set",
   "model": "Fit - Relaxed (Code JA-478)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/5.1.webp",
     "/detailphotos/5.2.webp",
@@ -174,6 +180,7 @@ export const products: Products[] = [{
   "seller": "Indigo Apparel Co.",
   "category": "Original Handblock Suit Set",
   "model": "Fit - Relaxed (Code JA-718)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/6.1.webp",
     "/detailphotos/6.2.webp",
@@ -203,6 +210,7 @@ export const products: Products[] = [{
   "seller": "Indigo Apparel Co.",
   "category": "Kurta Sets",
   "model": "Fit - Relaxed (Code JA-SKU-769)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/7.1.webp",
     "/detailphotos/7.2.webp",
@@ -232,6 +240,7 @@ export const products: Products[] = [{
   "seller": "Indigo Apparel Co.",
   "category": "Kurta Sets",
   "model": "Fit - Relaxed (Code JA-657 WD)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/8.1.webp",
     "/detailphotos/3.2.webp",
@@ -261,6 +270,7 @@ export const products: Products[] = [{
   "seller": "Indigo Apparel Co.",
   "category": "Kurta Sets",
   "model": "Fit - Relaxed (Code JA-453 WD)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/9.1.webp",
     "/detailphotos/9.2.webp",
@@ -290,6 +300,7 @@ export const products: Products[] = [{
   "seller": "Indigo Apparel Co.",
   "category": "Shorts Kurtas",
   "model": "Fit - Relaxed (Code JA_607_SKP)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/10.1.webp",
     "/detailphotos/10.2.webp",
@@ -319,6 +330,7 @@ export const products: Products[] = [{
   "seller": "Indigo Apparel Co.",
   "category": "Shorts Kurtas",
   "model": "Not specified",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/11.1.webp",
     "/detailphotos/11.2.webp",
@@ -348,6 +360,7 @@ export const products: Products[] = [{
   "seller": "Indigo Apparel Co.",
   "category": "Shorts Kurtas",
   "model": "Not specified",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/12.1.webp",
     "/detailphotos/12.2.webp",
@@ -377,6 +390,7 @@ export const products: Products[] = [{
   "seller": "Indigo Apparel Co.",
   "category": "Anarkali Suits",
   "model": "Fit - Relaxed (Code JA-792)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/13.1.webp",
     "/detailphotos/13.2.webp",
@@ -406,6 +420,7 @@ export const products: Products[] = [{
   "seller": "Indigo Apparel Co.",
   "category": "Anarkali Suits",
   "model": "Not specified",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/14.1.webp",
     "/detailphotos/14.2.webp",
@@ -435,6 +450,7 @@ export const products: Products[] = [{
   "seller": "Indigo Apparel Co.",
   "category": "Anarkali Suits",
   "model": "Fit - Relaxed (Code JA-687)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/15.1.webp",
     "/detailphotos/15.2.webp",
@@ -464,6 +480,7 @@ export const products: Products[] = [{
   "seller": "Indigo Apparel Co.",
   "category": "Premium Chanderi Suit-Sets",
   "model": "Fit - Relaxed (Code JA-819)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/16.1.webp",
     "/detailphotos/16.2.webp",
@@ -493,6 +510,7 @@ export const products: Products[] = [{
   "seller": "Indigo Apparel Co.",
   "category": "Premium Chanderi Suit-Sets",
   "model": "Fit - Relaxed (Code JA-649)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/17.1.webp",
     "/detailphotos/17.2.webp",
@@ -522,6 +540,7 @@ export const products: Products[] = [{
   "seller": "Indigo Apparel Co.",
   "category": "Premium Chanderi Suit-Sets",
   "model": "Not specified",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/18.1.webp",
     "/detailphotos/18.2.webp",
@@ -551,6 +570,7 @@ export const products: Products[] = [{
   "seller": "Indigo Apparel Co.",
   "category": "Premium Handwork Suit Sets",
   "model": "Fit - Relaxed (Code JA-622)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/19.1.webp",
     "/detailphotos/19.2.webp",
@@ -580,6 +600,7 @@ export const products: Products[] = [{
   "seller": "Indigo Apparel Co.",
   "category": "Premium Handwork Suit Sets",
   "model": "Fit - Relaxed (Code JA-615)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/20.1.webp",
     "/detailphotos/20.2.webp",
@@ -609,6 +630,7 @@ export const products: Products[] = [{
   "seller": "Indigo Apparel Co.",
   "category": "Premium Handwork Suit Sets",
   "model": "Fit - Relaxed (Code JA-627)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/21.1.webp",
     "/detailphotos/22.2.webp",
@@ -638,6 +660,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "latest-collection",
   "model": "RP-817)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/22.1.webp",
     "/detailphotos/22.2.webp",
@@ -668,6 +691,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "latest-collection",
   "model": "RP-816)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/23.1.webp",
     "/detailphotos/23.2.webp",
@@ -697,6 +721,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "latest-collection",
   "model": "RP-806)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/24.1.webp",
     "/detailphotos/24.2.webp"
@@ -724,6 +749,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "latest-collection",
   "model": "RP-798)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/25.1.webp",
     "/detailphotos/25.2.webp",
@@ -752,6 +778,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "latest-collection",
   "model": "RP-812)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/26.1.webp",
     "/detailphotos/26.2.webp",
@@ -781,6 +808,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "latest-collection",
   "model": "RP-813)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/27.1.webp",
     "/detailphotos/27.2.webp"
@@ -808,6 +836,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "latest-collection",
   "model": "RP-804)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/28.1.webp",
     "/detailphotos/28.2.webp",
@@ -838,6 +867,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "latest-collection",
   "model": "RP-794)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/29.1.webp",
     "/detailphotos/29.2.webp",
@@ -868,6 +898,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "latest-collection",
   "model": "RP-782)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/30.1.webp",
     "/detailphotos/30.2.webp",
@@ -899,6 +930,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "latest-collection",
   "model": "RP-777)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/31.1.webp",
     "/detailphotos/31.2.webp",
@@ -929,6 +961,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "latest-collection",
   "model": "RP-814)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/32.1.webp",
     "/detailphotos/32.2.webp",
@@ -959,6 +992,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-787)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/33.1.webp",
     "/detailphotos/33.2.webp",
@@ -991,6 +1025,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-781)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/34.1.webp",
     "/detailphotos/34.2.webp",
@@ -1019,6 +1054,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-780)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/35.1.webp",
     "/detailphotos/35.2.webp",
@@ -1049,6 +1085,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-555)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/36.1.webp",
     "/detailphotos/36.2.webp",
@@ -1079,6 +1116,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-607)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/37.1.webp",
     "/detailphotos/37.2.webp",
@@ -1107,6 +1145,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-733)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/38.1.webp",
     "/detailphotos/38.2.webp",
@@ -1136,6 +1175,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-575)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/39.1.webp",
     "/detailphotos/39.2.webp",
@@ -1166,6 +1206,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-740)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/40.1.webp",
     "/detailphotos/40.2.webp",
@@ -1195,6 +1236,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-746)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/41.1.webp",
     "/detailphotos/41.2.webp",
@@ -1225,6 +1267,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-736)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/42.1.webp",
     "/detailphotos/42.2.webp",
@@ -1255,6 +1298,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-598)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/43.1.webp",
     "/detailphotos/43.2.webp",
@@ -1285,6 +1329,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-800)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/44.1.webp",
     "/detailphotos/44.2.webp",
@@ -1315,6 +1360,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-734)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/45.1.webp",
     "/detailphotos/45.2.webp",
@@ -1345,6 +1391,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-612)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/46.1.webp",
     "/detailphotos/46.2.webp",
@@ -1375,6 +1422,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-738)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/47.1.webp",
     "/detailphotos/47.2.webp",
@@ -1405,6 +1453,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-479-KFL-(KF))",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/48.1.webp",
     "/detailphotos/48.2.webp",
@@ -1435,6 +1484,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-451-KFL-(KF))",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/49.1.webp",
     "/detailphotos/49.2.webp",
@@ -1466,6 +1516,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-204-K)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/50.1.webp",
     "/detailphotos/50.2.webp",
@@ -3047,6 +3098,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-204)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/101.1.webp",
     "/detailphotos/101.2.webp",
@@ -3076,6 +3128,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-269-K)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/102.1.webp",
     "/detailphotos/102.2.webp",
@@ -3105,6 +3158,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-272)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/103.1.webp",
     "/detailphotos/103.2.webp",
@@ -3134,6 +3188,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-267-KFL-(KF))",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/104.1.webp",
     "/detailphotos/104.2.webp",
@@ -3164,6 +3219,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-215 KFS)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/105.1.webp",
     "/detailphotos/105.2.webp",
@@ -3193,6 +3249,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-251)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/106.1.webp",
     "/detailphotos/106.2.webp",
@@ -3222,6 +3279,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-238)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/107.1.webp",
     "/detailphotos/107.2.webp",
@@ -3251,6 +3309,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-276)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/108.1.webp",
     "/detailphotos/108.2.webp",
@@ -3280,6 +3339,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-275-K)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/109.1.webp",
     "/detailphotos/109.2.webp",
@@ -3309,6 +3369,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-179)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/110.1.webp",
     "/detailphotos/110.2.webp",
@@ -3338,6 +3399,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-281)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/111.1.webp",
     "/detailphotos/111.2.webp",
@@ -3368,6 +3430,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-215-K)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/112.1.webp",
     "/detailphotos/112.2.webp",
@@ -3397,6 +3460,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-215-K)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/113.1.webp",
     "/detailphotos/113.2.webp",
@@ -3425,6 +3489,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-215-K)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/114.1.webp",
     "/detailphotos/114.2.webp",
@@ -3454,6 +3519,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-276 NSC)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/115.1.webp",
     "/detailphotos/115.2.webp",
@@ -3483,6 +3549,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-276 NSC)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/116.1.webp",
     "/detailphotos/116.2.webp",
@@ -3512,6 +3579,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "lounge-wear",
   "model": "RP-555 WD)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/117.1.webp",
     "/detailphotos/117.2.webp",
@@ -3541,6 +3609,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "solid-wear-clothing",
   "model": "RP-PLK103BLACK)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/118.1.webp",
     "/detailphotos/118.2.webp",
@@ -3572,6 +3641,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "solid-wear-clothing",
   "model": "RP-PLK103NAVYBLUE)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/119.1.webp",
     "/detailphotos/119.2.webp",
@@ -3602,6 +3672,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "solid-wear-clothing",
   "model": "RP-PLK103BLUE)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/120.1.webp",
     "/detailphotos/120.2.webp",
@@ -3632,6 +3703,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "solid-wear-clothing",
   "model": "RP-PLK103ROSE TAUPE)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/121.1.webp",
     "/detailphotos/121.2.webp",
@@ -3662,6 +3734,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "solid-wear-clothing",
   "model": "RP-PLK103PINK)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/122.1.webp",
     "/detailphotos/122.2.webp",
@@ -3692,6 +3765,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "solid-wear-clothing",
   "model": "RP-PSK102 SEAWOOD)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/123.1.webp",
     "/detailphotos/123.2.webp",
@@ -3722,6 +3796,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "solid-wear-clothing",
   "model": "RP-PSK102 UMBER)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/124.1.webp",
     "/detailphotos/124.2.webp",
@@ -3752,6 +3827,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "solid-wear-clothing",
   "model": "RP-PLK103CAREMEL)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/125.1.webp",
     "/detailphotos/125.2.webp",
@@ -3782,6 +3858,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "solid-wear-clothing",
   "model": "RP-PRP104UMBER)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/126.1.webp",
     "/detailphotos/126.2.webp",
@@ -3812,6 +3889,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "solid-wear-clothing(pant)",
   "model": "RP-PRP104BLACK)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/127.1.webp",
     "/detailphotos/127.2.webp",
@@ -3842,6 +3920,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "solid-wear-clothing(pant)",
   "model": "RP-PRP104MAROON)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/128.1.webp",
     "/detailphotos/128.2.webp",
@@ -3872,6 +3951,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "solid-wear-clothing(pant)",
   "model": "RP-PRP104PINK)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/129.1.webp",
     "/detailphotos/129.2.webp",
@@ -3902,6 +3982,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "solid-wear-clothing(pant)",
   "model": "RP-PRP104MUSTARD)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/130.1.webp",
     "/detailphotos/130.2.webp",
@@ -3932,6 +4013,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "solid-wear-clothing(pant)",
   "model": "RP-PRP104ROSE TAUPE)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/131.1.webp",
     "/detailphotos/131.2.webp",
@@ -3962,6 +4044,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "solid-wear-clothing(pant)",
   "model": "RP-PRP104SEAWOOD)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/132.1.webp",
     "/detailphotos/132.2.webp",
@@ -3992,6 +4075,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "solid-wear-clothing(pant)",
   "model": "RP-PRP104NAVY BLUE)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/133.1.webp",
     "/detailphotos/133.2.webp",
@@ -4022,6 +4106,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "solid-wear-clothing(pant)",
   "model": "RP-PPP106UMBER)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/134.1.webp",
     "/detailphotos/134.2.webp",
@@ -4052,6 +4137,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "solid-wear-clothing(pant)",
   "model": "RP-PPP106ROSE TAUPE)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/135.1.webp",
     "/detailphotos/135.2.webp",
@@ -4082,6 +4168,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "solid-wear-clothing(pant)",
   "model": "RP-PPP106MAROON)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/136.1.webp",
     "/detailphotos/136.2.webp",
@@ -4112,6 +4199,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "solid-wear-clothing(pant)",
   "model": "RP-PPP106MUSTARD)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/137.1.webp",
     "/detailphotos/137.2.webp",
@@ -4142,6 +4230,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "solid-wear-clothing(pant)",
   "model": "RP-PPP106SEAWOOD)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/138.1.webp",
     "/detailphotos/138.2.webp",
@@ -4172,6 +4261,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "solid-wear-clothing(pant)",
   "model": "RP-PPP106PEA GREEN)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/139.1.webp",
     "/detailphotos/139.2.webp",
@@ -4202,6 +4292,7 @@ export const products: Products[] = [{
   "seller": "Rajwadi Poshaak Co.",
   "category": "solid-wear-clothing(pant)",
   "model": "RP-PPP106IMPERIAL RED)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
   "images": [
     "/detailphotos/140.1.webp",
     "/detailphotos/140.2.webp",
@@ -4218,5 +4309,692 @@ export const products: Products[] = [{
     "Pant length 38"
   ],
   "description": "Imperial red palazzo pants tailored from soft cotton fabric, ensuring comfort and style. Adorned with pockets on each side for added functionality. Featuring a half-elasticated, mid-rise waist, they offer flexibility and ease of wear. Perfect for versatile styling, adding a bold pop of color to any ensemble."
+},
+{
+  "id": 141,
+  "name": "Off-White 4-Way Stretchable Pants",
+  "price": 1199.00,
+  "rating": 4.5,
+  "reviews": 3395,
+  "answers": 132,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing(pant)",
+  "model": "RP-PSP105OFF WHITE)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
+  "images": [
+    "/detailphotos/141.1.webp",
+    "/detailphotos/141.2.webp",
+    "/detailphotos/141.3.webp",
+    "/detailphotos/141.4.webp",
+    "/detailphotos/141.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Premium Lycra",
+    "Fit - Relaxed (CODE :RP-PSP105OFF WHITE)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "These premium off-white pants feature a stretchable material, perfect for all-day comfort. With pockets on both sides, keep your essentials close at hand. Embrace versatility with the 4-way stretch. (Not just for yoga, these pants are perfect for any occasion!)"
+}
+  ,
+{
+  "id": 142,
+  "name": "Burnt Maroon 4-Way Stretchable Pants",
+  "price": 1199.00,
+  "rating": 4.7,
+  "reviews": 5495,
+  "answers": 454,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing(pant)",
+  "model": "RP-PSP105BURNT MROON)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
+  "images": [
+    "/detailphotos/142.1.webp",
+    "/detailphotos/142.2.webp",
+    "/detailphotos/142.3.webp",
+    "/detailphotos/142.4.webp",
+    "/detailphotos/142.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Premium Lycra",
+    "Fit - Relaxed (CODE :RP-PSP105BURNT MROON)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Upgrade your wardrobe with our Burnt Maroon 4-Way Stretchable Pants. Made from premium lycra fabric, these pants offer the perfect combination of comfort and style. With pockets on both sides, you'll have plenty of room to store your essentials. Embrace the trendy burnt maroon colour and stand out in a sea of black pants."
+},
+{
+  "id": 143,
+  "name": "Navy Blue 4-Way Stretchable Pants",
+  "price": 1199.00,
+  "rating": 4.2,
+  "reviews": 2305,
+  "answers": 43,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing(pant)",
+  "model": "RP-PSP105NAVY BLUE)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
+  "images": [
+    "/detailphotos/143.1.webp",
+    "/detailphotos/143.2.webp",
+    "/detailphotos/143.3.webp",
+    "/detailphotos/143.4.webp",
+    "/detailphotos/143.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Premium Lycra",
+    "Fit - Relaxed (CODE :RP-PSP105NAVY BLUE)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Upgrade your pants game with our Navy Blue 4-Way Stretchable Pants. Made from premium lycra fabric, these pants are not only stylish, but also incredibly comfortable. With pockets on both sides, you'll have easy access to all your essentials. Available in a sleek navy blue color, these pants are perfect for any occasion. Say goodbye to restrictive pants and hello to ultimate flexibility."
+},
+{
+  "id": 144,
+  "name": "Dark Grey 4-Way Stretchable Pants",
+  "price": 1199.00,
+  "rating": 4,
+  "reviews": 7805,
+  "answers": 203,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing(pant)",
+  "model": "RP-PSP105DARK GREY)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
+  "images": [
+    "/detailphotos/144.1.webp",
+    "/detailphotos/144.2.webp",
+    "/detailphotos/144.3.webp",
+    "/detailphotos/144.4.webp",
+    "/detailphotos/144.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Premium Lycra",
+    "Fit - Relaxed (CODE :RP-PSP105DARK GREY)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Get ready to stretch your style game with our Dark Grey 4-Way Stretchable Pants. Made with premium lycra, these pants offer maximum comfort and flexibility. Plus, with pockets on both sides, you never have to sacrifice style for functionality. Embrace the dark side in style now!"
+},
+{
+  "id": 201,
+  "name": "Black Traditional Bandhani Embroidered Lace Georgette Saree",
+  "price": 4399.0,
+  "rating": 4.5,
+  "reviews": 6250,
+  "answers": 259,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/201.1.jpg",
+    "/detailphotos/201.2.jpg",
+    "/detailphotos/201.3.jpg",
+    "/detailphotos/201.4.jpg",
+    "/detailphotos/201.5.jpg",
+    "/detailphotos/201.6.jpg"
+  ],
+  "features": [
+    "Party Wear Sequin Work Black Georgette",
+    "traditionalWoven Design print in white over a bright Black base",
+    "Pure Silk Blend Fabric",
+    "For Party Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 80 CM"
+  ],
+  "description": "Revamp your closet in this Black Traditional Embroidered Lace Georgette Bandhani Saree. It has a floral embroidered lace scallop border."
+},
+{
+  "id": 202,
+  "name": "Red Traditional Embroidered Bandhani Pure Georgette Saree",
+  "price": 5799.0,
+  "rating": 4.3,
+  "reviews": 6000,
+  "answers": 250,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/202.1.jpg",
+    "/detailphotos/202.2.jpg",
+    "/detailphotos/202.3.jpg",
+    "/detailphotos/202.4.jpg",
+    "/detailphotos/202.5.jpg",
+    "/detailphotos/202.6.jpg"
+  ],
+  "features": [
+    "Party Wear Sequin Work Red Georgette",
+    "traditionalWoven Design print in over a bright Red base",
+    "Pure Silk Blend Fabric",
+    "For Party Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 80 CM"
+  ],
+  "description": "Embrace the festive charm of the Red Traditional Embroidered Bandhani Pure Georgette Saree. It has bandhani prints, an embroidered border and heavy work on the palla."
+},
+{
+  "id": 203,
+  "name": "Traditional Sea Green Embroidered Pure Georgette Saree",
+  "price": 4699.0,
+  "rating": 4.4,
+  "reviews": 6200,
+  "answers": 220,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/203.1.jpg",
+    "/detailphotos/203.2.jpg",
+    "/detailphotos/203.3.jpg",
+    "/detailphotos/203.4.jpg",
+    "/detailphotos/203.5.jpg",
+    "/detailphotos/203.6.jpg",
+    "/detailphotos/203.7.jpg"
+  ],
+  "features": [
+    "Party Wear Sequin Work Bottle Green Georgette",
+    "traditional Woven Design print in white over a Bottle Green base",
+    "Pure Silk Blend Fabric",
+    "For Party Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 80 CM"
+  ],
+  "description": "Add a pastel touch to your wardrobe with this Traditional Embroidered Pure Georgette Saree. It has fine floral embroidered details."
+},
+{
+  "id": 204,
+  "name": "Red Zari Woven Design Heavy Banarasi Saree",
+  "price": 5699.0,
+  "rating": 4.5,
+  "reviews": 6300,
+  "answers": 230,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/204.1.jpg",
+    "/detailphotos/204.2.jpg",
+    "/detailphotos/204.3.jpg",
+    "/detailphotos/204.4.jpg",
+    "/detailphotos/204.5.jpg",
+    "/detailphotos/204.6.jpg"
+  ],
+  "features": [
+    "Party Wear Sequin Work Red Georgette",
+    "traditionalWoven Design print in white over a bright Red base",
+    "Pure Silk Blend Fabric",
+    "For Party Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 80 CM"
+  ],
+  "description": "Featuring a glamorous look, this Red Zari Woven Design Heavy Banarasi Saree comes with a traditional zari woven design all over and tassels on the palla."
+},
+{
+  "id": 205,
+  "name": "Festive Zari Woven Heavy Banarasi Lavender Saree",
+  "price": 6799.0,
+  "rating": 4.6,
+  "reviews": 6400,
+  "answers": 240,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/205.1.jpg",
+    "/detailphotos/205.2.jpg",
+    "/detailphotos/205.3.jpg",
+    "/detailphotos/205.4.jpg",
+    "/detailphotos/205.5.jpg",
+    "/detailphotos/205.6.jpg",
+    "/detailphotos/205.7.jpg"
+  ],
+  "features": [
+    "Party Wear Sequin Work Lavender Georgette",
+    "traditional Woven Design print in white over a bright Lavender base",
+    "Pure Silk Blend Fabric",
+    "For Party Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 80 CM"
+  ],
+  "description": "Featuring a glamorous look, this Lavender Festive Zari Woven Heavy Banarasi Saree comes with a traditional zari woven design all over and tassels on the palla."
+},
+{
+  "id": 206,
+  "name": "Orange Zari Woven Heavy Banarasi Saree",
+  "price": 6799.0,
+  "rating": 4.7,
+  "reviews": 6500,
+  "answers": 250,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/206.1.jpg",
+    "/detailphotos/206.2.jpg",
+    "/detailphotos/206.3.jpg",
+    "/detailphotos/206.4.jpg",
+    "/detailphotos/206.5.jpg",
+    "/detailphotos/206.6.jpg"
+  ],
+  "features": [
+    "Party Wear Sequin Work Orange Georgette",
+    "traditional Woven Design print in white over a bright Orange base",
+    "Pure Silk Blend Fabric",
+    "For Party Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 80 CM"
+  ],
+  "description": "Featuring a glamorous look, this Orange Zari Woven Heavy Banarasi Saree comes with a traditional zari woven design all over and tassels on the palla."
+},
+{
+  "id": 207,
+  "name": "Green Leheriya Embroidered Pure Georgette Saree",
+  "price": 4699.0,
+  "rating": 4.8,
+  "reviews": 6600,
+  "answers": 260,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/207.1.jpg",
+    "/detailphotos/207.2.jpg",
+    "/detailphotos/207.3.jpg",
+    "/detailphotos/207.4.jpg",
+    "/detailphotos/207.5.jpg",
+    "/detailphotos/207.6.jpg"
+  ],
+  "features": [
+    "Party Wear Sequin Work Green Georgette",
+    "traditional Woven Design print in white over a bright Green base",
+    "Pure Pure Georgette Fabric",
+    "For Party Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 80 CM"
+  ],
+  "description": "Give a traditional touch to your wardrobe with this Leheriya Embroidered Pure Georgette Saree. It has embroidered lace on borders and tassels at the hems."
+},
+{
+  "id": 208,
+  "name": "Violet Leheriya Embroidered Pure Georgette Saree",
+  "price": 4699.0,
+  "rating": 4.1,
+  "reviews": 6700,
+  "answers": 270,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/208.1.jpg",
+    "/detailphotos/208.2.jpg",
+    "/detailphotos/208.3.jpg",
+    "/detailphotos/208.4.jpg",
+    "/detailphotos/208.5.jpg",
+    "/detailphotos/208.6.jpg"
+  ],
+  "features": [
+    "Party Wear Sequin Work Violet Georgette",
+    "traditional Woven Design print in white over a bright Violet base",
+    "Pure Pure Georgette Fabric",
+    "For Party Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 80 CM"
+  ],
+  "description": "Give a traditional touch to your wardrobe with this Leheriya Embroidered Pure Georgette Saree. It has embroidered lace on borders and tassels at the hems."
+},
+{
+  "id": 209,
+  "name": "Festive Zari Woven Design Heavy Banarasi Saree",
+  "price": 5699.0,
+  "rating": 4.0,
+  "reviews": 6800,
+  "answers": 280,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/209.1.jpg",
+    "/detailphotos/209.2.jpg",
+    "/detailphotos/209.3.jpg",
+    "/detailphotos/209.4.jpg",
+    "/detailphotos/209.5.jpg",
+    "/detailphotos/209.6.jpg",
+    "/detailphotos/209.7.jpg"
+  ],
+  "features": [
+    "Party Wear Sequin Work Orange Georgette",
+    "traditional Woven Design print in white over a bright Orange base",
+    "Pure Silk Blend Fabric",
+    "For Party Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 80 CM"
+  ],
+  "description": "Featuring a glamorous look, this Orange Zari Woven Design Heavy Banarasi Saree comes with a traditional zari woven design all over and tassels on the palla."
+},
+{
+  "id": 210,
+  "name": "Festive Red Zari Woven Heavy Banarasi Saree",
+  "price": 6799.0,
+  "rating": 4.2,
+  "reviews": 6900,
+  "answers": 290,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/210.1.jpg",
+    "/detailphotos/210.2.jpg",
+    "/detailphotos/210.3.jpg",
+    "/detailphotos/210.4.jpg",
+    "/detailphotos/210.5.jpg",
+    "/detailphotos/210.6.jpg",
+    "/detailphotos/210.7.jpg"
+  ],
+  "features": [
+    "Party Wear Sequin Work Wine Georgette",
+    "traditional Woven Design print in white over a bright Wine color base",
+    "Pure Silk Blend Fabric",
+    "For Party Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 80 CM"
+  ],
+  "description": "Featuring a glamorous look, this Wine Festive Zari Woven Heavy Banarasi Saree comes with a traditional zari woven design all over and tassels on the palla."
+},
+{
+  "id": 211,
+  "name": "Sequin Embellished Georgette Party Wear Saree",
+  "price": 4999.0,
+  "rating": 4.3,
+  "reviews": 7000,
+  "answers": 300,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/211.1.jpg",
+    "/detailphotos/211.2.jpg",
+    "/detailphotos/211.3.jpg",
+    "/detailphotos/211.4.jpg",
+    "/detailphotos/211.5.jpg",
+    "/detailphotos/211.6.jpg"
+  ],
+  "features": [
+    "Party Wear Sequin Work Purple Georgette",
+    "traditional Woven Design print in white over a bright Purple base",
+    "Pure Silk Blend Fabric",
+    "For Party Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 80 CM"
+  ],
+  "description": "Flaunt traditional handcraftsmanship with this Purple Sequin Embellished Georgette Party Wear Saree. It has colorful sequin embellishments and a solid border.."
+},
+{
+  "id": 212,
+  "name": "Festive Maroon Zari Woven Heavy Banarasi Saree",
+  "price": 6799.0,
+  "rating": 4.4,
+  "reviews": 7100,
+  "answers": 310,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/212.1.jpg",
+    "/detailphotos/212.2.jpg",
+    "/detailphotos/212.3.jpg",
+    "/detailphotos/212.4.jpg",
+    "/detailphotos/212.5.jpg",
+    "/detailphotos/212.6.jpg",
+    "/detailphotos/212.7.jpg",
+    "/detailphotos/212.8.jpg"
+  ],
+  "features": [
+    "Party Wear Sequin Work Maroon Georgette",
+    "traditional Woven Design print in white over a bright Maroon base",
+    "Pure Silk Blend Fabric",
+    "For Party Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 80 CM"
+  ],
+  "description": "Featuring a glamorous look, this Maroon Festive Zari Woven Heavy Banarasi Saree comes with a traditional zari woven design all over and tassels on the palla."
+},
+{
+  "id": 213,
+  "name": "Festive Burgundy Zari Woven Heavy Banarasi Saree",
+  "price": 6799.0,
+  "rating": 4.5,
+  "reviews": 7200,
+  "answers": 320,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/213.1.jpg",
+    "/detailphotos/213.2.jpg",
+    "/detailphotos/213.3.jpg",
+    "/detailphotos/213.4.jpg",
+    "/detailphotos/213.5.jpg"
+  ],
+  "features": [
+    "Party Wear Sequin Work Burgundy Georgette",
+    "traditional Woven Design print in white over a bright Burgundy base",
+    "Pure Silk Blend Fabric",
+    "For Party Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 80 CM"
+  ],
+  "description": "Featuring a glamorous look, this Burgundy Festive Zari Woven Heavy Banarasi Saree comes with a traditional zari woven design all over and tassels on the palla."
+},
+{
+  "id": 214,
+  "name": "Violet Bandhani Embroidered Pure Georgette Saree",
+  "price": 4699.0,
+  "rating": 4.6,
+  "reviews": 7300,
+  "answers": 330,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/214.1.jpg",
+    "/detailphotos/214.2.jpg",
+    "/detailphotos/214.3.jpg",
+    "/detailphotos/214.4.jpg",
+    "/detailphotos/214.5.jpg"
+  ],
+  "features": [
+    "Party Wear Sequin Work Violet Georgette",
+    "traditional Woven Design print in white over a bright Violet base",
+    "Pure Silk Blend Fabric",
+    "For Party Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 80 CM"
+  ],
+  "description": "Embrace the traditional charm of Bandhani Embroidered Pure Georgette Saree. It has an embroidered border and heavy work on the palla."
+},
+{
+  "id": 215,
+  "name": "Teal Bandhani Embroidered Pure Georgette Saree",
+  "price": 4699.0,
+  "rating": 4.7,
+  "reviews": 7400,
+  "answers": 340,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/215.1.jpg",
+    "/detailphotos/215.2.jpg",
+    "/detailphotos/215.3.jpg",
+    "/detailphotos/215.4.jpg",
+    "/detailphotos/215.5.jpg",
+    "/detailphotos/215.6.jpg"
+  ],
+  "features": [
+    "Party Wear Sequin Work Teal Georgette",
+    "traditional Woven Design print in white over a bright Teal base",
+    "Pure Silk Blend Fabric",
+    "For Party Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 80 CM"
+  ],
+  "description": "Embrace the traditional charm of Bandhani Embroidered Pure Georgette Saree. It has an embroidered border and heavy work on the palla."
+},
+{
+  "id": 216,
+  "name": "Wine Pure Georgette Leheriya Mirror Work Saree",
+  "price": 4699.0,
+  "rating": 4.8,
+  "reviews": 7500,
+  "answers": 350,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/216.1.jpg",
+    "/detailphotos/216.2.jpg",
+    "/detailphotos/216.3.jpg",
+    "/detailphotos/216.4.jpg",
+    "/detailphotos/216.5.jpg",
+    "/detailphotos/216.6.jpg"
+  ],
+  "features": [
+    "Party Wear Sequin Work Wine Georgette",
+    "traditional Woven Design print in white over a bright Wine base",
+    "Pure Silk Blend Fabric",
+    "For Party Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 80 CM"
+  ],
+  "description": "A traditional touch to your wardrobe this Wine Pure Georgette Leheriya Mirror Work Saree features mirror work embellishment. It is made in premium georgette fabric."
+},
+{
+  "id": 217,
+  "name": "Festive Zari Woven Heavy Banarasi Maroon Saree",
+  "price": 6799.0,
+  "rating": 3.8,
+  "reviews": 7600,
+  "answers": 360,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/217.1.jpg",
+    "/detailphotos/217.2.jpg",
+    "/detailphotos/217.3.jpg",
+    "/detailphotos/217.4.jpg",
+    "/detailphotos/217.5.jpg",
+    "/detailphotos/217.6.jpg"
+  ],
+  "features": [
+    "Party Wear Sequin Work Maroon Georgette",
+    "traditional Woven Design print in white over a bright Maroon base",
+    "Pure Silk Blend Fabric",
+    "For Party Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 80 CM"
+  ],
+  "description": "Featuring a glamorous look, this Maroon Festive Zari Woven Heavy Banarasi Saree comes with a traditional zari woven design all over and tassels on the palla."
+},
+{
+  "id": 218,
+  "name": "Red Pure Silk Paithani Saree",
+  "price": 8999.0,
+  "rating": 4.8,
+  "reviews": 8615,
+  "answers": 385,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "indian-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/217.1.jpg",
+    "/detailphotos/217.2.jpg",
+    "/detailphotos/217.3.jpg",
+    "/detailphotos/217.4.jpg",
+    "/detailphotos/217.5.jpg",
+    "/detailphotos/217.6.jpg"
+  ],
+  "features": [
+    "Party Wear Sequin Work Maroon Georgette",
+    "traditional Woven Design print in white over a bright Maroon base",
+    "Pure Silk Blend Fabric",
+    "For Party Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 80 CM"
+  ],
+  "description": "Featuring a glamorous look, this Maroon Festive Zari Woven Heavy Banarasi Saree comes with a traditional zari woven design all over and tassels on the palla."
 }
 ]
