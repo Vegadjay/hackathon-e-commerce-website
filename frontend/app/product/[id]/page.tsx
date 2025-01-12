@@ -55,7 +55,6 @@ const Product: React.FC<ProductProps> = ({ id }) => {
       router.push('/login');
       return;
     }
-
     try {
       const response = await fetch('/api/cart', {
         method: 'POST',
@@ -66,13 +65,14 @@ const Product: React.FC<ProductProps> = ({ id }) => {
           userId: userId,
           products: [
             {
-              productId: "6783546add252cb18a80dfe7",
+              // productId: userId,
+              productId: "677816d602b67aeb8b631fd1", // productId ....
               quantity: quantity,
               price: product.price.toString(),
               size: selectedSize,
             }
           ],
-          totalPrice: quantity * product.price
+          totalPrice: 0
         }),
       });
 
