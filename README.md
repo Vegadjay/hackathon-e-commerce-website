@@ -51,3 +51,7 @@ http://localhost:3000/api/user/verifyotp => email,otp =>return (status,message,s
 FOR OTP :
 to send otp : http://localhost:3000/api/user/sendotp => body : {email}
 to verify otp : http://localhost:3000/api/user/verify => body : {otp as string}
+
+FOR Order : 
+to make new order : http://localhost:3000/api/order => body : {body}
+to update the order : http://localhost:3000/api/order/orderId => body : {payment_status, status, shippingAddress} .........this 3 field can be only change
