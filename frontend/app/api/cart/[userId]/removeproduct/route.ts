@@ -30,7 +30,6 @@ export async function DELETE(
 		}
 
 		const cartId = user.cart.toString().replace('ObjectId("', '').replace('")', '');
-		console.log(cartId, " is my cartID hemang@gmail.com");
 		if (!cartId || cartId === undefined || cartId === null || cartId === "") {
 			return NextResponse.json(
 				{ success: false, error: 'Cart not found' },
@@ -39,7 +38,6 @@ export async function DELETE(
 		}
 
 		const cart = await Cart.findById(cartId);
-		console.log(cart, " is my cart hemang@gmail.com");
 		if (!cart) {
 			return NextResponse.json(
 				{ success: false, error: 'Cart not found' },
@@ -63,8 +61,8 @@ export async function DELETE(
 			await Cart.findByIdAndDelete(cartId);
 			//also delete from user.cart
 			await User.findOneAndUpdate(
-				{ cart: cartId },
-				{ $unset: { cart: 1 } }
+				{ _id: userId },
+				{ $unset: { cart: null } }
 			);
 			return NextResponse.json(
 				{ success: true, data: null },

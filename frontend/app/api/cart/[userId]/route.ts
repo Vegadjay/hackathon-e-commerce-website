@@ -10,7 +10,7 @@ export async function GET(
 	try {
 		await dbConnect();
 
-		const userId = params;
+		const { userId } = params;
 		const user = await User.findById(userId);
 
 		if (!user) {

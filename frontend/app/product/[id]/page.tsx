@@ -1,11 +1,12 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Star, Heart, Share2, Check, AlertCircle, Facebook, Twitter } from "lucide-react";
+import { Star, Heart, Share2, Check, AlertCircle, Facebook, Twitter, Plus, Minus } from "lucide-react";
 import { products } from "./data";
 import { motion, AnimatePresence } from "framer-motion";
 import ImageSwapper from "@/components/image/page";
 import Cookies from "js-cookie";
+import { AddToCartModal, BuyNowButton } from "@/app/product/component/button-component";
 
 interface ProductProps {
   id: number;
@@ -20,6 +21,7 @@ const Product: React.FC<ProductProps> = ({ id }) => {
   const [showShareMenu, setShowShareMenu] = useState(false);
 
   const product = products.find((p) => p.id === id);
+
 
   const handleClick = () => {
     setIsSaved(!isSaved);
@@ -42,6 +44,35 @@ const Product: React.FC<ProductProps> = ({ id }) => {
     setShowShareMenu(false);
   };
 
+  const handleQuantityChange = (type: 'increase' | 'decrease') => {
+    setQuantity(prev => {
+      if (type === 'increase' && prev < 10) return prev + 1;
+      if (type === 'decrease' && prev > 1) return prev - 1;
+      return prev;
+    });
+  };
+
+  const handleManualQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    
+    if (value === '') {
+      setQuantity(1);
+      return;
+    }
+
+    const numValue = parseInt(value);
+    
+    if (!isNaN(numValue)) {
+      if (numValue > 10) {
+        setQuantity(10);
+      } else if (numValue < 1) {
+        setQuantity(1);
+      } else {
+        setQuantity(numValue);
+      }
+    }
+  };
+
   const handleAddToCart = async () => {
     if (!product) {
       alert('Product not found');
@@ -55,7 +86,6 @@ const Product: React.FC<ProductProps> = ({ id }) => {
       router.push('/login');
       return;
     }
-
     try {
       const response = await fetch('/api/cart', {
         method: 'POST',
@@ -67,6 +97,7 @@ const Product: React.FC<ProductProps> = ({ id }) => {
           products: [
             {
               productId: "677816d602b67aeb8b631fd0",
+              // productId: userId,
               quantity: quantity,
               price: product.price.toString(),
               size: selectedSize,
@@ -83,8 +114,6 @@ const Product: React.FC<ProductProps> = ({ id }) => {
       }
 
       alert('Added to cart successfully!');
-      
-      
     } catch (error) {
       console.error('Add to cart error:', error);
       alert('Failed to add to cart. Please try again.');
@@ -264,22 +293,56 @@ const Product: React.FC<ProductProps> = ({ id }) => {
               </div>
 
               {/* Quantity Selection */}
-              <div className="space-y-2">
+               <div className="space-y-2">
                 <label className="block text-sm font-medium text-gray-700">Quantity</label>
-                <select
-                  value={quantity}
-                  onChange={(e) => setQuantity(Number(e.target.value))}
-                  className="block w-24 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                >
-                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
-                    <option key={num} value={num}>
-                      {num}
-                    </option>
-                  ))}
-                </select>
+                <div className="flex items-center space-x-2">
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className={`p-2 rounded-full ${
+                      quantity <= 1 ? 'bg-gray-100 text-gray-400' : 'bg-blue-100 text-blue-500 hover:bg-blue-200'
+                    }`}
+                    onClick={() => handleQuantityChange('decrease')}
+                    disabled={quantity <= 1}
+                  >
+                    <Minus className="w-4 h-4" />
+                  </motion.button>
+
+                  <motion.div
+                    key={quantity}
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    className="relative w-52"
+                  >
+                    <input
+                      type="number"
+                      value={quantity}
+                      onChange={handleManualQuantityChange}
+                      className="w-full h-10 text-center border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      min="1"
+                      max="10"
+                      onBlur={() => {
+                        if (quantity < 1) setQuantity(1);
+                        if (quantity > 10) setQuantity(10);
+                      }}
+                    />
+                  </motion.div>
+
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className={`p-2 rounded-full ${
+                      quantity >= 10 ? 'bg-gray-100 text-gray-400' : 'bg-blue-100 text-blue-500 hover:bg-blue-200'
+                    }`}
+                    onClick={() => handleQuantityChange('increase')}
+                    disabled={quantity >= 10}
+                  >
+                    <Plus className="w-4 h-4" />
+                  </motion.button>
+                </div>
+                <p className="text-xs text-gray-500 mt-1">Enter a quantity between 1 and 10</p>
               </div>
 
-              {/* Features */}
               <div className="space-y-4">
                 <h2 className="font-bold text-lg">About this item</h2>
                 <ul className="space-y-2">
@@ -298,22 +361,18 @@ const Product: React.FC<ProductProps> = ({ id }) => {
                 </ul>
               </div>
 
-              {/* Action Buttons */}
-              <div className="space-y-4">
-                <button
-                  onClick={handleAddToCart}
-                  className="w-full px-4 py-3 text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                  disabled={isLoading}
-                >
-                  {isLoading ? "Adding to Cart..." : "Add to Cart"}
-                </button>
-                <button
-                  onClick={handleBuyNow}
-                  className="w-full px-4 py-3 text-white bg-green-500 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-                >
-                  Buy Now
-                </button>
-              </div>
+              <div className="w-full space-y-4 p-4">
+                <AddToCartModal 
+                  product={product}
+                  quantity={1}
+                  selectedSize="M"
+                />
+                <BuyNowButton 
+                  product={product}
+                  quantity={1}
+                  selectedSize="M"
+                />
+            </div>
             </div>
           </motion.div>
         </div>

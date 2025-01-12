@@ -43,7 +43,7 @@ export default function CartPage() {
     const { left, right } = button.getBoundingClientRect();
     const center = (left + right) / 2;
     const distance = e.clientX - center;
-    setTilt(distance / 10); // Control tilt intensity
+    setTilt(distance / 10);
   };
 
   const handleMouseLeave = () => {
@@ -203,16 +203,6 @@ export default function CartPage() {
             <ShoppingCart className="inline-block w-6 h-6 mr-2" />
             Your Cart
           </h1>
-          <Button
-            variant="destructive"
-            onClick={() => {
-              setCartItems([]);
-              setTotalPrice(0);
-            }}
-          >
-            <Trash2 className="w-5 h-5" />
-            Clear Cart
-          </Button>
         </div>
 
         {cartItems.length === 0 ? (
