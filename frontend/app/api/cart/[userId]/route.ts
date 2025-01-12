@@ -5,22 +5,33 @@ import User from '@/models/User';
 
 export async function GET(
 	request: Request,
-	{ params }: { params: { cartId: string } }
+	{ params }: { params: { userId: string } }
 ) {
 	try {
 		await dbConnect();
 
-		const { cartId } = params;
+		const { userId } = params;
+		const user = await User.findById(userId);
 
-		if (!cartId) {
+		if (!user) {
 			return NextResponse.json(
-				{ success: false, error: 'Cart ID is required' },
-				{ status: 400 }
+				{ success: false, error: 'User not found' },
+				{ status: 404 }
 			);
 		}
 
-		const cart = await Cart.findById(cartId);
+		const cartid = user.cart;
 
+		if (!cartid) {
+			return NextResponse.json(
+				{ success: false, error: 'Cart not found' },
+				{ status: 404 }
+			);
+		}
+
+		const cart = await Cart.findById(cartid);
+
+		//for error cross checking
 		if (!cart) {
 			return NextResponse.json(
 				{ success: false, error: 'Cart not found' },

@@ -1,10 +1,11 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, Document, model, models } from 'mongoose';
 
 interface IProduct {
-	productId: string;
+	productId: mongoose.Schema.Types.ObjectId;
+	name: string;
 	quantity: number;
 	size: string;
-	color: string;
+	price: string;
 }
 
 interface IShippingAddress {
@@ -15,41 +16,83 @@ interface IShippingAddress {
 	country: string;
 }
 
+interface IShippingDetails {
+	carrier?: string;
+	trackingNumber?: string;
+	estimatedDeliveryDate?: Date;
+	actualDeliveryDate?: Date;
+}
+
 interface IOrder extends Document {
-	userId: string;
+	userId: mongoose.Schema.Types.ObjectId;
 	products: IProduct[];
 	totalPrice: number;
 	shippingAddress: IShippingAddress;
-	status: string;
-	orderedAt: Date;
+	status: 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled';
+	paymentMethod: 'credit_card' | 'paypal' | 'bank_transfer' | 'cod';
+	paymentStatus: 'pending' | 'completed' | 'failed' | 'refunded';
+	orderNotes?: string;
+	updatedBy?: string;
+	cancelledBy?: string;
+	cancellationReason?: string;
+	shippingDetails?: IShippingDetails;
+	urgent?: boolean;
+	createdAt: Date;
 	updatedAt: Date;
 }
 
-const ProductSchema: Schema = new Schema({
+const ProductSchema = new Schema<IProduct>({
 	productId: { type: Schema.Types.ObjectId, ref: 'Products', required: true },
+	name: { type: String, required: true },
 	quantity: { type: Number, required: true },
 	size: { type: String, required: true },
-	color: { type: String, required: true }
+	price: { type: String, required: true },
 });
 
-const OrderSchema: Schema = new Schema({
-	userId: { type: Schema.Types.ObjectId, ref: 'Users', required: true },
-	products: { type: [ProductSchema], required: true },
-	totalPrice: { type: Number, required: true },
-	shippingAddress: {
-		street: { type: String, required: true },
-		city: { type: String, required: true },
-		state: { type: String, required: true },
-		zipCode: { type: String, required: true },
-		country: { type: String, required: true }
-	},
-	status: {
-		type: String,
-		enum: ['pending', 'processing', 'shipped', 'delivered', 'cancelled'],
-		default: 'pending'
-	},
-	orderedAt: { type: Date, default: Date.now },
-	updatedAt: { type: Date, default: Date.now }
+const ShippingAddressSchema = new Schema<IShippingAddress>({
+	street: { type: String, required: true },
+	city: { type: String, required: true },
+	state: { type: String, required: true },
+	zipCode: { type: String, required: true },
+	country: { type: String, required: true },
 });
 
-export default (mongoose.models.orders) || mongoose.model<IOrder>('Orders', OrderSchema);
+const OrderSchema = new Schema<IOrder>(
+	{
+		userId: { type: Schema.Types.ObjectId, ref: 'Users', required: true },
+		products: { type: [ProductSchema], required: true },
+		totalPrice: { type: Number, required: true },
+		shippingAddress: { type: ShippingAddressSchema, required: true },
+		status: {
+			type: String,
+			enum: ['pending', 'processing', 'shipped', 'delivered', 'cancelled'],
+			default: 'pending',
+		},
+		paymentMethod: {
+			type: String,
+			enum: ['credit_card', 'paypal', 'bank_transfer', 'cod','upi'],
+			required: true,
+		},
+		paymentStatus: {
+			type: String,
+			enum: ['pending', 'completed', 'failed', 'refunded'],
+			default: 'pending',
+		},
+		orderNotes: { type: String, default: '' },
+		updatedBy: { type: Schema.Types.ObjectId, ref: 'Users' },
+		cancelledBy: { type: Schema.Types.ObjectId, ref: 'Users' },
+		cancellationReason: { type: String, default: '' },
+		shippingDetails: {
+			carrier: { type: String },
+			trackingNumber: { type: String },
+			estimatedDeliveryDate: { type: Date },
+			actualDeliveryDate: { type: Date },
+		},
+		urgent: { type: Boolean, default: false },
+	},
+	{ timestamps: true }
+);
+
+OrderSchema.index({ userId: 1, status: 1, createdAt: -1 });
+
+export default models.Orders || model<IOrder>('Orders', OrderSchema);

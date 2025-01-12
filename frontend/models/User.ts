@@ -22,6 +22,8 @@ interface IUser extends Document {
 	token: string;
 	otp: number;
 	otpExpiry: Date;
+	cart: string | null;
+	orders: string[];
 	verified: Verification;
 	role: 'user' | 'admin';
 	createdAt: Date;
@@ -45,7 +47,8 @@ const UserSchema: Schema = new Schema({
 	token: { type: String, required: true },
 	otp: { type: Number, required: false },
 	otpExpiry: { type: Date, required: false },
-	cart : { type: Schema.Types.ObjectId, ref: 'Cart', required: false, default: null },
+	cart : { type: Schema.Types.ObjectId, ref: 'Carts', required: false, default: null },
+	orders: [{ type: String, ref: 'Orders' }],
 	verified: {
 		email: { type: Boolean, default: false },
 		phone: { type: Boolean, default: false }

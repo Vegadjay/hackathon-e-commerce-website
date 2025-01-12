@@ -48,3 +48,6 @@ http://localhost:3000/api/user/delete => userId,(jwt in header) =>return (status
 http://localhost:3000/api/user/sendotp => email =>return (status,message)
 http://localhost:3000/api/user/verifyotp => email,otp =>return (status,message,status)
 
+FOR OTP :
+to send otp : http://localhost:3000/api/user/sendotp => body : {email}
+to verify otp : http://localhost:3000/api/user/verify => body : {otp as string}
