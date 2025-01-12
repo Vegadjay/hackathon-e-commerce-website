@@ -43,7 +43,7 @@ export default function CartPage() {
     const { left, right } = button.getBoundingClientRect();
     const center = (left + right) / 2;
     const distance = e.clientX - center;
-    setTilt(distance / 10); // Control tilt intensity
+    setTilt(distance / 10);
   };
 
   const handleMouseLeave = () => {
