@@ -172,14 +172,13 @@ export default function Register() {
       });
 
       const data = await response.json();
-      
       if (data.error) {
         toast.error(data.error);
       } else {
         toast.success('Registration successful!');
+        location.reload();
         setTimeout(() => {
           triggerRender();
-          router.push('/');
         }, 1000);
       }
     } catch (error) {
@@ -349,7 +348,7 @@ export default function Register() {
                       Creating your account...
                     </span>
                   ) : (
-                    'Get Otp'
+                    'Create Account'
                   )}
                 </motion.button>
 

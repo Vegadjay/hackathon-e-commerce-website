@@ -66,7 +66,7 @@ const Product: React.FC<ProductProps> = ({ id }) => {
           userId: userId,
           products: [
             {
-              productId: product.id.toString(),
+              productId: "6783546add252cb18a80dfe7",
               quantity: quantity,
               price: product.price.toString(),
               size: selectedSize,

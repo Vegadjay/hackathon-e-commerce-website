@@ -68,7 +68,6 @@ const collections = {
       { title: "Clearance Sale", category: "clearance" },
       { title: "Season End", category: "season-end" },
       { title: "Bundle Deals", category: "bundles" },
-      { title: "Student Discount", category: "student" },
       { title: "First Order Discount", category: "first-order" }
     ]
   }
