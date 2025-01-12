@@ -13,7 +13,7 @@ export async function POST(req: Request) {
 		// Verify the tokenId with Google
 		const ticket = await client.verifyIdToken({
 			idToken: tokenId,
-			audience: process.env.GOOGLE_CLIENT_ID, // Ensure this is your correct Google Client ID
+			audience: process.env.GOOGLE_CLIENT_ID,
 		});
 
 		const payload = ticket.getPayload();

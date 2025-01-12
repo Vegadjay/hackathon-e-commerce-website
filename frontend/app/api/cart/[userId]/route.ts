@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/dbConnect';
-import {Cart} from '@/models/Cart';
+import { Cart } from '@/models/Cart';
 import User from '@/models/User';
 
 export async function GET(
@@ -52,11 +52,11 @@ export async function DELETE(
 	request: Request,
 	{ params }: { params: { cartId: string } }
 ) {
-	try{
+	try {
 		await dbConnect();
 		const { cartId } = params;
 
-		if(!cartId){
+		if (!cartId) {
 			return NextResponse.json(
 				{ success: false, error: 'Cart id is required!' },
 				{ status: 400 }
@@ -65,14 +65,14 @@ export async function DELETE(
 
 		const cart = await Cart.findById(cartId);
 
-		if(!cart){
+		if (!cart) {
 			return NextResponse.json(
 				{ success: false, error: 'Cart not found!' },
 				{ status: 404 }
 			);
 		}
 		const user = await User.findOne({ cart: cartId });
-		if(user){
+		if (user) {
 			user.cart = undefined;
 			await user.save();
 		}
@@ -81,7 +81,7 @@ export async function DELETE(
 		return NextResponse.json({ success: true }, { status: 200 });
 
 	}
-	catch(error){
+	catch (error) {
 		return NextResponse.json(
 			{ success: false, error: (error as Error).message },
 			{ status: 500 }
