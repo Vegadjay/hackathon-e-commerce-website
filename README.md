@@ -36,6 +36,10 @@ Anarkali Suits
 Kurta Sets
 Orignal Handblocks Suit Set
 
+
+<!-- todo: In assests one screen shot show that ss and add that all products in that footer section-->
+<!-- todo: Make username api and find that all username and make that api -->
+
 localhost:3000/api/auth/login
 
 responsive product grid is not working....
