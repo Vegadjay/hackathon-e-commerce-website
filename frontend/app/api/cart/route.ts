@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/dbConnect';
-import {IProduct, Cart} from '@/models/Cart';
+import { IProduct, Cart } from '@/models/Cart';
 import { z } from 'zod';
 import { Types } from 'mongoose';
 import User from '@/models/User';
@@ -65,7 +65,7 @@ export async function POST(request: Request) {
 
 		const newCart = await Cart.create(parsedBody);
 
-		let totalPrice:number = 0;
+		let totalPrice: number = 0;
 		for (const product of newCart.products) {
 			totalPrice += product.quantity * Number.parseFloat(product.price);
 		}

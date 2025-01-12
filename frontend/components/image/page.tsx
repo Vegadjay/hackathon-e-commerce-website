@@ -16,7 +16,6 @@ const ImageSwapper: React.FC<ImageSwapperProps> = ({ images, altText = "Product 
   return (
     <div className={`space-y-6 sm:space-y-8 flex flex-col items-center ${className}`}>
       <div className="relative w-full sm:w-3/4 lg:w-1/2 bg-gray-50 rounded-xl overflow-hidden flex justify-center items-center">
-
         <AnimatePresence mode="wait">
           <Lens hovering={hovering} setHovering={setHovering}>
             <motion.img
@@ -41,16 +40,15 @@ const ImageSwapper: React.FC<ImageSwapperProps> = ({ images, altText = "Product 
             />
           </Lens>
         </AnimatePresence>
+      </div>
 
-        </div>
-
-      <div className="sm:ml-52 md:ml-52 lg:ml-52 grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-6 gap-2 sm:gap-3">
+      <div className="w-full flex flex-wrap justify-center gap-2 sm:gap-3">
         {images.map((image, index) => (
           <motion.button
             key={index}
             onClick={() => setSelectedIndex(index)}
             className={cn(
-              `relative aspect-square rounded-lg overflow-hidden`,
+              `relative aspect-square rounded-lg overflow-hidden w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24`,
               selectedIndex === index
                 ? 'ring-2 ring-red-400'
                 : 'ring-1 ring-gray-200 hover:ring-gray-300'

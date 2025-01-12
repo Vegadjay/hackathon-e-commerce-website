@@ -873,7 +873,8 @@ export const products: Products[] = [{
     "/detailphotos/30.2.webp",
     "/detailphotos/30.3.webp",
     "/detailphotos/30.4.webp",
-    "/detailphotos/30.5.webp"
+    "/detailphotos/30.5.webp",
+    "/detailvideos/30.mp4",
   ],
   "features": [
     "Dispatch Time : 5 To 6 Working days",
@@ -2600,6 +2601,440 @@ export const products: Products[] = [{
   "description": "Embrace simplicity with this Mulmul Cotton Tie and Dye Printed Saree. It has Tie and Dye prints on Pure Cotton fabric."
 },
 {
+  "id": 87,
+  "name": "Mulmul Cotton Printed Saree",
+  "price": 3499.0,
+  "rating": 4.2,
+  "reviews": 5560,
+  "answers": 149,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/87.1.jpg",
+    "/detailphotos/87.2.jpg",
+    "/detailphotos/87.3.jpg",
+    "/detailphotos/87.4.jpg",
+    "/detailphotos/87.5.jpg",
+    "/detailphotos/87.6.jpg"
+  ],
+  "features": [
+    "Simplicity with this Mulmul Cotton Saree",
+    "Traditional Floral pattern in vibrant NavyBlue tones",
+    "Quick dip wash or Dry clean",
+    "For Daily Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Embrace simplicity with this Mulmul Cotton Tie and Dye Printed Saree. It has Tie and Dye prints on Pure Cotton fabric."
+},
+{
+  "id": 88,
+  "name": "Mulmul Cotton Printed Saree",
+  "price": 3499.0,
+  "rating": 4.4,
+  "reviews": 6247,
+  "answers": 318,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/88.1.jpg",
+    "/detailphotos/88.2.jpg",
+    "/detailphotos/88.3.jpg",
+    "/detailphotos/88.4.jpg",
+    "/detailphotos/88.5.jpg",
+    "/detailphotos/88.6.jpg"
+  ],
+  "features": [
+    "Simplicity with this Mulmul Cotton Saree",
+    "Traditional Floral pattern in NavyBlue and Pink tones",
+    "Quick dip wash or Dry clean",
+    "For Daily Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Embrace simplicity with this Mulmul Cotton Tie and Dye Printed Saree. It has Tie and Dye prints on Pure Cotton fabric."
+},
+{
+  "id": 89,
+  "name": "Mulmul Cotton Printed Saree",
+  "price": 3499.0,
+  "rating": 4.0,
+  "reviews": 5894,
+  "answers": 272,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/89.1.jpg",
+    "/detailphotos/89.2.jpg",
+    "/detailphotos/89.3.jpg",
+    "/detailphotos/89.4.jpg",
+    "/detailphotos/89.5.jpg",
+    "/detailphotos/89.6.jpg"
+  ],
+  "features": [
+    "Simplicity with this Mulmul Cotton Saree",
+    "Traditional Floral pattern with NavyBlue tones",
+    "Quick dip wash or Dry clean",
+    "For Daily Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Embrace simplicity with this Mulmul Cotton Tie and Dye Printed Saree. It has Tie and Dye prints on Pure Cotton fabric."
+},
+{
+  "id": 90,
+  "name": "Mulmul Cotton Printed Saree",
+  "price": 3499.0,
+  "rating": 3.9,
+  "reviews": 5781,
+  "answers": 289,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/90.1.jpg",
+    "/detailphotos/90.2.jpg",
+    "/detailphotos/90.3.jpg",
+    "/detailphotos/90.4.jpg",
+    "/detailphotos/90.5.jpg",
+    "/detailphotos/90.6.jpg"
+  ],
+  "features": [
+    "Simplicity with this Mulmul Cotton Saree",
+    "Traditional Floral pattern in Colourful with NavyBlue tones",
+    "Quick dip wash or Dry clean",
+    "For Daily Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Embrace simplicity with this Mulmul Cotton Tie and Dye Printed Saree. It has Tie and Dye prints on Pure Cotton fabric."
+},
+{
+  "id": 91,
+  "name": "Mulmul Cotton Printed Saree",
+  "price": 3499.0,
+  "rating": 4.5,
+  "reviews": 7318,
+  "answers": 346,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/91.1.jpg",
+    "/detailphotos/91.2.jpg",
+    "/detailphotos/91.3.jpg",
+    "/detailphotos/91.4.jpg",
+    "/detailphotos/91.5.jpg",
+    "/detailphotos/91.6.jpg"
+  ],
+  "features": [
+    "Simplicity with this Mulmul Cotton Saree",
+    "Traditional Floral pattern in White with vibrant White and Black tones",
+    "Quick dip wash or Dry clean",
+    "For Daily Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Embrace simplicity with this Mulmul Cotton Tie and Dye Printed Saree. It has Tie and Dye prints on Pure Cotton fabric."
+},
+{
+  "id": 92,
+  "name": "Mulmul Cotton Printed Saree",
+  "price": 3499.0,
+  "rating": 4.2,
+  "reviews": 5560,
+  "answers": 149,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/92.1.jpg",
+    "/detailphotos/92.2.jpg",
+    "/detailphotos/92.3.jpg",
+    "/detailphotos/92.4.jpg",
+    "/detailphotos/92.5.jpg",
+    "/detailphotos/92.6.jpg"
+  ],
+  "features": [
+    "Simplicity with this Mulmul Cotton Saree",
+    "Traditional Floral pattern in White with vibrant SkyBlue tones",
+    "Quick dip wash or Dry clean",
+    "For Daily Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Embrace simplicity with this Mulmul Cotton Tie and Dye Printed Saree. It has Tie and Dye prints on Pure Cotton fabric."
+},
+{
+  "id": 93,
+  "name": "Mulmul Cotton Printed Saree",
+  "price": 3499.0,
+  "rating": 4.6,
+  "reviews": 5800,
+  "answers": 240,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/93.1.jpg",
+    "/detailphotos/93.2.jpg",
+    "/detailphotos/93.3.jpg",
+    "/detailphotos/93.4.jpg",
+    "/detailphotos/93.5.jpg",
+    "/detailphotos/93.6.jpg"
+  ],
+  "features": [
+    "Simplicity with this Mulmul Cotton Saree",
+    "Traditional Floral pattern in White with vibrant NavyBlue tones",
+    "Quick dip wash or Dry clean",
+    "For Daily Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Embrace simplicity with this Mulmul Cotton Tie and Dye Printed Saree. It has Tie and Dye prints on Pure Cotton fabric."
+},
+{
+  "id": 94,
+  "name": "Mulmul Cotton Printed Saree",
+  "price": 3499.0,
+  "rating": 4.8,
+  "reviews": 5850,
+  "answers": 234,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/94.1.jpg",
+    "/detailphotos/94.2.jpg",
+    "/detailphotos/94.3.jpg",
+    "/detailphotos/94.4.jpg",
+    "/detailphotos/94.5.jpg",
+    "/detailphotos/94.6.jpg"
+  ],
+  "features": [
+    "Simplicity with this Mulmul Cotton Saree",
+    "Traditional Floral pattern in White with vibrant NavyBlue and Red tones",
+    "Quick dip wash or Dry clean",
+    "For Daily Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Embrace simplicity with this Mulmul Cotton Tie and Dye Printed Saree. It has Tie and Dye prints on Pure Cotton fabric."
+},
+{
+  "id": 95,
+  "name": "Mulmul Cotton Printed Saree",
+  "price": 3499.0,
+  "rating": 4.4,
+  "reviews": 5900,
+  "answers": 220,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/95.1.jpg",
+    "/detailphotos/95.2.jpg",
+    "/detailphotos/95.3.jpg",
+    "/detailphotos/95.4.jpg",
+    "/detailphotos/95.5.jpg",
+    "/detailphotos/95.6.jpg"
+  ],
+  "features": [
+    "Simplicity with this Mulmul Cotton Saree",
+    "Traditional Floral pattern in White with vibrant NavyBlue tones",
+    "Quick dip wash or Dry clean",
+    "For Daily Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Embrace simplicity with this Mulmul Cotton Tie and Dye Printed Saree. It has Tie and Dye prints on Pure Cotton fabric."
+},
+{
+  "id": 96,
+  "name": "Mulmul Cotton Printed Saree",
+  "price": 3499.0,
+  "rating": 4.2,
+  "reviews": 6000,
+  "answers": 172,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/96.1.jpg",
+    "/detailphotos/96.2.jpg",
+    "/detailphotos/96.3.jpg",
+    "/detailphotos/96.4.jpg",
+    "/detailphotos/96.5.jpg",
+    "/detailphotos/96.6.jpg"
+  ],
+  "features": [
+    "Simplicity with this Mulmul Cotton Saree",
+    "Traditional Floral pattern in White with vibrant NavyBlue and Red tones",
+    "Quick dip wash or Dry clean",
+    "For Daily Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Embrace simplicity with this Mulmul Cotton Tie and Dye Printed Saree. It has Tie and Dye prints on Pure Cotton fabric."
+},
+{
+  "id": 97,
+  "name": "Mulmul Cotton Printed Saree",
+  "price": 3499.0,
+  "rating": 4.5,
+  "reviews": 6100,
+  "answers": 183,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/97.1.jpg",
+    "/detailphotos/97.2.jpg",
+    "/detailphotos/97.3.jpg",
+    "/detailphotos/97.4.jpg",
+    "/detailphotos/97.5.jpg",
+    "/detailphotos/97.6.jpg"
+  ],
+  "features": [
+    "Simplicity with this Mulmul Cotton Saree",
+    "Traditional Floral pattern in White with vibrant NavyBlue tones",
+    "Quick dip wash or Dry clean",
+    "For Daily Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Embrace simplicity with this Mulmul Cotton Tie and Dye Printed Saree. It has Tie and Dye prints on Pure Cotton fabric."
+},
+{
+  "id": 98,
+  "name": "Mulmul Cotton Printed Saree",
+  "price": 3499.0,
+  "rating": 4.6,
+  "reviews": 6200,
+  "answers": 246,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/98.1.jpg",
+    "/detailphotos/98.2.jpg",
+    "/detailphotos/98.3.jpg",
+    "/detailphotos/98.4.jpg",
+    "/detailphotos/98.5.jpg",
+    "/detailphotos/98.6.jpg"
+  ],
+  "features": [
+    "Simplicity with this Mulmul Cotton Saree",
+    "Traditional Floral pattern in White vibrant NavyBlue tones",
+    "Quick dip wash or Dry clean",
+    "For Daily Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Embrace simplicity with this Mulmul Cotton Tie and Dye Printed Saree. It has Tie and Dye prints on Pure Cotton fabric."
+},
+{
+  "id": 99,
+  "name": "Mulmul Cotton Printed Saree",
+  "price": 3499.0,
+  "rating": 4.3,
+  "reviews": 6250,
+  "answers": 207,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/99.1.jpg",
+    "/detailphotos/99.2.jpg",
+    "/detailphotos/99.3.jpg",
+    "/detailphotos/99.4.jpg",
+    "/detailphotos/99.5.jpg",
+    "/detailphotos/99.6.jpg"
+  ],
+  "features": [
+    "Simplicity with this Mulmul Cotton Saree",
+    "Traditional Floral pattern in White vibrant NavyBlue and Red tones",
+    "Quick dip wash or Dry clean",
+    "For Daily Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Embrace simplicity with this Mulmul Cotton Tie and Dye Printed Saree. It has Tie and Dye prints on Pure Cotton fabric."
+},
+{
+  "id": 100,
+  "name": "Mulmul Cotton Printed Saree",
+  "price": 3499.0,
+  "rating": 4.4,
+  "reviews": 6300,
+  "answers": 289,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/100.1.jpg",
+    "/detailphotos/100.2.jpg",
+    "/detailphotos/100.3.jpg",
+    "/detailphotos/100.4.jpg",
+    "/detailphotos/100.5.jpg",
+    "/detailphotos/100.6.jpg"
+  ],
+  "features": [
+    "Simplicity with this Mulmul Cotton Saree",
+    "Traditional Ethnic Motifs pattern in vibrant NavyBlue tones",
+    "Quick dip wash or Dry clean",
+    "For Daily Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Embrace simplicity with this Mulmul Cotton Tie and Dye Printed Saree. It has Tie and Dye prints on Pure Cotton fabric."
+},
+{
   "id": 101,
   "name": "A Distinctively Fragile beige Handblock Printed Cotton Kaftan Tunic With Pants (Set of 2)",
   "price": 2499.00,
@@ -3093,5 +3528,695 @@ export const products: Products[] = [{
     "Pant length 38"
   ],
   "description": "Indulge in luxury with our Blue Sapphire Gher Handblock Kurta and Pant set. Crafted with precision and elegance, this exclusive set features a stunning blue sapphire color and intricate handblock design. Elevate your style and make a statement with this tasteful and sophisticated ensemble."
+}, {
+  "id": 118,
+  "name": "Black Airey Linen Long Kurta",
+  "price": 999.00,
+  "rating": 4.1,
+  "reviews": 5765,
+  "answers": 127,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing",
+  "model": "RP-PLK103BLACK)",
+  "images": [
+    "/detailphotos/118.1.webp",
+    "/detailphotos/118.2.webp",
+    "/detailphotos/118.3.webp",
+    "/detailphotos/118.4.webp",
+    "/detailphotos/118.5.webp",
+    "/detailphotos/118.6.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Airey Linen",
+    "Fit - Relaxed (CODE :RP-PLK103BLACK)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "A sleek black straight long kurta, tailored from airy linen fabric for a comfortable yet sophisticated look. Adorned with a classic flat collar, two handy pockets, and stylish 3/4th sleeves, it exudes timeless elegance. Perfect for versatile styling, adding a touch of refinement to any ensemble effortlessly."
+},
+{
+  "id": 119,
+  "name": "Navy Blue Airey Linen Long Kurta",
+  "price": 999.00,
+  "rating": 4.1,
+  "reviews": 5765,
+  "answers": 127,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing",
+  "model": "RP-PLK103NAVYBLUE)",
+  "images": [
+    "/detailphotos/119.1.webp",
+    "/detailphotos/119.2.webp",
+    "/detailphotos/119.3.webp",
+    "/detailphotos/119.4.webp",
+    "/detailphotos/119.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Airey Linen",
+    "Fit - Relaxed (CODE :RP-PLK103NAVYBLUE)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "A sleek blue straight long kurta, tailored from airy linen fabric for a comfortable yet sophisticated look. Adorned with a classic flat collar, two handy pockets, and stylish 3/4th sleeves, it exudes timeless elegance. Perfect for versatile styling, adding a touch of refinement to any ensemble effortlessly."
+},
+{
+  "id": 120,
+  "name": "Tiffany Blue Airey Linen Long Kurta",
+  "price": 999.00,
+  "rating": 4.4,
+  "reviews": 3465,
+  "answers": 136,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing",
+  "model": "RP-PLK103BLUE)",
+  "images": [
+    "/detailphotos/120.1.webp",
+    "/detailphotos/120.2.webp",
+    "/detailphotos/120.3.webp",
+    "/detailphotos/120.4.webp",
+    "/detailphotos/120.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Airey Linen",
+    "Fit - Relaxed (CODE :RP-PLK103BLUE)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "A Tiffany blue straight long kurta crafted from airy linen fabric, epitomizing grace with its flat collar and sleek design. Enhanced with two pockets and 3/4th sleeves, it offers both functionality and sophistication. Ideal for infusing a touch of timeless charm into any ensemble, especially during balmy days."
+},
+{
+  "id": 121,
+  "name": "Rose Taupe Airey Linen Long Kurta",
+  "price": 999.00,
+  "rating": 4.4,
+  "reviews": 3465,
+  "answers": 136,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing",
+  "model": "RP-PLK103ROSE TAUPE)",
+  "images": [
+    "/detailphotos/121.1.webp",
+    "/detailphotos/121.2.webp",
+    "/detailphotos/121.3.webp",
+    "/detailphotos/121.4.webp",
+    "/detailphotos/121.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Airey Linen",
+    "Fit - Relaxed (CODE :RP-PLK103ROSE TAUPE)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "A luxurious rose taupe straight long kurta, tailored from airy linen fabric for unparalleled comfort and style. Featuring a sleek flat collar, two functional pockets, and elegant 3/4th sleeves, it exudes refined sophistication. Perfect for infusing understated glamour into any ensemble, ideal for both casual and formal affairs."
+},
+{
+  "id": 122,
+  "name": "Flamingo Pink Airey Linen Long Kurta",
+  "price": 999.00,
+  "rating": 4.7,
+  "reviews": 1365,
+  "answers": 13,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing",
+  "model": "RP-PLK103PINK)",
+  "images": [
+    "/detailphotos/122.1.webp",
+    "/detailphotos/122.2.webp",
+    "/detailphotos/122.3.webp",
+    "/detailphotos/122.4.webp",
+    "/detailphotos/122.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Airey Linen",
+    "Fit - Relaxed (CODE :RP-PLK103PINK)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "A flamingo pink, airy linen kurta, exuding elegance with its straight silhouette and flat collar. Designed for comfort, it features 3/4 sleeves and two pockets, blending practicality with style. Perfect for a casual yet chic statement, ideal for warm weather occasions."
+},
+{
+  "id": 123,
+  "name": "Seawood Airey Linen Short Kurta",
+  "price": 899.00,
+  "rating": 4.3,
+  "reviews": 4565,
+  "answers": 45,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing",
+  "model": "RP-PSK102 SEAWOOD)",
+  "images": [
+    "/detailphotos/123.1.webp",
+    "/detailphotos/123.2.webp",
+    "/detailphotos/123.3.webp",
+    "/detailphotos/123.4.webp",
+    "/detailphotos/123.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Airey Linen",
+    "Fit - Relaxed (CODE :RP-PSK102 SEAWOOD)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "A tranquil seawood short kurta, tailored from airy linen fabric for both comfort and style. With its classic flat collar and chic 3/4th sleeves, it exudes effortless elegance. Perfect for adding a touch of sophistication to your ensemble, ideal for casual outings and semi-formal occasions alike."
+},
+{
+  "id": 124,
+  "name": "Umber Airey Linen Short Kurta",
+  "price": 899.00,
+  "rating": 4,
+  "reviews": 8565,
+  "answers": 235,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing",
+  "model": "RP-PSK102 UMBER)",
+  "images": [
+    "/detailphotos/124.1.webp",
+    "/detailphotos/124.2.webp",
+    "/detailphotos/124.3.webp",
+    "/detailphotos/124.4.webp",
+    "/detailphotos/124.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Airey Linen",
+    "Fit - Relaxed (CODE :RP-PSK102 UMBER)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "An earthy umber short kurta, fashioned from airy linen fabric, ensuring comfort and style. Its classic flat collar and chic 3/4th sleeves embody timeless elegance. Perfect for infusing a touch of sophistication into any ensemble, ideal for casual outings or semi-formal occasions with its versatile hue."
+},
+{
+  "id": 125,
+  "name": "Caramel Airey Linen Short Kurta",
+  "price": 999.00,
+  "rating": 4.5,
+  "reviews": 3965,
+  "answers": 135,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing",
+  "model": "RP-PLK103CAREMEL)",
+  "images": [
+    "/detailphotos/125.1.webp",
+    "/detailphotos/125.2.webp",
+    "/detailphotos/125.3.webp",
+    "/detailphotos/125.4.webp",
+    "/detailphotos/125.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Airey Linen",
+    "Fit - Relaxed (CODE :RP-PLK103CAREMEL)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "A rich caramel short kurta, tailored from airy linen fabric for a luxurious feel. Its classic flat collar and chic 3/4th sleeves exude understated elegance. Perfect for adding warmth and sophistication to any ensemble, ideal for casual outings or semi-formal gatherings with its versatile hue."
+},
+{
+  "id": 126,
+  "name": "Umber Cotton Pants(pant)",
+  "price": 899.00,
+  "rating": 4.7,
+  "reviews": 4965,
+  "answers": 114,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing",
+  "model": "RP-PRP104UMBER)",
+  "images": [
+    "/detailphotos/126.1.webp",
+    "/detailphotos/126.2.webp",
+    "/detailphotos/126.3.webp",
+    "/detailphotos/126.4.webp",
+    "/detailphotos/126.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-PRP104UMBER)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Umber-colored straight pants tailored from soft and breathable cotton fabric, ensuring comfort and style. Equipped with two pockets on each side for practicality and convenience. With a half-elasticated, mid-rise waist, they provide flexibility and ease of wear, perfect for versatile dressing with a touch of sophistication."
+},
+{
+  "id": 127,
+  "name": "Black Cotton Pants",
+  "price": 899.00,
+  "rating": 4.3,
+  "reviews": 3065,
+  "answers": 109,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing(pant)",
+  "model": "RP-PRP104BLACK)",
+  "images": [
+    "/detailphotos/127.1.webp",
+    "/detailphotos/127.2.webp",
+    "/detailphotos/127.3.webp",
+    "/detailphotos/127.4.webp",
+    "/detailphotos/127.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-PRP104BLACK)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Classic black straight pants tailored from breathable cotton fabric, blending style with comfort. Equipped with two pockets on each side, they offer functionality and convenience. The half-elasticated, mid-rise waist ensures a flexible fit, making them perfect for versatile styling and effortless sophistication in any setting."
+},
+{
+  "id": 128,
+  "name": "Maroon Cotton Pants",
+  "price": 899.00,
+  "rating": 5,
+  "reviews": 365,
+  "answers": 9,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing(pant)",
+  "model": "RP-PRP104MAROON)",
+  "images": [
+    "/detailphotos/128.1.webp",
+    "/detailphotos/128.2.webp",
+    "/detailphotos/128.3.webp",
+    "/detailphotos/128.4.webp",
+    "/detailphotos/128.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-PRP104MAROON)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "A deep maroon straight pants crafted from breathable cotton fabric, ensuring comfort and style. Featuring two pockets on each side, they offer practicality with sophistication. With a half-elasticated, mid-rise waist, they provide flexibility and ease of wear, ideal for versatile dressing with a touch of elegance and comfort."
+},
+{
+  "id": 129,
+  "name": "Flamingo Pink Cotton Pant",
+  "price": 899.00,
+  "rating": 4.5,
+  "reviews": 3695,
+  "answers": 92,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing(pant)",
+  "model": "RP-PRP104PINK)",
+  "images": [
+    "/detailphotos/129.1.webp",
+    "/detailphotos/129.2.webp",
+    "/detailphotos/129.3.webp",
+    "/detailphotos/129.4.webp",
+    "/detailphotos/129.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-PRP104PINK)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "A vibrant flamingo-colored straight pants crafted from breathable cotton fabric for a comfortable fit. Featuring two pockets on each side, they offer practicality with style. With a half-elasticated, mid-rise waist, they ensure flexibility and ease of wear, ideal for versatile styling and everyday comfort."
+},
+{
+  "id": 130,
+  "name": "Mustard Cotton Pants",
+  "price": 899.00,
+  "rating": 4.2,
+  "reviews": 5695,
+  "answers": 113,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing(pant)",
+  "model": "RP-PRP104MUSTARD)",
+  "images": [
+    "/detailphotos/130.1.webp",
+    "/detailphotos/130.2.webp",
+    "/detailphotos/130.3.webp",
+    "/detailphotos/130.4.webp",
+    "/detailphotos/130.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-PRP104MUSTARD)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Mustard-colored straight pants made from breathable cotton fabric for comfort and versatility. Featuring two pockets on each side for practicality and convenience. With a half-elasticated, mid-rise waist, they offer flexibility and ease of wear, perfect for effortless yet stylish dressing in any casual or semi-formal setting."
+},
+{
+  "id": 131,
+  "name": "Rose Taupe Cotton Pants",
+  "price": 899.00,
+  "rating": 4.6,
+  "reviews": 7695,
+  "answers": 56,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing(pant)",
+  "model": "RP-PRP104ROSE TAUPE)",
+  "images": [
+    "/detailphotos/131.1.webp",
+    "/detailphotos/131.2.webp",
+    "/detailphotos/131.3.webp",
+    "/detailphotos/131.4.webp",
+    "/detailphotos/131.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-PRP104ROSE TAUPE)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Rose taupe straight pants crafted from soft and breathable cotton fabric, ensuring comfort and style. Equipped with two pockets on each side, they offer functionality with flair. With a half-elasticated, mid-rise waist, they provide flexibility and ease of wear, perfect for versatile dressing with a touch of understated elegance."
+},
+{
+  "id": 132,
+  "name": "Seawood Cotton Pants",
+  "price": 899.00,
+  "rating": 4.2,
+  "reviews": 4595,
+  "answers": 126,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing(pant)",
+  "model": "RP-PRP104SEAWOOD)",
+  "images": [
+    "/detailphotos/132.1.webp",
+    "/detailphotos/132.2.webp",
+    "/detailphotos/132.3.webp",
+    "/detailphotos/132.4.webp",
+    "/detailphotos/132.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-PRP104SEAWOOD)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Seawood-colored straight pants tailored from breathable cotton fabric for comfort and durability. Featuring two pockets on each side, they offer practicality and convenience. With a half-elasticated, mid-rise waist, they ensure flexibility and ease of wear, perfect for versatile styling with a touch of relaxed sophistication."
+},
+{
+  "id": 133,
+  "name": "Navy Blue Cotton Pants",
+  "price": 899.00,
+  "rating": 4.4,
+  "reviews": 12395,
+  "answers": 426,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing(pant)",
+  "model": "RP-PRP104NAVY BLUE)",
+  "images": [
+    "/detailphotos/133.1.webp",
+    "/detailphotos/133.2.webp",
+    "/detailphotos/133.3.webp",
+    "/detailphotos/133.4.webp",
+    "/detailphotos/133.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-PRP104NAVY BLUE)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Navy blue straight pants tailored from breathable cotton fabric, ensuring comfort and versatility. Equipped with two pockets on each side for convenience and practicality. With a half-elasticated, mid-rise waist, they provide flexibility and ease of wear, ideal for effortless yet stylish dressing in any casual or semi-formal setting."
+},
+{
+  "id": 134,
+  "name": "Umber Palazzo pant",
+  "price": 899.00,
+  "rating": 4,
+  "reviews": 3395,
+  "answers": 36,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing(pant)",
+  "model": "RP-PPP106UMBER)",
+  "images": [
+    "/detailphotos/134.1.webp",
+    "/detailphotos/134.2.webp",
+    "/detailphotos/134.3.webp",
+    "/detailphotos/134.4.webp",
+    "/detailphotos/134.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-PPP106UMBER)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Umber-colored palazzo pants made from breathable cotton fabric, ensuring comfort and versatility. Designed with pockets on each side for practicality. With a half-elasticated, mid-rise waist, they offer flexibility and ease of wear. Perfect for effortless yet stylish dressing, ideal for various casual or semi-formal occasions."
+},
+{
+  "id": 135,
+  "name": "Rose Taupe Palazzo pant",
+  "price": 899.00,
+  "rating": 4.5,
+  "reviews": 4795,
+  "answers": 232,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing(pant)",
+  "model": "RP-PPP106ROSE TAUPE)",
+  "images": [
+    "/detailphotos/135.1.webp",
+    "/detailphotos/135.2.webp",
+    "/detailphotos/135.3.webp",
+    "/detailphotos/135.4.webp",
+    "/detailphotos/135.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-PPP106ROSE TAUPE)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Seawood-colored palazzo pants tailored from breathable cotton fabric, ensuring comfort and style. Designed with pockets on each side for practicality. With a half-elasticated, mid-rise waist, they offer flexibility and ease of wear. Perfect for versatile dressing, adding a touch of relaxed sophistication to any ensemble."
+},
+{
+  "id": 136,
+  "name": "Maroon Palazzo pant",
+  "price": 899.00,
+  "rating": 4,
+  "reviews": 8795,
+  "answers": 452,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing(pant)",
+  "model": "RP-PPP106MAROON)",
+  "images": [
+    "/detailphotos/136.1.webp",
+    "/detailphotos/136.2.webp",
+    "/detailphotos/136.3.webp",
+    "/detailphotos/136.4.webp",
+    "/detailphotos/136.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-PPP106MAROON)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Maroon palazzo pants tailored from soft cotton fabric, blending comfort with style. Adorned with pockets on each side for added functionality. Featuring a half-elasticated, mid-rise waist, they offer flexibility and ease of wear. Perfect for versatile styling, adding a touch of elegance to any ensemble."
+},
+{
+  "id": 137,
+  "name": "Mustard Palazzo pant",
+  "price": 899.00,
+  "rating": 4.7,
+  "reviews": 3795,
+  "answers": 52,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing(pant)",
+  "model": "RP-PPP106MUSTARD)",
+  "images": [
+    "/detailphotos/137.1.webp",
+    "/detailphotos/137.2.webp",
+    "/detailphotos/137.3.webp",
+    "/detailphotos/137.4.webp",
+    "/detailphotos/137.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-PPP106MUSTARD)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Mustard palazzo pants tailored from breathable cotton fabric, offering both comfort and style. Featuring pockets on each side for practicality. With a half-elasticated, mid-rise waist, they provide flexibility and ease of wear. Perfect for versatile dressing, adding a vibrant pop of color to any ensemble."
+},
+{
+  "id": 138,
+  "name": "Seawood Palazzo pant",
+  "price": 899.00,
+  "rating": 4.2,
+  "reviews": 12395,
+  "answers": 342,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing(pant)",
+  "model": "RP-PPP106SEAWOOD)",
+  "images": [
+    "/detailphotos/138.1.webp",
+    "/detailphotos/138.2.webp",
+    "/detailphotos/138.3.webp",
+    "/detailphotos/138.4.webp",
+    "/detailphotos/138.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-PPP106SEAWOOD)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Seawood-colored palazzo pants tailored from breathable cotton fabric, ensuring comfort and style. Designed with pockets on each side for practicality. With a half-elasticated, mid-rise waist, they offer flexibility and ease of wear. Perfect for versatile dressing, adding a touch of relaxed sophistication to any ensemble."
+},
+{
+  "id": 139,
+  "name": "Pea Green Palazzo pant",
+  "price": 899.00,
+  "rating": 4.6,
+  "reviews": 6395,
+  "answers": 82,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing(pant)",
+  "model": "RP-PPP106PEA GREEN)",
+  "images": [
+    "/detailphotos/139.1.webp",
+    "/detailphotos/139.2.webp",
+    "/detailphotos/139.3.webp",
+    "/detailphotos/139.4.webp",
+    "/detailphotos/139.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-PPP106PEA GREEN)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Pea green palazzo pants made from soft cotton fabric for a comfortable and stylish wear. Featuring pockets on each side for added functionality. With a half-elasticated, mid-rise waist, they offer flexibility and ease of wear. Perfect for versatile styling, adding a pop of vibrant charm to any ensemble."
+},
+{
+  "id": 140,
+  "name": "Imperial Red Palazzo pant",
+  "price": 899.00,
+  "rating": 5,
+  "reviews": 395,
+  "answers": 12,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "category": "solid-wear-clothing(pant)",
+  "model": "RP-PPP106IMPERIAL RED)",
+  "images": [
+    "/detailphotos/140.1.webp",
+    "/detailphotos/140.2.webp",
+    "/detailphotos/140.3.webp",
+    "/detailphotos/140.4.webp",
+    "/detailphotos/140.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-PPP106IMPERIAL RED)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Imperial red palazzo pants tailored from soft cotton fabric, ensuring comfort and style. Adorned with pockets on each side for added functionality. Featuring a half-elasticated, mid-rise waist, they offer flexibility and ease of wear. Perfect for versatile styling, adding a bold pop of color to any ensemble."
 }
 ]

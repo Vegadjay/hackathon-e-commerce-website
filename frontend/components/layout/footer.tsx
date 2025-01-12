@@ -29,7 +29,6 @@ const itemVariants = {
 export default function Footer() {
   return (
     <footer className="w-full mt-10 pt-16 pb-8 relative overflow-hidden">
-      {/* Background image - hidden on mobile */}
       <div className="absolute inset-0 -z-10 hidden md:block">
         <Image
           src='/footer/f6.jpg'
@@ -40,7 +39,6 @@ export default function Footer() {
         <div className="absolute inset-0 bg-[#f8f3ed]/80 backdrop-blur-[2px]" />
       </div>
 
-      {/* Mobile background */}
       <div className="absolute inset-0 -z-10 bg-gray-50 md:hidden" />
 
       <motion.div

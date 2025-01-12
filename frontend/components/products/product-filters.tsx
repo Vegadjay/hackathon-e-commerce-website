@@ -1,14 +1,37 @@
-// todo: In this code error is occur that is size error while that size is come than error is gone..
-// todo: Go throw one this this full code
-
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { products } from "@/lib/data";
-import { motion } from "framer-motion";
 import { Slider } from "@/components/ui/slider";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Search, X } from "lucide-react";
+import { Search, X, ChevronDown } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+// Custom debounce hook
+const useDebounce = (callback: Function, delay: number) => {
+  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
+
+  return useCallback(
+    (...args: any[]) => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+
+      const newTimeoutId = setTimeout(() => {
+        callback(...args);
+      }, delay);
+
+      setTimeoutId(newTimeoutId);
+    },
+    [callback, delay, timeoutId]
+  );
+};
 
 interface ProductFiltersProps {
   selectedCategory: string;
@@ -40,6 +63,7 @@ export function ProductFilters({
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [searchTerm, setSearchTerm] = useState("");
   const [localPriceRange, setLocalPriceRange] = useState([0, 10000]);
+  const [internalPriceRange, setInternalPriceRange] = useState(priceRange);
 
   const uniqueCategories = ["All", ...Array.from(new Set(products.map((p) => p.category)))];
   const uniqueSizes = Array.from(new Set(products.flatMap((p) => p.sizes || [])));
@@ -47,11 +71,20 @@ export function ProductFilters({
   const minPrice = Math.min(...products.map(p => p.price));
   const maxPrice = Math.max(...products.map(p => p.price));
 
+  const debouncedPriceRangeChange = useDebounce((range: number[]) => {
+    onPriceRangeChange(range);
+    filterProducts(selectedCategory, searchTerm, range, selectedSizes);
+  }, 300);
+
+  const handlePriceRangeChange = (range: number[]) => {
+    setInternalPriceRange(range);
+    debouncedPriceRangeChange(range);
+  };
+
   const handleCategoryChange = (category: string) => {
     onCategoryChange(category);
     filterProducts(category, searchTerm, localPriceRange, selectedSizes);
   };
-
 
   const handleSortChange = (value: string) => {
     onSortChange(value);
@@ -67,11 +100,6 @@ export function ProductFilters({
   const handleSearch = (term: string) => {
     setSearchTerm(term);
     filterProducts(selectedCategory, term, localPriceRange, selectedSizes);
-  };
-
-  const handlePriceRangeChange = (range: number[]) => {
-    setLocalPriceRange(range);
-    filterProducts(selectedCategory, searchTerm, range, selectedSizes);
   };
 
   const handleSizeToggle = (size: string) => {
@@ -155,28 +183,26 @@ export function ProductFilters({
         </div>
       </div>
 
-      {/* Categories */}
-       <div className="space-y-2">
+      {/* Categories Dropdown */}
+      <div className="space-y-2">
         <h3 className="text-sm font-medium">Categories</h3>
-        <div className="space-y-1">
-          {uniqueCategories.map((category) => (
-            <motion.button
-              key={category}
-              onClick={() => onCategoryChange(category)}
-              className={`w-full text-left px-3 py-1.5 rounded-md text-sm transition-colors ${
-                selectedCategory === category
-                  ? "bg-red-100 text-red-900"
-                  : "hover:bg-neutral-100"
-              }`}
-              whileHover={{ x: 4 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              {category}
-            </motion.button>
-          ))}
-        </div>
+        <Select value={selectedCategory} onValueChange={handleCategoryChange}>
+          <SelectTrigger className="w-full bg-white hover:bg-gray-50">
+            <SelectValue placeholder="Select a category" />
+          </SelectTrigger>
+          <SelectContent className="bg-white">
+            {uniqueCategories.map((category) => (
+              <SelectItem 
+                key={category} 
+                value={category}
+                className="hover:bg-red-50 focus:bg-red-50 cursor-pointer"
+              >
+                {category}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
-
 
       {/* Price Range */}
       <div className="space-y-2">
@@ -187,17 +213,16 @@ export function ProductFilters({
               min={minPrice}
               max={maxPrice}
               step={100}
-              value={priceRange}
-              onValueChange={onPriceRangeChange}
+              value={internalPriceRange}
+              onValueChange={handlePriceRangeChange}
               className="w-full"  
             />
             <div className="mt-2 flex items-center justify-between text-sm text-neutral-600">
-              <span>₹{priceRange[0]}</span>
-              <span>₹{priceRange[1]}</span>
+              <span>₹{internalPriceRange[0]}</span>
+              <span>₹{internalPriceRange[1]}</span>
             </div>
           </div>
         </div>
-
 
       {/* Sizes */}
       {uniqueSizes.length > 0 && (
@@ -223,17 +248,25 @@ export function ProductFilters({
         </div>
       )}
 
+      {/* Sort By */}
       <div className="space-y-2">
         <h3 className="text-sm font-medium">Sort By</h3>
-        <select
-          value={sortBy}
-          onChange={(e) => handleSortChange(e.target.value)}
-          className="w-full rounded-full border bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
-        >
-          <option value="default">Default</option>
-          <option value="price-asc">Price: Low to High</option>
-          <option value="price-desc">Price: High to Low</option>
-        </select>
+        <Select value={sortBy} onValueChange={handleSortChange}>
+          <SelectTrigger className="w-full bg-white hover:bg-gray-50">
+            <SelectValue placeholder="Choose sorting" />
+          </SelectTrigger>
+          <SelectContent className="bg-white">
+            <SelectItem value="default" className="hover:bg-red-50 focus:bg-red-50 cursor-pointer">
+              Default
+            </SelectItem>
+            <SelectItem value="price-asc" className="hover:bg-red-50 focus:bg-red-50 cursor-pointer">
+              Price: Low to High
+            </SelectItem>
+            <SelectItem value="price-desc" className="hover:bg-red-50 focus:bg-red-50 cursor-pointer">
+              Price: High to Low
+            </SelectItem>
+          </SelectContent>
+        </Select>
       </div>
     </div>
   );
