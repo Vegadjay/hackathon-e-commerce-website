@@ -86,7 +86,7 @@ export default function CartPage() {
     };
 
     fetchCartItems();
-  }, [router, cartItems]);
+  }, [router]);
 
   const handleRemoveItem = async (productId: string) => {
     const userId = Cookies.get("userId");
@@ -203,16 +203,6 @@ export default function CartPage() {
             <ShoppingCart className="inline-block w-6 h-6 mr-2" />
             Your Cart
           </h1>
-          <Button
-            variant="destructive"
-            onClick={() => {
-              setCartItems([]);
-              setTotalPrice(0);
-            }}
-          >
-            <Trash2 className="w-5 h-5" />
-            Clear Cart
-          </Button>
         </div>
 
         {cartItems.length === 0 ? (
