@@ -1,12 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { ProductCard } from "@/components/ui/product-card";
 import { products } from "@/lib/data";
 
-const PRODUCTS_PER_BATCH = 5;
-const LOADING_DELAY = 1500;
+const PRODUCTS_PER_BATCH = 5; // Changed to load 5 products at a time
 
 export function ProductGrid() {
   const [sortBy, setSortBy] = useState("default");
@@ -14,11 +13,8 @@ export function ProductGrid() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
-  const loaderRef = useRef(null);
-  const initialRender = useRef(true);
 
-  // Get sorted products
-  const getSortedProducts = () => {
+  const getSortedProducts = useCallback(() => {
     let sortedProducts = [...products];
     switch (sortBy) {
       case "price-asc":
@@ -28,79 +24,59 @@ export function ProductGrid() {
       default:
         return sortedProducts;
     }
-  };
+  }, [sortBy]);
 
   // Load more products
-  const loadMoreProducts = async () => {
+  const loadMoreProducts = useCallback(async () => {
     if (loading || !hasMore) return;
 
     setLoading(true);
-
-    // Add delay for loading animation
-    await new Promise(resolve => setTimeout(resolve, LOADING_DELAY));
+    
+    // Simulate network delay
+    await new Promise(resolve => setTimeout(resolve, 800));
 
     const sortedProducts = getSortedProducts();
-    const startIndex = currentIndex;
-    const endIndex = startIndex + PRODUCTS_PER_BATCH;
-    const nextProducts = sortedProducts.slice(startIndex, endIndex);
+    const nextProducts = sortedProducts.slice(
+      currentIndex,
+      currentIndex + PRODUCTS_PER_BATCH
+    );
 
     if (nextProducts.length > 0) {
       setDisplayedProducts(prev => [...prev, ...nextProducts]);
-      setCurrentIndex(endIndex);
-      setHasMore(endIndex < sortedProducts.length);
+      setCurrentIndex(prev => prev + PRODUCTS_PER_BATCH);
+      setHasMore(currentIndex + PRODUCTS_PER_BATCH < sortedProducts.length);
     } else {
       setHasMore(false);
     }
 
     setLoading(false);
-  };
+  }, [currentIndex, loading, hasMore, getSortedProducts]);
 
-  // Intersection Observer setup
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const target = entries[0];
-        if (target.isIntersecting && !loading && hasMore) {
-          loadMoreProducts();
-        }
-      },
-      {
-        root: null,
-        rootMargin: '100px',
-        threshold: 0.1
-      }
-    );
+  // Handle scroll
+  const handleScroll = useCallback(() => {
+    if (loading || !hasMore) return;
 
-    if (loaderRef.current) {
-      observer.observe(loaderRef.current);
-    }
+    const scrollPosition = window.innerHeight + window.scrollY;
+    const scrollThreshold = document.documentElement.scrollHeight - 200;
 
-    return () => observer.disconnect();
-  }, [loading, hasMore]);
-
-  // Reset on sort change
-  useEffect(() => {
-    if (!initialRender.current) {
-      setDisplayedProducts([]);
-      setCurrentIndex(0);
-      setHasMore(true);
-      loadMoreProducts();
-    } else {
-      initialRender.current = false;
+    if (scrollPosition >= scrollThreshold) {
       loadMoreProducts();
     }
+  }, [loading, hasMore, loadMoreProducts]);
+
+  // Reset when sort changes
+  useEffect(() => {
+    setDisplayedProducts([]);
+    setCurrentIndex(0);
+    setHasMore(true);
+    loadMoreProducts();
   }, [sortBy]);
 
-  const ProductSkeleton = () => (
-    <div className="rounded-lg border border-gray-200 p-4 h-[400px]">
-      <div className="animate-pulse">
-        <div className="w-full h-48 bg-gray-200 rounded-lg mb-4"></div>
-        <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
-        <div className="h-4 bg-gray-200 rounded w-1/2 mb-4"></div>
-        <div className="h-6 bg-gray-200 rounded w-1/4"></div>
-      </div>
-    </div>
-  );
+  // Add scroll listener
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
 
   return (
     <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
@@ -109,7 +85,6 @@ export function ProductGrid() {
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
           className="rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm"
-          disabled={loading}
         >
           <option value="default">Sort by</option>
           <option value="price-asc">Price: Low to High</option>
@@ -150,24 +125,20 @@ export function ProductGrid() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
+                className="rounded-lg border border-gray-200 p-4 h-[400px]"
               >
-                <ProductSkeleton />
+                <div className="animate-pulse">
+                  <div className="w-full h-48 bg-gray-200 rounded-lg mb-4"></div>
+                  <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
+                  <div className="h-4 bg-gray-200 rounded w-1/2 mb-4"></div>
+                  <div className="h-6 bg-gray-200 rounded w-1/4"></div>
+                </div>
               </motion.div>
             ))}
           </>
         )}
       </motion.div>
 
-      {/* Intersection Observer target */}
-      {hasMore && (
-        <div 
-          ref={loaderRef} 
-          className="h-10 mt-4"
-          aria-hidden="true"
-        />
-      )}
-
-      {/* End of products message */}
       {!hasMore && displayedProducts.length > 0 && (
         <div className="mt-8 text-center">
           <motion.div
@@ -175,12 +146,10 @@ export function ProductGrid() {
             animate={{ opacity: 1 }}
             className="text-gray-600"
           >
-            You've reached the end of the products
+            No more products to load
           </motion.div>
         </div>
       )}
     </main>
   );
 }
-
-export default ProductGrid;
