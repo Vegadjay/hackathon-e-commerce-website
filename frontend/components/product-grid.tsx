@@ -3,13 +3,14 @@
 import { motion } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
 import { ProductCard } from "@/components/ui/product-card";
-import { products } from "@/lib/data";
+// @ts-ignore
+import { products, Product } from "@/lib/data";
 
-const PRODUCTS_PER_BATCH = 5; // Changed to load 5 products at a time
+const PRODUCTS_PER_BATCH = 5;
 
 export function ProductGrid() {
   const [sortBy, setSortBy] = useState("default");
-  const [displayedProducts, setDisplayedProducts] = useState([]);
+  const [displayedProducts, setDisplayedProducts] = useState<Product[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);

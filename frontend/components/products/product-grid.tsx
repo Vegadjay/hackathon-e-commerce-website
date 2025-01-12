@@ -83,8 +83,10 @@ export function ProductGrid() {
       product.price >= priceRange[0] && product.price <= priceRange[1]
     );
 
+    // todo: Add sizing here
     if (selectedSizes.length > 0) {
       filtered = filtered.filter(product =>
+        // @ts-ignore
         selectedSizes.some(size => product.sizes?.includes(size))
       );
     }
@@ -199,6 +201,8 @@ export function ProductGrid() {
                   >
                     <ProductCard
                       {...product}
+                      // @ts-ignore
+                      // todo: If we write images than data is come from api otherwise that is come from orignal data.
                       image={[`https://picsum.photos/500?random=${product.id}`]}
                       className="shadow-lg hover:shadow-xl transition-shadow duration-300"
                     />
