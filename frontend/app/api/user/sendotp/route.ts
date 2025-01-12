@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import dbConnect from '@/lib/dbConnect';
-import User from '@/models/User';
+import bcrypt from 'bcrypt';
 
 export async function POST(req: Request) {
 	try {
@@ -13,15 +13,9 @@ export async function POST(req: Request) {
 
 		await dbConnect();
 
-		const user = await User.findOne({ email });
-		if (!user) {
-			return NextResponse.json(
-				{ error: 'Email not found in the database!' },
-				{ status: 404 }
-			);
-		}
+		const username = email.split('@')[0];
 
-		const otp = Math.floor(100000 + Math.random() * 900000).toString();
+		let otp = Math.floor(100000 + Math.random() * 900000).toString();
 
 		if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
 			console.error('Missing EMAIL_USER or EMAIL_PASS environment variables');
@@ -46,7 +40,7 @@ export async function POST(req: Request) {
 			html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; padding: 20px; background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 10px; max-width: 600px; margin: auto;">
           <h2 style="color: #0056b3; text-align: center;">Your One-Time Password (OTP)</h2>
-          <p>Dear ${user.firstname},</p>
+          <p>Dear ${username},</p>
           <p>Please use the following One-Time Password (OTP) to complete your action. For your security, do not share this code with anyone.</p>
           <div style="text-align: center; margin: 20px 0;">
             <span style="font-size: 24px; font-weight: bold; color: #000; background: #e7f3ff; padding: 10px 20px; border-radius: 5px; border: 1px solid #0056b3;">${otp}</span>
@@ -59,15 +53,24 @@ export async function POST(req: Request) {
 		};
 
 		await transporter.sendMail(mailOptions);
+		console.log("OTP is ", otp);
+		otp = await bcrypt.hash(otp, 10);
 
-		user.otp = otp;
-		user.otpExpiry = new Date(Date.now() + 5 * 60 * 1000);
-		await user.save();
-
-		return NextResponse.json(
-			{ success: true, message: 'OTP sent successfully' },
+		const data = {
+			otp: otp
+		};
+		const response = NextResponse.json(
+			{ success: true, message: 'OTP sent successfully', data: data },
 			{ status: 200 }
 		);
+		response.cookies.set('otp', otp.toString(), {
+			httpOnly: false,   // Prevents JavaScript from accessing the cookie
+			secure: false,  // Ensures the cookie is sent over HTTPS in production
+			maxAge: 6 * 60,
+			path: '/',
+		});
+
+		return response;
 	} catch (error) {
 		console.error('Error handling OTP request:', error);
 		return NextResponse.json({ error: 'Internal server error' }, { status: 500 });

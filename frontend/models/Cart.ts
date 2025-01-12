@@ -4,7 +4,6 @@ interface IProduct {
 	productId: string;
 	quantity: number;
 	size: string;
-	color: string;
 	price: string;
 }
 
@@ -20,7 +19,6 @@ const ProductSchema: Schema = new Schema({
 	productId: { type: Schema.Types.ObjectId, ref: 'Products', required: true },
 	quantity: { type: Number, required: true },
 	size: { type: String, required: true },
-	color: { type: String, required: true },
 	price: { type: String, required: true }
 });
 

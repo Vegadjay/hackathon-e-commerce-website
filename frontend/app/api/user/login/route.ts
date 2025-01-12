@@ -62,6 +62,12 @@ export async function POST(req: Request) {
 			maxAge: 29 * 24 * 60 * 60,
 			path: '/',
 		});
+		//set another token userid
+		response.cookies.set('userId', user._id, {
+			httpOnly: false,
+			secure: false,
+			maxAge: 29 * 24 * 60 * 60,
+		});
 		return response;
 	} catch (error) {
 		if (error instanceof z.ZodError) {

@@ -5,23 +5,41 @@ import User from '@/models/User';
 
 export async function DELETE(
 	request: Request,
-	{ params }: { params: { cartId: string } }
+	{ params }: { params: { userId: string } }
 ) {
 	try {
 		await dbConnect();
 
-		const { cartId } = params;
+		const { userId } = params;
 		const { productId } = await request.json();
 
-		if (!cartId || !productId) {
+		if (!userId || !productId) {
 			return NextResponse.json(
 				{ success: false, error: 'Invalid Credentials' },
 				{ status: 400 }
 			);
 		}
 
-		const cart = await Cart.findById(cartId);
+		const user = await User.findById(userId);
 
+		if (!user) {
+			return NextResponse.json(
+				{ success: false, error: 'User not found' },
+				{ status: 404 }
+			);
+		}
+
+		const cartId = user.cart.toString().replace('ObjectId("', '').replace('")', '');
+		console.log(cartId, " is my cartID hemang@gmail.com");
+		if (!cartId || cartId === undefined || cartId === null || cartId === "") {
+			return NextResponse.json(
+				{ success: false, error: 'Cart not found' },
+				{ status: 404 }
+			);
+		}
+
+		const cart = await Cart.findById(cartId);
+		console.log(cart, " is my cart hemang@gmail.com");
 		if (!cart) {
 			return NextResponse.json(
 				{ success: false, error: 'Cart not found' },
@@ -33,7 +51,6 @@ export async function DELETE(
 		const updatedProducts = cart.products.filter(
 			(product: any) => product.productId.toString() !== productId
 		);
-
 		if (updatedProducts.length === cart.products.length) {
 			return NextResponse.json(
 				{ success: false, error: 'Product not found in cart' },

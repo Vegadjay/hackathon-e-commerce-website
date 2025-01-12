@@ -2,8 +2,8 @@ import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/dbConnect';
 import {IProduct, Cart} from '@/models/Cart';
 import { z } from 'zod';
-import { Types } from 'mongoose';
 import User from '@/models/User';
+
 
 const cartSchema = z.object({
 	userId: z.string().nonempty("User ID is required"),
@@ -12,7 +12,6 @@ const cartSchema = z.object({
 			productId: z.string().nonempty("Product ID is required"),
 			quantity: z.number().min(1, "Quantity must be at least 1"),
 			size: z.string().nonempty("Size is required"),
-			color: z.string().nonempty("Color is required"),
 			price: z.string().nonempty("Price is required")
 		})
 	),
@@ -21,11 +20,11 @@ const cartSchema = z.object({
 
 export async function POST(request: Request) {
 	try {
-		await dbConnect();
 		const body = await request.json();
-
+		console.log(body);
 		const parsedBody = cartSchema.parse(body);
-
+		
+		await dbConnect();
 		const user = await User.findById(parsedBody.userId);
 		if (!user) {
 			return NextResponse.json(
@@ -45,7 +44,6 @@ export async function POST(request: Request) {
 				if (existingProduct) {
 					existingProduct.quantity = newProduct.quantity;
 					existingProduct.size = newProduct.size;
-					existingProduct.color = newProduct.color;
 				} else {
 					existingCart.products.push(newProduct);
 				}
