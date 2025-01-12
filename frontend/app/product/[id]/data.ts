@@ -4548,8 +4548,7 @@ export const products: Products[] = [{
     "Pant length 38"
   ],
   "description": "Upgrade your pants game with our Navy Blue 4-Way Stretchable Pants. Made from premium lycra fabric, these pants are not only stylish, but also incredibly comfortable. With pockets on both sides, you'll have easy access to all your essentials. Available in a sleek navy blue color, ese pants are perfect for any occasion. Say goodbye to restrictive pants and hello to ultimate flexibility."
-},
-{
+}, {
   "id": 144,
   "name": "Dark Grey 4-Way Stretchable Pants",
   "price": 1199.00,
@@ -4560,10 +4559,10 @@ export const products: Products[] = [{
   "delivery": "Rs. 100",
   "deliveryDate": "5 To 6 Working days",
   "seller": "Rajwadi Poshaak Co.",
-  "color": ["Grey"],
+  "color": [""],
   "category": "solid-wear-clothing(pant)",
   "model": "RP-PSP105DARK GREY)",
-  "size": ["XS", "S", "M", "L", "XL", "XXL", "XXL"],
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
   "images": [
     "/detailphotos/144.1.webp",
     "/detailphotos/144.2.webp",
@@ -4580,6 +4579,836 @@ export const products: Products[] = [{
     "Pant length 38"
   ],
   "description": "Get ready to stretch your style game with our Dark Grey 4-Way Stretchable Pants. Made with premium lycra, these pants offer maximum comfort and flexibility. Plus, with pockets on both sides, you never have to sacrifice style for functionality. Embrace the dark side in style now!"
+},
+{
+  "id": 145,
+  "name": "Mustard 4-Way Stretchable Pants",
+  "price": 1199.00,
+  "rating": 4.3,
+  "reviews": 2305,
+  "answers": 13,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Mustard"],
+  "category": "solid-wear-clothing(pant)",
+  "model": "RP-PSP105MUSTARD)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+  "images": [
+    "/detailphotos/145.1.webp",
+    "/detailphotos/145.2.webp",
+    "/detailphotos/145.3.webp",
+    "/detailphotos/145.4.webp",
+    "/detailphotos/145.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Premium Lycra",
+    "Fit - Relaxed (CODE :RP-PSP105MUSTARD)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Unleash your wild side with these Mustard 4-Way Stretchable Pants! Made with premium lycra fabric, these straight pants provide ultimate comfort and flexibility. With pockets on both sides for convenience, these mustard colored pants add a pop of color tany outfit. Dare to stand out with these stretchy, stylish pants."
+},
+{
+  "id": 146,
+  "name": "Maroon 4-Way Stretchable Pants",
+  "price": 1199.00,
+  "rating": 4.7,
+  "reviews": 4505,
+  "answers": 146,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Maroon"],
+  "category": "solid-wear-clothing(pant)",
+  "model": "RP-PSP105MUSTARD)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+  "images": [
+    "/detailphotos/146.1.webp",
+    "/detailphotos/146.2.webp",
+    "/detailphotos/146.3.webp",
+    "/detailphotos/146.4.webp",
+    "/detailphotos/146.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Premium Lycra",
+    "Fit - Relaxed (CODE :RP-PSP105MUSTARD)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Unleash your wild side with these Mustard 4-Way Stretchable Pants! Made with premium lycra fabric, these straight pants provide ultimate comfort and flexibility. With pockets on both sides for convenience, these mustard colored pants add a pop of color tany outfit. Dare to stand out with these stretchy, stylish pants."
+},
+{
+  "id": 147,
+  "name": "Hot Pink 4-Way Stretchable Pants",
+  "price": 1199.00,
+  "rating": 4.5,
+  "reviews": 7845,
+  "answers": 16,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Pink"],
+  "category": "solid-wear-clothing(pant)",
+  "model": "RP-PSP105HOT PINK)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+  "images": [
+    "/detailphotos/147.1.webp",
+    "/detailphotos/147.2.webp",
+    "/detailphotos/147.3.webp",
+    "/detailphotos/147.4.webp",
+    "/detailphotos/147.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Premium Lycra",
+    "Fit - Relaxed (CODE :RP-PSP105HOT PINK)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Get ready to stand out in these Hot Pink 4-Way Stretchable Pants. Made with premium lycra fabric, these pants offer ultimate comfort and flexibility. The pockets on both sides add practicality, while the hot pink color adds a bold pop to any outfit. Perfect for those who want to make a statement."
+},
+{
+  "id": 148,
+  "name": "Black 4-Way Stretchable Pants",
+  "price": 1199.00,
+  "rating": 5,
+  "reviews": 8868,
+  "answers": 86,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Black"],
+  "category": "solid-wear-clothing(pant)",
+  "model": "RP-PSP105BLACK)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+  "images": [
+    "/detailphotos/148.1.webp",
+    "/detailphotos/148.2.webp",
+    "/detailphotos/148.3.webp",
+    "/detailphotos/148.4.webp",
+    "/detailphotos/148.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Premium Lycra",
+    "Fit - Relaxed (CODE :RP-PSP105BLACK)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Get ready to take on the day in our Black 4-Way Stretchable Pants! Made with premium lycra fabric, these stretchable pants provide maximum comfort and flexibility. With pockets on both sides, you'll have plenty of room to store your essentials. Plus, the sleek black color adds a touch of style to any outfit. Say goodbye to uncomfortable pants and hello to effortless style!"
+},
+{
+  "id": 149,
+  "name": "Mogra Gher Mul Cotton Suit Set (Plus Size)",
+  "price": 3199.00,
+  "rating": 4.5,
+  "reviews": 4868,
+  "answers": 46,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Yellow"],
+  "category": "plus-size",
+  "model": "RP-792 PS)",
+  "size": ["3XL", "4XL", "5XL", "6XL", "7XL"],
+  "images": [
+    "/detailphotos/149.1.webp",
+    "/detailphotos/149.2.webp",
+    "/detailphotos/149.3.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-792 PS)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Indulge in the luxury of the Mogra Gher Mul Cotton Suit Set. This premium set is made from high-quality cotton for a luxurious feel and features intricate Mogra Gher weaving. Elevate your style with this elegant and exclusive suit set."
+},
+{
+  "id": 150,
+  "name": "Saanvi Maroon Floral Print Suit Set (Plus Size)",
+  "price": 3199.00,
+  "rating": 4.7,
+  "reviews": 1376,
+  "answers": 34,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Maroon"],
+  "category": "plus-size",
+  "model": "RP-703 PS)",
+  "size": ["3XL", "4XL", "5XL", "6XL", "7XL"],
+  "images": [
+    "/detailphotos/150.1.webp",
+    "/detailphotos/150.2.webp",
+    "/detailphotos/150.3.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-703 PS)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "A Rich Maroon Alia Cut Suit Set Featuring A Floral Print, Crafted From Breathable Cotton Fabric. The Full-Sleeve Kurta Boasts A Stylish V-Neck Design, Complemented By A Graceful Cotton Dupatta. This Ensemble Blends Sophistication With Comfort, Perfect For Any Event."
+},
+{
+  "id": 151,
+  "name": "Goel Green Handblock Pintuck Straight Chanderi Suit Set (Plus Size)",
+  "price": 6199.00,
+  "rating": 4.2,
+  "reviews": 12576,
+  "answers": 231,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Green"],
+  "category": "plus-size",
+  "model": "RP-685 Plus size)",
+  "size": ["3XL", "4XL", "5XL", "6XL", "7XL"],
+  "images": [
+    "/detailphotos/151.1.webp",
+    "/detailphotos/151.2.webp",
+    "/detailphotos/151.3.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-685 Plus size)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Rock this playful Goel Green Handblock Pintuck Chanderi Straight Suit Set! Featuring a vibrant green color and eye-catching handblock and floral prints on chanderi fabric, this straight suit set will make you stand out. Perfect for a fun, quirky look that doesn't take itself too seriously."
+},
+{
+  "id": 152,
+  "name": "Banni Blue Cotton Straight Suit Set (Plus Size)",
+  "price": 4799.00,
+  "rating": 5,
+  "reviews": 3076,
+  "answers": 13,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Blue"],
+  "category": "plus-size",
+  "model": "RP-677 PS)",
+  "size": ["3XL", "4XL", "5XL", "6XL", "7XL"],
+  "images": [
+    "/detailphotos/152.1.webp",
+    "/detailphotos/152.2.webp",
+    "/detailphotos/152.3.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-677 PS)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Dress to impress in our blue floral jaal print cotton straight pant and kurta set! The elegant 3/4th sleeves and v neck with thread work detailing add a touch of sophistication. Complete the look with our gorgeous kota doriya printed dupatta. Perfect for any occasion!"
+},
+{
+  "id": 153,
+  "name": "Najia Green Floral Handblock Print Suit Set(Plus Size)",
+  "price": 5499.00,
+  "rating": 4.1,
+  "reviews": 6898,
+  "answers": 124,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Green"],
+  "category": "plus-size",
+  "model": "RP-702 PS)",
+  "size": ["3XL", "4XL", "5XL", "6XL", "7XL"],
+  "images": [
+    "/detailphotos/153.1.webp",
+    "/detailphotos/153.2.webp",
+    "/detailphotos/153.3.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-702 PS)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "A Vibrant Green Alia Cut Suit Set Featuring Intricate Floral Handblock Prints On Soft Cotton Fabric. The Full-Sleeve Kurta Boasts A Flattering V-Neck Design, Complemented By A Delicate Kota Doriya Dupatta, Creating A Charming Ensemble That Exudes Elegance And Comfort."
+},
+{
+  "id": 154,
+  "name": "Rosheen Red Floral Block Print Embroidered Suit Set (Plus Size)",
+  "price": 5499.00,
+  "rating": 4.4,
+  "reviews": 4532,
+  "answers": 155,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Red"],
+  "category": "plus-size",
+  "model": "RP-715 PS)",
+  "size": ["3XL", "4XL", "5XL", "6XL", "7XL"],
+  "images": [
+    "/detailphotos/154.1.webp",
+    "/detailphotos/154.2.webp",
+    "/detailphotos/154.3.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-715 PS)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "A vivacious swirl of red, blooming with floral handblock print, cotton caresses in an Alia-cut flarey kurta, threaded with whimsy on neck and sleeves. A dance of floral jaal print, buti pant, and Kota Dori dupatta, weaving joyful tales."
+},
+{
+  "id": 155,
+  "name": "Izza Blue Floral Handblock Print Suit Set(Plus Size)",
+  "price": 5499.00,
+  "rating": 4.7,
+  "reviews": 5444,
+  "answers": 89,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Blue"],
+  "category": "plus-size",
+  "model": "RP-701 PS)",
+  "size": ["3XL", "4XL", "5XL", "6XL", "7XL"],
+  "images": [
+    "/detailphotos/155.1.webp",
+    "/detailphotos/155.2.webp",
+    "/detailphotos/155.3.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-701 PS)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "A Stunning Alia Cut Suit Set Featuring A Full-Sleeve Kurta Adorned With Handblock Floral Print In Vibrant Blue Cotton Fabric. The V-Neck Adds Elegance, Complemented By A Kota Doriya Dupatta. Perfect Fusion Of Tradition And Modernity, Exuding Charm And Grace."
+},
+{
+  "id": 155,
+  "name": "Izza Blue Floral Handblock Print Suit Set(Plus Size)",
+  "price": 5499.00,
+  "rating": 4.7,
+  "reviews": 5444,
+  "answers": 89,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Blue"],
+  "category": "plus-size",
+  "model": "RP-701 PS)",
+  "size": ["3XL", "4XL", "5XL", "6XL", "7XL"],
+  "images": [
+    "/detailphotos/155.1.webp",
+    "/detailphotos/155.2.webp",
+    "/detailphotos/155.3.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-701 PS)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "A Stunning Alia Cut Suit Set Featuring A Full-Sleeve Kurta Adorned With Handblock Floral Print In Vibrant Blue Cotton Fabric. The V-Neck Adds Elegance, Complemented By A Kota Doriya Dupatta. Perfect Fusion Of Tradition And Modernity, Exuding Charm And Grace."
+},
+{
+  "id": 156,
+  "name": "Shrija Maroon Floral Print Embroidered Suit Set (Plus Size)",
+  "price": 3399.00,
+  "rating": 4.2,
+  "reviews": 9853,
+  "answers": 132,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Maroon"],
+  "category": "plus-size",
+  "model": "RP-692 PS)",
+  "size": ["3XL", "4XL", "5XL", "6XL", "7XL"],
+  "images": [
+    "/detailphotos/156.1.webp",
+    "/detailphotos/156.2.webp",
+    "/detailphotos/156.3.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-692 PS)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "A Captivating Maroon Floral Print Straight Suit Set, Fashioned From Cotton Fabric. The Kurta Is Adorned With Exquisite Gota Patti Work, Adding A Touch Of Traditional Elegance. This Ensemble Exudes Charm And Sophistication, Perfect For Embracing Cultural Festivities With Style."
+},
+{
+  "id": 157,
+  "name": "Saanvi Anarkali Flair Suit Set (Plus Size)",
+  "price": 3199.00,
+  "rating": 4.5,
+  "reviews": 7853,
+  "answers": 13,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Blue"],
+  "category": "plus-size",
+  "model": "RP-778 PS)",
+  "size": ["3XL", "4XL", "5XL", "6XL", "7XL"],
+  "images": [
+    "/detailphotos/157.1.webp",
+    "/detailphotos/157.2.webp",
+    "/detailphotos/157.3.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-778 PS)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Indulge in the exquisite beauty of our Saanvi Anarkali Flair Suit Set. This luxury ensemble features a beautifully crafted Anarkali top with intricate detailing and a flared silhouette, paired with matching bottoms. Elevate your style and make a statement at any special occasion with this exclusive and elegant piece."
+},
+{
+  "id": 158,
+  "name": "Begu Blue Floral Anarkali Suit Set (Plus Size)",
+  "price": 4999.00,
+  "rating": 4.7,
+  "reviews": 6563,
+  "answers": 190,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Blue"],
+  "category": "plus-size",
+  "model": "RP-653 PS)",
+  "size": ["3XL", "4XL", "5XL", "6XL", "7XL"],
+  "images": [
+    "/detailphotos/158.1.webp",
+    "/detailphotos/158.2.webp",
+    "/detailphotos/158.3.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-653 PS)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Get ready to stand out in this playful floral suit set! Made from cool cotton, this blue suit features a flared cut, unique buti print palazzo pants and jaal printed kota doriya dupatta. Perfect for adding a quirky touch to your wardrobe!"
+},
+{
+  "id": 159,
+  "name": "Indigo Dream Suit Set(Plus Size)",
+  "price": 3599.00,
+  "rating": 4.4,
+  "reviews": 7756,
+  "answers": 19,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Blue"],
+  "category": "plus-size",
+  "model": "RP-729 PS)",
+  "size": ["3XL", "4XL", "5XL", "6XL", "7XL"],
+  "images": [
+    "/detailphotos/159.1.webp",
+    "/detailphotos/159.2.webp",
+    "/detailphotos/159.3.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-729 PS)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "A captivating ensemble embodying elegance and grace. This three-piece set features 3/4 sleeves, exquisite neckline work, and a beautiful lotus motif print throughout. Completing the look is a stunning dupatta adorned with playful tassels. Embrace the allure of the \"Indigo Dream\" and let your style shine with its timeless charm."
+},
+{
+  "id": 160,
+  "name": "Bagh Suit Set with Full Sleeves & Flared Design(Plus Size)",
+  "price": 3199.00,
+  "rating": 4.6,
+  "reviews": 4654,
+  "answers": 343,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Green"],
+  "category": "plus-size",
+  "model": "RP-788 PS)",
+  "size": ["3XL", "4XL", "5XL", "6XL", "7XL"],
+  "images": [
+    "/detailphotos/160.1.webp",
+    "/detailphotos/160.2.webp",
+    "/detailphotos/160.3.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-788 PS)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Indulge in the exquisite design of the Bagh Handblock Suit. With full sleeves and a flared silhouette, this suit combines traditional handblock prints with modern elegance. Experience the luxury of high-quality craftsmanship and elevate your style to new heights."
+},
+{
+  "id": 161,
+  "name": "Pankhuri Pink Cotton Jaal Print Straight Pintuck Kurta",
+  "price": 1899.00,
+  "rating": 4.2,
+  "reviews": 9483,
+  "answers": 44,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Pink"],
+  "category": "trending",
+  "model": "RP-643 Kurta)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+  "images": [
+    "/detailphotos/161.1.webp",
+    "/detailphotos/161.2.webp",
+    "/detailphotos/161.3.webp",
+    "/detailphotos/161.4.webp",
+    "/detailphotos/161.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-643 Kurta)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "Brighten up your wardrobe with this comfortable, pure cotton kurta in pink. Featuring a cheerful jaal print, pintuck detailing, this kurta is perfect for everyday wear. Feel your best in Pankhuri's Pink Cotton Jaal Print Straight Pintuck Kurta."
+},
+{
+  "id": 162,
+  "name": "Maroon Floral Buti Print Cotton Straight Kurta",
+  "price": 1599.00,
+  "rating": 4.5,
+  "reviews": 6583,
+  "answers": 75,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Maroon"],
+  "category": "trending",
+  "model": "RP-694 Kurta)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+  "images": [
+    "/detailphotos/162.1.webp",
+    "/detailphotos/162.2.webp",
+    "/detailphotos/162.3.webp",
+    "/detailphotos/162.4.webp",
+    "/detailphotos/162.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-694 Kurta)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 46",
+    "Pant length 38"
+  ],
+  "description": "A Maroon Straight Kurta With A Subtle Buti Print, Featuring A Flattering V-Neck Design And Chic 3/4 Sleeves. Its Elegant Simplicity And Timeless Style Make It A Versatile Wardrobe Staple Suitable For Various"
+},
+{
+  "id": 163,
+  "name": "Sea Green Floral Print Cotton Straight Kurta",
+  "price": 2399.00,
+  "rating": 4,
+  "reviews": 4474,
+  "answers": 67,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Green"],
+  "category": "trending",
+  "model": "RP-696 Kurta)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+  "images": [
+    "/detailphotos/163.1.webp",
+    "/detailphotos/163.2.webp",
+    "/detailphotos/163.3.webp",
+    "/detailphotos/163.4.webp",
+    "/detailphotos/163.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-696 Kurta)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 42"
+  ],
+  "description": "A Serene Sea Green Long Kurta, Crafted From Breathable Cotton Fabric And Adorned With Intricate Buti Print. Its Graceful Silhouette Exudes Elegance, While The Soothing Color And Delicate Print Add A Touch Of Sophistication, Perfect For Both Casual And Semi-Formal Occasions. Fabric - Pure Cotton"
+},
+{
+  "id": 164,
+  "name": "Peach Floral Buti Print Cotton Straight Kurta",
+  "price": 2399.00,
+  "rating": 4,
+  "reviews": 4474,
+  "answers": 67,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Pink"],
+  "category": "trending",
+  "model": "RP-695 Kurta)",
+  "size": ["L", "XL"],
+  "images": [
+    "/detailphotos/164.1.webp",
+    "/detailphotos/164.2.webp",
+    "/detailphotos/164.3.webp",
+    "/detailphotos/164.4.webp",
+    "/detailphotos/164.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-695 Kurta)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 42"
+  ],
+  "description": "A Charming Pink Cotton Kurta Adorned With Delicate Buti Print, Tailored In A Sleek Straight Silhouette. Its Airy And Comfortable Design, Coupled With The Intricate Print, Adds A Touch Of Elegance, Making It Ideal For Casual Outings Or Relaxed Gatherings."
+},
+{
+  "id": 165,
+  "name": "Sehar Leafy Handblock Printed Anarkali Kurta",
+  "price": 2399.00,
+  "rating": 4.3,
+  "reviews": 8745,
+  "answers": 49,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Yellow"],
+  "category": "trending",
+  "model": "RP-716 Kurta)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+  "images": [
+    "/detailphotos/165.1.webp",
+    "/detailphotos/165.2.webp",
+    "/detailphotos/165.3.webp",
+    "/detailphotos/165.4.webp",
+    "/detailphotos/165.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-716 Kurta)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 42"
+  ],
+  "description": "Sehar's elegant leafy yellow handblock print cotton anarkali kurta features chudidaar full sleeves and convenient pockets on both sides, combining traditional charm with modern functionality for a sophisticated and practical ensemble."
+},
+{
+  "id": 166,
+  "name": "Bella Blue Hand Block Print Cotton Straight Kurta",
+  "price": 2599.00,
+  "rating": 4.2,
+  "reviews": 3479,
+  "answers": 34,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Blue"],
+  "category": "trending",
+  "model": "RP-635 Kurta)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+  "images": [
+    "/detailphotos/166.1.webp",
+    "/detailphotos/166.2.webp",
+    "/detailphotos/166.3.webp",
+    "/detailphotos/166.4.webp",
+    "/detailphotos/166.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-635 Kurta)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 42"
+  ],
+  "description": "The Bella Blue Hand Block Print Cotton Straight Kurta is an exquisite ethnic wear piece created with utmost precision and care. Rich blue color and beautiful floral motifs in hand block print come together to make an elegant, tasteful and timeless look perfect for any special occasion. Crafted with purely cotton material for softness and comfort, this kurta is a luxuriously stylish choice."
+},
+{
+  "id": 167,
+  "name": "Uzma Off White Buti Print Cotton Straight Kurta",
+  "price": 1799.00,
+  "rating": 4.6,
+  "reviews": 7434,
+  "answers": 83,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Off-White"],
+  "category": "trending",
+  "model": "RP-636 Kurta)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+  "images": [
+    "/detailphotos/167.1.webp",
+    "/detailphotos/167.2.webp",
+    "/detailphotos/167.3.webp",
+    "/detailphotos/167.4.webp",
+    "/detailphotos/167.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-636 Kurta)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 42"
+  ],
+  "description": "Stay comfortable and stylish in this exclusive Uzma off-white kurta, crafted with pure cotton and featuring an exquisite buti print. Its straight fit and relaxed design will keep you looking sharp and feeling comfortable all day long."
+},
+{
+  "id": 168,
+  "name": "Shanza Floral Handblock Print Kalidar Kurta",
+  "price": 2499.00,
+  "rating": 4,
+  "reviews": 3478,
+  "answers": 83,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Red"],
+  "category": "trending",
+  "model": "RP-721 Kurta)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+  "images": [
+    "/detailphotos/168.1.webp",
+    "/detailphotos/168.2.webp",
+    "/detailphotos/168.3.webp",
+    "/detailphotos/168.4.webp",
+    "/detailphotos/168.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-721 Kurta)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 42"
+  ],
+  "description": "Shanza offers a captivating Red Floral Handblock Print Kalidar Kurta crafted from soft cotton. Adorned with pockets on both sides for added convenience, it showcases elegant chudidaar sleeves, blending traditional charm with contemporary comfort in a vibrant ensemble."
+},
+{
+  "id": 169,
+  "name": "Urvashi Floral Handblock Printed A- Line Kurta",
+  "price": 2399.00,
+  "rating": 4.7,
+  "reviews": 7434,
+  "answers": 45,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Magenta"],
+  "category": "trending",
+  "model": "RP-717 Kurta)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+  "images": [
+    "/detailphotos/169.1.webp",
+    "/detailphotos/169.2.webp",
+    "/detailphotos/169.3.webp",
+    "/detailphotos/169.4.webp",
+    "/detailphotos/169.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-717 Kurta)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 42"
+  ],
+  "description": "The Urvashi Floral Handblock Printed A-line Kurta emanates grace with its charming floral design. Featuring 3/4th sleeves and practical pockets on both sides, it offers a perfect blend of style and functionality. This kurta effortlessly exudes elegance, making it a versatile choice for various occasions, capturing timeless beauty with modern flair."
+},
+{
+  "id": 170,
+  "name": "Sayra Peach Floral Handblock Printed A-Line Kurta",
+  "price": 2399.00,
+  "rating": 4.1,
+  "reviews": 4533,
+  "answers": 65,
+  "inStock": true,
+  "delivery": "Rs. 100",
+  "deliveryDate": "5 To 6 Working days",
+  "seller": "Rajwadi Poshaak Co.",
+  "color": ["Peach"],
+  "category": "trending",
+  "model": "RP-719 Kurta)",
+  "size": ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+  "images": [
+    "/detailphotos/170.1.webp",
+    "/detailphotos/170.2.webp",
+    "/detailphotos/170.3.webp",
+    "/detailphotos/170.4.webp",
+    "/detailphotos/170.5.webp"
+  ],
+  "features": [
+    "Dispatch Time : 5 To 6 Working days",
+    "Fabric - Pure Cotton",
+    "Fit - Relaxed (CODE :RP-719 Kurta)",
+    "Washing instruction-  Always use mild detergent and Dry in shade",
+    "Kurta length 42"
+  ],
+  "description": "The Sayra Peach Floral Handblock Printed A-line Kurta is an elegant piece featuring a V-neckline and full sleeves. Crafted with intricate handblock printing, it exudes a charming appeal. With convenient pockets on both sides, this kurta seamlessly blends style and functionality, perfect for any occasion."
 },
 {
   "id": 201,
@@ -5128,5 +5957,644 @@ export const products: Products[] = [{
     "Blouse length 80 CM"
   ],
   "description": "Featuring a glamorous look, this Maroon Festive Zari Woven Heavy Banarasi Saree comes with a traditional zari woven design all over and tassels on the palla."
+}, {
+  "id": 218,
+  "name": "Sequinned Net Saree",
+  "price": 3999.0,
+  "rating": 3.8,
+  "reviews": 5650,
+  "answers": 149,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Yellow"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/218.1.jpg",
+    "/detailphotos/218.2.jpg",
+    "/detailphotos/218.3.jpg",
+    "/detailphotos/218.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border ",
+    "traditional Saree with a bright Yellow base",
+    "Pure Net Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Yellow and White saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 219,
+  "name": "Geometric Printed Pure Cotton Mulmul Bagru Saree",
+  "price": 6999.0,
+  "rating": 4.2,
+  "reviews": 6290,
+  "answers": 268,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Orange"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/219.1.jpg",
+    "/detailphotos/219.2.jpg",
+    "/detailphotos/219.3.jpg",
+    "/detailphotos/219.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Orange  base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Orange and White saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 220,
+  "name": "Ethnic Motifs Printed Pure Cotton Mulmul Bagru Saree",
+  "price": 6999.0,
+  "rating": 3.9,
+  "reviews": 5720,
+  "answers": 290,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Pink"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/220.1.jpg",
+    "/detailphotos/220.2.jpg",
+    "/detailphotos/220.3.jpg",
+    "/detailphotos/220.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Pink base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "White and Pink bagru saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 221,
+  "name": "Floral Pure Cotton Bagru Saree",
+  "price": 6999.0,
+  "rating": 4.5,
+  "reviews": 7490,
+  "answers": 309,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "NavyBlue"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/221.1.jpg",
+    "/detailphotos/221.2.jpg",
+    "/detailphotos/221.3.jpg",
+    "/detailphotos/221.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright NavyBlue base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "NavyBlue and White saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 222,
+  "name": "Floral Printed Pure Cotton Mulmul Bagru Saree",
+  "price": 6999.0,
+  "rating": 4.3,
+  "reviews": 6400,
+  "answers": 180,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Orange"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/222.1.jpg",
+    "/detailphotos/222.2.jpg",
+    "/detailphotos/222.3.jpg",
+    "/detailphotos/222.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Orange base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "White and Orange Bagru saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 223,
+  "name": "Printed Pure Cotton Mulmul Bagru Saree",
+  "price": 6999.0,
+  "rating": 4.1,
+  "reviews": 6850,
+  "answers": 240,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Red"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/223.1.jpg",
+    "/detailphotos/223.2.jpg",
+    "/detailphotos/223.3.jpg",
+    "/detailphotos/223.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Printed Saree with a bright Red base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Red and White saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 224,
+  "name": "Floral Pure Cotton Block Print Saree",
+  "price": 6999.0,
+  "rating": 4.6,
+  "reviews": 7800,
+  "answers": 324,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Black"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/224.1.jpg",
+    "/detailphotos/224.2.jpg",
+    "/detailphotos/224.3.jpg",
+    "/detailphotos/224.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Printed Saree with a bright Black base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Black and White saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 225,
+  "name": "Floral Pure Cotton Bagru Saree",
+  "price": 6999.0,
+  "rating": 3.9,
+  "reviews": 5650,
+  "answers": 190,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Orange"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/225.1.jpg",
+    "/detailphotos/225.2.jpg",
+    "/detailphotos/225.3.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Orange base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Orange and White saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 226,
+  "name": "Checked Pure Cotton Mulmul Bagru Saree",
+  "price": 6999.0,
+  "rating": 4.4,
+  "reviews": 6500,
+  "answers": 310,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Red"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/226.1.jpg",
+    "/detailphotos/226.2.jpg",
+    "/detailphotos/226.3.jpg",
+    "/detailphotos/226.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Red base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Red and White Bagru saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 227,
+  "name": "Floral Printed Pure Cotton Bagru Saree",
+  "price": 6999.0,
+  "rating": 4.2,
+  "reviews": 6100,
+  "answers": 225,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Green "
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/227.1.jpg",
+    "/detailphotos/227.2.jpg",
+    "/detailphotos/227.3.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Green base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Green and White bagru saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 228,
+  "name": "Floral Pure Cotton Bagru Saree",
+  "price": 6999.0,
+  "rating": 4.7,
+  "reviews": 7000,
+  "answers": 278,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Pink"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/228.1.jpg",
+    "/detailphotos/228.2.jpg",
+    "/detailphotos/228.3.jpg",
+    "/detailphotos/228.4.jpg",
+    "/detailphotos/228.5.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Pink base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Pink and White gabru saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 229,
+  "name": "Floral Pure Cotton Block Print Saree",
+  "price": 6999.0,
+  "rating": 3.9,
+  "reviews": 5750,
+  "answers": 210,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Black"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/229.1.jpg",
+    "/detailphotos/229.2.jpg",
+    "/detailphotos/229.3.jpg",
+    "/detailphotos/229.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Black base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Black and White saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 230,
+  "name": "Floral Printed Pure Cotton Mulmul Bagru Saree",
+  "price": 6999.0,
+  "rating": 4.5,
+  "reviews": 6200,
+  "answers": 280,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "NavyBlue"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/230.1.jpg",
+    "/detailphotos/230.2.jpg",
+    "/detailphotos/230.3.jpg",
+    "/detailphotos/230.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright NavyBlue base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "NavyBlue and White gabru saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 231,
+  "name": "Floral Pure Cotton Block Print Saree",
+  "price": 3999.0,
+  "rating": 4.1,
+  "reviews": 5800,
+  "answers": 215,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Maroon"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/231.1.jpg",
+    "/detailphotos/231.2.jpg",
+    "/detailphotos/231.3.jpg",
+    "/detailphotos/231.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Maroon base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Maroon and White saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 232,
+  "name": "Striped Pure Cotton Block Print Saree",
+  "price": 3999.0,
+  "rating": 4.4,
+  "reviews": 6700,
+  "answers": 230,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Red"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/232.1.jpg",
+    "/detailphotos/232.2.jpg",
+    "/detailphotos/232.3.jpg",
+    "/detailphotos/232.4.jpg",
+    "/detailphotos/232.5.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Red base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Red and White saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 233,
+  "name": "Pure Cotton Block Print Saree",
+  "price": 6999.0,
+  "rating": 4.3,
+  "reviews": 6600,
+  "answers": 295,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Red"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/233.1.jpg",
+    "/detailphotos/233.2.jpg",
+    "/detailphotos/233.3.jpg",
+    "/detailphotos/233.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Red base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Red and White saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 234,
+  "name": "Tie and Dye Pure Cotton Block Print Saree",
+  "price": 3999.0,
+  "rating": 3.9,
+  "reviews": 5750,
+  "answers": 290,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Yellow",
+    "Blue"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/234.1.jpg",
+    "/detailphotos/234.2.jpg",
+    "/detailphotos/234.3.jpg",
+    "/detailphotos/234.4.jpg",
+    "/detailphotos/234.5.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Yellow and Blue base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Yellow and Blue saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 235,
+  "name": "Floral Pure Cotton Bagru Saree",
+  "price": 6999.0,
+  "rating": 4.1,
+  "reviews": 5900,
+  "answers": 250,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Green"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/235.1.jpg",
+    "/detailphotos/235.2.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Green base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Green and Yellow Gabru saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 236,
+  "name": "Floral Pure Cotton Bagru Saree",
+  "price": 6999.0,
+  "rating": 4.2,
+  "reviews": 6050,
+  "answers": 265,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Orange"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/236.1.jpg",
+    "/detailphotos/236.2.jpg",
+    "/detailphotos/236.3.jpg",
+    "/detailphotos/236.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Orange base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Orange and Blue saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 237,
+  "name": "Floral Pure Cotton Block Print Saree",
+  "price": 6999.0,
+  "rating": 4.2,
+  "reviews": 6100,
+  "answers": 225,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "White"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/237.1.jpg",
+    "/detailphotos/237.2.jpg",
+    "/detailphotos/237.3.jpg",
+    "/detailphotos/237.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright White base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Black and White bagru saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
 }
 ]

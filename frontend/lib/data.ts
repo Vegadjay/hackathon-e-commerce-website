@@ -5128,5 +5128,644 @@ export const products: Products[] = [{
     "Blouse length 80 CM"
   ],
   "description": "Featuring a glamorous look, this Maroon Festive Zari Woven Heavy Banarasi Saree comes with a traditional zari woven design all over and tassels on the palla."
+}, {
+  "id": 218,
+  "name": "Sequinned Net Saree",
+  "price": 3999.0,
+  "rating": 3.8,
+  "reviews": 5650,
+  "answers": 149,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Yellow"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/218.1.jpg",
+    "/detailphotos/218.2.jpg",
+    "/detailphotos/218.3.jpg",
+    "/detailphotos/218.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border ",
+    "traditional Saree with a bright Yellow base",
+    "Pure Net Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Yellow and White saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 219,
+  "name": "Geometric Printed Pure Cotton Mulmul Bagru Saree",
+  "price": 6999.0,
+  "rating": 4.2,
+  "reviews": 6290,
+  "answers": 268,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Orange"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/219.1.jpg",
+    "/detailphotos/219.2.jpg",
+    "/detailphotos/219.3.jpg",
+    "/detailphotos/219.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Orange  base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Orange and White saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 220,
+  "name": "Ethnic Motifs Printed Pure Cotton Mulmul Bagru Saree",
+  "price": 6999.0,
+  "rating": 3.9,
+  "reviews": 5720,
+  "answers": 290,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Pink"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/220.1.jpg",
+    "/detailphotos/220.2.jpg",
+    "/detailphotos/220.3.jpg",
+    "/detailphotos/220.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Pink base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "White and Pink bagru saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 221,
+  "name": "Floral Pure Cotton Bagru Saree",
+  "price": 6999.0,
+  "rating": 4.5,
+  "reviews": 7490,
+  "answers": 309,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "NavyBlue"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/221.1.jpg",
+    "/detailphotos/221.2.jpg",
+    "/detailphotos/221.3.jpg",
+    "/detailphotos/221.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright NavyBlue base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "NavyBlue and White saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 222,
+  "name": "Floral Printed Pure Cotton Mulmul Bagru Saree",
+  "price": 6999.0,
+  "rating": 4.3,
+  "reviews": 6400,
+  "answers": 180,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Orange"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/222.1.jpg",
+    "/detailphotos/222.2.jpg",
+    "/detailphotos/222.3.jpg",
+    "/detailphotos/222.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Orange base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "White and Orange Bagru saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 223,
+  "name": "Printed Pure Cotton Mulmul Bagru Saree",
+  "price": 6999.0,
+  "rating": 4.1,
+  "reviews": 6850,
+  "answers": 240,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Red"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/223.1.jpg",
+    "/detailphotos/223.2.jpg",
+    "/detailphotos/223.3.jpg",
+    "/detailphotos/223.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Printed Saree with a bright Red base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Red and White saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 224,
+  "name": "Floral Pure Cotton Block Print Saree",
+  "price": 6999.0,
+  "rating": 4.6,
+  "reviews": 7800,
+  "answers": 324,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Black"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/224.1.jpg",
+    "/detailphotos/224.2.jpg",
+    "/detailphotos/224.3.jpg",
+    "/detailphotos/224.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Printed Saree with a bright Black base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Black and White saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 225,
+  "name": "Floral Pure Cotton Bagru Saree",
+  "price": 6999.0,
+  "rating": 3.9,
+  "reviews": 5650,
+  "answers": 190,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Orange"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/225.1.jpg",
+    "/detailphotos/225.2.jpg",
+    "/detailphotos/225.3.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Orange base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Orange and White saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 226,
+  "name": "Checked Pure Cotton Mulmul Bagru Saree",
+  "price": 6999.0,
+  "rating": 4.4,
+  "reviews": 6500,
+  "answers": 310,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Red"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/226.1.jpg",
+    "/detailphotos/226.2.jpg",
+    "/detailphotos/226.3.jpg",
+    "/detailphotos/226.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Red base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Red and White Bagru saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 227,
+  "name": "Floral Printed Pure Cotton Bagru Saree",
+  "price": 6999.0,
+  "rating": 4.2,
+  "reviews": 6100,
+  "answers": 225,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Green "
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/227.1.jpg",
+    "/detailphotos/227.2.jpg",
+    "/detailphotos/227.3.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Green base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Green and White bagru saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 228,
+  "name": "Floral Pure Cotton Bagru Saree",
+  "price": 6999.0,
+  "rating": 4.7,
+  "reviews": 7000,
+  "answers": 278,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Pink"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/228.1.jpg",
+    "/detailphotos/228.2.jpg",
+    "/detailphotos/228.3.jpg",
+    "/detailphotos/228.4.jpg",
+    "/detailphotos/228.5.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Pink base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Pink and White gabru saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 229,
+  "name": "Floral Pure Cotton Block Print Saree",
+  "price": 6999.0,
+  "rating": 3.9,
+  "reviews": 5750,
+  "answers": 210,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Black"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/229.1.jpg",
+    "/detailphotos/229.2.jpg",
+    "/detailphotos/229.3.jpg",
+    "/detailphotos/229.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Black base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Black and White saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 230,
+  "name": "Floral Printed Pure Cotton Mulmul Bagru Saree",
+  "price": 6999.0,
+  "rating": 4.5,
+  "reviews": 6200,
+  "answers": 280,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "NavyBlue"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/230.1.jpg",
+    "/detailphotos/230.2.jpg",
+    "/detailphotos/230.3.jpg",
+    "/detailphotos/230.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright NavyBlue base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "NavyBlue and White gabru saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 231,
+  "name": "Floral Pure Cotton Block Print Saree",
+  "price": 3999.0,
+  "rating": 4.1,
+  "reviews": 5800,
+  "answers": 215,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Maroon"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/231.1.jpg",
+    "/detailphotos/231.2.jpg",
+    "/detailphotos/231.3.jpg",
+    "/detailphotos/231.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Maroon base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Maroon and White saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 232,
+  "name": "Striped Pure Cotton Block Print Saree",
+  "price": 3999.0,
+  "rating": 4.4,
+  "reviews": 6700,
+  "answers": 230,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Red"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/232.1.jpg",
+    "/detailphotos/232.2.jpg",
+    "/detailphotos/232.3.jpg",
+    "/detailphotos/232.4.jpg",
+    "/detailphotos/232.5.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Red base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Red and White saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 233,
+  "name": "Pure Cotton Block Print Saree",
+  "price": 6999.0,
+  "rating": 4.3,
+  "reviews": 6600,
+  "answers": 295,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Red"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/233.1.jpg",
+    "/detailphotos/233.2.jpg",
+    "/detailphotos/233.3.jpg",
+    "/detailphotos/233.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Red base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Red and White saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 234,
+  "name": "Tie and Dye Pure Cotton Block Print Saree",
+  "price": 3999.0,
+  "rating": 3.9,
+  "reviews": 5750,
+  "answers": 290,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Yellow",
+    "Blue"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/234.1.jpg",
+    "/detailphotos/234.2.jpg",
+    "/detailphotos/234.3.jpg",
+    "/detailphotos/234.4.jpg",
+    "/detailphotos/234.5.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Yellow and Blue base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Yellow and Blue saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 235,
+  "name": "Floral Pure Cotton Bagru Saree",
+  "price": 6999.0,
+  "rating": 4.1,
+  "reviews": 5900,
+  "answers": 250,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Green"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/235.1.jpg",
+    "/detailphotos/235.2.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Green base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Green and Yellow Gabru saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 236,
+  "name": "Floral Pure Cotton Bagru Saree",
+  "price": 6999.0,
+  "rating": 4.2,
+  "reviews": 6050,
+  "answers": 265,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "Orange"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/236.1.jpg",
+    "/detailphotos/236.2.jpg",
+    "/detailphotos/236.3.jpg",
+    "/detailphotos/236.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright Orange base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Orange and Blue saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
+},
+{
+  "id": 237,
+  "name": "Floral Pure Cotton Block Print Saree",
+  "price": 6999.0,
+  "rating": 4.2,
+  "reviews": 6100,
+  "answers": 225,
+  "inStock": true,
+  "delivery": "FREE delivery",
+  "deliveryDate": "Not specified",
+  "color": [
+    "White"
+  ],
+  "seller": "Rajvadi Poshaak Co.",
+  "category": "traditional-sarees",
+  "model": "Not specified",
+  "images": [
+    "/detailphotos/237.1.jpg",
+    "/detailphotos/237.2.jpg",
+    "/detailphotos/237.3.jpg",
+    "/detailphotos/237.4.jpg"
+  ],
+  "features": [
+    "Solid saree with embellished border",
+    "traditional Saree with a bright White base",
+    "Pure Cotton Fabric",
+    "For Festive Occasion",
+    "Saree length 5.5 Meter",
+    "Blouse length 90 CM"
+  ],
+  "description": "Black and White bagru saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece."
 }
 ]

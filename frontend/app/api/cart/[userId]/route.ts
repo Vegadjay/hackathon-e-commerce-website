@@ -10,7 +10,7 @@ export async function GET(
 	try {
 		await dbConnect();
 
-		const userId = "67835884a2128a9071a1e70f";
+		const userId = params;
 		const user = await User.findById(userId);
 
 		if (!user) {
@@ -31,7 +31,6 @@ export async function GET(
 
 		const cart = await Cart.findById(cartid);
 
-		//for error cross checking
 		if (!cart) {
 			return NextResponse.json(
 				{ success: false, error: 'Cart not found' },

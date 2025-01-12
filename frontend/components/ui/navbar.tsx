@@ -182,6 +182,9 @@ export function Navbar() {
   const [username, setUsername] = useState("");
   const { shouldRender, triggerRender } = useRenderContext();
 
+
+  const userId = Cookies.get('userId');
+
   useEffect(() => {
     const checkAuth = async () => {
       try {
@@ -189,13 +192,32 @@ export function Navbar() {
         const isAuthed = !!token || !!session;
         setIsAuthenticated(isAuthed);
 
-        if (session?.user?.name) {
-          setUsername(session.user.name);
-        } else if (session?.user?.email) {
-          const emailUsername = session.user.email.split('@')[0];
-          setUsername(emailUsername);
-        } else {
-          setUsername("User");
+        if (isAuthed) {
+          try {
+            const response = await fetch(`http://localhost:3000/api/user/get/${userId}`, {
+              headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+              }
+            });
+
+            if (response.ok) {
+              const userData = await response.json();
+              setUsername(userData.username);
+            } else {
+              setUsername("User");
+            }
+          } catch (error) {
+            console.error("Failed to fetch username:", error);
+            if (session?.user?.name) {
+              setUsername(session.user.name);
+            } else if (session?.user?.email) {
+              const emailUsername = session.user.email.split('@')[0];
+              setUsername(emailUsername);
+            } else {
+              setUsername("User");
+            }
+          }
         }
 
         setIsAuthChecked(true);

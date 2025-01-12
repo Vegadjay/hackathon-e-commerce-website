@@ -15,7 +15,7 @@ const ImageSwapper: React.FC<ImageSwapperProps> = ({ images, altText = "Product 
 
   return (
     <div className={`space-y-6 sm:space-y-8 flex flex-col items-center ${className}`}>
-      <div className="relative w-full sm:w-3/4 lg:w-1/2 bg-gray-50 rounded-xl overflow-hidden flex justify-center items-center">
+      <div className="relative w-full sm:w-3/4 lg:w-1/2 bg-gray-50 hover:cursor-none rounded-xl overflow-hidden flex justify-center items-center">
         <AnimatePresence mode="wait">
           <Lens hovering={hovering} setHovering={setHovering}>
             <motion.img
