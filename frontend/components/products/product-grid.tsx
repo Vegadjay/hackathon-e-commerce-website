@@ -1,6 +1,3 @@
-// todo: In this code error is occur that is size error while that size is come than error is gone..
-
-
 "use client"
 
 import { motion, AnimatePresence } from "framer-motion";
@@ -11,13 +8,14 @@ import { ProductSkeleton } from "@/components/products/product-skeleton";
 import { products } from "@/lib/data";
 import Footer from "@/components/layout/footer";
 import { BackgroundLines } from "@/components/ui/background-lines";
+import EarthComponent from "@/app/page/secondpage/page";
 
 const PRODUCTS_PER_PAGE = 15;
 
 const productCardVariants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: {
       duration: 0.4
@@ -25,7 +23,7 @@ const productCardVariants = {
   },
   hover: {
     scale: 1.05,
-    transition: { 
+    transition: {
       duration: 0.3,
       ease: "easeInOut"
     }
@@ -72,18 +70,17 @@ export function ProductGrid() {
 
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
-      filtered = filtered.filter(product => 
+      filtered = filtered.filter(product =>
         product.name.toLowerCase().includes(query) ||
         product.description?.toLowerCase().includes(query) ||
         product.category.toLowerCase().includes(query)
       );
     }
 
-    filtered = filtered.filter(product => 
+    filtered = filtered.filter(product =>
       product.price >= priceRange[0] && product.price <= priceRange[1]
     );
 
-    // todo: Add sizing here
     if (selectedSizes.length > 0) {
       filtered = filtered.filter(product =>
         // @ts-ignore
@@ -104,6 +101,7 @@ export function ProductGrid() {
 
   return (
     <div className="mx-auto max-w-[1800px]">
+      {/* Hero Section */}
       <BackgroundLines className="flex items-center justify-center w-full flex-col px-4 py-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -137,6 +135,28 @@ export function ProductGrid() {
         </motion.div>
       </BackgroundLines>
 
+      {/* Earth Component Section */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.2 }}
+        className="w-full py-12"
+      >
+        <div className="container mx-auto px-4">
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-3xl md:text-4xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600"
+          >
+            Our Global Presence
+          </motion.h3>
+          <div className="relative h-[500px] w-full rounded-xl overflow-hidden">
+            <EarthComponent />
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Products Section */}
       <div className="flex flex-col lg:flex-row gap-8 px-4 sm:px-6 lg:px-8">
         <motion.aside
           className="lg:w-64 flex-shrink-0"
@@ -145,13 +165,13 @@ export function ProductGrid() {
           transition={{ delay: 0.2 }}
         >
           <div className="sticky top-4 bg-white dark:bg-neutral-900 rounded-lg shadow-lg p-6">
-            <button 
+            <button
               onClick={() => setIsSidebarOpen(!isSidebarOpen)}
               className="lg:hidden w-full text-left mb-4 text-neutral-600 dark:text-neutral-400"
             >
               {isSidebarOpen ? "Hide Filters ↑" : "Show Filters ↓"}
             </button>
-            
+
             <div className={`${isSidebarOpen ? 'block' : 'hidden lg:block'}`}>
               <h3 className="text-lg font-semibold mb-4">Filters</h3>
               <ProductFilters
@@ -171,7 +191,7 @@ export function ProductGrid() {
           </div>
         </motion.aside>
 
-        <motion.main 
+        <motion.main
           className="flex-1"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -188,29 +208,27 @@ export function ProductGrid() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {isLoading
               ? Array.from({ length: PRODUCTS_PER_PAGE }).map((_, i) => (
-                  <ProductSkeleton key={`skeleton-${i}`} />
-                ))
+                <ProductSkeleton key={`skeleton-${i}`} />
+              ))
               : filteredAndSortedProducts.map((product) => (
-                  <motion.div
-                    key={product.id}
-                    variants={productCardVariants}
-                    initial="hidden"
-                    animate="visible"
-                    whileHover="hover"
-                    className="transform-gpu"
-                  >
-                    <ProductCard
-                      {...product}
-                      // @ts-ignore
-                      // todo: If we write images than data is come from api otherwise that is come from orignal data.
-                      image={[`https://picsum.photos/500?random=${product.id}`]}
-                      className="shadow-lg hover:shadow-xl transition-shadow duration-300"
-                    />
-                  </motion.div>
-                ))}
+                <motion.div
+                  key={product.id}
+                  variants={productCardVariants}
+                  initial="hidden"
+                  animate="visible"
+                  whileHover="hover"
+                  className="transform-gpu"
+                >
+                  <ProductCard
+                    {...product}
+                    // @ts-ignore
+                    image={[`https://picsum.photos/500?random=${product.id}`]}
+                    className="shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  />
+                </motion.div>
+              ))}
           </div>
 
-          {/* No results message */}
           {filteredAndSortedProducts.length === 0 && !isLoading && (
             <motion.div
               initial={{ opacity: 0 }}

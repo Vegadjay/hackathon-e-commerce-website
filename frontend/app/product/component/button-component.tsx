@@ -95,6 +95,7 @@ export function AddToCartModal({ product, quantity, selectedSize }: AddToCartMod
                 className="w-full relative overflow-hidden bg-black dark:bg-white 
                    dark:text-black text-white rounded-lg group/modal-btn 
                    h-12 transition-all duration-300"
+                //@ts-ignore
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >

@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRenderContext } from '@/contexts/RenderContext';
+import { CheckCircle2, XCircle, Send } from 'lucide-react';
 
 const formVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -40,11 +41,22 @@ interface InputFieldProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   error?: string;
   required?: boolean;
+  disabled?: boolean;
 }
 
-const InputField: React.FC<InputFieldProps> = ({ label, name, type, placeholder, value, onChange, error, required = true }) => (
+const InputField: React.FC<InputFieldProps> = ({
+  label,
+  name,
+  type,
+  placeholder,
+  value,
+  onChange,
+  error,
+  required = true,
+  disabled = false
+}) => (
   <motion.div className="relative">
-    <motion.label 
+    <motion.label
       className="block text-sm font-medium text-gray-700 mb-1"
       htmlFor={name}
     >
@@ -61,9 +73,11 @@ const InputField: React.FC<InputFieldProps> = ({ label, name, type, placeholder,
       value={value}
       onChange={onChange}
       placeholder={placeholder}
+      disabled={disabled}
       className={`w-full px-4 py-2 border-2 rounded-lg outline-none transition-colors
         ${error ? 'border-red-500 bg-red-50' : 'border-gray-300 focus:border-blue-500'}
         ${error ? 'focus:border-red-500' : 'focus:border-blue-500'}
+        ${disabled ? 'bg-gray-100 cursor-not-allowed' : ''}
       `}
     />
     <AnimatePresence>
@@ -87,6 +101,7 @@ export default function Register() {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
+    otp: '',
     password: '',
     phone: '',
     address: {
@@ -100,19 +115,34 @@ export default function Register() {
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isLoading, setIsLoading] = useState(false);
+  const [isOtpSent, setIsOtpSent] = useState(false);
+  const [isOtpVerified, setIsOtpVerified] = useState(false);
+  const [isVerifyingOtp, setIsVerifyingOtp] = useState(false);
+  const [isSendingOtp, setIsSendingOtp] = useState(false);
   const router = useRouter();
+
+  const validateEmail = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email) {
+      setErrors(prev => ({ ...prev, email: 'Email is required' }));
+      return false;
+    }
+    if (!emailRegex.test(formData.email)) {
+      setErrors(prev => ({ ...prev, email: 'Please enter a valid email' }));
+      return false;
+    }
+    return true;
+  };
 
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
-    
-    // Username validation
+
     if (!formData.username) {
       newErrors.username = 'Username is required';
     } else if (formData.username.length < 3) {
       newErrors.username = 'Username must be at least 3 characters';
     }
 
-    // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email) {
       newErrors.email = 'Email is required';
@@ -120,20 +150,21 @@ export default function Register() {
       newErrors.email = 'Please enter a valid email';
     }
 
-    // Password validation
+    if (!isOtpVerified) {
+      newErrors.otp = 'Email verification required';
+    }
+
     if (!formData.password) {
       newErrors.password = 'Password is required';
     } else if (formData.password.length < 6) {
       newErrors.password = 'Password must be at least 6 characters';
     }
 
-    // Phone validation
     const phoneRegex = /^\+?[\d\s-]{10,}$/;
     if (formData.phone && !phoneRegex.test(formData.phone)) {
       newErrors.phone = 'Please enter a valid phone number';
     }
 
-    // Address validation
     if (!formData.address.street) {
       newErrors.street = 'Street address is required';
     }
@@ -154,9 +185,79 @@ export default function Register() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e:any) => {
+  const handleSendOtp = async () => {
+    if (!validateEmail()) return;
+
+    setIsSendingOtp(true);
+    try {
+      const response = await fetch('/api/user/sendotp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: formData.email }),
+      });
+
+      const data = await response.json();
+      if (data.error) {
+        toast.error(data.error);
+      } else {
+        setIsOtpSent(true);
+        toast.success('OTP sent successfully!');
+      }
+    } catch (error) {
+      toast.error('Failed to send OTP');
+    } finally {
+      setIsSendingOtp(false);
+    }
+  };
+
+  const handleVerifyOtp = async () => {
+    if (!formData.otp) {
+      setErrors(prev => ({ ...prev, otp: 'Please enter OTP' }));
+      return;
+    }
+
+    if (!/^\d{6}$/.test(formData.otp)) {
+      setErrors(prev => ({ ...prev, otp: 'OTP must be a 6-digit number' }));
+      return;
+    }
+
+    setIsVerifyingOtp(true);
+    try {
+      const response = await fetch('/api/user/verifyotp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          otp: formData.otp
+        }),
+        credentials: 'include'
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setIsOtpVerified(true);
+        toast.success(data.message || 'OTP verified successfully');
+      } else {
+        setIsOtpVerified(false);
+        toast.error(data.message || 'Invalid OTP');
+      }
+    } catch (error) {
+      console.error('Error verifying OTP:', error);
+      setIsOtpVerified(false);
+      toast.error('Failed to verify OTP');
+    } finally {
+      setIsVerifyingOtp(false);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
+    if (!isOtpVerified) {
+      toast.error('Please verify your email first');
+      return;
+    }
+
     if (!validateForm()) {
       toast.error('Please fix the errors in the form');
       return;
@@ -245,16 +346,72 @@ export default function Register() {
                   value={formData.username}
                   onChange={handleInputChange}
                   error={errors.username}
+                  disabled={!isOtpVerified}
                 />
-                <InputField
-                  label="Email Address"
-                  name="email"
-                  type="email"
-                  placeholder="john@example.com"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  error={errors.email}
-                />
+
+                <div className="relative flex items-center gap-2">
+                  <div className="flex-1">
+                    <InputField
+                      label="Email Address"
+                      name="email"
+                      type="email"
+                      placeholder="john@example.com"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      error={errors.email}
+                      disabled={isOtpVerified}
+                    />
+                  </div>
+                  <motion.button
+                    type="button"
+                    onClick={handleSendOtp}
+                    disabled={isSendingOtp || isOtpVerified}
+                    className="mt-6 h-10 w-10 p-2 bg-blue-500 text-white rounded-lg
+                  hover:bg-blue-600 disabled:bg-gray-400 transition-colors
+                   flex items-center justify-center"
+                  >
+                    {isSendingOtp ? (
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                        className="w-6 h-6 border-2 border-white border-t-transparent rounded-full"
+                      />
+                    ) : (
+                      <Send className="w-5 h-5" />
+                    )}
+                  </motion.button>
+                </div>
+
+                {isOtpSent && (
+                  <div className="relative">
+                    <InputField
+                      label="Enter OTP"
+                      name="otp"
+                      type="text"
+                      placeholder="Enter 6-digit OTP"
+                      value={formData.otp.trim().toString()}
+                      onChange={handleInputChange}
+                      error={errors.otp}
+                      disabled={isOtpVerified}
+                    />
+                    <div className="absolute right-2 top-8 flex items-center space-x-2">
+                      {isOtpVerified ? (
+                        <CheckCircle2 className="w-6 h-6 text-green-500" />
+                      ) : (
+                        <motion.button
+                          type="button"
+                          onClick={handleVerifyOtp}
+                          disabled={isVerifyingOtp}
+                          className="px-4 py-2 bg-green-500 text-white rounded-lg text-sm
+                            hover:bg-green-600 disabled:bg-gray-400 transition-colors"
+                        >
+                          {isVerifyingOtp ? 'Verifying...' : 'Verify OTP'}
+                        </motion.button>
+                      )}
+                    </div>
+                  </div>
+                )}
+
                 <InputField
                   label="Password"
                   name="password"
@@ -263,7 +420,9 @@ export default function Register() {
                   value={formData.password}
                   onChange={handleInputChange}
                   error={errors.password}
+                  disabled={!isOtpVerified}
                 />
+
                 <InputField
                   label="Phone Number"
                   name="phone"
@@ -273,8 +432,9 @@ export default function Register() {
                   onChange={handleInputChange}
                   error={errors.phone}
                   required={false}
+                  disabled={!isOtpVerified}
                 />
-                
+
                 <div className="md:col-span-2">
                   <h3 className="text-lg font-semibold text-gray-700 mb-4">Address Information</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -286,6 +446,7 @@ export default function Register() {
                       value={formData.address.street}
                       onChange={handleInputChange}
                       error={errors.street}
+                      disabled={!isOtpVerified}
                     />
                     <InputField
                       label="City"
@@ -295,6 +456,7 @@ export default function Register() {
                       value={formData.address.city}
                       onChange={handleInputChange}
                       error={errors.city}
+                      disabled={!isOtpVerified}
                     />
                     <InputField
                       label="State"
@@ -304,6 +466,7 @@ export default function Register() {
                       value={formData.address.state}
                       onChange={handleInputChange}
                       error={errors.state}
+                      disabled={!isOtpVerified}
                     />
                     <InputField
                       label="ZIP Code"
@@ -313,6 +476,7 @@ export default function Register() {
                       value={formData.address.zipCode}
                       onChange={handleInputChange}
                       error={errors.zipCode}
+                      disabled={!isOtpVerified}
                     />
                     <InputField
                       label="Country"
@@ -322,8 +486,7 @@ export default function Register() {
                       value={formData.address.country}
                       onChange={handleInputChange}
                       error={errors.country}
-                      // @ts-ignore
-                      className="md:col-span-2"
+                      disabled={!isOtpVerified}
                     />
                   </div>
                 </div>
@@ -334,9 +497,9 @@ export default function Register() {
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.99 }}
                   type="submit"
-                  disabled={isLoading}
+                  disabled={isLoading || !isOtpVerified}
                   className="w-full px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl 
-                    font-medium transition-all shadow-lg hover:shadow-xl disabled:opacity-70"
+                    font-medium transition-all shadow-lg hover:shadow-xl disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {isLoading ? (
                     <span className="flex items-center justify-center">

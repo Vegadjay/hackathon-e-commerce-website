@@ -1,5 +1,3 @@
-// todo: Change that one thing while for google that is not working in this code kindly so 
-
 'use client'
 
 import React, { useEffect, useState } from 'react';
@@ -47,9 +45,9 @@ const floatingBubbleVariants = {
   }
 };
 
-const CustomInput = ({ icon: Icon, error, ...props }) => {
+const CustomInput = ({ icon: Icon, error, ...props }: { icon: React.ComponentType<{ size: number }>, error?: string }) => {
   return (
-    <motion.div 
+    <motion.div
       variants={itemVariants}
       className="relative group"
     >
@@ -69,7 +67,6 @@ const CustomInput = ({ icon: Icon, error, ...props }) => {
   );
 };
 
-
 export default function Login() {
   const [formData, setFormData] = useState({
     email: '',
@@ -78,36 +75,45 @@ export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const { triggerRender } = useRenderContext();
-  const { data: session, status } = useSession() as { data: { user: { token?: string, message?: string } } | null, status: string };  
+  const { data: session, status } = useSession() as { data: { user: { token?: string, message?: string } } | null, status: string };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
     try {
-      const result = await fetch('/api/user/login', {
+      const response = await fetch('/api/user/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           identifier: formData.email,
           password: formData.password
         }),
-      }).then((res) => {
-        res.json();
-        location.reload();
       });
 
-      if (result.success) {
+      const result = await response.json();
+
+      if (response.ok && result.success) {
         toast.success('Logged in successfully!');
         setFormData({ email: '', password: '' });
+
+        if (result.token) {
+          Cookies.set('token', result.token, {
+            expires: 7,
+            secure: process.env.NODE_ENV === 'production',
+            httpOnly: false
+          });
+        }
+
         setTimeout(() => {
           triggerRender();
           router.push('/');
         }, 1100);
       } else {
-        toast.error('Login failed, please try again.');
+        toast.error(result.message || 'Login failed, please try again.');
       }
     } catch (error) {
+      console.error('Login error:', error);
       toast.error('An error occurred. Please try again.');
     } finally {
       setIsLoading(false);
@@ -124,9 +130,22 @@ export default function Login() {
 
   const loginWithGoogle = async () => {
     try {
-      await signIn('google', { redirect: true, callbackUrl: '/' });
+      const result = await signIn('google', {
+        redirect: false,
+        callbackUrl: '/'
+      });
+
+      if (result?.error) {
+        toast.error('Google login failed. Please try again.');
+        return;
+      }
+
       if (status === "authenticated" && session?.user?.token) {
-        Cookies.set('token', session.user.token, { expires: 7,secure:false,httpOnly:false });
+        Cookies.set('token', session.user.token, {
+          expires: 7,
+          secure: process.env.NODE_ENV === 'production',
+          httpOnly: false
+        });
         toast.success('Logged in successfully!');
         triggerRender();
         router.push('/');
@@ -135,18 +154,19 @@ export default function Login() {
       }
     } catch (error) {
       console.error('Error logging in with Google:', error);
+      toast.error('An error occurred with Google login. Please try again.');
     }
   };
 
   useEffect(() => {
     const token = Cookies.get('token');
-    if (token!=undefined) {
+    if (token) {
       triggerRender();
       router.push('/');
     }
   }, []);
 
-return (
+  return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
       {/* Animated background elements */}
       <div className="absolute inset-0 -z-10">
@@ -202,24 +222,30 @@ return (
                 </p>
               </motion.div>
 
-              <motion.form 
+              <motion.form
                 onSubmit={handleSubmit}
                 className="space-y-6"
               >
                 <CustomInput
-                icon={Mail}
-                name="email"
-                type="text"
-                placeholder="Enter your email"
-                value={formData.email}
-                onChange={handleInputChange} error={undefined}/>
+                  // @ts-ignore
+                  icon={Mail}
+                  name="email"
+                  type="text"
+                  placeholder="Enter your email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  error={undefined}
+                />
                 <CustomInput
-                icon={Lock}
-                name="password"
-                type="password"
-                placeholder="Enter your password"
-                value={formData.password}
-                onChange={handleInputChange} error={undefined}/>
+                  // @ts-ignore
+                  icon={Lock}
+                  name="password"
+                  type="password"
+                  placeholder="Enter your password"
+                  value={formData.password}
+                  onChange={handleInputChange}
+                  error={undefined}
+                />
 
                 <motion.button
                   variants={itemVariants}
@@ -238,11 +264,11 @@ return (
                   )}
                 </motion.button>
 
-                <motion.div 
+                <motion.div
                   variants={itemVariants}
                   className="text-center space-y-4"
                 >
-                  <Link 
+                  <Link
                     href="/forgot-password"
                     className="text-sm text-purple-600 hover:text-indigo-600 transition-colors"
                   >
@@ -250,6 +276,7 @@ return (
                   </Link>
 
                   <motion.button
+                    type="button"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={loginWithGoogle}
@@ -266,7 +293,7 @@ return (
 
                   <p className="text-gray-600">
                     Don't have an account?{' '}
-                    <Link 
+                    <Link
                       href="/register"
                       className="text-purple-600 hover:text-indigo-600 transition-colors font-medium"
                     >
@@ -280,8 +307,8 @@ return (
         </motion.div>
       </div>
 
-      <ToastContainer 
-        position="bottom-right" 
+      <ToastContainer
+        position="bottom-right"
         autoClose={3000}
         theme="light"
       />
