@@ -1,88 +1,100 @@
 'use client'
 
-import { GlobeDemo } from '@/components/earth/earth';
-import { TypewriterEffectSmooth } from '@/components/ui/typewriter-effect.tsx';
+import React, { useMemo, useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
+import { GLOBE_CONFIG, SAMPLE_ARCS } from '@/components/earth/constant';
 
-const words = [
-    {
-        text: "Build",
-    },
-    {
-        text: "awesome",
-    },
-    {
-        text: "apps",
-    },
-    {
-        text: "with",
-    },
-    {
-        text: "Aceternity.",
-        className: "text-blue-500 dark:text-blue-500",
-    },
-];
+// Dynamically import the World component to ensure it works with Next.js
+const World = dynamic(() =>
+    import('@/components/ui/global').then((m) => m.World),
+    { ssr: false }
+);
 
-// Animation variants for the earth container
-const earthContainerVariants = {
-    hidden: {
-        x: '100%',
-        opacity: 0
-    },
-    visible: {
-        x: 0,
-        opacity: 1,
-        transition: {
-            type: "spring",
-            damping: 20,
-            stiffness: 100,
-            delay: 0.3
-        }
-    }
-};
+// BackgroundAnimation Component
+const BackgroundAnimation = React.memo(() => {
+    const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
-// Animation variants for the text container
-const textContainerVariants = {
-    hidden: {
-        opacity: 0,
-        x: -50
-    },
-    visible: {
-        opacity: 1,
-        x: 0,
-        transition: {
-            duration: 0.6,
-            ease: "easeOut"
-        }
-    }
-};
+    useEffect(() => {
+        // Set dimensions on component mount
+        setDimensions({
+            width: window.innerWidth,
+            height: window.innerHeight,
+        });
+
+        const handleResize = () => {
+            setDimensions({
+                width: window.innerWidth,
+                height: window.innerHeight,
+            });
+        };
+
+        // Add and cleanup resize event listener
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    // Generate particles dynamically based on screen dimensions
+    const particles = useMemo(
+        () =>
+            [...Array(20)].map((_, i) => ({
+                id: i,
+                x: Math.random() * (dimensions.width || 1000), // Fallback width
+                y: Math.random() * (dimensions.height || 800), // Fallback height
+                duration: 3 + Math.random() * 2,
+                delay: Math.random() * 2,
+            })),
+        [dimensions.width, dimensions.height]
+    );
+
+    // Avoid rendering particles until dimensions are available
+    if (dimensions.width === 0) return null;
+
+    return (
+        <div className="absolute inset-0 overflow-hidden opacity-20">
+            {particles.map((particle) => (
+                <motion.div
+                    key={particle.id}
+                    className="absolute w-2 h-2 bg-white rounded-full"
+                    initial={{ x: particle.x, y: particle.y }}
+                    animate={{
+                        y: [particle.y, particle.y - 20, particle.y],
+                        opacity: [0.5, 1, 0.5],
+                    }}
+                    transition={{
+                        duration: particle.duration,
+                        repeat: Infinity,
+                        delay: particle.delay,
+                    }}
+                />
+            ))}
+        </div>
+    );
+});
+
+BackgroundAnimation.displayName = 'BackgroundAnimation';
+
+// GlobeDemo Component
+const GlobeDemo = React.memo(() => {
+    return (
+        <div className="flex items-center justify-center min-h-screen bg-white dark:bg-black">
+            <div className="w-full h-[70vh] md:h-[80vh] lg:h-[90vh]">
+                <World data={SAMPLE_ARCS} globeConfig={GLOBE_CONFIG} />
+            </div>
+        </div>
+    );
+});
+
+GlobeDemo.displayName = 'GlobeDemo';
 
 const EarthComponent = () => {
     return (
-        <div className="min-h-screen w-full  overflow-hidden">
-            <div className="flex flex-col md:flex-row items-center justify-center min-h-[600px] w-full">
-                <motion.div
-                    variants={textContainerVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className="md:w-1/3 w-full p-6 flex items-center justify-center"
-                >
-                    <div className="bg-opacity-50 rounded-lg p-4">
-                        <TypewriterEffectSmooth words={words} />
-                    </div>
-                </motion.div>
+        <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
+            <BackgroundAnimation />
 
-                <motion.div
-                    variants={earthContainerVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className="md:w-2/3 w-full mt-10 h-[600px]"
-                >
-                    <GlobeDemo />
-                </motion.div>
-            </div>
+            <GlobeDemo />
         </div>
     );
 };
 
-export default EarthComponent;  
+export default EarthComponent;

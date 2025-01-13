@@ -402,6 +402,5 @@ export function GlobeDemo() {
                 </div>
             </div>
         </div>
-
     );
 }

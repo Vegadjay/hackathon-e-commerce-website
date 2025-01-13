@@ -9,6 +9,7 @@ import { products } from "@/lib/data";
 import Footer from "@/components/layout/footer";
 import { BackgroundLines } from "@/components/ui/background-lines";
 import EarthComponent from "@/app/page/secondpage/page";
+import { Cover } from "@/components/ui/cover";
 
 const PRODUCTS_PER_PAGE = 15;
 
@@ -148,7 +149,17 @@ export function ProductGrid() {
             animate={{ opacity: 1, y: 0 }}
             className="text-3xl md:text-4xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600"
           >
-            Our Global Presence
+            <div>
+              <h1
+                className="text-4xl md:text-4xl lg:text-6xl font-semibold max-w-7xl mx-auto text-center mt-6 relative z-20 py-6 bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 via-neutral-700 to-neutral-700 dark:from-neutral-800 dark:via-white dark:to-white"
+              >
+                Buy amazing products <br /> with <Cover>lightning-fast delivery</Cover>
+              </h1>
+              <p className="text-lg md:text-xl lg:text-2xl mt-4 text-center text-gray-700 dark:text-gray-300">
+                Shop now and experience speed like never before!
+              </p>
+            </div>
+
           </motion.h3>
           <div className="relative h-[500px] w-full rounded-xl overflow-hidden">
             <EarthComponent />
@@ -156,7 +167,6 @@ export function ProductGrid() {
         </div>
       </motion.div>
 
-      {/* Products Section */}
       <div className="flex flex-col lg:flex-row gap-8 px-4 sm:px-6 lg:px-8">
         <motion.aside
           className="lg:w-64 flex-shrink-0"

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import mongoose from 'mongoose';
+import dbConnect from '@/lib/dbConnect';
 import { Schema, model, Document } from 'mongoose';
 
 // Define Interfaces
@@ -54,15 +55,9 @@ const UserSchema = new Schema<IUser>(
 
 const User = mongoose.models.User || model<IUser>('User', UserSchema);
 
-async function connectToDB() {
-    if (mongoose.connection.readyState === 0) {
-        await mongoose.connect(process.env.MONGODB_URI as string);
-    }
-}
-
 export async function GET(req: NextRequest, { params }: { params: { userId: string } }) {
     try {
-        await connectToDB();
+        await dbConnect();
 
         const { userId } = params;
         if (!userId) {
