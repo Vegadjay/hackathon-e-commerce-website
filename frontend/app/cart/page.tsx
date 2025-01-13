@@ -86,7 +86,7 @@ export default function CartPage() {
     };
 
     fetchCartItems();
-  }, [router, cartItems]);
+  }, [router]);
 
   const handleRemoveItem = async (productId: string) => {
     const userId = Cookies.get("userId");
