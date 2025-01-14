@@ -126,7 +126,10 @@ const config = withTV({
     require('tailwindcss-animate'),
     require('tailwindcss-react-aria-components'),
     addVariablesForColors,
-    
+    require('postcss-nesting'),
+    require('postcss-nested'),
+    require('tailwindcss'),
+    require('autoprefixer'),
   ],
 });
 

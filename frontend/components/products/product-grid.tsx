@@ -12,6 +12,7 @@ import EarthComponent from "@/app/pages/secondpage/page";
 import { Cover } from "@/components/ui/cover";
 import { Sparkles } from "lucide-react";
 import FashionCarousel from "@/components/products/product-corosal";
+import { AppleCardsCarouselDemo } from "@/app/product/component/apple-card-corosal";
 
 const PRODUCTS_PER_PAGE = 15;
 
@@ -292,6 +293,11 @@ export function ProductGrid() {
           </motion.div>
         </div>
       </motion.div>
+
+
+      {/* Third Component */}
+
+      <AppleCardsCarouselDemo />
 
       <div className="flex flex-col lg:flex-row gap-8 px-4 sm:px-6 lg:px-8 py-12">
         <motion.aside
