@@ -27,11 +27,28 @@ UI Changes
     Typing Effect
     https://ui.aceternity.com/components/typewriter-effect
 
+    Add this to catagory of navabar
+    https://ui.aceternity.com/components/parallax-scroll
+    
     Shipping and Delivery
     https://www.flaticon.com/free-animated-icons/shipping-and-delivery
 
     Add that to hero section
     https://ui.aceternity.com/components/github-globe
+
+    Add this to last of the website
+    https://ui.aceternity.com/components/infinite-moving-cards
+    https://ui.aceternity.com/components/link-preview
+
+    Add this product grid.
+    https://ui.aceternity.com/components/layout-grid
+
+    File Upload system
+    https://ui.aceternity.com/components/file-upload
+
+    Line chart
+    https://getjustd.com/docs/2.x/components/charts/line-chart
+
 
 // Filter with
 short kurtas
@@ -42,6 +59,7 @@ Orignal Handblocks Suit Set
 
 <!-- todo: In assests one screen shot show that ss and add that all products in that footer section-->
 <!-- todo: Make username api and find that all username and make that api -->
+<!-- todo: Add that state api and make that looks like that -->
 
 localhost:3000/api/auth/login
 
@@ -92,3 +110,18 @@ to get a total review and average of rating per product : http://localhost:3000/
 ----------------------------------------------------------------------------------------
 to get all review of product with username and its rating (for display review page in frontend only) : http://localhost:3000/api/review/productId => method:GET
 ----------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+TODO TASKK:
+
+Create checkout page.
