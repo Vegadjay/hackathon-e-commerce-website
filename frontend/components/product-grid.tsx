@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
 import { ProductCard } from "@/components/ui/product-card";
 // @ts-ignore
-import { products, Product } from "@/lib/data";
+import { products, Product } from "lib/data";
 
 const PRODUCTS_PER_BATCH = 5;
 
@@ -32,7 +32,7 @@ export function ProductGrid() {
     if (loading || !hasMore) return;
 
     setLoading(true);
-    
+
     // Simulate network delay
     await new Promise(resolve => setTimeout(resolve, 800));
 

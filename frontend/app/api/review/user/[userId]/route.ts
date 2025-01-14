@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import Review from "@/models/Review";
-import connectToDatabase from "@/lib/dbConnect";
+import connectToDatabase from "lib/dbConnect";
 
 export async function POST(
 	req: Request,

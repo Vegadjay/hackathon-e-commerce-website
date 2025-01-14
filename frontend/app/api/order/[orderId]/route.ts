@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import Order from '@/models/Order'; // Adjust the import path as per your structure
-import connectToDatabase from '@/lib/dbConnect'; // Utility to connect to MongoDB
+import connectToDatabase from 'lib/dbConnect'; // Utility to connect to MongoDB
 import { z } from 'zod';
 
 const ProductSchema = z.object({
@@ -20,7 +20,7 @@ const ShippingAddressSchema = z.object({
 });
 
 const UpdateOrderSchema = z.object({
-	status: z.enum(['pending', 'processing', 'shipped', 'delivered', 'cancelled','returned']).optional(),
+	status: z.enum(['pending', 'processing', 'shipped', 'delivered', 'cancelled', 'returned']).optional(),
 	paymentStatus: z.enum(['pending', 'completed', 'failed', 'refunded']).optional(),
 	shippingAddress: ShippingAddressSchema.optional()
 });
@@ -34,10 +34,10 @@ export async function PUT(req: Request,
 		if (!orderId) {
 			return NextResponse.json({ success: false, error: 'Order ID is required' }, { status: 400 });
 		}
-		
+
 		const body = await req.json();
 		const parsedBody = UpdateOrderSchema.parse(body);
-		
+
 		await connectToDatabase();
 		const order = await Order.findById(orderId);
 

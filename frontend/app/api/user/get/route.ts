@@ -58,6 +58,7 @@ const UserSchema = new Schema<IUser>(
 const User = model<IUser>('User', UserSchema);
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+
   if (mongoose.connections[0].readyState === 0) {
     await mongoose.connect(process.env.MONGODB_URI as string);
   }

@@ -30,11 +30,18 @@ UI Changes
     Shipping and Delivery
     https://www.flaticon.com/free-animated-icons/shipping-and-delivery
 
+    Add that to hero section
+    https://ui.aceternity.com/components/github-globe
+
 // Filter with
 short kurtas
 Anarkali Suits
 Kurta Sets
 Orignal Handblocks Suit Set
+
+
+<!-- todo: In assests one screen shot show that ss and add that all products in that footer section-->
+<!-- todo: Make username api and find that all username and make that api -->
 
 localhost:3000/api/auth/login
 

@@ -1,10 +1,10 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import dbConnect from "@/lib/dbConnect";
+import dbConnect from "lib/dbConnect";
 import User from "@/models/User";
 
 export const handler = NextAuth({
-	
+
 	providers: [
 		GoogleProvider({
 			clientId: process.env.GOOGLE_CLIENT_ID as string,
@@ -13,7 +13,7 @@ export const handler = NextAuth({
 	],
 
 	callbacks: {
-		
+
 		async jwt({ token, account, profile }) {
 			if (account) {
 				token.accessToken = account.access_token;
@@ -22,7 +22,7 @@ export const handler = NextAuth({
 			return token;
 		},
 
-		async session({ session, token }: {session: any, token : any}) {
+		async session({ session, token }: { session: any, token: any }) {
 			try {
 				await dbConnect();
 				const user = await User.findOne({ email: token.email });

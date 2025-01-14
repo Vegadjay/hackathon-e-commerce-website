@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import bcrypt from 'bcrypt';
 import { z } from 'zod';
 import jwt from 'jsonwebtoken';
-import dbConnect from '@/lib/dbConnect';
+import dbConnect from 'lib/dbConnect';
 import User from '@/models/User';
 
 const updateUserSchema = z.object({
@@ -14,12 +14,12 @@ const updateUserSchema = z.object({
 		.regex(/^\d{10}$/, 'Phone number must be 10 digits')
 		.optional(),
 	address: z.object({
-			street: z.string().nonempty('Street is required').optional(),
-			city: z.string().nonempty('City is required').optional(),
-			state: z.string().nonempty('State is required').optional(),
-			zipCode: z.string().regex(/^\d{6}$/, 'Zip code must be 6 digits').optional(),
-			country: z.string().nonempty('Country is required').optional(),
-		}).optional(),
+		street: z.string().nonempty('Street is required').optional(),
+		city: z.string().nonempty('City is required').optional(),
+		state: z.string().nonempty('State is required').optional(),
+		zipCode: z.string().regex(/^\d{6}$/, 'Zip code must be 6 digits').optional(),
+		country: z.string().nonempty('Country is required').optional(),
+	}).optional(),
 });
 
 async function authenticate(req: Request) {
