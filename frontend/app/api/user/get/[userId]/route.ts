@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import mongoose from 'mongoose';
-import dbConnect from '@/lib/dbConnect';
+import dbConnect from 'lib/dbConnect';
 import { Schema, model, Document } from 'mongoose';
 
 // Define Interfaces

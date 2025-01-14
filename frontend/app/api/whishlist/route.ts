@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import Wishlist from "@/models/Whishlist";
-import connectToDatabase from "@/lib/dbConnect";
+import connectToDatabase from "lib/dbConnect";
 import { z } from "zod";
 
 const AddToWishlistSchema = z.object({
@@ -18,13 +18,13 @@ export async function POST(req: Request) {
 		let wishlist = await Wishlist.findOne({ userId });
 
 		if (wishlist) {
-			if(wishlist.products.includes(productId)) {
+			if (wishlist.products.includes(productId)) {
 				return NextResponse.json(
 					{ success: false, error: "Product already in wishlist" },
 					{ status: 400 }
 				);
 			}
-			else{
+			else {
 				wishlist.products.push(productId);
 				await wishlist.save();
 			}

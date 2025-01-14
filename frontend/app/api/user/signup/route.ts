@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { z } from 'zod';
-import dbConnect from '@/lib/dbConnect';
+import dbConnect from 'lib/dbConnect';
 import User from '@/models/User';
 
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -68,7 +68,7 @@ export async function POST(req: Request) {
 			httpOnly: false,   // Prevents JavaScript from accessing the cookie
 			secure: false,  // Ensures the cookie is sent over HTTPS in production
 			maxAge: 7 * 24 * 60 * 60,
-			path: '/', 
+			path: '/',
 		});
 
 		response.cookies.set('userId', newUser._id, {

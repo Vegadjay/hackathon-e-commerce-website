@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import Review from "@/models/Review";
-import User from "@/models/User"; // Import the User model
-import connectToDatabase from "@/lib/dbConnect";
+import User from "@/models/User";
+import connectToDatabase from "lib/dbConnect";
 
 export async function GET(
 	req: Request,
@@ -19,7 +19,6 @@ export async function GET(
 	try {
 		await connectToDatabase();
 
-		// Fetch reviews for the product and populate the username
 		const reviews = await Review.find({ productId })
 			.populate({
 				path: "userId",

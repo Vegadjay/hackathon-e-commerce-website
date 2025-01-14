@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Lens } from '@/components/ui/lense';
-import { cn } from "@/lib/utils";
+import { cn } from "lib/utils";
 
 interface ImageSwapperProps {
   images: string[];

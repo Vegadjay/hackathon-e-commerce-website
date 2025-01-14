@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
-import dbConnect from '@/lib/dbConnect';
+import dbConnect from 'lib/dbConnect';
 import bcrypt from 'bcrypt';
 
 export async function POST(req: Request) {

@@ -73,17 +73,17 @@ const collections = {
   }
 };
 
-export function MainMenu({ isMobile = false, onLinkClick = () => {} }) {
+export function MainMenu({ isMobile = false, onLinkClick = () => { } }) {
   const [openCategory, setOpenCategory] = useState(null);
   const router = useRouter();
 
-  const handleCategoryClick = (category:any) => {
+  const handleCategoryClick = (category: any) => {
     if (isMobile) {
       setOpenCategory(openCategory === category ? null : category);
     }
   };
 
-  const handleLinkClick = (basePath:any, category:any) => {
+  const handleLinkClick = (basePath: any, category: any) => {
     const url = `${basePath}?category=${category}`;
     router.push(url);
     onLinkClick();
@@ -141,7 +141,7 @@ export function MainMenu({ isMobile = false, onLinkClick = () => {} }) {
       <NavigationMenuList className="flex space-x-4">
         {Object.entries(collections).map(([categoryName, categoryData]) => (
           <NavigationMenuItem key={categoryName}>
-            <NavigationMenuTrigger className="text-sm font-medium text-gray-700 hover:text-primary transition-colors">
+            <NavigationMenuTrigger className="text-sm font-medium text-gray-700 hover:text-slate-500 transition-colors">
               {categoryName}
             </NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -151,7 +151,7 @@ export function MainMenu({ isMobile = false, onLinkClick = () => {} }) {
                     <NavigationMenuLink asChild>
                       <button
                         onClick={() => handleLinkClick(categoryData.basePath, item.category)}
-                        className="block w-full select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 hover:text-primary text-left"
+                        className="block w-full select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 hover:text-red-700 text-left"
                       >
                         <div className="text-sm font-medium leading-none">
                           {item.title}
@@ -322,7 +322,7 @@ export function Navbar() {
   };
 
   useEffect(() => {
-    const handleClickOutside = (event:any) => {
+    const handleClickOutside = (event: any) => {
       if (isDropdownOpen && !event.target.closest('.relative')) {
         setIsDropdownOpen(false);
       }
@@ -341,7 +341,7 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <img src="/logo.png" alt="Company logo"/>
+            <img src="/logo.png" alt="Company logo" />
           </Link>
 
           <div className="hidden lg:block flex-1 px-8">

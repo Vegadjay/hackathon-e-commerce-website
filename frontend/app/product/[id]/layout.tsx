@@ -1,10 +1,29 @@
+// Layout.tsx
 'use client';
 import { useState, useEffect } from "react";
 import { useSearchParams, useParams } from "next/navigation";
 import Product from './page';
 import { products } from './data';
-import { Products } from './data';
 import { Skeleton } from "@/components/ui/skeleton";
+
+interface Products {
+  id: number;
+  name: string;
+  price: number;
+  rating: number;
+  reviews: number;
+  answers: number;
+  inStock: boolean;
+  delivery: string;
+  deliveryDate: string;
+  seller: string;
+  category: string;
+  model: string;
+  images: string[];
+  features: string[];
+  description: string;
+  chartArray?: { month: string; revenue: number; }[];
+}
 
 const Layout = () => {
   const params = useParams();
@@ -14,9 +33,9 @@ const Layout = () => {
   useEffect(() => {
     const routeId = params?.id;
     const queryId = searchParams.get('id');
-    
+
     const id = Array.isArray(routeId) ? routeId[0] : routeId || (Array.isArray(queryId) ? queryId[0] : queryId) || '';
-    
+
     if (id) {
       const numericId = parseInt(id, 10);
       if (!isNaN(numericId)) {
@@ -29,31 +48,14 @@ const Layout = () => {
   }, [params, searchParams]);
 
   if (!selectedProduct) {
-    return <div>
-        <Skeleton />
+    return <div className="w-full h-screen">
+      <Skeleton className="w-full h-full" />
     </div>;
   }
 
   return (
     <div className="container mx-auto p-4">
-      <Product 
-        id={selectedProduct.id}
-        // @ts-ignore
-        name={selectedProduct.name}
-        price={selectedProduct.price}
-        rating={selectedProduct.rating}
-        reviews={selectedProduct.reviews}
-        answers={selectedProduct.answers}
-        inStock={selectedProduct.inStock}
-        delivery={selectedProduct.delivery}
-        deliveryDate={selectedProduct.deliveryDate}
-        seller={selectedProduct.seller}
-        category={selectedProduct.category}
-        model={selectedProduct.model}
-        images={selectedProduct.images}
-        features={selectedProduct.features}
-        description={selectedProduct.description}
-      />
+      <Product id={selectedProduct.id} />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import EarthComponent from "@/app/page/secondpage/page";
+import EarthComponent from "@/app/pages/secondpage/page";
 import { ProductGrid } from "@/components/products/product-grid";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Suspense } from "react";

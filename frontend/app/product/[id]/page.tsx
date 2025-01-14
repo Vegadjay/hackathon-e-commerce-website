@@ -1,12 +1,17 @@
 "use client";
+import React from 'react';
+import { LineChart, Line, XAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Star, Heart, Share2, Check, AlertCircle, Facebook, Twitter, Plus, Minus } from "lucide-react";
-import { products } from "./data";
+import { Star, Heart, Share2, Check, AlertCircle, Facebook, Twitter, Plus, Minus, Linkedin } from "lucide-react";
+import { FaWhatsapp } from 'react-icons/fa';
 import { motion, AnimatePresence } from "framer-motion";
 import ImageSwapper from "@/components/image/page";
 import Cookies from "js-cookie";
 import { AddToCartModal, BuyNowButton } from "@/app/product/component/button-component";
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { products } from '@/lib/data';
+import RevenueChart from '@/app/product/component/price-chart';
 
 interface ProductProps {
   id: number;
@@ -15,13 +20,18 @@ interface ProductProps {
 const Product: React.FC<ProductProps> = ({ id }) => {
   const router = useRouter();
   const [quantity, setQuantity] = useState(1);
-  const [selectedSize, setSelectedSize] = useState("S");
+  const [selectedSize, setSelectedSize] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
   const [showShareMenu, setShowShareMenu] = useState(false);
 
   const product = products.find((p) => p.id === id);
 
+  useState(() => {
+    if (product && product.size && product.size.length > 0) {
+      setSelectedSize(product.size[0]);
+    }
+  });
 
   const handleClick = () => {
     setIsSaved(!isSaved);
@@ -33,15 +43,17 @@ const Product: React.FC<ProductProps> = ({ id }) => {
     const url = window.location.href;
     const text = `Check out this amazing product: ${product.name}`;
 
-    const shareUrls = {
+    const shareUrls: { [key: string]: string } = {
       facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
       twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`,
       whatsapp: `https://api.whatsapp.com/send?text=${encodeURIComponent(text + ' ' + url)}`,
       linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`
     };
 
-    window.open(shareUrls[platform as keyof typeof shareUrls], '_blank', 'width=600,height=400');
-    setShowShareMenu(false);
+    if (platform in shareUrls) {
+      window.open(shareUrls[platform], '_blank', 'width=600,height=400');
+      setShowShareMenu(false);
+    }
   };
 
   const handleQuantityChange = (type: 'increase' | 'decrease') => {
@@ -54,14 +66,14 @@ const Product: React.FC<ProductProps> = ({ id }) => {
 
   const handleManualQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    
+
     if (value === '') {
       setQuantity(1);
       return;
     }
 
     const numValue = parseInt(value);
-    
+
     if (!isNaN(numValue)) {
       if (numValue > 10) {
         setQuantity(10);
@@ -97,7 +109,6 @@ const Product: React.FC<ProductProps> = ({ id }) => {
           products: [
             {
               productId: "677816d602b67aeb8b631fd0",
-              // productId: userId,
               quantity: quantity,
               price: product.price.toString(),
               size: selectedSize,
@@ -122,6 +133,8 @@ const Product: React.FC<ProductProps> = ({ id }) => {
     }
   };
 
+  const totalSizes = ["XS", "S", "M", "L", "XL", "XXL", "XXXL"];
+
   const handleBuyNow = () => {
     if (product) {
       router.push(`/checkout?productId=${product.id}&quantity=${quantity}&size=${selectedSize}`);
@@ -130,6 +143,8 @@ const Product: React.FC<ProductProps> = ({ id }) => {
     }
   };
 
+
+  // todo Change this ui
   if (!product) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -149,6 +164,10 @@ const Product: React.FC<ProductProps> = ({ id }) => {
       </div>
     );
   }
+
+  const isSizeAvailable = (totalSizes: string) => {
+    return product.size?.includes(totalSizes);
+  };
 
   return (
     <motion.div className="min-h-screen bg-white">
@@ -200,6 +219,20 @@ const Product: React.FC<ProductProps> = ({ id }) => {
                             <Twitter className="w-4 h-4 text-blue-400" />
                             Twitter
                           </button>
+                          <button
+                            onClick={() => handleShare('whatsapp')}
+                            className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full"
+                          >
+                            <FaWhatsapp className="w-4 h-4 text-green-600" />
+                            WhatsApp
+                          </button>
+                          <button
+                            onClick={() => handleShare('linkedin')}
+                            className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full"
+                          >
+                            <Linkedin className="w-4 h-4 text-blue-600" />
+                            LinkedIn
+                          </button>
                         </div>
                       </motion.div>
                     )}
@@ -231,7 +264,7 @@ const Product: React.FC<ProductProps> = ({ id }) => {
           >
             <div className="space-y-4">
               <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">{product.name}</h1>
-              
+
               <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
                 <span className="text-blue-500 hover:underline cursor-pointer">
                   by {product.seller}
@@ -264,7 +297,7 @@ const Product: React.FC<ProductProps> = ({ id }) => {
               <div className="border-b border-gray-200 pb-4">
                 <div className="flex items-baseline gap-2">
                   <span className="text-sm text-gray-500">Price:</span>
-                  <span className="text-2xl sm:text-3xl font-medium text-gray-900">
+                  <span className="text-2xl sm:text-3xl font-medium">
                     ₹{product.price.toFixed(2)}
                   </span>
                 </div>
@@ -276,32 +309,44 @@ const Product: React.FC<ProductProps> = ({ id }) => {
               <div className="space-y-2">
                 <label className="block text-sm font-medium text-gray-700">Size</label>
                 <div className="flex gap-2">
-                  {['XS', 'S', 'M', 'L', 'XL'].map((size) => (
-                    <button
-                      key={size}
-                      onClick={() => setSelectedSize(size)}
-                      className={`px-4 py-2 rounded-md ${
-                        selectedSize === size
-                          ? 'bg-blue-500 text-white'
-                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                      }`}
-                    >
-                      {size}
-                    </button>
-                  ))}
+                  {product.size?.map((size) => {
+                    const available = isSizeAvailable(size);
+                    return (
+                      <button
+                        key={size}
+                        onClick={() => available && setSelectedSize(size)}
+                        disabled={!available}
+                        className={`
+                          px-4 py-2 rounded-md relative
+                          ${available
+                            ? selectedSize === size
+                              ? 'bg-red-500 text-white'
+                              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            : 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                          }
+                          ${!available && 'hover:cursor-not-allowed'}
+                        `}
+                      >
+                        {size}
+                        {!available && (
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="w-full h-0.5 bg-gray-400 transform rotate-45" />
+                          </div>
+                        )}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 
-              {/* Quantity Selection */}
-               <div className="space-y-2">
+              <div className="space-y-2">
                 <label className="block text-sm font-medium text-gray-700">Quantity</label>
                 <div className="flex items-center space-x-2">
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className={`p-2 rounded-full ${
-                      quantity <= 1 ? 'bg-gray-100 text-gray-400' : 'bg-blue-100 text-blue-500 hover:bg-blue-200'
-                    }`}
+                    className={`p-2 rounded-full ${quantity <= 1 ? 'bg-gray-100 text-gray-400' : 'bg-blue-100 text-blue-500 hover:bg-blue-200'
+                      }`}
                     onClick={() => handleQuantityChange('decrease')}
                     disabled={quantity <= 1}
                   >
@@ -331,9 +376,8 @@ const Product: React.FC<ProductProps> = ({ id }) => {
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className={`p-2 rounded-full ${
-                      quantity >= 10 ? 'bg-gray-100 text-gray-400' : 'bg-blue-100 text-blue-500 hover:bg-blue-200'
-                    }`}
+                    className={`p-2 rounded-full ${quantity >= 10 ? 'bg-gray-100 text-gray-400' : 'bg-blue-100 text-blue-500 hover:bg-blue-200'
+                      }`}
                     onClick={() => handleQuantityChange('increase')}
                     disabled={quantity >= 10}
                   >
@@ -362,17 +406,19 @@ const Product: React.FC<ProductProps> = ({ id }) => {
               </div>
 
               <div className="w-full space-y-4 p-4">
-                <AddToCartModal 
+                <AddToCartModal
+                  // @ts-ignore
                   product={product}
-                  quantity={1}
-                  selectedSize="M"
+                  quantity={quantity}
+                  selectedSize={selectedSize}
                 />
-                <BuyNowButton 
+                <BuyNowButton
+                  // @ts-ignore
                   product={product}
-                  quantity={1}
-                  selectedSize="M"
+                  quantity={quantity}
+                  selectedSize={selectedSize}
                 />
-            </div>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -388,9 +434,19 @@ const Product: React.FC<ProductProps> = ({ id }) => {
             <p className="whitespace-pre-line">{product.description}</p>
           </div>
         </motion.div>
+        {product?.chartData && product.chartData.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+          >
+            <RevenueChart data={product.chartData} />
+          </motion.div>
+        )}
       </div>
     </motion.div>
   );
 };
+
 
 export default Product;

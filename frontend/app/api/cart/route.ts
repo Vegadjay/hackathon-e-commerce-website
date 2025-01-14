@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import dbConnect from '@/lib/dbConnect';
+import dbConnect from 'lib/dbConnect';
 import { IProduct, Cart } from '@/models/Cart';
 import { z } from 'zod';
 import User from '@/models/User';
@@ -21,9 +21,9 @@ const cartSchema = z.object({
 export async function POST(request: Request) {
 	try {
 		const body = await request.json();
-		console.log(body," is my body");
+		console.log(body, " is my body");
 		const parsedBody = cartSchema.parse(body);
-		
+
 		await dbConnect();
 		const user = await User.findById(parsedBody.userId);
 		if (!user) {

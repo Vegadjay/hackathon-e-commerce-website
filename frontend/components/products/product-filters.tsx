@@ -1,5 +1,7 @@
 "use client";
 
+
+//  todo: Add sizing in this code
 import { useState, useCallback, useEffect } from "react";
 import { products } from "@/lib/data";
 import { Slider } from "@/components/ui/slider";
@@ -45,7 +47,7 @@ interface ProductFiltersProps {
   priceRange: number[];
   onPriceRangeChange: (range: number[]) => void;
   selectedSizes: string[];
-  onSizesChange: (sizes: string[]) => void;
+  onSizesChange: (size: string[]) => void;
   className?: string;
 }
 
@@ -70,7 +72,7 @@ export function ProductFilters({
   const [isAnimating, setIsAnimating] = useState(true);
 
   const uniqueCategories = ["All", ...Array.from(new Set(products.map((p) => p.category)))];
-  const uniqueSizes = Array.from(new Set(products.flatMap((p) => p.sizes || [])));
+  const uniqueSizes = Array.from(new Set(products.flatMap((p) => p.size || [])));
 
   const minPrice = Math.min(...products.map(p => p.price));
   const maxPrice = Math.max(...products.map(p => p.price));
@@ -139,7 +141,7 @@ export function ProductFilters({
     category: string,
     search: string,
     price: number[],
-    sizes: string[]
+    size: string[]
   ) => {
     let filtered = products;
 
@@ -157,9 +159,9 @@ export function ProductFilters({
       (product) => product.price >= price[0] && product.price <= price[1]
     );
 
-    if (sizes.length > 0) {
+    if (size.length > 0) {
       filtered = filtered.filter((product) =>
-        sizes.some(size => product.sizes?.includes(size))
+        size.some(size => product.size?.includes(size))
       );
     }
 
@@ -230,7 +232,6 @@ export function ProductFilters({
         </div>
       </div>
 
-      {/* Categories Dropdown */}
       <div className="space-y-2">
         <h3 className="text-sm font-medium">Categories</h3>
         <Select value={selectedCategory} onValueChange={handleCategoryChange}>
@@ -251,7 +252,6 @@ export function ProductFilters({
         </Select>
       </div>
 
-      {/* Price Range */}
       <div className="space-y-2">
         <h3 className="text-sm font-medium">Price Range</h3>
         <div className="px-2">
@@ -271,7 +271,6 @@ export function ProductFilters({
         </div>
       </div>
 
-      {/* Sizes */}
       {uniqueSizes.length > 0 && (
         <div className="space-y-2">
           <h3 className="text-sm font-medium">Sizes</h3>

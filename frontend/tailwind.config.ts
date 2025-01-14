@@ -1,31 +1,72 @@
-import type { Config } from 'tailwindcss';
+/** @type {import('tailwindcss').Config} */
+import { withTV } from 'tailwind-variants/transformer';
 const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
 
-const config: Config = {
+const config = withTV({
   darkMode: ['class'],
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/**/*.{ts,tsx}',
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{ts,tsx}"
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
-      borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
-      },
       colors: {
+        light: 'hsl(var(--light))',
+        dark: 'hsl(var(--dark))',
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+        toggle: 'hsl(var(--toggle))',
+        bg: 'hsl(var(--bg))',
+        fg: 'hsl(var(--fg))',
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          fg: 'hsl(var(--primary-fg))',
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary))',
+          fg: 'hsl(var(--secondary-fg))'
+        },
+        tertiary: {
+          DEFAULT: 'hsl(var(--tertiary))',
+          fg: 'hsl(var(--tertiary-fg))'
+        },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          fg: 'hsl(var(--accent-fg))',
+          subtle: 'hsl(var(--accent-subtle))',
+          'subtle-fg': 'hsl(var(--accent-subtle-fg))'
+        },
+        success: {
+          DEFAULT: 'hsl(var(--success))',
+          fg: 'hsl(var(--success-fg))'
+        },
+        info: {
+          DEFAULT: 'hsl(var(--info))',
+          fg: 'hsl(var(--info-fg))'
+        },
+        danger: {
+          DEFAULT: 'hsl(var(--danger))',
+          fg: 'hsl(var(--danger-fg))'
+        },
+        warning: {
+          DEFAULT: 'hsl(var(--warning))',
+          fg: 'hsl(var(--warning-fg))'
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          fg: 'hsl(var(--muted-fg))'
+        },
+        overlay: {
+          DEFAULT: 'hsl(var(--overlay))',
+          fg: 'hsl(var(--overlay-fg))'
+        },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
@@ -36,29 +77,6 @@ const config: Config = {
           DEFAULT: 'hsl(var(--popover))',
           foreground: 'hsl(var(--popover-foreground))',
         },
-        primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
-        },
-        secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
-        },
-        muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
-        },
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
-        },
-        destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
-        },
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
         chart: {
           '1': 'hsl(var(--chart-1))',
           '2': 'hsl(var(--chart-2))',
@@ -66,6 +84,19 @@ const config: Config = {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))',
         },
+      },
+      borderRadius: {
+        '3xl': 'calc(var(--radius) + 7.5px)',
+        '2xl': 'calc(var(--radius) + 5px)',
+        xl: 'calc(var(--radius) + 2.5px)',
+        lg: 'calc(var(--radius))',
+        md: 'calc(var(--radius) - 2.5px)',
+        sm: 'calc(var(--radius) - 5px)',
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic':
+          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       keyframes: {
         'accordion-down': {
@@ -93,9 +124,11 @@ const config: Config = {
   },
   plugins: [
     require('tailwindcss-animate'),
+    require('tailwindcss-react-aria-components'),
     addVariablesForColors,
+    
   ],
-};
+});
 
 function addVariablesForColors({ addBase, theme }: any) {
   let allColors = flattenColorPalette(theme("colors"));
