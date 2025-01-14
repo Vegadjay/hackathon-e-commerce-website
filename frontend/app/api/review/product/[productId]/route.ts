@@ -6,6 +6,7 @@ export async function GET(
 	req: Request,
 	{ params }: { params: { productId: string } }
 ) {
+
 	const { productId } = params;
 
 	if (!productId) {
