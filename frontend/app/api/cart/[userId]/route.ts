@@ -31,7 +31,6 @@ export async function GET(
 
 		const cart = await Cart.findById(cartid);
 
-		//for error cross checking
 		if (!cart) {
 			return NextResponse.json(
 				{ success: false, error: 'Cart not found' },
