@@ -165,11 +165,9 @@ const FashionCarousel = () => {
                           style={{ objectPosition: '50% 20%' }}
                         />
 
-                        {/* Overlay Gradient */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent 
                                       opacity-60 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-500" />
 
-                        {/* Badges */}
                         <div className="absolute top-2 sm:top-4 left-2 sm:left-4 flex flex-wrap gap-2">
                           {photo.isNew && (
                             <Badge className="bg-red-500 text-white px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm">
@@ -188,7 +186,6 @@ const FashionCarousel = () => {
                           )}
                         </div>
 
-                        {/* Content Overlay */}
                         <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-6 transform translate-y-0 
                                       sm:translate-y-2 sm:group-hover:translate-y-0 transition-transform duration-500">
                           <div className="bg-black/60 backdrop-blur-sm rounded-lg sm:rounded-xl p-3 sm:p-6">
@@ -216,9 +213,8 @@ const FashionCarousel = () => {
         </CarouselContent>
       </Carousel>
 
-      {/* Navigation Buttons - Hidden on mobile, visible on hover for larger screens */}
       <motion.button
-        className="hidden sm:flex absolute left-2 sm:left-6 top-1/2 transform -translate-y-1/2 
+        className="hidden sm:flex absolute left-2 sm:left-6 top-1/2
                    bg-white/90 hover:bg-white text-black rounded-full 
                    w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 items-center justify-center
                    shadow-lg transition-all duration-300 z-10
@@ -238,7 +234,7 @@ const FashionCarousel = () => {
       </motion.button>
 
       <motion.button
-        className="hidden sm:flex absolute right-2 sm:right-6 top-1/2 transform -translate-y-1/2 
+        className="hidden sm:flex absolute right-2 sm:right-6 top-1/2 
                    bg-white/90 hover:bg-white text-black rounded-full 
                    w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 items-center justify-center
                    shadow-lg transition-all duration-300 z-10

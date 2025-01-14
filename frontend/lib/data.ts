@@ -35,7 +35,7 @@ export const products: Product[] = [
     "inStock": true,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
-    "seller": "Indigo Apparel Co.",
+    "seller": "Rajwadi Poshak Co.",
     "color": [
       "NavyBlue"
     ],
@@ -124,7 +124,7 @@ export const products: Product[] = [
     "inStock": true,
     "delivery": "FREE delivery",
     "deliveryDate": "9 To 12 Working days",
-    "seller": "Indigo Apparel Co.",
+    "seller": "Rajwadi Poshak Co.",
     "color": [
       "Yellow"
     ],
