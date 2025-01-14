@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Star, Heart, Share2, Check, AlertCircle, Facebook, Twitter, Plus, Minus, Linkedin } from "lucide-react";
 import { FaWhatsapp } from 'react-icons/fa';
+import Link from 'next/link';
 import { motion, AnimatePresence } from "framer-motion";
 import ImageSwapper from "@/components/image/page";
 import Cookies from "js-cookie";
@@ -12,6 +13,7 @@ import { AddToCartModal, BuyNowButton } from "@/app/product/component/button-com
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { products } from '@/lib/data';
 import RevenueChart from '@/app/product/component/price-chart';
+import { Compare } from '@/components/ui/compare';
 
 interface ProductProps {
   id: number;
@@ -252,9 +254,22 @@ const Product: React.FC<ProductProps> = ({ id }) => {
                   />
                   {isSaved ? 'Saved' : 'Save'}
                 </motion.button>
+
+                {/* Compare Button */}
+                <Link href="/products/compare">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center gap-2 text-gray-600 hover:text-blue-500"
+                  >
+                    <Compare className="w-5 h-5" />
+                    Compare
+                  </motion.button>
+                </Link>
               </div>
             </div>
           </motion.div>
+
 
           <motion.div
             className="lg:col-span-1 self-start"

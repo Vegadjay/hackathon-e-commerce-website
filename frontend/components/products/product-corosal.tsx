@@ -155,7 +155,6 @@ const FashionCarousel = () => {
                   <Card className="border-none w-full h-full relative overflow-hidden">
                     <CardContent className="p-0 w-full h-full">
                       <div className="relative w-full h-full overflow-hidden">
-                        {/* Main Image */}
                         <img
                           src={photo.imageUrl}
                           alt={photo.title}
