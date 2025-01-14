@@ -4,10 +4,6 @@ import React from "react";
 import { products } from "@/lib/data";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 
-interface ChartData {
-    // Add chart data interface properties as needed
-    // This should match your actual ChartData interface
-}
 
 interface Product {
     id: number;
@@ -27,11 +23,19 @@ interface Product {
     images: string[];
     features: string[];
     description: string;
-    chartData: ChartData[];
 }
 
 export function AppleCardsCarouselDemo() {
-    const cards = products.map((product: Product, index) => (
+    const selectedProductIds = [7, 28, 114, 121, 154, 57, 78, 22, 187, 269, 197];
+    const filteredProducts = products.filter(product =>
+        selectedProductIds.includes(product.id)
+    );
+
+    const sortedProducts = filteredProducts.sort((a, b) =>
+        selectedProductIds.indexOf(a.id) - selectedProductIds.indexOf(b.id)
+    );
+
+    const cards = sortedProducts.map((product: Product, index) => (
         <Card
             key={product.id}
             card={{
@@ -65,21 +69,25 @@ const DummyContent: React.FC<DummyContentProps> = ({ product }) => {
                 return (
                     <div
                         key={"dummy-content" + index}
-                        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+                        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4 flex flex-col"
                     >
-                        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
-                            <span className="font-bold text-neutral-700 dark:text-neutral-200">
-                                {product.name || product.model}
-                            </span>{" "}
-                            {product.description}
-                        </p>
-                        <Image
-                            src={product.images[index % product.images.length]}
-                            alt={`${product.name || product.model} - Image ${index + 1}`}
-                            height="500"
-                            width="500"
-                            className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
-                        />
+                        <div className="flex-grow">
+                            <Image
+                                src={product.images[index % product.images.length]}
+                                alt={`${product.name || product.model} - Image ${index + 1}`}
+                                height="500"
+                                width="500"
+                                className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+                            />
+                        </div>
+                        <div className="mt-8">
+                            <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+                                <span className="font-bold text-neutral-700 dark:text-neutral-200">
+                                    {product.name || product.model}
+                                </span>{" "}
+                                {product.description}
+                            </p>
+                        </div>
                     </div>
                 );
             })}
