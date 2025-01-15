@@ -13,7 +13,7 @@ import { Cover } from "@/components/ui/cover";
 import { Sparkles } from "lucide-react";
 import FashionCarousel from "@/components/products/product-corosal";
 import { AppleCardsCarouselDemo } from "@/app/product/component/apple-card-corosal";
-import RedesignedLinkPreviewDemo, { LinkPreviewDemo } from "@/components/ui/footer-link";
+import RedesignedLinkPreviewDemo from "@/components/ui/footer-link";
 
 const PRODUCTS_PER_PAGE = 15;
 

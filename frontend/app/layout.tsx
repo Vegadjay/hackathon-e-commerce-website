@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import Providers from '@/app/session_providers/SessionProvider';
 import { Navbar } from '@/components/ui/navbar';
 import { RenderProvider } from "@/contexts/RenderContext";
+import Footer from '@/components/layout/footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,10 +22,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <RenderProvider>
-          <Providers>
-            <Navbar />
-            {children}
-          </Providers>
+          <Navbar />
+          {children}
+          <Footer />
         </RenderProvider>
       </body>
     </html>

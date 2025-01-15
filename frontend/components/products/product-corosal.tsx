@@ -28,7 +28,7 @@ const staticImages: Photo[] = [
     imageUrl: '/corosal/corosal1.webp',
     title: 'New Year Collections',
     source: 'New year collection in jaipuri styles',
-    link: '/collections/new-year'
+    link: '/new-arrival?category=lounge-wear'
   },
   {
     id: 'static2',
@@ -56,7 +56,7 @@ const staticImages: Photo[] = [
     imageUrl: '/corosal/corosal5.webp',
     title: 'Western wedding dresses',
     source: 'New wedding in jaipuri and western styles',
-    link: '/collections/western-dresses'
+    link: 'ethnic-wear?category=traditional-sarees'
   },
   {
     id: 'static6',
