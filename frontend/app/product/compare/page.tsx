@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Compare } from "@/components/ui/compare";
 import { products } from "@/lib/data";
 
+// Define TypeScript interfaces
 interface Product {
     id: number;
     name: string;
@@ -14,9 +15,9 @@ interface Product {
 }
 
 export function ProductSearchCompare() {
-    const [searchQueries, setSearchQueries] = useState(["", ""]);
-    const [filteredProducts, setFilteredProducts] = useState<Product[][]>([[], []]);
-    const [selectedProducts, setSelectedProducts] = useState<(Product | null)[]>([null, null]);
+    const [searchQueries, setSearchQueries] = useState<[string, string]>(["", ""]);
+    const [filteredProducts, setFilteredProducts] = useState<[Product[], Product[]]>([[], []]);
+    const [selectedProducts, setSelectedProducts] = useState<[Product | null, Product | null]>([null, null]);
     const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
     const [isAnimating, setIsAnimating] = useState(true);
 
@@ -40,7 +41,7 @@ export function ProductSearchCompare() {
     }, []);
 
     const handleSearch = (term: string, index: number) => {
-        const newSearchQueries = [...searchQueries];
+        const newSearchQueries: [string, string] = [...searchQueries] as [string, string];
         newSearchQueries[index] = term;
         setSearchQueries(newSearchQueries);
 
@@ -48,33 +49,35 @@ export function ProductSearchCompare() {
             const filtered = products.filter((product) =>
                 product.name.toLowerCase().includes(term.toLowerCase())
             );
-            const newFilteredProducts = [...filteredProducts];
+            const newFilteredProducts: [Product[], Product[]] = [...filteredProducts] as [Product[], Product[]];
             // @ts-ignore
             newFilteredProducts[index] = filtered;
             setFilteredProducts(newFilteredProducts);
         } else {
-            const newFilteredProducts = [...filteredProducts];
+            const newFilteredProducts: [Product[], Product[]] = [...filteredProducts] as [Product[], Product[]];
             newFilteredProducts[index] = [];
             setFilteredProducts(newFilteredProducts);
         }
     };
 
+    // Handle product selection
     const handleProductSelect = (product: Product | null, index: number) => {
-        const newSelectedProducts = [...selectedProducts];
+        const newSelectedProducts: [Product | null, Product | null] = [...selectedProducts] as [Product | null, Product | null];
         newSelectedProducts[index] = product;
         setSelectedProducts(newSelectedProducts);
 
-        const newSearchQueries = [...searchQueries];
+        const newSearchQueries: [string, string] = [...searchQueries] as [string, string];
         newSearchQueries[index] = "";
         setSearchQueries(newSearchQueries);
 
-        const newFilteredProducts = [...filteredProducts];
+        const newFilteredProducts: [Product[], Product[]] = [...filteredProducts] as [Product[], Product[]];
         newFilteredProducts[index] = [];
         setFilteredProducts(newFilteredProducts);
     };
 
+    // Handle product removal
     const removeProduct = (index: number) => {
-        const newSelectedProducts = [...selectedProducts];
+        const newSelectedProducts: [Product | null, Product | null] = [...selectedProducts] as [Product | null, Product | null];
         newSelectedProducts[index] = null;
         setSelectedProducts(newSelectedProducts);
     };
@@ -121,7 +124,7 @@ export function ProductSearchCompare() {
                         </motion.div>
 
                         <AnimatePresence>
-                            {searchQueries[index] && filteredProducts[index].length > 0 && (
+                            {searchQueries[index] && filteredProducts[index]?.length > 0 && (
                                 <motion.div
                                     initial={{ opacity: 0, y: -10 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -257,12 +260,11 @@ export function ProductSearchCompare() {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.4 + index * 0.1 }}
                                 >
-                                    {/* @ts-ignore */}
-                                    <h3 className="font-medium">{product.name}</h3>
-                                    {/* @ts-ignore */}
-                                    <p className="text-gray-600">Rs. {product.price}</p>
-                                    {/* @ts-ignore */}
-                                    <p className="text-sm text-gray-500">Size: {product.size.join(", ")}</p>
+                                    <h3 className="font-medium">{product?.name}</h3>
+                                    <p className="text-gray-600">Rs. {product?.price}</p>
+                                    <p className="text-sm text-gray-500">
+                                        Size: {Array.isArray(product?.size) ? product.size.join(", ") : "N/A"}
+                                    </p>
                                 </motion.div>
                             ))}
                         </motion.div>

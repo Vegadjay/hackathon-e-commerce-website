@@ -13,6 +13,7 @@ import { Cover } from "@/components/ui/cover";
 import { Sparkles } from "lucide-react";
 import FashionCarousel from "@/components/products/product-corosal";
 import { AppleCardsCarouselDemo } from "@/app/product/component/apple-card-corosal";
+import RedesignedLinkPreviewDemo, { LinkPreviewDemo } from "@/components/ui/footer-link";
 
 const PRODUCTS_PER_PAGE = 15;
 
@@ -430,8 +431,10 @@ export function ProductGrid() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
           >
-            <Footer />
           </motion.div>
+          <RedesignedLinkPreviewDemo />
+          <Footer />
+
 
           {/* Scroll to top button */}
           <AnimatePresence>
