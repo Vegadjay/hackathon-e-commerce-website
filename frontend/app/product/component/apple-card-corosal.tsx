@@ -2,7 +2,8 @@
 import Image from "next/image";
 import React from "react";
 import { products } from "@/lib/data";
-import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
+import { Card } from "@/components/ui/apple-cards-carousel";
+import { Carousel } from "@/components/ui/apple-cards-carousel";
 
 
 interface Product {
@@ -23,10 +24,11 @@ interface Product {
     images: string[];
     features: string[];
     description: string;
+    video?: string;
 }
 
 export function AppleCardsCarouselDemo() {
-    const selectedProductIds = [7, 28, 114, 121, 154, 57, 78, 22, 187, 269, 197];
+    const selectedProductIds = [30, 31, 32, 33, 36, 37, 41, 44, 45, 46, 161, 186, 191];
     const filteredProducts = products.filter(product =>
         selectedProductIds.includes(product.id)
     );
@@ -42,6 +44,7 @@ export function AppleCardsCarouselDemo() {
                 category: product.category,
                 title: product.name || product.model,
                 src: product.images[0],
+                videoSrc: product.video,
                 content: <DummyContent product={product} />
             }}
             index={index}
