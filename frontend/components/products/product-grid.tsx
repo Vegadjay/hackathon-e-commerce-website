@@ -106,7 +106,6 @@ export function ProductGrid() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Quote rotation
   useEffect(() => {
     const quoteInterval = setInterval(() => {
       setCurrentQuoteIndex(prev => (prev + 1) % quotes.length);
@@ -114,22 +113,18 @@ export function ProductGrid() {
     return () => clearInterval(quoteInterval);
   }, []);
 
-  // Loading simulation
   useEffect(() => {
     setIsLoading(true);
     const timer = setTimeout(() => setIsLoading(false), 800);
     return () => clearTimeout(timer);
   }, [selectedCategory, searchQuery, priceRange, selectedSizes]);
 
-  // Enhanced filtering logic
   const getFilteredProducts = () => {
     return products.filter(product => {
-      // Category filter
       if (selectedCategory !== "All" && product.category !== selectedCategory) {
         return false;
       }
 
-      // Search filter
       if (searchQuery) {
         const query = searchQuery.toLowerCase();
         const searchMatch =
@@ -139,12 +134,10 @@ export function ProductGrid() {
         if (!searchMatch) return false;
       }
 
-      // Price range filter
       if (product.price < priceRange[0] || product.price > priceRange[1]) {
         return false;
       }
 
-      // Size filter
       if (selectedSizes.length > 0) {
         if (!product.size?.some(size => selectedSizes.includes(size))) {
           return false;
@@ -170,7 +163,6 @@ export function ProductGrid() {
 
   const filteredProducts = getFilteredProducts();
 
-  // Reset filters function
   const resetFilters = () => {
     setSelectedCategory("All");
     setSortBy("default");
@@ -188,7 +180,6 @@ export function ProductGrid() {
       animate="visible"
       variants={pageTransition}
     >
-
 
 
 
@@ -296,7 +287,6 @@ export function ProductGrid() {
       </motion.div>
 
 
-      {/* Third Component */}
 
       <AppleCardsCarouselDemo />
 
@@ -425,7 +415,6 @@ export function ProductGrid() {
         animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
       >
         <div className="relative">
-          {/* Enhanced Footer with animation */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -436,7 +425,6 @@ export function ProductGrid() {
           <Footer />
 
 
-          {/* Scroll to top button */}
           <AnimatePresence>
             {isScrolled && (
               <motion.button
@@ -465,7 +453,6 @@ export function ProductGrid() {
         </div>
       </motion.div>
 
-      {/* Loading overlay */}
       <AnimatePresence>
         {isLoading && (
           <motion.div
