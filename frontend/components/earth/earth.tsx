@@ -51,15 +51,6 @@ export function GlobeDemo() {
             color: colors[Math.floor(Math.random() * (colors.length - 1))],
         },
         {
-            order: 1,
-            startLat: -19.885592,
-            startLng: -43.951191,
-            endLat: -1.303396,
-            endLng: 36.852443,
-            arcAlt: 0.5,
-            color: colors[Math.floor(Math.random() * (colors.length - 1))],
-        },
-        {
             order: 2,
             startLat: 1.3521,
             startLng: 103.8198,
