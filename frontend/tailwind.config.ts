@@ -1,18 +1,16 @@
-/** @type {import('tailwindcss').Config} */
-import { withTV } from 'tailwind-variants/transformer';
 const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
-const {
-  default: flattenColorPalette,
-} = require("tailwindcss/lib/util/flattenColorPalette");
+const { default: flattenColorPalette } = require("tailwindcss/lib/util/flattenColorPalette");
+const { withTV } = require('tailwind-variants/transformer');
 
+/** @type {import('tailwindcss').Config} */
 const config = withTV({
   darkMode: ['class'],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/**/*.{ts,tsx}"
+    "./src/**/*.{ts,tsx}",
   ],
   theme: {
     extend: {
@@ -31,41 +29,41 @@ const config = withTV({
         },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
-          fg: 'hsl(var(--secondary-fg))'
+          fg: 'hsl(var(--secondary-fg))',
         },
         tertiary: {
           DEFAULT: 'hsl(var(--tertiary))',
-          fg: 'hsl(var(--tertiary-fg))'
+          fg: 'hsl(var(--tertiary-fg))',
         },
         accent: {
           DEFAULT: 'hsl(var(--accent))',
           fg: 'hsl(var(--accent-fg))',
           subtle: 'hsl(var(--accent-subtle))',
-          'subtle-fg': 'hsl(var(--accent-subtle-fg))'
+          'subtle-fg': 'hsl(var(--accent-subtle-fg))',
         },
         success: {
           DEFAULT: 'hsl(var(--success))',
-          fg: 'hsl(var(--success-fg))'
+          fg: 'hsl(var(--success-fg))',
         },
         info: {
           DEFAULT: 'hsl(var(--info))',
-          fg: 'hsl(var(--info-fg))'
+          fg: 'hsl(var(--info-fg))',
         },
         danger: {
           DEFAULT: 'hsl(var(--danger))',
-          fg: 'hsl(var(--danger-fg))'
+          fg: 'hsl(var(--danger-fg))',
         },
         warning: {
           DEFAULT: 'hsl(var(--warning))',
-          fg: 'hsl(var(--warning-fg))'
+          fg: 'hsl(var(--warning-fg))',
         },
         muted: {
           DEFAULT: 'hsl(var(--muted))',
-          fg: 'hsl(var(--muted-fg))'
+          fg: 'hsl(var(--muted-fg))',
         },
         overlay: {
           DEFAULT: 'hsl(var(--overlay))',
-          fg: 'hsl(var(--overlay-fg))'
+          fg: 'hsl(var(--overlay-fg))',
         },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
@@ -99,6 +97,11 @@ const config = withTV({
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       keyframes: {
+        scroll: {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
+          },
+        },
         'accordion-down': {
           from: {
             height: '0',
@@ -117,6 +120,7 @@ const config = withTV({
         },
       },
       animation: {
+        scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
@@ -133,7 +137,8 @@ const config = withTV({
   ],
 });
 
-function addVariablesForColors({ addBase, theme }: any) {
+/** @ts-ignore */
+function addVariablesForColors({ addBase, theme }) {
   let allColors = flattenColorPalette(theme("colors"));
   let newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
@@ -144,4 +149,4 @@ function addVariablesForColors({ addBase, theme }: any) {
   });
 }
 
-export default config;
+module.exports = config;

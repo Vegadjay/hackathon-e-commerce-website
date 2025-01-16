@@ -1,3 +1,4 @@
+'use client'
 import RedesignedLinkPreviewDemo from '@/components/ui/footer-link'
 import { motion } from 'framer-motion'
 import React from 'react'

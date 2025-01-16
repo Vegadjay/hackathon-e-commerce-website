@@ -6,6 +6,8 @@ import FashionCarousel from "@/components/products/product-corosal";
 import { AppleCardsCarouselDemo } from "@/app/product/component/apple-card-corosal";
 import Earthcomponent from "@/components/earthcomponent/earth-component";
 import { VideoGrid } from "@/components/ui/layout-video-grid";
+import { HeroScrollDemo } from "@/components/scroll-component/page";
+import Filtercomponent from "@/components/filter-component/filter";
 
 
 const cards = [
@@ -113,6 +115,12 @@ export function ProductGrid() {
       {/* @ts-ignore */}
       <VideoGrid cards={cards} />
 
+
+      {/* Scroll Effect Component */}
+
+      <HeroScrollDemo title="Our Bestsellers" discription="Checkout Here" imageId={238} />
+
+      {/* Infinite Scrolling Feedback */}
 
     </motion.div>
   );
