@@ -28,7 +28,7 @@ const itemVariants = {
 
 export default function Footer() {
   return (
-    <footer className="w-full mt-10 pt-16 pb-8 relative overflow-hidden">
+    <footer className="w-full mt-10 mb-10 pt-16 pb-8 relative overflow-hidden">
       <div className="absolute inset-0 -z-10 hidden md:block">
         <Image
           src='/footer/f6.jpg'
@@ -36,7 +36,7 @@ export default function Footer() {
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-[#f8f3ed]/80 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-[#f8f3ed]/80" />
       </div>
 
       <div className="absolute inset-0 -z-10 bg-gray-50 md:hidden" />
@@ -64,7 +64,7 @@ export default function Footer() {
                 'Premium handwork Suit sets'
               ].map((item) => (
                 <li key={item}>
-                  <Link 
+                  <Link
                     href={`/category/${item.toLowerCase().replace(/\s+/g, '-')}`}
                     className="text-gray-800 hover:text-orange-600 transition-colors duration-300 text-sm block py-1"
                   >
@@ -91,7 +91,7 @@ export default function Footer() {
                 'Blog'
               ].map((item) => (
                 <li key={item}>
-                  <Link 
+                  <Link
                     href={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
                     className="text-gray-800 hover:text-orange-600 transition-colors duration-300 text-sm block py-1"
                   >
@@ -107,8 +107,8 @@ export default function Footer() {
             <div className="space-y-3 md:space-y-4 text-sm">
               <p className="text-gray-800">
                 Please contact us on email{' '}
-                <a 
-                  href="mailto:contact@rajwadiposhak.com" 
+                <a
+                  href="mailto:contact@rajwadiposhak.com"
                   className="text-orange-600 hover:text-orange-700 font-medium block md:inline"
                 >
                   contact@rajwadiposhak.com
@@ -116,11 +116,11 @@ export default function Footer() {
               </p>
               <p className="text-gray-800">
                 or call us at{' '}
-                <a 
-                  href="tel:+919145843926" 
+                <a
+                  href="tel:+918849251028"
                   className="text-orange-600 hover:text-orange-700 font-medium"
                 >
-                  +919145843926
+                  +918849251028
                 </a>
                 <br />
                 between 10:00 to 18:00 Monday to Saturday.

@@ -79,6 +79,13 @@ export function ProductGrid() {
   }, []);
 
   useEffect(() => {
+    const quoteInterval = setInterval(() => {
+      setCurrentQuoteIndex(prev => (prev + 1) % quotes.length);
+    }, 5000);
+    return () => clearInterval(quoteInterval);
+  }, []);
+
+  useEffect(() => {
     setIsLoading(true);
     const timer = setTimeout(() => setIsLoading(false), 800);
     return () => clearTimeout(timer);
@@ -149,6 +156,9 @@ export function ProductGrid() {
 
       {/* <Textanimation /> */}
 
+      {/* Second Component for hero section that we want to add .... */}
+
+
       <div className="mt-10">
         <FashionCarousel />
       </div>
@@ -158,7 +168,6 @@ export function ProductGrid() {
 
       <Earthcomponent />
 
-      {/* Third Component */}
 
       <AppleCardsCarouselDemo />
 
@@ -166,7 +175,73 @@ export function ProductGrid() {
 
       <Filtercomponent />
 
-      
+      <motion.div
+        className="mt-16 px-4 sm:px-6 lg:px-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
+      >
+        <div className="relative">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+          >
+          </motion.div>
+          <RedesignedLinkPreviewDemo />
+          <Footer />
+
+
+          <AnimatePresence>
+            {isScrolled && (
+              <motion.button
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                className="fixed bottom-8 right-8 p-4 bg-red-400 text-white rounded-full shadow-lg hover:bg-red-500 transition-colors duration-300 z-50"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                </svg>
+              </motion.button>
+            )}
+          </AnimatePresence>
+        </div>
+      </motion.div>
+
+      <AnimatePresence>
+        {isLoading && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+          >
+            <motion.div
+              animate={{
+                scale: [1, 1.2, 1],
+                rotate: [0, 180, 360],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="w-16 h-16 border-4 border-red-400 border-t-transparent rounded-full"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
