@@ -125,3 +125,8 @@ to get all review of product with username and its rating (for display review pa
 TODO TASKK:
 
 Create checkout page.
+Badges for product [best-seller, new arrivals]
+payment
+Sell
+Admin Panel
+Order Confirm page
