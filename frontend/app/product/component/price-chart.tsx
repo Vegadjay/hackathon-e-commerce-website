@@ -31,7 +31,7 @@ const RevenueChart = ({ data }: { data: ChartData[] }) => {
                                                     Month: {payload[0].payload.month}
                                                 </p>
                                                 <p className="text-sm text-blue-600">
-                                                    Revenue: ₹{payload[0].value}
+                                                    Selles: {payload[0].value}
                                                 </p>
                                             </div>
                                         );

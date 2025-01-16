@@ -7,6 +7,8 @@ import { AppleCardsCarouselDemo } from "@/app/product/component/apple-card-coros
 import Earthcomponent from "@/components/earthcomponent/earth-component";
 import { VideoGrid } from "@/components/ui/layout-video-grid";
 import { HeroScrollDemo } from "@/components/scroll-component/page";
+import { InfiniteMovingCardsDemo } from "@/components/infinite-scroll-component/page";
+import ProductGridComponent from "@/components/product-grid/page";
 import Filtercomponent from "@/components/filter-component/filter";
 
 
@@ -111,16 +113,21 @@ export function ProductGrid() {
 
       {/* <Filtercomponent /> */}
 
+      {/* Our Products */}
+
+      <ProductGridComponent />
+
       {/* Add here to that grid component */}
       {/* @ts-ignore */}
       <VideoGrid cards={cards} />
-
 
       {/* Scroll Effect Component */}
 
       <HeroScrollDemo title="Our Bestsellers" discription="Checkout Here" imageId={238} />
 
       {/* Infinite Scrolling Feedback */}
+
+      <InfiniteMovingCardsDemo />
 
     </motion.div>
   );

@@ -1,6 +1,7 @@
 interface Product {
   id: number;
   name: string | "";
+  sale?: string;
   price: number;
   rating: number;
   reviews: number;
@@ -26361,6 +26362,9005 @@ export const products: Product[] = [
       {
         "month": "Dec",
         "revenue": 9237
+      }
+    ]
+  },
+
+  {
+    "id": 301,
+    "name": "Gerua Chanderi Silk Unstitched Suit Set",
+    "price": 4399,
+    "rating": 4.4,
+    "reviews": 8457,
+    "answers": 34,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Red"
+    ],
+    "category": "cotton",
+    "model": "RP-814 UNSTICHED SET)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/301.1.webp",
+      "/detailphotos/301.2.webp",
+      "/detailphotos/301.3.webp",
+      "/detailphotos/301.4.webp",
+      "/detailphotos/301.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Chanderi Kurta with lining & Chanderi Silk Dupatta & Cotton Pant",
+      "Fit - Relaxed (CODE :RP-814 UNSTICHED SET)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "Indulge in luxury with our Gerua Chanderi Silk Unstitched Suit Set. Made with high-quality chanderi silk, this set exudes elegance and sophistication. Unleash your inner fashionista with this exclusive piece, perfect for any occasion. Experience the art of fine dressing with Gerua.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 2917
+      },
+      {
+        "month": "Feb",
+        "revenue": 2776
+      },
+      {
+        "month": "Mar",
+        "revenue": 2162
+      },
+      {
+        "month": "Apr",
+        "revenue": 7959
+      },
+      {
+        "month": "May",
+        "revenue": 1664
+      },
+      {
+        "month": "Jun",
+        "revenue": 9418
+      },
+      {
+        "month": "Jul",
+        "revenue": 6310
+      },
+      {
+        "month": "Aug",
+        "revenue": 5883
+      },
+      {
+        "month": "Sep",
+        "revenue": 4564
+      },
+      {
+        "month": "Oct",
+        "revenue": 3696
+      },
+      {
+        "month": "Nov",
+        "revenue": 1189
+      },
+      {
+        "month": "Dec",
+        "revenue": 1705
+      }
+    ]
+  },
+  {
+    "id": 302,
+    "name": "Vrinda Chanderi Silk Unstitched Suit Set",
+    "price": 4399,
+    "rating": 4.5,
+    "reviews": 6438,
+    "answers": 78,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Green"
+    ],
+    "category": "cotton",
+    "model": "RP-777 UNSTICHED SET)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/302.1.webp",
+      "/detailphotos/302.2.webp",
+      "/detailphotos/302.3.webp",
+      "/detailphotos/302.4.webp",
+      "/detailphotos/302.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Chanderi Kurta with lining & Chanderi Silk Dupatta & Cotton Pant",
+      "Fit - Relaxed (CODE :RP-777 UNSTICHED SET)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "Indulge in luxury with our Vrinda Chanderi Silk Unstitched Suit Set. Crafted from exquisite Chanderi silk, this set offers unmatched elegance and sophistication. With its versatile design and superior quality, you can effortlessly elevate your style and make a statement. Experience the finest in fabrics and fashion with Vrinda.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 1605
+      },
+      {
+        "month": "Feb",
+        "revenue": 7928
+      },
+      {
+        "month": "Mar",
+        "revenue": 9944
+      },
+      {
+        "month": "Apr",
+        "revenue": 9097
+      },
+      {
+        "month": "May",
+        "revenue": 2738
+      },
+      {
+        "month": "Jun",
+        "revenue": 4481
+      },
+      {
+        "month": "Jul",
+        "revenue": 1480
+      },
+      {
+        "month": "Aug",
+        "revenue": 2027
+      },
+      {
+        "month": "Sep",
+        "revenue": 5309
+      },
+      {
+        "month": "Oct",
+        "revenue": 5822
+      },
+      {
+        "month": "Nov",
+        "revenue": 4336
+      },
+      {
+        "month": "Dec",
+        "revenue": 4925
+      }
+    ]
+  },
+  {
+    "id": 303,
+    "name": "Blue Peonies Chanderi Silk Unstitched Suit Set",
+    "price": 4399,
+    "rating": 4.6,
+    "reviews": 7344,
+    "answers": 98,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Blue"
+    ],
+    "category": "cotton",
+    "model": "RP-785 UNSTICHED SET)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/303.1.webp",
+      "/detailphotos/303.2.webp",
+      "/detailphotos/303.3.webp",
+      "/detailphotos/303.4.webp",
+      "/detailphotos/303.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Chanderi Kurta with lining & Chanderi Silk Dupatta & Cotton Pant",
+      "Fit - Relaxed (CODE :RP-785 UNSTICHED SET)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "Indulge in luxury with our Blue Peonies Chanderi Silk Unstitched Suit Set. Crafted from the finest silk, this set features beautiful blue peonies for a touch of elegance. Create your own unique style with our unstitched design. Elevate your wardrobe and make a statement with this exclusive suit set.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 9920
+      },
+      {
+        "month": "Feb",
+        "revenue": 2826
+      },
+      {
+        "month": "Mar",
+        "revenue": 8913
+      },
+      {
+        "month": "Apr",
+        "revenue": 5626
+      },
+      {
+        "month": "May",
+        "revenue": 5676
+      },
+      {
+        "month": "Jun",
+        "revenue": 4400
+      },
+      {
+        "month": "Jul",
+        "revenue": 5455
+      },
+      {
+        "month": "Aug",
+        "revenue": 3328
+      },
+      {
+        "month": "Sep",
+        "revenue": 4492
+      },
+      {
+        "month": "Oct",
+        "revenue": 5200
+      },
+      {
+        "month": "Nov",
+        "revenue": 1022
+      },
+      {
+        "month": "Dec",
+        "revenue": 5125
+      }
+    ]
+  },
+  {
+    "id": 304,
+    "name": "Falak Chintz Block Print Chanderi Unstitched Suit set",
+    "price": 4399,
+    "rating": 4,
+    "reviews": 6347,
+    "answers": 58,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Blue"
+    ],
+    "category": "cotton",
+    "model": "RP-611 UNSTICHED SET)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/304.1.webp",
+      "/detailphotos/304.2.webp",
+      "/detailphotos/304.3.webp",
+      "/detailphotos/304.4.webp",
+      "/detailphotos/304.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Chanderi Kurta with lining & Chanderi Silk Dupatta & Cotton Pant",
+      "Fit - Relaxed (CODE :RP-611 UNSTICHED SET)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "Falak Chintz Block Print Chanderi Unstitched Suit set",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 8038
+      },
+      {
+        "month": "Feb",
+        "revenue": 8781
+      },
+      {
+        "month": "Mar",
+        "revenue": 4518
+      },
+      {
+        "month": "Apr",
+        "revenue": 3542
+      },
+      {
+        "month": "May",
+        "revenue": 9113
+      },
+      {
+        "month": "Jun",
+        "revenue": 9355
+      },
+      {
+        "month": "Jul",
+        "revenue": 2804
+      },
+      {
+        "month": "Aug",
+        "revenue": 3528
+      },
+      {
+        "month": "Sep",
+        "revenue": 1193
+      },
+      {
+        "month": "Oct",
+        "revenue": 2712
+      },
+      {
+        "month": "Nov",
+        "revenue": 8072
+      },
+      {
+        "month": "Dec",
+        "revenue": 1920
+      }
+    ]
+  },
+  {
+    "id": 305,
+    "name": "Lavanya Habutai Silk Unstitched suit set",
+    "price": 4999,
+    "rating": 4.4,
+    "reviews": 3447,
+    "answers": 28,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Maroon",
+      "Green"
+    ],
+    "category": "silk",
+    "model": "RP-817)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/305.1.webp",
+      "/detailphotos/305.2.webp",
+      "/detailphotos/305.3.webp",
+      "/detailphotos/305.4.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Chanderi Kurta with lining & Chanderi Silk Dupatta & Cotton Pant",
+      "Fit - Relaxed (CODE :RP-817)",
+      "Washing instruction-  Dry clean only",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "Lavanya Habutai Silk Unstitched suit set",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 4317
+      },
+      {
+        "month": "Feb",
+        "revenue": 4393
+      },
+      {
+        "month": "Mar",
+        "revenue": 6653
+      },
+      {
+        "month": "Apr",
+        "revenue": 8361
+      },
+      {
+        "month": "May",
+        "revenue": 9070
+      },
+      {
+        "month": "Jun",
+        "revenue": 6113
+      },
+      {
+        "month": "Jul",
+        "revenue": 3852
+      },
+      {
+        "month": "Aug",
+        "revenue": 8591
+      },
+      {
+        "month": "Sep",
+        "revenue": 3661
+      },
+      {
+        "month": "Oct",
+        "revenue": 5999
+      },
+      {
+        "month": "Nov",
+        "revenue": 3560
+      },
+      {
+        "month": "Dec",
+        "revenue": 2894
+      }
+    ]
+  },
+  {
+    "id": 306,
+    "name": "Sanjari Muslin Silk with Organza Dupatta Unstitched Suit Set",
+    "price": 4499,
+    "rating": 4.7,
+    "reviews": 6344,
+    "answers": 34,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Brown",
+      "Green"
+    ],
+    "category": "silk",
+    "model": "RP-812)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/306.1.webp",
+      "/detailphotos/306.2.webp",
+      "/detailphotos/306.3.webp",
+      "/detailphotos/306.4.webp",
+      "/detailphotos/306.5.webp",
+      "/detailphotos/306.6.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Chanderi Kurta with lining & Chanderi Silk Dupatta & Cotton Pant",
+      "Fit - Relaxed (CODE :RP-812)",
+      "Washing instruction-  Dry clean only",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "Sanjari Muslin Silk with Organza Dupatta Unstitched Suit Set",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 4329
+      },
+      {
+        "month": "Feb",
+        "revenue": 6037
+      },
+      {
+        "month": "Mar",
+        "revenue": 6027
+      },
+      {
+        "month": "Apr",
+        "revenue": 8580
+      },
+      {
+        "month": "May",
+        "revenue": 6814
+      },
+      {
+        "month": "Jun",
+        "revenue": 1206
+      },
+      {
+        "month": "Jul",
+        "revenue": 5778
+      },
+      {
+        "month": "Aug",
+        "revenue": 3283
+      },
+      {
+        "month": "Sep",
+        "revenue": 5461
+      },
+      {
+        "month": "Oct",
+        "revenue": 5751
+      },
+      {
+        "month": "Nov",
+        "revenue": 6820
+      },
+      {
+        "month": "Dec",
+        "revenue": 3611
+      }
+    ]
+  },
+  {
+    "id": 307,
+    "name": "Kusum Unstitch suit set in Silk with Handwork",
+    "price": 4999,
+    "rating": 4.1,
+    "reviews": 7554,
+    "answers": 54,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Green",
+      "Pink"
+    ],
+    "category": "silk",
+    "model": "RP-816)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/307.1.webp",
+      "/detailphotos/307.2.webp",
+      "/detailphotos/307.3.webp",
+      "/detailphotos/307.4.webp",
+      "/detailphotos/307.5.webp",
+      "/detailphotos/307.6.webp",
+      "/detailphotos/307.7.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Chanderi Kurta with lining & Chanderi Silk Dupatta & Cotton Pant",
+      "Fit - Relaxed (CODE :RP-816)",
+      "Washing instruction-  Dry clean only",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "Kusum Unstitch suit set in Silk with Handwork",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 5856
+      },
+      {
+        "month": "Feb",
+        "revenue": 4639
+      },
+      {
+        "month": "Mar",
+        "revenue": 3608
+      },
+      {
+        "month": "Apr",
+        "revenue": 1642
+      },
+      {
+        "month": "May",
+        "revenue": 3835
+      },
+      {
+        "month": "Jun",
+        "revenue": 9717
+      },
+      {
+        "month": "Jul",
+        "revenue": 9689
+      },
+      {
+        "month": "Aug",
+        "revenue": 4111
+      },
+      {
+        "month": "Sep",
+        "revenue": 5659
+      },
+      {
+        "month": "Oct",
+        "revenue": 6788
+      },
+      {
+        "month": "Nov",
+        "revenue": 8538
+      },
+      {
+        "month": "Dec",
+        "revenue": 1633
+      }
+    ]
+  },
+  {
+    "id": 308,
+    "name": "Mogra Gher Mul Cotton Unstitched Suit Set",
+    "price": 2199,
+    "rating": 4.4,
+    "reviews": 3465,
+    "answers": 87,
+    "inStock": true,
+    "delivery": "Rs. 100",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Yellow"
+    ],
+    "category": "cotton",
+    "model": "RP-792 UNSTICHED SET)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/308.1.webp",
+      "/detailphotos/308.2.webp",
+      "/detailphotos/308.3.webp",
+      "/detailphotos/308.4.webp",
+      "/detailphotos/308.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Cotton",
+      "Fit - Relaxed (CODE :RP-792 UNSTICHED SET)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "Indulge in luxury with our premium Mogra Gher Mul Cotton Unstitched Suit Set. Made from the finest materials, this set offers unparalleled comfort and style. Experience the art of effortless elegance and make a statement in any occasion. Unleash your inner fashionista with this exclusive suit set.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 4971
+      },
+      {
+        "month": "Feb",
+        "revenue": 5933
+      },
+      {
+        "month": "Mar",
+        "revenue": 5182
+      },
+      {
+        "month": "Apr",
+        "revenue": 5985
+      },
+      {
+        "month": "May",
+        "revenue": 1467
+      },
+      {
+        "month": "Jun",
+        "revenue": 2642
+      },
+      {
+        "month": "Jul",
+        "revenue": 2170
+      },
+      {
+        "month": "Aug",
+        "revenue": 2941
+      },
+      {
+        "month": "Sep",
+        "revenue": 3514
+      },
+      {
+        "month": "Oct",
+        "revenue": 9333
+      },
+      {
+        "month": "Nov",
+        "revenue": 4429
+      },
+      {
+        "month": "Dec",
+        "revenue": 5246
+      }
+    ]
+  },
+  {
+    "id": 309,
+    "name": "Indigo Dream Cotton Unstitched Suit Set",
+    "price": 2199,
+    "rating": 3.9,
+    "reviews": 4758,
+    "answers": 45,
+    "inStock": true,
+    "delivery": "Rs. 100",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Blue"
+    ],
+    "category": "cotton",
+    "model": "RP-729 UNSTICHED SET)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/309.1.webp",
+      "/detailphotos/309.2.webp",
+      "/detailphotos/309.3.webp",
+      "/detailphotos/309.4.webp",
+      "/detailphotos/309.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Cotton",
+      "Fit - Relaxed (CODE :RP-729 UNSTICHED SET)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "Unleash your inner artist with our Indigo Dream Cotton Unstitched Suit Set. Made from premium quality cotton, this set exudes luxury and sophistication. The deep, rich indigo color is reminiscent of the night sky, while the unstitched design allows for endless possibilities and personalization. Elevate your fashion game with this exclusive suit set.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 9117
+      },
+      {
+        "month": "Feb",
+        "revenue": 1098
+      },
+      {
+        "month": "Mar",
+        "revenue": 3275
+      },
+      {
+        "month": "Apr",
+        "revenue": 8782
+      },
+      {
+        "month": "May",
+        "revenue": 1971
+      },
+      {
+        "month": "Jun",
+        "revenue": 9431
+      },
+      {
+        "month": "Jul",
+        "revenue": 3895
+      },
+      {
+        "month": "Aug",
+        "revenue": 8794
+      },
+      {
+        "month": "Sep",
+        "revenue": 7510
+      },
+      {
+        "month": "Oct",
+        "revenue": 1976
+      },
+      {
+        "month": "Nov",
+        "revenue": 8809
+      },
+      {
+        "month": "Dec",
+        "revenue": 6338
+      }
+    ]
+  },
+  {
+    "id": 310,
+    "name": "Saanvi Anarkali Flair Unstitched Suit Set",
+    "price": 2199,
+    "rating": 4.1,
+    "reviews": 6487,
+    "answers": 43,
+    "inStock": true,
+    "delivery": "Rs. 100",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Blue"
+    ],
+    "category": "cotton",
+    "model": "RP-778 UNSTICHED SET)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/310.1.webp",
+      "/detailphotos/310.2.webp",
+      "/detailphotos/310.3.webp",
+      "/detailphotos/310.4.webp",
+      "/detailphotos/310.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Cotton",
+      "Fit - Relaxed (CODE :RP-778 UNSTICHED SET)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "Elevate your style with our Saanvi Anarkali Flair Unstitched Suit Set. Crafted with intricate detailing, this set exudes luxury and sophistication. The Anarkali design adds a touch of elegance, while the unstitched feature allows for a customizable fit. Indulge in this exclusive piece for a truly premium experience.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 7146
+      },
+      {
+        "month": "Feb",
+        "revenue": 6640
+      },
+      {
+        "month": "Mar",
+        "revenue": 4718
+      },
+      {
+        "month": "Apr",
+        "revenue": 4967
+      },
+      {
+        "month": "May",
+        "revenue": 9854
+      },
+      {
+        "month": "Jun",
+        "revenue": 3643
+      },
+      {
+        "month": "Jul",
+        "revenue": 4542
+      },
+      {
+        "month": "Aug",
+        "revenue": 8644
+      },
+      {
+        "month": "Sep",
+        "revenue": 1402
+      },
+      {
+        "month": "Oct",
+        "revenue": 3557
+      },
+      {
+        "month": "Nov",
+        "revenue": 5715
+      },
+      {
+        "month": "Dec",
+        "revenue": 7799
+      }
+    ]
+  },
+  {
+    "id": 311,
+    "name": "Gaeti Green Handblock Chanderi Unstitched Suit set",
+    "price": 4399,
+    "rating": 4.7,
+    "reviews": 3643,
+    "answers": 39,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Green"
+    ],
+    "category": "cotton",
+    "model": "RP-657 UNSTICHED SET)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/311.1.webp",
+      "/detailphotos/311.2.webp",
+      "/detailphotos/311.3.webp",
+      "/detailphotos/311.4.webp",
+      "/detailphotos/311.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Cotton",
+      "Fit - Relaxed (CODE :RP-657 UNSTICHED SET)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "Gaeti Green Handblock Chanderi Unstitched Suit set",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 3896
+      },
+      {
+        "month": "Feb",
+        "revenue": 6972
+      },
+      {
+        "month": "Mar",
+        "revenue": 8347
+      },
+      {
+        "month": "Apr",
+        "revenue": 8703
+      },
+      {
+        "month": "May",
+        "revenue": 6826
+      },
+      {
+        "month": "Jun",
+        "revenue": 9206
+      },
+      {
+        "month": "Jul",
+        "revenue": 4397
+      },
+      {
+        "month": "Aug",
+        "revenue": 5322
+      },
+      {
+        "month": "Sep",
+        "revenue": 1554
+      },
+      {
+        "month": "Oct",
+        "revenue": 9474
+      },
+      {
+        "month": "Nov",
+        "revenue": 1469
+      },
+      {
+        "month": "Dec",
+        "revenue": 1936
+      }
+    ]
+  },
+  {
+    "id": 312,
+    "name": "Gulnaaz Green Handblock Chanderi Unstitched Suit set",
+    "price": 4399,
+    "rating": 4.5,
+    "reviews": 7832,
+    "answers": 32,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Teal"
+    ],
+    "category": "cotton",
+    "model": "RP-656 UNSTICHED SET)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/312.1.webp",
+      "/detailphotos/312.2.webp",
+      "/detailphotos/312.3.webp",
+      "/detailphotos/312.4.webp",
+      "/detailphotos/312.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Cotton",
+      "Fit - Relaxed (CODE :RP-656 UNSTICHED SET)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "Gulnaaz Green Handblock Chanderi Unstitched Suit set",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 1893
+      },
+      {
+        "month": "Feb",
+        "revenue": 1855
+      },
+      {
+        "month": "Mar",
+        "revenue": 9536
+      },
+      {
+        "month": "Apr",
+        "revenue": 6314
+      },
+      {
+        "month": "May",
+        "revenue": 5027
+      },
+      {
+        "month": "Jun",
+        "revenue": 7042
+      },
+      {
+        "month": "Jul",
+        "revenue": 3790
+      },
+      {
+        "month": "Aug",
+        "revenue": 7880
+      },
+      {
+        "month": "Sep",
+        "revenue": 1103
+      },
+      {
+        "month": "Oct",
+        "revenue": 8659
+      },
+      {
+        "month": "Nov",
+        "revenue": 1033
+      },
+      {
+        "month": "Dec",
+        "revenue": 5319
+      }
+    ]
+  },
+  {
+    "id": 313,
+    "name": "Fire Brick Floral Unstitched Cotton Suit Set",
+    "price": 2199,
+    "rating": 4.4,
+    "reviews": 5454,
+    "answers": 34,
+    "inStock": true,
+    "delivery": "Rs. 100",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Red"
+    ],
+    "category": "cotton",
+    "model": "RP-692 UNSTITCHED SET)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/313.1.webp",
+      "/detailphotos/313.2.webp",
+      "/detailphotos/313.3.webp",
+      "/detailphotos/313.4.webp",
+      "/detailphotos/313.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Cotton",
+      "Fit - Relaxed (CODE :RP-692 UNSTITCHED SET)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "Fire Brick Floral Unstitched Cotton Suit Set",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 3882
+      },
+      {
+        "month": "Feb",
+        "revenue": 1841
+      },
+      {
+        "month": "Mar",
+        "revenue": 8112
+      },
+      {
+        "month": "Apr",
+        "revenue": 2593
+      },
+      {
+        "month": "May",
+        "revenue": 3247
+      },
+      {
+        "month": "Jun",
+        "revenue": 7317
+      },
+      {
+        "month": "Jul",
+        "revenue": 3235
+      },
+      {
+        "month": "Aug",
+        "revenue": 6033
+      },
+      {
+        "month": "Sep",
+        "revenue": 7711
+      },
+      {
+        "month": "Oct",
+        "revenue": 6935
+      },
+      {
+        "month": "Nov",
+        "revenue": 6681
+      },
+      {
+        "month": "Dec",
+        "revenue": 4784
+      }
+    ]
+  },
+  {
+    "id": 314,
+    "name": "HOOR FLORAL PRINT COTTON UNSTITCHED SUIT SET",
+    "price": 2199,
+    "rating": 4.1,
+    "reviews": 7844,
+    "answers": 82,
+    "inStock": true,
+    "delivery": "Rs. 100",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Blue"
+    ],
+    "category": "cotton",
+    "model": "RP-698)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/314.1.webp",
+      "/detailphotos/314.2.webp",
+      "/detailphotos/314.3.webp",
+      "/detailphotos/314.4.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Cotton",
+      "Fit - Relaxed (CODE :RP-698)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "HOOR FLORAL PRINT COTTON UNSTITCHED SUIT SET",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 4939
+      },
+      {
+        "month": "Feb",
+        "revenue": 5101
+      },
+      {
+        "month": "Mar",
+        "revenue": 4635
+      },
+      {
+        "month": "Apr",
+        "revenue": 1785
+      },
+      {
+        "month": "May",
+        "revenue": 4974
+      },
+      {
+        "month": "Jun",
+        "revenue": 1014
+      },
+      {
+        "month": "Jul",
+        "revenue": 8626
+      },
+      {
+        "month": "Aug",
+        "revenue": 1091
+      },
+      {
+        "month": "Sep",
+        "revenue": 5214
+      },
+      {
+        "month": "Oct",
+        "revenue": 3067
+      },
+      {
+        "month": "Nov",
+        "revenue": 1803
+      },
+      {
+        "month": "Dec",
+        "revenue": 2430
+      }
+    ]
+  },
+  {
+    "id": 315,
+    "name": "Rachida Red Handblock Chanderi Unstitched Sui tset",
+    "price": 4399,
+    "rating": 4.9,
+    "reviews": 2363,
+    "answers": 12,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Red"
+    ],
+    "category": "cotton",
+    "model": "RP-658 UNSTICHED SET)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/315.1.webp",
+      "/detailphotos/315.2.webp",
+      "/detailphotos/315.3.webp",
+      "/detailphotos/315.4.webp",
+      "/detailphotos/315.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Cotton",
+      "Fit - Relaxed (CODE :RP-658 UNSTICHED SET)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "Rachida Red Handblock Chanderi Unstitched Sui tset",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 2493
+      },
+      {
+        "month": "Feb",
+        "revenue": 8286
+      },
+      {
+        "month": "Mar",
+        "revenue": 3446
+      },
+      {
+        "month": "Apr",
+        "revenue": 7905
+      },
+      {
+        "month": "May",
+        "revenue": 3185
+      },
+      {
+        "month": "Jun",
+        "revenue": 1889
+      },
+      {
+        "month": "Jul",
+        "revenue": 3883
+      },
+      {
+        "month": "Aug",
+        "revenue": 1654
+      },
+      {
+        "month": "Sep",
+        "revenue": 5246
+      },
+      {
+        "month": "Oct",
+        "revenue": 5330
+      },
+      {
+        "month": "Nov",
+        "revenue": 4679
+      },
+      {
+        "month": "Dec",
+        "revenue": 9264
+      }
+    ]
+  },
+  {
+    "id": 316,
+    "name": "Parnia Peach Handblock Chanderi Unstitched Suit set",
+    "price": 4399,
+    "rating": 4.8,
+    "reviews": 6563,
+    "answers": 23,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Peach"
+    ],
+    "category": "cotton",
+    "model": "RP-649 UNSTICHED SET)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/316.1.webp",
+      "/detailphotos/316.2.webp",
+      "/detailphotos/316.3.webp",
+      "/detailphotos/316.4.webp",
+      "/detailphotos/316.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Cotton",
+      "Fit - Relaxed (CODE :RP-649 UNSTICHED SET)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "Parnia Peach Handblock Chanderi Unstitched Suit set",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 1696
+      },
+      {
+        "month": "Feb",
+        "revenue": 4861
+      },
+      {
+        "month": "Mar",
+        "revenue": 7362
+      },
+      {
+        "month": "Apr",
+        "revenue": 3120
+      },
+      {
+        "month": "May",
+        "revenue": 5404
+      },
+      {
+        "month": "Jun",
+        "revenue": 2277
+      },
+      {
+        "month": "Jul",
+        "revenue": 4388
+      },
+      {
+        "month": "Aug",
+        "revenue": 9557
+      },
+      {
+        "month": "Sep",
+        "revenue": 9982
+      },
+      {
+        "month": "Oct",
+        "revenue": 2328
+      },
+      {
+        "month": "Nov",
+        "revenue": 8886
+      },
+      {
+        "month": "Dec",
+        "revenue": 9499
+      }
+    ]
+  },
+  {
+    "id": 317,
+    "name": "Rabab Punch Pink Handblock Unstitched Suit Set",
+    "price": 3299,
+    "rating": 4.7,
+    "reviews": 3465,
+    "answers": 34,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Pink"
+    ],
+    "category": "cotton",
+    "model": "RP-598 UNSTICHED)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/317.1.webp",
+      "/detailphotos/317.2.webp",
+      "/detailphotos/317.3.webp",
+      "/detailphotos/317.4.webp",
+      "/detailphotos/317.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Cotton",
+      "Fit - Relaxed (CODE :RP-598 UNSTICHED)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "Rabab Punch Pink Handblock Unstitched Suit Set",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 4945
+      },
+      {
+        "month": "Feb",
+        "revenue": 2509
+      },
+      {
+        "month": "Mar",
+        "revenue": 7019
+      },
+      {
+        "month": "Apr",
+        "revenue": 1916
+      },
+      {
+        "month": "May",
+        "revenue": 8245
+      },
+      {
+        "month": "Jun",
+        "revenue": 1783
+      },
+      {
+        "month": "Jul",
+        "revenue": 2507
+      },
+      {
+        "month": "Aug",
+        "revenue": 9777
+      },
+      {
+        "month": "Sep",
+        "revenue": 9476
+      },
+      {
+        "month": "Oct",
+        "revenue": 9607
+      },
+      {
+        "month": "Nov",
+        "revenue": 1382
+      },
+      {
+        "month": "Dec",
+        "revenue": 6343
+      }
+    ]
+  },
+  {
+    "id": 318,
+    "name": "White and Red Handblock Unstitched Suit Set",
+    "price": 3299,
+    "rating": 4.6,
+    "reviews": 4798,
+    "answers": 36,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "White and Red"
+    ],
+    "category": "cotton",
+    "model": "RP-598 UNSTICHED)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/318.1.webp",
+      "/detailphotos/318.2.webp",
+      "/detailphotos/318.3.webp",
+      "/detailphotos/318.4.webp",
+      "/detailphotos/318.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Cotton",
+      "Fit - Relaxed (CODE :RP-598 UNSTICHED)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "White and Red Handblock Unstitched Suit Set",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 6489
+      },
+      {
+        "month": "Feb",
+        "revenue": 2366
+      },
+      {
+        "month": "Mar",
+        "revenue": 1316
+      },
+      {
+        "month": "Apr",
+        "revenue": 1707
+      },
+      {
+        "month": "May",
+        "revenue": 3595
+      },
+      {
+        "month": "Jun",
+        "revenue": 8930
+      },
+      {
+        "month": "Jul",
+        "revenue": 7649
+      },
+      {
+        "month": "Aug",
+        "revenue": 5023
+      },
+      {
+        "month": "Sep",
+        "revenue": 3855
+      },
+      {
+        "month": "Oct",
+        "revenue": 2146
+      },
+      {
+        "month": "Nov",
+        "revenue": 9115
+      },
+      {
+        "month": "Dec",
+        "revenue": 2349
+      }
+    ]
+  },
+  {
+    "id": 319,
+    "name": "RED CHAKORI STRAIGHT UNSTITCHED CHANDERI DUPATTA SUIT SET",
+    "price": 3299,
+    "rating": 4.5,
+    "reviews": 5798,
+    "answers": 38,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Green and Red"
+    ],
+    "category": "cotton",
+    "model": "RP-577 UNSTICHED)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/319.1.webp",
+      "/detailphotos/319.2.webp",
+      "/detailphotos/319.3.webp",
+      "/detailphotos/319.4.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Cotton",
+      "Fit - Relaxed (CODE :RP-577 UNSTICHED)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "RED CHAKORI STRAIGHT UNSTITCHED CHANDERI DUPATTA SUIT SET",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 6009
+      },
+      {
+        "month": "Feb",
+        "revenue": 3721
+      },
+      {
+        "month": "Mar",
+        "revenue": 1109
+      },
+      {
+        "month": "Apr",
+        "revenue": 5573
+      },
+      {
+        "month": "May",
+        "revenue": 4409
+      },
+      {
+        "month": "Jun",
+        "revenue": 7143
+      },
+      {
+        "month": "Jul",
+        "revenue": 8371
+      },
+      {
+        "month": "Aug",
+        "revenue": 5052
+      },
+      {
+        "month": "Sep",
+        "revenue": 4717
+      },
+      {
+        "month": "Oct",
+        "revenue": 1587
+      },
+      {
+        "month": "Nov",
+        "revenue": 1874
+      },
+      {
+        "month": "Dec",
+        "revenue": 6372
+      }
+    ]
+  },
+  {
+    "id": 320,
+    "name": "Ulfat Green Floral Handblock Unstitched Suit Set",
+    "price": 3299,
+    "rating": 4.4,
+    "reviews": 6798,
+    "answers": 40,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Green"
+    ],
+    "category": "cotton",
+    "model": "RP-607 UNSTICHED)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/320.1.webp",
+      "/detailphotos/320.2.webp",
+      "/detailphotos/320.3.webp",
+      "/detailphotos/320.4.webp",
+      "/detailphotos/320.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Cotton",
+      "Fit - Relaxed (CODE :RP-607 UNSTICHED)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "Ulfat Green Floral Handblock Unstitched Suit Set",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 2547
+      },
+      {
+        "month": "Feb",
+        "revenue": 8826
+      },
+      {
+        "month": "Mar",
+        "revenue": 3094
+      },
+      {
+        "month": "Apr",
+        "revenue": 7751
+      },
+      {
+        "month": "May",
+        "revenue": 5970
+      },
+      {
+        "month": "Jun",
+        "revenue": 7594
+      },
+      {
+        "month": "Jul",
+        "revenue": 6065
+      },
+      {
+        "month": "Aug",
+        "revenue": 3512
+      },
+      {
+        "month": "Sep",
+        "revenue": 3562
+      },
+      {
+        "month": "Oct",
+        "revenue": 7639
+      },
+      {
+        "month": "Nov",
+        "revenue": 5168
+      },
+      {
+        "month": "Dec",
+        "revenue": 1262
+      }
+    ]
+  },
+  {
+    "id": 321,
+    "name": "Naadia Block Printed Cotton Unstitched Suit set",
+    "price": 3299,
+    "rating": 4.3,
+    "reviews": 7898,
+    "answers": 42,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Green"
+    ],
+    "category": "cotton",
+    "model": "RP-622 UNSTICHED)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/321.1.webp",
+      "/detailphotos/321.2.webp",
+      "/detailphotos/321.3.webp",
+      "/detailphotos/321.4.webp",
+      "/detailphotos/321.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Cotton",
+      "Fit - Relaxed (CODE :RP-622 UNSTICHED)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "Naadia Block Printed Cotton Unstitched Suit set",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 1782
+      },
+      {
+        "month": "Feb",
+        "revenue": 4637
+      },
+      {
+        "month": "Mar",
+        "revenue": 9310
+      },
+      {
+        "month": "Apr",
+        "revenue": 9020
+      },
+      {
+        "month": "May",
+        "revenue": 9347
+      },
+      {
+        "month": "Jun",
+        "revenue": 6043
+      },
+      {
+        "month": "Jul",
+        "revenue": 2799
+      },
+      {
+        "month": "Aug",
+        "revenue": 8439
+      },
+      {
+        "month": "Sep",
+        "revenue": 5361
+      },
+      {
+        "month": "Oct",
+        "revenue": 7672
+      },
+      {
+        "month": "Nov",
+        "revenue": 7449
+      },
+      {
+        "month": "Dec",
+        "revenue": 3492
+      }
+    ]
+  },
+  {
+    "id": 322,
+    "name": "Royal Affairs Handblock Unstitched suit set",
+    "price": 3299,
+    "rating": 4.2,
+    "reviews": 8998,
+    "answers": 44,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Blue"
+    ],
+    "category": "cotton",
+    "model": "RP-453 UNSTICHED)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/322.1.webp",
+      "/detailphotos/322.2.webp",
+      "/detailphotos/322.3.webp",
+      "/detailphotos/322.4.webp",
+      "/detailphotos/322.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Cotton",
+      "Fit - Relaxed (CODE :RP-453 UNSTICHED)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "Royal Affairs Handblock Unstitched suit set",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 5027
+      },
+      {
+        "month": "Feb",
+        "revenue": 8111
+      },
+      {
+        "month": "Mar",
+        "revenue": 7151
+      },
+      {
+        "month": "Apr",
+        "revenue": 4897
+      },
+      {
+        "month": "May",
+        "revenue": 9271
+      },
+      {
+        "month": "Jun",
+        "revenue": 4335
+      },
+      {
+        "month": "Jul",
+        "revenue": 9268
+      },
+      {
+        "month": "Aug",
+        "revenue": 3605
+      },
+      {
+        "month": "Sep",
+        "revenue": 3774
+      },
+      {
+        "month": "Oct",
+        "revenue": 6860
+      },
+      {
+        "month": "Nov",
+        "revenue": 1053
+      },
+      {
+        "month": "Dec",
+        "revenue": 9471
+      }
+    ]
+  },
+  {
+    "id": 323,
+    "name": "Mesmerizing Maroon Floral Handblock Unstitched Suit set with embroidered Pants",
+    "price": 3299,
+    "rating": 4.1,
+    "reviews": 9098,
+    "answers": 46,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Maroon and White"
+    ],
+    "category": "cotton",
+    "model": "RP-267 UNSTICHED)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/323.1.webp",
+      "/detailphotos/323.2.webp",
+      "/detailphotos/323.3.webp",
+      "/detailphotos/323.4.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Cotton",
+      "Fit - Relaxed (CODE :RP-453 UNSTICHED)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "Mesmerizing Maroon Floral Handblock Unstitched Suit set with embroidered Pants",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 2188
+      },
+      {
+        "month": "Feb",
+        "revenue": 6834
+      },
+      {
+        "month": "Mar",
+        "revenue": 3140
+      },
+      {
+        "month": "Apr",
+        "revenue": 6327
+      },
+      {
+        "month": "May",
+        "revenue": 3024
+      },
+      {
+        "month": "Jun",
+        "revenue": 7009
+      },
+      {
+        "month": "Jul",
+        "revenue": 8369
+      },
+      {
+        "month": "Aug",
+        "revenue": 1154
+      },
+      {
+        "month": "Sep",
+        "revenue": 2636
+      },
+      {
+        "month": "Oct",
+        "revenue": 7375
+      },
+      {
+        "month": "Nov",
+        "revenue": 8937
+      },
+      {
+        "month": "Dec",
+        "revenue": 4626
+      }
+    ]
+  },
+  {
+    "id": 324,
+    "name": "Topaz Green Retro Flower Unstitched Cotton Suit Set",
+    "price": 3299,
+    "rating": 4,
+    "reviews": 10098,
+    "answers": 48,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Green"
+    ],
+    "category": "cotton",
+    "model": "RP-593 UNSTICHED)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/324.1.webp",
+      "/detailphotos/324.2.webp",
+      "/detailphotos/324.3.webp",
+      "/detailphotos/324.4.webp",
+      "/detailphotos/324.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Cotton",
+      "Fit - Relaxed (CODE :RP-593 UNSTICHED)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "Topaz Green Retro Flower Unstitched Cotton Suit Set",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 3207
+      },
+      {
+        "month": "Feb",
+        "revenue": 1155
+      },
+      {
+        "month": "Mar",
+        "revenue": 4137
+      },
+      {
+        "month": "Apr",
+        "revenue": 3669
+      },
+      {
+        "month": "May",
+        "revenue": 2737
+      },
+      {
+        "month": "Jun",
+        "revenue": 5714
+      },
+      {
+        "month": "Jul",
+        "revenue": 5225
+      },
+      {
+        "month": "Aug",
+        "revenue": 6599
+      },
+      {
+        "month": "Sep",
+        "revenue": 4985
+      },
+      {
+        "month": "Oct",
+        "revenue": 2169
+      },
+      {
+        "month": "Nov",
+        "revenue": 8514
+      },
+      {
+        "month": "Dec",
+        "revenue": 7216
+      }
+    ]
+  },
+  {
+    "id": 325,
+    "name": "RASHIDA RED COTTON ANARKALI UNSTITCHED SUIT SET",
+    "price": 3299,
+    "sale": "Buy 2 Get 1 free",
+    "rating": 4.9,
+    "reviews": 2783,
+    "answers": 28,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Red"
+    ],
+    "category": "bundles",
+    "model": "RP-689 UNSTICHED)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/325.1.webp",
+      "/detailphotos/325.2.webp",
+      "/detailphotos/325.3.webp",
+      "/detailphotos/325.4.webp",
+      "/detailphotos/325.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Cotton",
+      "Fit - Relaxed (CODE :RP-689 UNSTICHED)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "RASHIDA RED COTTON ANARKALI UNSTITCHED SUIT SET",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 4474
+      },
+      {
+        "month": "Feb",
+        "revenue": 1434
+      },
+      {
+        "month": "Mar",
+        "revenue": 2202
+      },
+      {
+        "month": "Apr",
+        "revenue": 4515
+      },
+      {
+        "month": "May",
+        "revenue": 4081
+      },
+      {
+        "month": "Jun",
+        "revenue": 7191
+      },
+      {
+        "month": "Jul",
+        "revenue": 6196
+      },
+      {
+        "month": "Aug",
+        "revenue": 9298
+      },
+      {
+        "month": "Sep",
+        "revenue": 1668
+      },
+      {
+        "month": "Oct",
+        "revenue": 2717
+      },
+      {
+        "month": "Nov",
+        "revenue": 7234
+      },
+      {
+        "month": "Dec",
+        "revenue": 2347
+      }
+    ]
+  },
+  {
+    "id": 326,
+    "name": "PAISLEY HANDBLOCK UNSTITCHED SUIT SET",
+    "price": 3299,
+    "sale": "Buy 2 Get 1 free",
+    "rating": 4.8,
+    "reviews": 3483,
+    "answers": 30,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Blue"
+    ],
+    "category": "bundles",
+    "model": "RP-592 UNSTICHED)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/326.1.webp",
+      "/detailphotos/326.2.webp",
+      "/detailphotos/326.3.webp",
+      "/detailphotos/326.4.webp",
+      "/detailphotos/326.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Cotton",
+      "Fit - Relaxed (CODE :RP-592 UNSTICHED)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "RASHIDA RED COTTON ANARKALI UNSTITCHED SUIT SET",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 3941
+      },
+      {
+        "month": "Feb",
+        "revenue": 7683
+      },
+      {
+        "month": "Mar",
+        "revenue": 1310
+      },
+      {
+        "month": "Apr",
+        "revenue": 4605
+      },
+      {
+        "month": "May",
+        "revenue": 9541
+      },
+      {
+        "month": "Jun",
+        "revenue": 3894
+      },
+      {
+        "month": "Jul",
+        "revenue": 8825
+      },
+      {
+        "month": "Aug",
+        "revenue": 2950
+      },
+      {
+        "month": "Sep",
+        "revenue": 3416
+      },
+      {
+        "month": "Oct",
+        "revenue": 2480
+      },
+      {
+        "month": "Nov",
+        "revenue": 5825
+      },
+      {
+        "month": "Dec",
+        "revenue": 3143
+      }
+    ]
+  },
+  {
+    "id": 327,
+    "name": "Badra Blue Floral Cotton Unstitched Suit set",
+    "price": 3299,
+    "sale": "Buy 2 Get 1 free",
+    "rating": 4.7,
+    "reviews": 4583,
+    "answers": 32,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Blue"
+    ],
+    "category": "bundles",
+    "model": "RP-681 UNSTICHED)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/327.1.webp",
+      "/detailphotos/327.2.webp",
+      "/detailphotos/327.3.webp",
+      "/detailphotos/327.4.webp",
+      "/detailphotos/327.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Cotton",
+      "Fit - Relaxed (CODE :RP-681 UNSTICHED)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "Badra Blue Floral Cotton Unstitched Suit set",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 2071
+      },
+      {
+        "month": "Feb",
+        "revenue": 9519
+      },
+      {
+        "month": "Mar",
+        "revenue": 7645
+      },
+      {
+        "month": "Apr",
+        "revenue": 2220
+      },
+      {
+        "month": "May",
+        "revenue": 3296
+      },
+      {
+        "month": "Jun",
+        "revenue": 9960
+      },
+      {
+        "month": "Jul",
+        "revenue": 4010
+      },
+      {
+        "month": "Aug",
+        "revenue": 6476
+      },
+      {
+        "month": "Sep",
+        "revenue": 5107
+      },
+      {
+        "month": "Oct",
+        "revenue": 6328
+      },
+      {
+        "month": "Nov",
+        "revenue": 8903
+      },
+      {
+        "month": "Dec",
+        "revenue": 8683
+      }
+    ]
+  },
+  {
+    "id": 328,
+    "name": "EILA CHANDERI UNSTITCHED SUIT SET",
+    "price": 4399,
+    "sale": "Buy 2 Get 1 free",
+    "rating": 4.6,
+    "reviews": 5683,
+    "answers": 34,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Blue"
+    ],
+    "category": "bundles",
+    "model": "RP-565 UNSTICHED)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/328.1.webp",
+      "/detailphotos/328.2.webp",
+      "/detailphotos/328.3.webp",
+      "/detailphotos/328.4.webp",
+      "/detailphotos/328.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Cotton",
+      "Fit - Relaxed (CODE :RP-565 UNSTICHED)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "EILA CHANDERI UNSTITCHED SUIT SET",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 2267
+      },
+      {
+        "month": "Feb",
+        "revenue": 4700
+      },
+      {
+        "month": "Mar",
+        "revenue": 3114
+      },
+      {
+        "month": "Apr",
+        "revenue": 7984
+      },
+      {
+        "month": "May",
+        "revenue": 5364
+      },
+      {
+        "month": "Jun",
+        "revenue": 6495
+      },
+      {
+        "month": "Jul",
+        "revenue": 1602
+      },
+      {
+        "month": "Aug",
+        "revenue": 3076
+      },
+      {
+        "month": "Sep",
+        "revenue": 8841
+      },
+      {
+        "month": "Oct",
+        "revenue": 1010
+      },
+      {
+        "month": "Nov",
+        "revenue": 8669
+      },
+      {
+        "month": "Dec",
+        "revenue": 2295
+      }
+    ]
+  },
+  {
+    "id": 329,
+    "name": "Rain in Red Handblock Unstitched Suit Set with Dupatta",
+    "price": 3299,
+    "rating": 4.6,
+    "reviews": 5683,
+    "answers": 34,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Red"
+    ],
+    "category": "bundles",
+    "model": "RP-451 UNSTICHED)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/329.1.webp",
+      "/detailphotos/329.2.webp",
+      "/detailphotos/329.3.webp",
+      "/detailphotos/329.4.webp",
+      "/detailphotos/329.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Handblock Cotton fabric with Chanderi dupatta",
+      "Fit - Relaxed (CODE :RP-451 UNSTICHED)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "Rain in Red Handblock Unstitched Suit Set with Dupatta",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 5140
+      },
+      {
+        "month": "Feb",
+        "revenue": 2652
+      },
+      {
+        "month": "Mar",
+        "revenue": 4858
+      },
+      {
+        "month": "Apr",
+        "revenue": 9221
+      },
+      {
+        "month": "May",
+        "revenue": 5550
+      },
+      {
+        "month": "Jun",
+        "revenue": 9343
+      },
+      {
+        "month": "Jul",
+        "revenue": 4550
+      },
+      {
+        "month": "Aug",
+        "revenue": 2500
+      },
+      {
+        "month": "Sep",
+        "revenue": 7066
+      },
+      {
+        "month": "Oct",
+        "revenue": 2249
+      },
+      {
+        "month": "Nov",
+        "revenue": 5760
+      },
+      {
+        "month": "Dec",
+        "revenue": 9196
+      }
+    ]
+  },
+  {
+    "id": 330,
+    "name": "DEEP SAPPHIRE UNSTITCHED SUIT SET",
+    "price": 2199,
+    "rating": 4.5,
+    "reviews": 6783,
+    "answers": 36,
+    "inStock": true,
+    "delivery": "Rs. 100",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Off White and Grey"
+    ],
+    "category": "bundles",
+    "model": "RP-589 UNSTICHED)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/330.1.webp",
+      "/detailphotos/330.2.webp",
+      "/detailphotos/330.3.webp",
+      "/detailphotos/330.4.webp",
+      "/detailphotos/330.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Handblock Cotton fabric with Chanderi dupatta",
+      "Fit - Relaxed (CODE :RP-589 UNSTICHED)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta Length - 2.5 Meters",
+      "Pant Length - 2.5 Meters"
+    ],
+    "description": "DEEP SAPPHIRE UNSTITCHED SUIT SET",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 3191
+      },
+      {
+        "month": "Feb",
+        "revenue": 2385
+      },
+      {
+        "month": "Mar",
+        "revenue": 2537
+      },
+      {
+        "month": "Apr",
+        "revenue": 3566
+      },
+      {
+        "month": "May",
+        "revenue": 5479
+      },
+      {
+        "month": "Jun",
+        "revenue": 4545
+      },
+      {
+        "month": "Jul",
+        "revenue": 5613
+      },
+      {
+        "month": "Aug",
+        "revenue": 9970
+      },
+      {
+        "month": "Sep",
+        "revenue": 5390
+      },
+      {
+        "month": "Oct",
+        "revenue": 4575
+      },
+      {
+        "month": "Nov",
+        "revenue": 7775
+      },
+      {
+        "month": "Dec",
+        "revenue": 3518
+      }
+    ]
+  },
+  {
+    "id": 331,
+    "name": "Pinkish Lace Embroidered Silk Suit Set",
+    "price": 4299,
+    "rating": 4.4,
+    "reviews": 7883,
+    "answers": 38,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Baby Pink and White"
+    ],
+    "category": "silk",
+    "model": "RP-305)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/331.1.webp",
+      "/detailphotos/331.2.webp",
+      "/detailphotos/331.3.webp",
+      "/detailphotos/331.4.webp",
+      "/detailphotos/331.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure silk",
+      "Fit - Relaxed (CODE :RP-305)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta length 46",
+      "Pant length 38"
+    ],
+    "description": "An outfit that demands your gaze effortlessly, the Pinkish Lace Embroidered Silk Suit Set is the ultimate sign of elegance. Crafted in premium quality silk, it has lace embroidery that perfectly contrasts against the baby pink hues.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 4568
+      },
+      {
+        "month": "Feb",
+        "revenue": 7059
+      },
+      {
+        "month": "Mar",
+        "revenue": 8963
+      },
+      {
+        "month": "Apr",
+        "revenue": 2518
+      },
+      {
+        "month": "May",
+        "revenue": 9231
+      },
+      {
+        "month": "Jun",
+        "revenue": 2951
+      },
+      {
+        "month": "Jul",
+        "revenue": 9131
+      },
+      {
+        "month": "Aug",
+        "revenue": 3694
+      },
+      {
+        "month": "Sep",
+        "revenue": 1801
+      },
+      {
+        "month": "Oct",
+        "revenue": 7760
+      },
+      {
+        "month": "Nov",
+        "revenue": 4478
+      },
+      {
+        "month": "Dec",
+        "revenue": 2772
+      }
+    ]
+  },
+  {
+    "id": 332,
+    "name": "Pink Palash Silk Suit with Embroidery Detailing",
+    "price": 3999,
+    "rating": 4.3,
+    "reviews": 8983,
+    "answers": 38,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Pink"
+    ],
+    "category": "silk",
+    "model": "RP-801)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/332.1.webp",
+      "/detailphotos/332.2.webp",
+      "/detailphotos/332.3.webp",
+      "/detailphotos/332.4.webp",
+      "/detailphotos/332.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure silk",
+      "Fit - Relaxed (CODE :RP-801)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta length 46",
+      "Pant length 38"
+    ],
+    "description": "Indulge in the luxurious beauty of our Pink Palash Silk Suit with Elegant Embroidery Detailing. Made from the finest Palash silk, this suit exudes sophistication and exclusivity. The intricate embroidery detailing adds a touch of elegance to the overall look. Elevate your wardrobe with this premium piece.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 3385
+      },
+      {
+        "month": "Feb",
+        "revenue": 8062
+      },
+      {
+        "month": "Mar",
+        "revenue": 6245
+      },
+      {
+        "month": "Apr",
+        "revenue": 8225
+      },
+      {
+        "month": "May",
+        "revenue": 2914
+      },
+      {
+        "month": "Jun",
+        "revenue": 4310
+      },
+      {
+        "month": "Jul",
+        "revenue": 7959
+      },
+      {
+        "month": "Aug",
+        "revenue": 7405
+      },
+      {
+        "month": "Sep",
+        "revenue": 4260
+      },
+      {
+        "month": "Oct",
+        "revenue": 5562
+      },
+      {
+        "month": "Nov",
+        "revenue": 1027
+      },
+      {
+        "month": "Dec",
+        "revenue": 6867
+      }
+    ]
+  },
+  {
+    "id": 333,
+    "name": "Aanshi Embroidered Silk Suit Set",
+    "price": 4299,
+    "rating": 4.2,
+    "reviews": 9083,
+    "answers": 40,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Baby Pink and White"
+    ],
+    "category": "silk",
+    "model": "RP-304)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/333.1.webp",
+      "/detailphotos/333.2.webp",
+      "/detailphotos/333.3.webp",
+      "/detailphotos/333.4.webp",
+      "/detailphotos/333.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure silk",
+      "Fit - Relaxed (CODE :RP-304)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta length 46",
+      "Pant length 38"
+    ],
+    "description": "Give the leading lady of your life a special gift on her birthday with Aanshi Embroidered Silk Suit Set from Jaipuri Adaah. The intricate work of lace around the Kurta and dupatta makes it the best choice to wear at major events.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 8284
+      },
+      {
+        "month": "Feb",
+        "revenue": 9939
+      },
+      {
+        "month": "Mar",
+        "revenue": 9497
+      },
+      {
+        "month": "Apr",
+        "revenue": 6603
+      },
+      {
+        "month": "May",
+        "revenue": 6459
+      },
+      {
+        "month": "Jun",
+        "revenue": 3940
+      },
+      {
+        "month": "Jul",
+        "revenue": 8448
+      },
+      {
+        "month": "Aug",
+        "revenue": 5764
+      },
+      {
+        "month": "Sep",
+        "revenue": 7360
+      },
+      {
+        "month": "Oct",
+        "revenue": 7685
+      },
+      {
+        "month": "Nov",
+        "revenue": 5407
+      },
+      {
+        "month": "Dec",
+        "revenue": 4667
+      }
+    ]
+  },
+  {
+    "id": 334,
+    "name": "Wildflower White Dress with Embroidery Detailing",
+    "price": 3499,
+    "sale": "33% Off",
+    "rating": 4.9,
+    "reviews": 2183,
+    "answers": 28,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Off white"
+    ],
+    "category": "season-end",
+    "model": "RP-790)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/334.1.webp",
+      "/detailphotos/334.2.webp",
+      "/detailphotos/334.3.webp",
+      "/detailphotos/334.4.webp",
+      "/detailphotos/334.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure silk",
+      "Fit - Relaxed (CODE :RP-790)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta length 46",
+      "Pant length 38"
+    ],
+    "description": "Unleash your inner wildflower with this stunning white dress featuring intricate embroidery detailing. Perfect for those who love to take risks, this dress will make you feel bold and adventurous. Stand out from the crowd and embrace the challenge of standing out with this unique and beautiful dress.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 3791
+      },
+      {
+        "month": "Feb",
+        "revenue": 1079
+      },
+      {
+        "month": "Mar",
+        "revenue": 2583
+      },
+      {
+        "month": "Apr",
+        "revenue": 7253
+      },
+      {
+        "month": "May",
+        "revenue": 9101
+      },
+      {
+        "month": "Jun",
+        "revenue": 6803
+      },
+      {
+        "month": "Jul",
+        "revenue": 5394
+      },
+      {
+        "month": "Aug",
+        "revenue": 2989
+      },
+      {
+        "month": "Sep",
+        "revenue": 9182
+      },
+      {
+        "month": "Oct",
+        "revenue": 2470
+      },
+      {
+        "month": "Nov",
+        "revenue": 8169
+      },
+      {
+        "month": "Dec",
+        "revenue": 3377
+      }
+    ]
+  },
+  {
+    "id": 335,
+    "name": "Classic Navy Stripes Cord Set",
+    "price": 1899,
+    "sale": "30% Off",
+    "rating": 4.8,
+    "reviews": 2383,
+    "answers": 30,
+    "inStock": true,
+    "delivery": "Rs. 100",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Off white"
+    ],
+    "category": "season-end",
+    "model": "RP-739 Co-ord Set)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/335.1.webp",
+      "/detailphotos/335.2.webp",
+      "/detailphotos/335.3.webp",
+      "/detailphotos/335.4.webp",
+      "/detailphotos/335.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Handblock Cotton fabric with Chanderi dupatta",
+      "Fit - Relaxed (CODE :RP-739 Co-ord Set)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta length 46",
+      "Pant length 38"
+    ],
+    "description": "Indulge in the comfort and luxury of our Classic Navy Stripes Cord Set. Made from breathable fabric with a timeless navy stripe design, this set is both comfortable and fashionable. Elevate your style with this exclusive, high-end cord set.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 2903
+      },
+      {
+        "month": "Feb",
+        "revenue": 4234
+      },
+      {
+        "month": "Mar",
+        "revenue": 7611
+      },
+      {
+        "month": "Apr",
+        "revenue": 9355
+      },
+      {
+        "month": "May",
+        "revenue": 9503
+      },
+      {
+        "month": "Jun",
+        "revenue": 3184
+      },
+      {
+        "month": "Jul",
+        "revenue": 5052
+      },
+      {
+        "month": "Aug",
+        "revenue": 9469
+      },
+      {
+        "month": "Sep",
+        "revenue": 8458
+      },
+      {
+        "month": "Oct",
+        "revenue": 6925
+      },
+      {
+        "month": "Nov",
+        "revenue": 9172
+      },
+      {
+        "month": "Dec",
+        "revenue": 3571
+      }
+    ]
+  },
+  {
+    "id": 336,
+    "name": "Midnight Mirage Co-ord Set",
+    "price": 2899,
+    "sale": "40% Off",
+    "rating": 4.7,
+    "reviews": 3483,
+    "answers": 32,
+    "inStock": true,
+    "delivery": "Rs. 100",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Black"
+    ],
+    "category": "season-end",
+    "model": "RP-810)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/336.1.webp",
+      "/detailphotos/336.2.webp",
+      "/detailphotos/336.3.webp",
+      "/detailphotos/336.4.webp",
+      "/detailphotos/336.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Handblock Cotton fabric with Chanderi dupatta",
+      "Fit - Relaxed (CODE :RP-810)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta length 46",
+      "Pant length 38"
+    ],
+    "description": "Indulge in the opulence and allure of the Midnight Mirage Coord Set. With its striking design and luxurious fabrics, this set is perfect for those seeking to make a statement. Featuring intricate details and a unique aesthetic, this set is a must-have for those with refined taste.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 8563
+      },
+      {
+        "month": "Feb",
+        "revenue": 8529
+      },
+      {
+        "month": "Mar",
+        "revenue": 2441
+      },
+      {
+        "month": "Apr",
+        "revenue": 6043
+      },
+      {
+        "month": "May",
+        "revenue": 9498
+      },
+      {
+        "month": "Jun",
+        "revenue": 7586
+      },
+      {
+        "month": "Jul",
+        "revenue": 5447
+      },
+      {
+        "month": "Aug",
+        "revenue": 1790
+      },
+      {
+        "month": "Sep",
+        "revenue": 2747
+      },
+      {
+        "month": "Oct",
+        "revenue": 3018
+      },
+      {
+        "month": "Nov",
+        "revenue": 9495
+      },
+      {
+        "month": "Dec",
+        "revenue": 7329
+      }
+    ]
+  },
+  {
+    "id": 337,
+    "name": "Akshara Peach A-Line Suit Set",
+    "price": 3199,
+    "sale": "35% Off",
+    "rating": 4.6,
+    "reviews": 4583,
+    "answers": 34,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Black"
+    ],
+    "category": "season-end",
+    "model": "RP-767)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/337.1.webp",
+      "/detailphotos/337.2.webp",
+      "/detailphotos/337.3.webp",
+      "/detailphotos/337.4.webp",
+      "/detailphotos/337.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Handblock Cotton fabric with Chanderi dupatta",
+      "Fit - Relaxed (CODE :RP-767)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta length 46",
+      "Pant length 38"
+    ],
+    "description": "Introducing the Akshara Peach A-Line Suit Set - your new go-to for comfort and fashion. Made with breathable material, this set will keep you feeling cool and stylish all day long. Perfect for any occasion, it's a must-have in your wardrobe.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 1785
+      },
+      {
+        "month": "Feb",
+        "revenue": 7325
+      },
+      {
+        "month": "Mar",
+        "revenue": 9792
+      },
+      {
+        "month": "Apr",
+        "revenue": 2659
+      },
+      {
+        "month": "May",
+        "revenue": 5632
+      },
+      {
+        "month": "Jun",
+        "revenue": 1856
+      },
+      {
+        "month": "Jul",
+        "revenue": 1180
+      },
+      {
+        "month": "Aug",
+        "revenue": 3461
+      },
+      {
+        "month": "Sep",
+        "revenue": 7380
+      },
+      {
+        "month": "Oct",
+        "revenue": 9638
+      },
+      {
+        "month": "Nov",
+        "revenue": 7421
+      },
+      {
+        "month": "Dec",
+        "revenue": 3856
+      }
+    ]
+  },
+  {
+    "id": 338,
+    "name": "Season's Delight Straight Fit Cotton Suit Set",
+    "price": 2499,
+    "sale": "37% Off",
+    "rating": 4.5,
+    "reviews": 5683,
+    "answers": 45,
+    "inStock": true,
+    "delivery": "Rs. 100",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Pink And Maroon"
+    ],
+    "category": "season-end",
+    "model": "RP-476)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/338.1.webp",
+      "/detailphotos/338.2.webp",
+      "/detailphotos/338.3.webp",
+      "/detailphotos/338.4.webp",
+      "/detailphotos/338.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Handblock Cotton with Chiffon dupatta",
+      "Fit - Relaxed (CODE :RP-476)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta length 46",
+      "Pant length 38"
+    ],
+    "description": "Be in the spotlight for your fashion choices with this Season's Delight Straight Fit Cotton Suit from Jaipuri Adaah. Customized pure Handblock and draped with a Chiffon dupatta, it features 3/4 sleeves with embroidery. Go with a pink or white wedge to finish the entire ensemble.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 9044
+      },
+      {
+        "month": "Feb",
+        "revenue": 5111
+      },
+      {
+        "month": "Mar",
+        "revenue": 2640
+      },
+      {
+        "month": "Apr",
+        "revenue": 8153
+      },
+      {
+        "month": "May",
+        "revenue": 6799
+      },
+      {
+        "month": "Jun",
+        "revenue": 2054
+      },
+      {
+        "month": "Jul",
+        "revenue": 2605
+      },
+      {
+        "month": "Aug",
+        "revenue": 6475
+      },
+      {
+        "month": "Sep",
+        "revenue": 3162
+      },
+      {
+        "month": "Oct",
+        "revenue": 4852
+      },
+      {
+        "month": "Nov",
+        "revenue": 9043
+      },
+      {
+        "month": "Dec",
+        "revenue": 2661
+      }
+    ]
+  },
+  {
+    "id": 339,
+    "name": "Ritzy Blue Lace Embroidered Straight Suit Set",
+    "price": 2299,
+    "sale": "39% Off",
+    "rating": 4.4,
+    "reviews": 6783,
+    "answers": 47,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Green"
+    ],
+    "category": "season-end",
+    "model": "RP-365)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/339.1.webp",
+      "/detailphotos/339.2.webp",
+      "/detailphotos/339.3.webp",
+      "/detailphotos/339.4.webp",
+      "/detailphotos/339.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Handblock Cotton with Chiffon dupatta",
+      "Fit - Relaxed (CODE :RP-365)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta length 46",
+      "Pant length 38"
+    ],
+    "description": "Complement your wardrobe collection with this Ritzy Blue Lace Embroidered Straight Suit from Jaipuri Adaah. Highlighted with beautiful pearl lace detailing on borders, the Kurta hosts a V-neckline, a perfect choice for both casuals and outdoors. Drape the bottle green chiffon dupatta from the front for a rich look.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 2238
+      },
+      {
+        "month": "Feb",
+        "revenue": 3071
+      },
+      {
+        "month": "Mar",
+        "revenue": 1115
+      },
+      {
+        "month": "Apr",
+        "revenue": 5565
+      },
+      {
+        "month": "May",
+        "revenue": 7171
+      },
+      {
+        "month": "Jun",
+        "revenue": 2523
+      },
+      {
+        "month": "Jul",
+        "revenue": 8212
+      },
+      {
+        "month": "Aug",
+        "revenue": 7356
+      },
+      {
+        "month": "Sep",
+        "revenue": 8623
+      },
+      {
+        "month": "Oct",
+        "revenue": 9765
+      },
+      {
+        "month": "Nov",
+        "revenue": 9223
+      },
+      {
+        "month": "Dec",
+        "revenue": 9170
+      }
+    ]
+  },
+  {
+    "id": 340,
+    "name": "Palace Pink Gher Suit Set",
+    "price": 1840,
+    "sale": "40% Off",
+    "rating": 4.3,
+    "reviews": 7883,
+    "answers": 49,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Pink"
+    ],
+    "category": "season-end",
+    "model": "RP-596)",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/340.1.webp",
+      "/detailphotos/340.2.webp",
+      "/detailphotos/340.3.webp",
+      "/detailphotos/340.4.webp",
+      "/detailphotos/340.5.webp"
+    ],
+    "features": [
+      "Dispatch Time : 5 To 6 Working days",
+      "Fabric - Pure Handblock Cotton with Chiffon dupatta",
+      "Fit - Relaxed (CODE :RP-596)",
+      "Washing instruction-  Quick dip wash or Dry clean",
+      "Kurta length 46",
+      "Pant length 38"
+    ],
+    "description": "Rock your unique style with our Palace Pink Gher Suit Set! This playful and quirky set features a palace pink gher suit that will make you stand out from the crowd. Show off your fun-loving personality with this bold and stylish ensemble. Perfect for any occasion, bring some humor and flair into your wardrobe today!",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 8941
+      },
+      {
+        "month": "Feb",
+        "revenue": 9049
+      },
+      {
+        "month": "Mar",
+        "revenue": 2100
+      },
+      {
+        "month": "Apr",
+        "revenue": 4786
+      },
+      {
+        "month": "May",
+        "revenue": 9092
+      },
+      {
+        "month": "Jun",
+        "revenue": 3245
+      },
+      {
+        "month": "Jul",
+        "revenue": 7638
+      },
+      {
+        "month": "Aug",
+        "revenue": 2146
+      },
+      {
+        "month": "Sep",
+        "revenue": 7783
+      },
+      {
+        "month": "Oct",
+        "revenue": 6009
+      },
+      {
+        "month": "Nov",
+        "revenue": 5777
+      },
+      {
+        "month": "Dec",
+        "revenue": 8771
+      }
+    ]
+  },
+  {
+    "id": 341,
+    "name": "Women Coffee Brown Slub Effect V-Neck Pure Cotton T-shirt",
+    "sale": "60% Off",
+    "price": 799,
+    "rating": 3.7,
+    "reviews": 4800,
+    "answers": 160,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "Not specified",
+    "color": [
+      "Grey"
+    ],
+    "seller": "Rajvadi Poshaak Co.",
+    "category": "clearance",
+    "model": "Not specified",
+    "images": [
+      "/detailphotos/296.1.jpg",
+      "/detailphotos/296.2.jpg",
+      "/detailphotos/296.3.jpg",
+      "/detailphotos/296.4.jpg"
+    ],
+    "features": [
+      "solid fit and flare T-shirt",
+      "V Shape collar",
+      "For Party Occasion",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Chiffon fabric"
+    ],
+    "description": "Solid print fit and flare T-shirt with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 1764
+      },
+      {
+        "month": "Feb",
+        "revenue": 7940
+      },
+      {
+        "month": "Mar",
+        "revenue": 3198
+      },
+      {
+        "month": "Apr",
+        "revenue": 5714
+      },
+      {
+        "month": "May",
+        "revenue": 5279
+      },
+      {
+        "month": "Jun",
+        "revenue": 7777
+      },
+      {
+        "month": "Jul",
+        "revenue": 6238
+      },
+      {
+        "month": "Aug",
+        "revenue": 9103
+      },
+      {
+        "month": "Sep",
+        "revenue": 9325
+      },
+      {
+        "month": "Oct",
+        "revenue": 1752
+      },
+      {
+        "month": "Nov",
+        "revenue": 8588
+      },
+      {
+        "month": "Dec",
+        "revenue": 6281
+      }
+    ]
+  },
+  {
+    "id": 342,
+    "name": "Women Green Cotton Relaxed Fit T-shirt",
+    "sale": "55% Off",
+    "price": 999,
+    "rating": 3.5,
+    "reviews": 4700,
+    "answers": 175,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "Not specified",
+    "color": [
+      "Green"
+    ],
+    "seller": "Rajvadi Poshaak Co.",
+    "category": "clearance",
+    "model": "Not specified",
+    "images": [
+      "/detailphotos/342.1.jpg",
+      "/detailphotos/342.2.jpg",
+      "/detailphotos/342.3.jpg",
+      "/detailphotos/342.4.jpg"
+    ],
+    "features": [
+      "solid fit and flare T-shirt",
+      "V Shape collar",
+      "For Party Occasion",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Chiffon fabric"
+    ],
+    "description": "Solid print fit and flare T-shirt with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 4628
+      },
+      {
+        "month": "Feb",
+        "revenue": 9122
+      },
+      {
+        "month": "Mar",
+        "revenue": 2691
+      },
+      {
+        "month": "Apr",
+        "revenue": 3882
+      },
+      {
+        "month": "May",
+        "revenue": 2987
+      },
+      {
+        "month": "Jun",
+        "revenue": 8050
+      },
+      {
+        "month": "Jul",
+        "revenue": 4463
+      },
+      {
+        "month": "Aug",
+        "revenue": 8422
+      },
+      {
+        "month": "Sep",
+        "revenue": 1619
+      },
+      {
+        "month": "Oct",
+        "revenue": 6545
+      },
+      {
+        "month": "Nov",
+        "revenue": 7431
+      },
+      {
+        "month": "Dec",
+        "revenue": 7643
+      }
+    ]
+  },
+  {
+    "id": 343,
+    "name": "Antimicrobial Finish Training Rapid-Dry T-shirt",
+    "sale": "50% Off",
+    "price": 899,
+    "rating": 3.4,
+    "reviews": 4850,
+    "answers": 178,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "Not specified",
+    "color": [
+      "Black"
+    ],
+    "seller": "Rajvadi Poshaak Co.",
+    "category": "clearance",
+    "model": "Not specified",
+    "images": [
+      "/detailphotos/343.1.jpg",
+      "/detailphotos/343.2.jpg",
+      "/detailphotos/343.3.jpg",
+      "/detailphotos/343.4.jpg"
+    ],
+    "features": [
+      "solid fit and flare T-shirt",
+      "V Shape collar",
+      "For Party Occasion",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Chiffon fabric"
+    ],
+    "description": "Solid print fit and flare T-shirt with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 1751
+      },
+      {
+        "month": "Feb",
+        "revenue": 9847
+      },
+      {
+        "month": "Mar",
+        "revenue": 9410
+      },
+      {
+        "month": "Apr",
+        "revenue": 3113
+      },
+      {
+        "month": "May",
+        "revenue": 1114
+      },
+      {
+        "month": "Jun",
+        "revenue": 9940
+      },
+      {
+        "month": "Jul",
+        "revenue": 3764
+      },
+      {
+        "month": "Aug",
+        "revenue": 3709
+      },
+      {
+        "month": "Sep",
+        "revenue": 6219
+      },
+      {
+        "month": "Oct",
+        "revenue": 6837
+      },
+      {
+        "month": "Nov",
+        "revenue": 8226
+      },
+      {
+        "month": "Dec",
+        "revenue": 2499
+      }
+    ]
+  },
+  {
+    "id": 344,
+    "name": "Women Graphic Printed Round Neck Cotton Oversized T-Shirt",
+    "sale": "61% Off",
+    "price": 899,
+    "rating": 3.6,
+    "reviews": 5100,
+    "answers": 173,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "Not specified",
+    "color": [
+      "White",
+      "Green"
+    ],
+    "seller": "Rajvadi Poshaak Co.",
+    "category": "clearance",
+    "model": "Not specified",
+    "images": [
+      "/detailphotos/344.1.jpg",
+      "/detailphotos/344.2.jpg",
+      "/detailphotos/344.3.jpg",
+      "/detailphotos/344.4.jpg"
+    ],
+    "features": [
+      "solid fit and flare T-shirt",
+      "Rounded Shape collar",
+      "For Party Occasion",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Chiffon fabric"
+    ],
+    "description": "Graphic print fit and flare T-shirt with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 1930
+      },
+      {
+        "month": "Feb",
+        "revenue": 5538
+      },
+      {
+        "month": "Mar",
+        "revenue": 3551
+      },
+      {
+        "month": "Apr",
+        "revenue": 8073
+      },
+      {
+        "month": "May",
+        "revenue": 9269
+      },
+      {
+        "month": "Jun",
+        "revenue": 5541
+      },
+      {
+        "month": "Jul",
+        "revenue": 7631
+      },
+      {
+        "month": "Aug",
+        "revenue": 6639
+      },
+      {
+        "month": "Sep",
+        "revenue": 6453
+      },
+      {
+        "month": "Oct",
+        "revenue": 3501
+      },
+      {
+        "month": "Nov",
+        "revenue": 9407
+      },
+      {
+        "month": "Dec",
+        "revenue": 6797
+      }
+    ]
+  },
+  {
+    "id": 345,
+    "name": "Mandarin Flush Micro Floral Oversized T-shirt",
+    "sale": "59% Off",
+    "price": 999,
+    "rating": 3.3,
+    "reviews": 5200,
+    "answers": 176,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "Not specified",
+    "color": [
+      "Orange"
+    ],
+    "seller": "Rajvadi Poshaak Co.",
+    "category": "clearance",
+    "model": "Not specified",
+    "images": [
+      "/detailphotos/345.1.jpg",
+      "/detailphotos/345.2.jpg",
+      "/detailphotos/345.3.jpg",
+      "/detailphotos/345.4.jpg"
+    ],
+    "features": [
+      "solid fit and flare T-shirt",
+      "Round Shape collar",
+      "For Party Occasion",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Chiffon fabric"
+    ],
+    "description": "Graphic print fit and flare T-shirt with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 2816
+      },
+      {
+        "month": "Feb",
+        "revenue": 5129
+      },
+      {
+        "month": "Mar",
+        "revenue": 1386
+      },
+      {
+        "month": "Apr",
+        "revenue": 2895
+      },
+      {
+        "month": "May",
+        "revenue": 1866
+      },
+      {
+        "month": "Jun",
+        "revenue": 1138
+      },
+      {
+        "month": "Jul",
+        "revenue": 6388
+      },
+      {
+        "month": "Aug",
+        "revenue": 2767
+      },
+      {
+        "month": "Sep",
+        "revenue": 5480
+      },
+      {
+        "month": "Oct",
+        "revenue": 7503
+      },
+      {
+        "month": "Nov",
+        "revenue": 2027
+      },
+      {
+        "month": "Dec",
+        "revenue": 2424
+      }
+    ]
+  },
+  {
+    "id": 346,
+    "name": "Floral Embroidered Net Sweetheart Neck Straight Kurta With Trousers & Dupatta",
+    "sale": "35% Off",
+    "price": 3599,
+    "rating": 4.1,
+    "reviews": 6750,
+    "answers": 290,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "Not specified",
+    "color": [
+      "Pink"
+    ],
+    "seller": "Rajvadi Poshaak Co.",
+    "category": "first-order",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/346.1.jpg",
+      "/detailphotos/346.2.jpg",
+      "/detailphotos/346.3.jpg",
+      "/detailphotos/346.4.jpg",
+      "/detailphotos/346.5.jpg",
+      "/detailphotos/346.6.jpg"
+    ],
+    "features": [
+      "solid fit and flare Kurta",
+      "Round Shape collar",
+      "For Party Occasion",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Cotton fabric"
+    ],
+    "description": "Graphic print fit and flare Kurta with Gathered detail and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 2607
+      },
+      {
+        "month": "Feb",
+        "revenue": 6878
+      },
+      {
+        "month": "Mar",
+        "revenue": 6964
+      },
+      {
+        "month": "Apr",
+        "revenue": 8372
+      },
+      {
+        "month": "May",
+        "revenue": 7121
+      },
+      {
+        "month": "Jun",
+        "revenue": 1019
+      },
+      {
+        "month": "Jul",
+        "revenue": 2838
+      },
+      {
+        "month": "Aug",
+        "revenue": 9288
+      },
+      {
+        "month": "Sep",
+        "revenue": 2385
+      },
+      {
+        "month": "Oct",
+        "revenue": 1408
+      },
+      {
+        "month": "Nov",
+        "revenue": 3369
+      },
+      {
+        "month": "Dec",
+        "revenue": 9618
+      }
+    ]
+  },
+  {
+    "id": 347,
+    "name": "Floral Embroidered Net Sweetheart Neck Straight Kurta With Trousers & Dupatta",
+    "sale": "30% Off",
+    "price": 3599,
+    "rating": 4.3,
+    "reviews": 6900,
+    "answers": 300,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "Not specified",
+    "color": [
+      "Blue"
+    ],
+    "seller": "Rajvadi Poshaak Co.",
+    "category": "first-order",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/347.1.jpg",
+      "/detailphotos/347.2.jpg",
+      "/detailphotos/347.3.jpg",
+      "/detailphotos/347.4.jpg"
+    ],
+    "features": [
+      "solid fit and flare Kurta",
+      "Round Shape collar",
+      "For Party Occasion",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Cotton fabric"
+    ],
+    "description": "Graphic print fit and flare Kurta with Gathered detail and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 9706
+      },
+      {
+        "month": "Feb",
+        "revenue": 5625
+      },
+      {
+        "month": "Mar",
+        "revenue": 7244
+      },
+      {
+        "month": "Apr",
+        "revenue": 3329
+      },
+      {
+        "month": "May",
+        "revenue": 1574
+      },
+      {
+        "month": "Jun",
+        "revenue": 2799
+      },
+      {
+        "month": "Jul",
+        "revenue": 8843
+      },
+      {
+        "month": "Aug",
+        "revenue": 9407
+      },
+      {
+        "month": "Sep",
+        "revenue": 5058
+      },
+      {
+        "month": "Oct",
+        "revenue": 7781
+      },
+      {
+        "month": "Nov",
+        "revenue": 4533
+      },
+      {
+        "month": "Dec",
+        "revenue": 3779
+      }
+    ]
+  },
+  {
+    "id": 348,
+    "name": "Floral Embroidered Net Sweetheart Neck Straight Kurta With Trousers & Dupatta",
+    "sale": "32% Off",
+    "price": 3599,
+    "rating": 4.2,
+    "reviews": 7100,
+    "answers": 320,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "Not specified",
+    "color": [
+      "SkyBlue"
+    ],
+    "seller": "Rajvadi Poshaak Co.",
+    "category": "first-order",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "images": [
+      "/detailphotos/348.1.jpg",
+      "/detailphotos/348.2.jpg",
+      "/detailphotos/348.3.jpg",
+      "/detailphotos/348.4.jpg"
+    ],
+    "features": [
+      "solid fit and flare Kurta",
+      "Round Shape collar",
+      "For Party Occasion",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Cotton fabric"
+    ],
+    "description": "Graphic print fit and flare Kurta with Gathered detail and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 1994
+      },
+      {
+        "month": "Feb",
+        "revenue": 2777
+      },
+      {
+        "month": "Mar",
+        "revenue": 7633
+      },
+      {
+        "month": "Apr",
+        "revenue": 1973
+      },
+      {
+        "month": "May",
+        "revenue": 3498
+      },
+      {
+        "month": "Jun",
+        "revenue": 1585
+      },
+      {
+        "month": "Jul",
+        "revenue": 3222
+      },
+      {
+        "month": "Aug",
+        "revenue": 8717
+      },
+      {
+        "month": "Sep",
+        "revenue": 5175
+      },
+      {
+        "month": "Oct",
+        "revenue": 2079
+      },
+      {
+        "month": "Nov",
+        "revenue": 1553
+      },
+      {
+        "month": "Dec",
+        "revenue": 4361
+      }
+    ]
+  },
+  {
+    "id": 349,
+    "name": "Geometric Printed Block Print Saree",
+    "sale": "29% Off",
+    "price": 3999,
+    "rating": 4.5,
+    "reviews": 7300,
+    "answers": 340,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "Not specified",
+    "color": [
+      "Orange "
+    ],
+    "seller": "Rajvadi Poshaak Co.",
+    "category": "first-order",
+    "model": "Not specified",
+    "images": [
+      "/detailphotos/349.1.jpg",
+      "/detailphotos/349.2.jpg",
+      "/detailphotos/349.3.jpg",
+      "/detailphotos/349.4.jpg"
+    ],
+    "features": [
+      "Solid Block saree with embellished border",
+      "traditional Saree with a bright Orange base",
+      "Pure Cotton Fabric",
+      "For Festive Occasion",
+      "Saree length 5.5 Meter",
+      "Blouse length 90 CM"
+    ],
+    "description": "Orange  saree Solid saree with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 9037
+      },
+      {
+        "month": "Feb",
+        "revenue": 2381
+      },
+      {
+        "month": "Mar",
+        "revenue": 1359
+      },
+      {
+        "month": "Apr",
+        "revenue": 4895
+      },
+      {
+        "month": "May",
+        "revenue": 2983
+      },
+      {
+        "month": "Jun",
+        "revenue": 2206
+      },
+      {
+        "month": "Jul",
+        "revenue": 2157
+      },
+      {
+        "month": "Aug",
+        "revenue": 9850
+      },
+      {
+        "month": "Sep",
+        "revenue": 8104
+      },
+      {
+        "month": "Oct",
+        "revenue": 6810
+      },
+      {
+        "month": "Nov",
+        "revenue": 4243
+      },
+      {
+        "month": "Dec",
+        "revenue": 9415
+      }
+    ]
+  },
+  {
+    "id": 350,
+    "name": "Geometric Printed Saree",
+    "sale": "37% Off",
+    "price": 3999,
+    "rating": 4,
+    "reviews": 6450,
+    "answers": 280,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "Not specified",
+    "color": [
+      "Green"
+    ],
+    "seller": "Rajvadi Poshaak Co.",
+    "category": "first-order",
+    "model": "Not specified",
+    "images": [
+      "/detailphotos/350.1.jpg",
+      "/detailphotos/350.2.jpg",
+      "/detailphotos/350.3.jpg",
+      "/detailphotos/350.4.jpg"
+    ],
+    "features": [
+      "Solid Geometric Pattern saree with embellished border",
+      "traditional Saree with a bright Green base",
+      "Pure Cotton Fabric",
+      "For Festive Occasion",
+      "Saree length 5.5 Meter",
+      "Blouse length 90 CM"
+    ],
+    "description": "Green saree with Geometric Pattern with embellished border Has sequinned detail The model is wearing a blouse from our stylist's collection, the saree does not come with a blouse piece.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 7307
+      },
+      {
+        "month": "Feb",
+        "revenue": 1750
+      },
+      {
+        "month": "Mar",
+        "revenue": 2547
+      },
+      {
+        "month": "Apr",
+        "revenue": 3134
+      },
+      {
+        "month": "May",
+        "revenue": 3344
+      },
+      {
+        "month": "Jun",
+        "revenue": 7115
+      },
+      {
+        "month": "Jul",
+        "revenue": 7667
+      },
+      {
+        "month": "Aug",
+        "revenue": 9654
+      },
+      {
+        "month": "Sep",
+        "revenue": 5993
+      },
+      {
+        "month": "Oct",
+        "revenue": 4670
+      },
+      {
+        "month": "Nov",
+        "revenue": 6980
+      },
+      {
+        "month": "Dec",
+        "revenue": 9220
+      }
+    ]
+  },
+
+  {
+    "id": 351,
+    "name": "Green White Ethnic Motifs Cotton 144 TC Queen Bedsheet With 2 Pillow Covers",
+    "price": 2699.0,
+    "rating": 4.2,
+    "reviews": 6150,
+    "answers": 358,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "Not specified",
+    "color": [
+      "Green",
+      "White"
+    ],
+    "seller": "Rajvadi Poshaak Co.",
+    "category": "bedsheets",
+    "model": "Not specified",
+    "images": [
+      "/detailphotos/351.1.jpg",
+      "/detailphotos/351.2.jpg",
+      "/detailphotos/351.3.jpg",
+      "/detailphotos/351.4.jpg",
+      "/detailphotos/351.5.jpg"
+    ],
+    "features": [
+      "Queen Bedsheet 2.28 M X 2.54 M (length x width)",
+      "Pillow Cover 46 CM x 69 CM",
+      "Cotton Material",
+      "ethnic motifs Pattern",
+      "Thread count 144",
+      "Machine wash"
+    ],
+    "description": " Green White Ethnic Motifs size bedsheet with pillow covers",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 5452
+      },
+      {
+        "month": "Feb",
+        "revenue": 5895
+      },
+      {
+        "month": "Mar",
+        "revenue": 6810
+      },
+      {
+        "month": "Apr",
+        "revenue": 5821
+      },
+      {
+        "month": "May",
+        "revenue": 4776
+      },
+      {
+        "month": "Jun",
+        "revenue": 9521
+      },
+      {
+        "month": "Jul",
+        "revenue": 7857
+      },
+      {
+        "month": "Aug",
+        "revenue": 7884
+      },
+      {
+        "month": "Sep",
+        "revenue": 2963
+      },
+      {
+        "month": "Oct",
+        "revenue": 8165
+      },
+      {
+        "month": "Nov",
+        "revenue": 9398
+      },
+      {
+        "month": "Dec",
+        "revenue": 5207
+      }
+    ]
+  },
+  {
+    "id": 352,
+    "name": "Rust 350 TC Queen Bedsheet with 2 Pillow Covers",
+    "price": 9999.0,
+    "rating": 4.4,
+    "reviews": 5792,
+    "answers": 328,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "Not specified",
+    "color": [
+      "Brown"
+    ],
+    "seller": "Rajvadi Poshaak Co.",
+    "category": "bedsheets",
+    "model": "Not specified",
+    "images": [
+      "/detailphotos/352.1.jpg",
+      "/detailphotos/352.2.jpg",
+      "/detailphotos/352.3.jpg",
+      "/detailphotos/352.4.jpg"
+    ],
+    "features": [
+      "Queen Bedsheet 2.28 M X 2.54 M (length x width)",
+      "Pillow Cover 46 CM x 69 CM",
+      "Cotton Material",
+      "ethnic motifs Pattern",
+      "Thread count 144",
+      "Machine wash"
+    ],
+    "description": " Brown Ethnic Motifs size bedsheet with pillow covers",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 7932
+      },
+      {
+        "month": "Feb",
+        "revenue": 3438
+      },
+      {
+        "month": "Mar",
+        "revenue": 6734
+      },
+      {
+        "month": "Apr",
+        "revenue": 9276
+      },
+      {
+        "month": "May",
+        "revenue": 4583
+      },
+      {
+        "month": "Jun",
+        "revenue": 5317
+      },
+      {
+        "month": "Jul",
+        "revenue": 6826
+      },
+      {
+        "month": "Aug",
+        "revenue": 8521
+      },
+      {
+        "month": "Sep",
+        "revenue": 9123
+      },
+      {
+        "month": "Oct",
+        "revenue": 6832
+      },
+      {
+        "month": "Nov",
+        "revenue": 4825
+      },
+      {
+        "month": "Dec",
+        "revenue": 5293
+      }
+    ]
+  },
+  {
+    "id": 353,
+    "name": "Lifestyle Brown Printed Pure Cotton 220 TC King Bedsheet Set 2.74 x 2.74 m",
+    "price": 2099.0,
+    "rating": 4.6,
+    "reviews": 7461,
+    "answers": 317,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "Not specified",
+    "color": [
+      "White"
+    ],
+    "seller": "Rajvadi Poshaak Co.",
+    "category": "bedsheets",
+    "model": "220-TC",
+    "images": [
+      "/detailphotos/353.1.jpg",
+      "/detailphotos/353.2.jpg",
+      "/detailphotos/353.3.jpg",
+      "/detailphotos/353.4.jpg"
+    ],
+    "features": [
+      "Queen Bedsheet 2.74 x 2.74  M (length x width)",
+      "Pillow Cover 46 CM x 69 CM",
+      "Cotton Material",
+      "ethnic motifs Pattern",
+      "Thread count 144",
+      "Machine wash"
+    ],
+    "description": "White Ethnic Motifs king size bedsheet with pillow covers",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 8120
+      },
+      {
+        "month": "Feb",
+        "revenue": 6762
+      },
+      {
+        "month": "Mar",
+        "revenue": 9348
+      },
+      {
+        "month": "Apr",
+        "revenue": 2962
+      },
+      {
+        "month": "May",
+        "revenue": 7892
+      },
+      {
+        "month": "Jun",
+        "revenue": 5467
+      },
+      {
+        "month": "Jul",
+        "revenue": 8674
+      },
+      {
+        "month": "Aug",
+        "revenue": 3541
+      },
+      {
+        "month": "Sep",
+        "revenue": 9782
+      },
+      {
+        "month": "Oct",
+        "revenue": 3672
+      },
+      {
+        "month": "Nov",
+        "revenue": 8902
+      },
+      {
+        "month": "Dec",
+        "revenue": 6784
+      }
+    ]
+  },
+  {
+    "id": 354,
+    "name": "Gold-Toned Egyptian Cotton Fitted 230 TC King Bedsheet",
+    "price": 2799.0,
+    "rating": 4.1,
+    "reviews": 7325,
+    "answers": 312,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "Not specified",
+    "color": [
+      "Golden"
+    ],
+    "seller": "Rajvadi Poshaak Co.",
+    "category": "bedsheets",
+    "model": "230-TC",
+    "images": [
+      "/detailphotos/354.1.jpg",
+      "/detailphotos/354.2.jpg",
+      "/detailphotos/354.3.jpg"
+    ],
+    "features": [
+      "Queen Bedsheet 2.28 M X 2.54 M (length x width)",
+      "Pillow Cover 46 CM x 69 CM",
+      "Cotton Material",
+      "ethnic motifs Pattern",
+      "Thread count 144",
+      "Machine wash"
+    ],
+    "description": " Gold-Toned Ethnic Motifs size bedsheet with pillow covers",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 4672
+      },
+      {
+        "month": "Feb",
+        "revenue": 6128
+      },
+      {
+        "month": "Mar",
+        "revenue": 3298
+      },
+      {
+        "month": "Apr",
+        "revenue": 7182
+      },
+      {
+        "month": "May",
+        "revenue": 5432
+      },
+      {
+        "month": "Jun",
+        "revenue": 8937
+      },
+      {
+        "month": "Jul",
+        "revenue": 6282
+      },
+      {
+        "month": "Aug",
+        "revenue": 7581
+      },
+      {
+        "month": "Sep",
+        "revenue": 4328
+      },
+      {
+        "month": "Oct",
+        "revenue": 6293
+      },
+      {
+        "month": "Nov",
+        "revenue": 2782
+      },
+      {
+        "month": "Dec",
+        "revenue": 7483
+      }
+    ]
+  },
+  {
+    "id": 355,
+    "name": "Blue & Cream-Coloured Floral 144 TC Queen Bedsheet with 2 Pillow Covers",
+    "price": 2599.0,
+    "rating": 4.3,
+    "reviews": 6430,
+    "answers": 267,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "Not specified",
+    "color": [
+      "Blue",
+      "Cream"
+    ],
+    "seller": "Rajvadi Poshaak Co.",
+    "category": "bedsheets",
+    "model": "144-TC",
+    "images": [
+      "/detailphotos/355.1.jpg",
+      "/detailphotos/355.2.jpg",
+      "/detailphotos/355.3.jpg",
+      "/detailphotos/355.4.jpg"
+    ],
+    "features": [
+      "Queen Bedsheet 2.28 M X 2.54 M (length x width)",
+      "Pillow Cover 46 CM x 69 CM",
+      "Cotton Material",
+      "ethnic motifs Pattern",
+      "Thread count 144",
+      "Machine wash"
+    ],
+    "description": " Blue & Cream-Coloured Ethnic Motifs size bedsheet with pillow covers",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 7596
+      },
+      {
+        "month": "Feb",
+        "revenue": 4893
+      },
+      {
+        "month": "Mar",
+        "revenue": 3025
+      },
+      {
+        "month": "Apr",
+        "revenue": 5812
+      },
+      {
+        "month": "May",
+        "revenue": 4780
+      },
+      {
+        "month": "Jun",
+        "revenue": 7149
+      },
+      {
+        "month": "Jul",
+        "revenue": 8100
+      },
+      {
+        "month": "Aug",
+        "revenue": 3068
+      },
+      {
+        "month": "Sep",
+        "revenue": 5392
+      },
+      {
+        "month": "Oct",
+        "revenue": 9262
+      },
+      {
+        "month": "Nov",
+        "revenue": 4675
+      },
+      {
+        "month": "Dec",
+        "revenue": 6210
+      }
+    ]
+  },
+  {
+    "id": 356,
+    "name": "Yellow & Red Floral 300 TC King Bedsheet with 2 Pillow Covers",
+    "price": 699.0,
+    "rating": 4.8,
+    "reviews": 6807,
+    "answers": 256,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "Not specified",
+    "color": [
+      "Yellow",
+      "Red"
+    ],
+    "seller": "Rajvadi Poshaak Co.",
+    "category": "bedsheets",
+    "model": "300-TC",
+    "images": [
+      "/detailphotos/356.1.jpg",
+      "/detailphotos/356.2.jpg",
+      "/detailphotos/356.3.jpg",
+      "/detailphotos/356.4.jpg"
+    ],
+    "features": [
+      "Queen Bedsheet 2.28 M X 2.54 M (length x width)",
+      "Pillow Cover 46 CM x 69 CM",
+      "Cotton Material",
+      "ethnic motifs Pattern",
+      "Thread count 300",
+      "Machine wash"
+    ],
+    "description": " Green White Ethnic Motifs size bedsheet with pillow covers",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 5261
+      },
+      {
+        "month": "Feb",
+        "revenue": 6928
+      },
+      {
+        "month": "Mar",
+        "revenue": 8674
+      },
+      {
+        "month": "Apr",
+        "revenue": 7395
+      },
+      {
+        "month": "May",
+        "revenue": 9218
+      },
+      {
+        "month": "Jun",
+        "revenue": 6235
+      },
+      {
+        "month": "Jul",
+        "revenue": 5731
+      },
+      {
+        "month": "Aug",
+        "revenue": 3620
+      },
+      {
+        "month": "Sep",
+        "revenue": 4215
+      },
+      {
+        "month": "Oct",
+        "revenue": 8094
+      },
+      {
+        "month": "Nov",
+        "revenue": 5126
+      },
+      {
+        "month": "Dec",
+        "revenue": 6908
+      }
+    ]
+  },
+  {
+    "id": 357,
+    "name": "Beige Printed 220 TC Pure Cotton Super King Bedsheet with 2 Pillow Covers",
+    "price": 2999.0,
+    "rating": 4.7,
+    "reviews": 7281,
+    "answers": 317,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "Not specified",
+    "color": [
+      "Cream"
+    ],
+    "seller": "Rajvadi Poshaak Co.",
+    "category": "bedsheets",
+    "model": "Not specified",
+    "images": [
+      "/detailphotos/357.1.jpg",
+      "/detailphotos/357.2.jpg",
+      "/detailphotos/357.3.jpg",
+      "/detailphotos/357.4.jpg"
+    ],
+    "features": [
+      "Queen Bedsheet 2.28 M X 2.54 M (length x width)",
+      "Pillow Cover 46 CM x 69 CM",
+      "Cotton Material",
+      "ethnic motifs Pattern",
+      "Thread count 220",
+      "Machine wash"
+    ],
+    "description": " Cream with white tones Ethnic Motifs size bedsheet with pillow covers",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 7592
+      },
+      {
+        "month": "Feb",
+        "revenue": 6283
+      },
+      {
+        "month": "Mar",
+        "revenue": 4823
+      },
+      {
+        "month": "Apr",
+        "revenue": 5738
+      },
+      {
+        "month": "May",
+        "revenue": 7342
+      },
+      {
+        "month": "Jun",
+        "revenue": 9184
+      },
+      {
+        "month": "Jul",
+        "revenue": 7934
+      },
+      {
+        "month": "Aug",
+        "revenue": 6281
+      },
+      {
+        "month": "Sep",
+        "revenue": 5372
+      },
+      {
+        "month": "Oct",
+        "revenue": 7923
+      },
+      {
+        "month": "Nov",
+        "revenue": 6837
+      },
+      {
+        "month": "Dec",
+        "revenue": 8217
+      }
+    ]
+  },
+  {
+    "id": 358,
+    "name": "Green & White Floral Cotton Fitted 210 TC King Bedsheet With 2 Pillow Covers",
+    "price": 3049.0,
+    "rating": 4.4,
+    "reviews": 6812,
+    "answers": 286,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "Not specified",
+    "color": [
+      "Green",
+      "White"
+    ],
+    "seller": "Rajvadi Poshaak Co.",
+    "category": "bedsheets",
+    "model": "Not specified",
+    "images": [
+      "/detailphotos/358.1.jpg",
+      "/detailphotos/358.2.jpg",
+      "/detailphotos/358.3.jpg",
+      "/detailphotos/358.4.jpg"
+    ],
+    "features": [
+      "Queen Bedsheet 2.28 M X 2.54 M (length x width)",
+      "Pillow Cover 46 CM x 69 CM",
+      "Cotton Material",
+      "ethnic motifs Pattern",
+      "Thread count 144",
+      "Machine wash"
+    ],
+    "description": " Green White Floral Cotton Fitted King size bedsheet with pillow covers",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 2212
+      },
+      {
+        "month": "Feb",
+        "revenue": 9516
+      },
+      {
+        "month": "Mar",
+        "revenue": 5480
+      },
+      {
+        "month": "Apr",
+        "revenue": 5031
+      },
+      {
+        "month": "May",
+        "revenue": 4050
+      },
+      {
+        "month": "Jun",
+        "revenue": 7858
+      },
+      {
+        "month": "Jul",
+        "revenue": 2961
+      },
+      {
+        "month": "Aug",
+        "revenue": 8367
+      },
+      {
+        "month": "Sep",
+        "revenue": 2363
+      },
+      {
+        "month": "Oct",
+        "revenue": 1557
+      },
+      {
+        "month": "Nov",
+        "revenue": 5056
+      },
+      {
+        "month": "Dec",
+        "revenue": 5176
+      }
+    ]
+  },
+  {
+    "id": 359,
+    "name": "Blue Geometric Printed Microfiber 144TC Queen Bedsheet Set",
+    "price": 799.0,
+    "rating": 4.2,
+    "reviews": 6150,
+    "answers": 358,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "Not specified",
+    "color": [
+      "Blue"
+    ],
+    "seller": "Rajvadi Poshaak Co.",
+    "category": "bedsheets",
+    "model": "Not specified",
+    "images": [
+      "/detailphotos/359.1.jpg",
+      "/detailphotos/359.2.jpg",
+      "/detailphotos/359.3.jpg",
+      "/detailphotos/359.4.jpg",
+      "/detailphotos/359.5.jpg"
+    ],
+    "features": [
+      "Queen Bedsheet 2.28 M X 2.54 M (length x width)",
+      "Pillow Cover 46 CM x 69 CM",
+      "Microfiber Material",
+      "ethnic motifs Pattern",
+      "Thread count 144",
+      "Machine wash"
+    ],
+    "description": " Blue Geometric Printed Microfiber King size bedsheet with pillow covers",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 1560
+      },
+      {
+        "month": "Feb",
+        "revenue": 5327
+      },
+      {
+        "month": "Mar",
+        "revenue": 3095
+      },
+      {
+        "month": "Apr",
+        "revenue": 4638
+      },
+      {
+        "month": "May",
+        "revenue": 6298
+      },
+      {
+        "month": "Jun",
+        "revenue": 6765
+      },
+      {
+        "month": "Jul",
+        "revenue": 7050
+      },
+      {
+        "month": "Aug",
+        "revenue": 3777
+      },
+      {
+        "month": "Sep",
+        "revenue": 8943
+      },
+      {
+        "month": "Oct",
+        "revenue": 9154
+      },
+      {
+        "month": "Nov",
+        "revenue": 2578
+      },
+      {
+        "month": "Dec",
+        "revenue": 9073
+      }
+    ]
+  },
+  {
+    "id": 360,
+    "name": "Blue & Pink Geometric 300 TC King Fitted Bedsheet With 2 Pillow Covers",
+    "price": 699.0,
+    "rating": 4.8,
+    "reviews": 6807,
+    "answers": 256,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "Not specified",
+    "color": [
+      "Blue",
+      "Pink"
+    ],
+    "seller": "Rajvadi Poshaak Co.",
+    "category": "bedsheets",
+    "model": "300-TC",
+    "images": [
+      "/detailphotos/360.1.jpg",
+      "/detailphotos/360.2.jpg",
+      "/detailphotos/360.3.jpg",
+      "/detailphotos/360.4.jpg"
+    ],
+    "features": [
+      "Queen Bedsheet 2.28 M X 2.54 M (length x width)",
+      "Pillow Cover 46 CM x 69 CM",
+      "Cotton Material",
+      "ethnic motifs Pattern",
+      "Thread count 300",
+      "Machine wash"
+    ],
+    "description": " Blue & Pink Geometric King size bedsheet with pillow covers",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 5261
+      },
+      {
+        "month": "Feb",
+        "revenue": 6928
+      },
+      {
+        "month": "Mar",
+        "revenue": 8674
+      },
+      {
+        "month": "Apr",
+        "revenue": 7395
+      },
+      {
+        "month": "May",
+        "revenue": 9218
+      },
+      {
+        "month": "Jun",
+        "revenue": 6235
+      },
+      {
+        "month": "Jul",
+        "revenue": 5731
+      },
+      {
+        "month": "Aug",
+        "revenue": 3620
+      },
+      {
+        "month": "Sep",
+        "revenue": 4215
+      },
+      {
+        "month": "Oct",
+        "revenue": 8094
+      },
+      {
+        "month": "Nov",
+        "revenue": 5126
+      },
+      {
+        "month": "Dec",
+        "revenue": 6908
+      }
+    ]
+  },
+  {
+    "id": 361,
+    "name": "Women Cotton Floral Printed Fit and Flare Midi Dress",
+    "price": 2999,
+    "rating": 4.6,
+    "reviews": 5812,
+    "answers": 342,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Pink"
+    ],
+    "category": "indian",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL",
+      "3XL",
+      "4XL"
+    ],
+    "images": [
+      "/detailphotos/361.1.jpg",
+      "/detailphotos/361.2.jpg",
+      "/detailphotos/361.3.jpg",
+      "/detailphotos/361.4.jpg",
+      "/detailphotos/361.5.jpg",
+      "/detailphotos/361.6.jpg"
+    ],
+    "features": [
+      "floral print fit and flare dress",
+      "Round neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Cotton fabric"
+    ],
+    "description": "floral print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 9482
+      },
+      {
+        "month": "Feb",
+        "revenue": 6540
+      },
+      {
+        "month": "Mar",
+        "revenue": 9102
+      },
+      {
+        "month": "Apr",
+        "revenue": 2525
+      },
+      {
+        "month": "May",
+        "revenue": 4715
+      },
+      {
+        "month": "Jun",
+        "revenue": 2920
+      },
+      {
+        "month": "Jul",
+        "revenue": 9899
+      },
+      {
+        "month": "Aug",
+        "revenue": 2476
+      },
+      {
+        "month": "Sep",
+        "revenue": 1466
+      },
+      {
+        "month": "Oct",
+        "revenue": 3183
+      },
+      {
+        "month": "Nov",
+        "revenue": 6776
+      },
+      {
+        "month": "Dec",
+        "revenue": 3525
+      }
+    ]
+  },
+  {
+    "id": 362,
+    "name": "Women Tie-Dye Printed Pure Cotton Tunic",
+    "price": 1899,
+    "rating": 4.7,
+    "reviews": 6013,
+    "answers": 279,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Pink"
+    ],
+    "category": "indian",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL",
+      "3XL"
+    ],
+    "images": [
+      "/detailphotos/362.1.jpg",
+      "/detailphotos/362.2.jpg",
+      "/detailphotos/362.3.jpg",
+      "/detailphotos/362.4.jpg",
+      "/detailphotos/362.5.jpg",
+      "/detailphotos/362.6.jpg"
+    ],
+    "features": [
+      "floral print fit and flare dress",
+      "V shape neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Cotton fabric"
+    ],
+    "description": "Tie-Dye print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 5520
+      },
+      {
+        "month": "Feb",
+        "revenue": 1649
+      },
+      {
+        "month": "Mar",
+        "revenue": 2388
+      },
+      {
+        "month": "Apr",
+        "revenue": 1196
+      },
+      {
+        "month": "May",
+        "revenue": 2464
+      },
+      {
+        "month": "Jun",
+        "revenue": 8824
+      },
+      {
+        "month": "Jul",
+        "revenue": 6147
+      },
+      {
+        "month": "Aug",
+        "revenue": 8117
+      },
+      {
+        "month": "Sep",
+        "revenue": 4602
+      },
+      {
+        "month": "Oct",
+        "revenue": 9242
+      },
+      {
+        "month": "Nov",
+        "revenue": 2887
+      },
+      {
+        "month": "Dec",
+        "revenue": 4499
+      }
+    ]
+  },
+  {
+    "id": 363,
+    "name": "Shirt Collar Animal Print Maxi Dress",
+    "price": 3099,
+    "rating": 4.5,
+    "reviews": 5783,
+    "answers": 315,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Cream"
+    ],
+    "category": "indian",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL",
+      "3XL",
+      "4XL"
+    ],
+    "images": [
+      "/detailphotos/363.1.jpg",
+      "/detailphotos/363.2.jpg",
+      "/detailphotos/363.3.jpg",
+      "/detailphotos/363.4.jpg",
+      "/detailphotos/363.5.jpg",
+      "/detailphotos/363.6.jpg"
+    ],
+    "features": [
+      "floral print fit and flare dress",
+      "Round neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Liva fabric"
+    ],
+    "description": "Animal print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 4214
+      },
+      {
+        "month": "Feb",
+        "revenue": 6738
+      },
+      {
+        "month": "Mar",
+        "revenue": 2261
+      },
+      {
+        "month": "Apr",
+        "revenue": 7144
+      },
+      {
+        "month": "May",
+        "revenue": 3097
+      },
+      {
+        "month": "Jun",
+        "revenue": 4037
+      },
+      {
+        "month": "Jul",
+        "revenue": 8589
+      },
+      {
+        "month": "Aug",
+        "revenue": 8921
+      },
+      {
+        "month": "Sep",
+        "revenue": 3011
+      },
+      {
+        "month": "Oct",
+        "revenue": 5969
+      },
+      {
+        "month": "Nov",
+        "revenue": 1965
+      },
+      {
+        "month": "Dec",
+        "revenue": 6075
+      }
+    ]
+  },
+  {
+    "id": 364,
+    "name": "Ethnic Motifs Printed Puff Sleeves Fit and Flare Midi Dress",
+    "price": 1899,
+    "rating": 4.8,
+    "reviews": 6150,
+    "answers": 241,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Pink"
+    ],
+    "category": "indian",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL",
+      "3XL"
+    ],
+    "images": [
+      "/detailphotos/364.1.jpg",
+      "/detailphotos/364.2.jpg",
+      "/detailphotos/364.3.jpg",
+      "/detailphotos/364.4.jpg"
+    ],
+    "features": [
+      "Ethnic Motifs print fit and flare dress",
+      "V shape neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Cotton fabric"
+    ],
+    "description": "Ethnic Motifs print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 9042
+      },
+      {
+        "month": "Feb",
+        "revenue": 6111
+      },
+      {
+        "month": "Mar",
+        "revenue": 5688
+      },
+      {
+        "month": "Apr",
+        "revenue": 6819
+      },
+      {
+        "month": "May",
+        "revenue": 2950
+      },
+      {
+        "month": "Jun",
+        "revenue": 2122
+      },
+      {
+        "month": "Jul",
+        "revenue": 1647
+      },
+      {
+        "month": "Aug",
+        "revenue": 1039
+      },
+      {
+        "month": "Sep",
+        "revenue": 8811
+      },
+      {
+        "month": "Oct",
+        "revenue": 4068
+      },
+      {
+        "month": "Nov",
+        "revenue": 7240
+      },
+      {
+        "month": "Dec",
+        "revenue": 7091
+      }
+    ]
+  },
+  {
+    "id": 365,
+    "name": "Ethnic Motifs Printed Halter Neck Sleeveless Maxi Dress",
+    "price": 2399,
+    "rating": 4.9,
+    "reviews": 7203,
+    "answers": 202,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Black"
+    ],
+    "category": "indian",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL",
+      "3XL"
+    ],
+    "images": [
+      "/detailphotos/365.1.jpg",
+      "/detailphotos/365.2.jpg",
+      "/detailphotos/365.3.jpg",
+      "/detailphotos/365.4.jpg"
+    ],
+    "features": [
+      "Ethnic Motifs print fit and flare dress",
+      "Round neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Cotton fabric"
+    ],
+    "description": "Ethnic Motifs print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 3149
+      },
+      {
+        "month": "Feb",
+        "revenue": 6450
+      },
+      {
+        "month": "Mar",
+        "revenue": 8320
+      },
+      {
+        "month": "Apr",
+        "revenue": 7281
+      },
+      {
+        "month": "May",
+        "revenue": 8833
+      },
+      {
+        "month": "Jun",
+        "revenue": 6252
+      },
+      {
+        "month": "Jul",
+        "revenue": 6436
+      },
+      {
+        "month": "Aug",
+        "revenue": 3056
+      },
+      {
+        "month": "Sep",
+        "revenue": 1442
+      },
+      {
+        "month": "Oct",
+        "revenue": 5444
+      },
+      {
+        "month": "Nov",
+        "revenue": 3717
+      },
+      {
+        "month": "Dec",
+        "revenue": 7274
+      }
+    ]
+  },
+  {
+    "id": 366,
+    "name": "Women Printed Cotton Tunic",
+    "price": 1899,
+    "rating": 4.8,
+    "reviews": 7302,
+    "answers": 312,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Yellow"
+    ],
+    "category": "indian",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL",
+      "3XL",
+      "4XL"
+    ],
+    "images": [
+      "/detailphotos/366.1.jpg",
+      "/detailphotos/366.2.jpg",
+      "/detailphotos/366.3.jpg",
+      "/detailphotos/366.4.jpg",
+      "/detailphotos/366.5.jpg",
+      "/detailphotos/366.6.jpg"
+    ],
+    "features": [
+      "tunic print fit and flare dress",
+      "V shape neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Cotton fabric"
+    ],
+    "description": "tunic  print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 2269
+      },
+      {
+        "month": "Feb",
+        "revenue": 9665
+      },
+      {
+        "month": "Mar",
+        "revenue": 4743
+      },
+      {
+        "month": "Apr",
+        "revenue": 9240
+      },
+      {
+        "month": "May",
+        "revenue": 1742
+      },
+      {
+        "month": "Jun",
+        "revenue": 4008
+      },
+      {
+        "month": "Jul",
+        "revenue": 2374
+      },
+      {
+        "month": "Aug",
+        "revenue": 4264
+      },
+      {
+        "month": "Sep",
+        "revenue": 2566
+      },
+      {
+        "month": "Oct",
+        "revenue": 1208
+      },
+      {
+        "month": "Nov",
+        "revenue": 1919
+      },
+      {
+        "month": "Dec",
+        "revenue": 2586
+      }
+    ]
+  },
+  {
+    "id": 367,
+    "name": "Ethnic Print Puff Sleeves Tiered Cotton A-Line Midi Dress",
+    "price": 2499,
+    "rating": 4.7,
+    "reviews": 7543,
+    "answers": 275,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Orange"
+    ],
+    "category": "indian",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL",
+      "3XL"
+    ],
+    "images": [
+      "/detailphotos/367.1.jpg",
+      "/detailphotos/367.2.jpg",
+      "/detailphotos/367.3.jpg",
+      "/detailphotos/367.4.jpg",
+      "/detailphotos/367.5.jpg",
+      "/detailphotos/367.6.jpg"
+    ],
+    "features": [
+      "Ethnic Motifs print fit and flare dress",
+      "Round neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "for Casual Occasion"
+    ],
+    "description": "Ethnic Motifs print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 2751
+      },
+      {
+        "month": "Feb",
+        "revenue": 9869
+      },
+      {
+        "month": "Mar",
+        "revenue": 7509
+      },
+      {
+        "month": "Apr",
+        "revenue": 1595
+      },
+      {
+        "month": "May",
+        "revenue": 9926
+      },
+      {
+        "month": "Jun",
+        "revenue": 6717
+      },
+      {
+        "month": "Jul",
+        "revenue": 8389
+      },
+      {
+        "month": "Aug",
+        "revenue": 2170
+      },
+      {
+        "month": "Sep",
+        "revenue": 4870
+      },
+      {
+        "month": "Oct",
+        "revenue": 5401
+      },
+      {
+        "month": "Nov",
+        "revenue": 1954
+      },
+      {
+        "month": "Dec",
+        "revenue": 1793
+      }
+    ]
+  },
+  {
+    "id": 368,
+    "name": "Floral Print Empire Longline Top",
+    "price": 1899,
+    "rating": 4.6,
+    "reviews": 7021,
+    "answers": 289,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Red"
+    ],
+    "category": "indian",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL",
+      "3XL"
+    ],
+    "images": [
+      "/detailphotos/368.1.jpg",
+      "/detailphotos/368.2.jpg",
+      "/detailphotos/368.3.jpg",
+      "/detailphotos/368.4.jpg"
+    ],
+    "features": [
+      "Floral print fit and flare dress",
+      "Round neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Cotton fabric"
+    ],
+    "description": "Floral print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 5444
+      },
+      {
+        "month": "Feb",
+        "revenue": 8516
+      },
+      {
+        "month": "Mar",
+        "revenue": 4811
+      },
+      {
+        "month": "Apr",
+        "revenue": 9596
+      },
+      {
+        "month": "May",
+        "revenue": 1350
+      },
+      {
+        "month": "Jun",
+        "revenue": 6510
+      },
+      {
+        "month": "Jul",
+        "revenue": 4231
+      },
+      {
+        "month": "Aug",
+        "revenue": 9574
+      },
+      {
+        "month": "Sep",
+        "revenue": 6086
+      },
+      {
+        "month": "Oct",
+        "revenue": 7259
+      },
+      {
+        "month": "Nov",
+        "revenue": 9277
+      },
+      {
+        "month": "Dec",
+        "revenue": 5662
+      }
+    ]
+  },
+  {
+    "id": 369,
+    "name": "Floral Print A-Line Midi Dress",
+    "price": 2499,
+    "rating": 4.5,
+    "reviews": 6793,
+    "answers": 242,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Black"
+    ],
+    "category": "indian",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL",
+      "3XL",
+      "4XL"
+    ],
+    "images": [
+      "/detailphotos/369.1.jpg",
+      "/detailphotos/369.2.jpg",
+      "/detailphotos/369.3.jpg",
+      "/detailphotos/369.4.jpg",
+      "/detailphotos/369.5.jpg",
+      "/detailphotos/369.6.jpg"
+    ],
+    "features": [
+      "Floral print fit and flare dress",
+      "V shape neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Liva fabric"
+    ],
+    "description": "Floral print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 3400
+      },
+      {
+        "month": "Feb",
+        "revenue": 7197
+      },
+      {
+        "month": "Mar",
+        "revenue": 7183
+      },
+      {
+        "month": "Apr",
+        "revenue": 7852
+      },
+      {
+        "month": "May",
+        "revenue": 1648
+      },
+      {
+        "month": "Jun",
+        "revenue": 9961
+      },
+      {
+        "month": "Jul",
+        "revenue": 4521
+      },
+      {
+        "month": "Aug",
+        "revenue": 5958
+      },
+      {
+        "month": "Sep",
+        "revenue": 8014
+      },
+      {
+        "month": "Oct",
+        "revenue": 5454
+      },
+      {
+        "month": "Nov",
+        "revenue": 7484
+      },
+      {
+        "month": "Dec",
+        "revenue": 2110
+      }
+    ]
+  },
+  {
+    "id": 370,
+    "name": "Ethnic Motifs Print A-Line Maxi Dress",
+    "price": 2499,
+    "rating": 4.9,
+    "reviews": 7681,
+    "answers": 298,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "NavyBlue"
+    ],
+    "category": "indian",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL",
+      "3XL",
+      "4XL"
+    ],
+    "images": [
+      "/detailphotos/370.1.jpg",
+      "/detailphotos/370.2.jpg",
+      "/detailphotos/370.3.jpg",
+      "/detailphotos/370.4.jpg"
+    ],
+    "features": [
+      "Ethnic Motifs print fit and flare dress",
+      "V shape neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Liva fabric"
+    ],
+    "description": "Ethnic Motifs print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 3456
+      },
+      {
+        "month": "Feb",
+        "revenue": 6881
+      },
+      {
+        "month": "Mar",
+        "revenue": 8400
+      },
+      {
+        "month": "Apr",
+        "revenue": 1488
+      },
+      {
+        "month": "May",
+        "revenue": 7520
+      },
+      {
+        "month": "Jun",
+        "revenue": 2325
+      },
+      {
+        "month": "Jul",
+        "revenue": 7352
+      },
+      {
+        "month": "Aug",
+        "revenue": 5126
+      },
+      {
+        "month": "Sep",
+        "revenue": 1010
+      },
+      {
+        "month": "Oct",
+        "revenue": 5074
+      },
+      {
+        "month": "Nov",
+        "revenue": 1598
+      },
+      {
+        "month": "Dec",
+        "revenue": 4463
+      }
+    ]
+  },
+  {
+    "id": 371,
+    "name": "Women Maxi Dress",
+    "price": 2899,
+    "rating": 4.7,
+    "reviews": 7401,
+    "answers": 229,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "NavyBlue"
+    ],
+    "category": "indian",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL",
+      "3XL"
+    ],
+    "images": [
+      "/detailphotos/371.1.jpg",
+      "/detailphotos/371.2.jpg",
+      "/detailphotos/371.3.jpg",
+      "/detailphotos/371.4.jpg",
+      "/detailphotos/371.5.jpg",
+      "/detailphotos/371.6.jpg"
+    ],
+    "features": [
+      "solid print fit and flare dress",
+      "Round neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Rayon fabric"
+    ],
+    "description": "NavyBlue solid print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 5630
+      },
+      {
+        "month": "Feb",
+        "revenue": 8557
+      },
+      {
+        "month": "Mar",
+        "revenue": 7612
+      },
+      {
+        "month": "Apr",
+        "revenue": 5131
+      },
+      {
+        "month": "May",
+        "revenue": 2942
+      },
+      {
+        "month": "Jun",
+        "revenue": 9645
+      },
+      {
+        "month": "Jul",
+        "revenue": 1449
+      },
+      {
+        "month": "Aug",
+        "revenue": 1545
+      },
+      {
+        "month": "Sep",
+        "revenue": 9917
+      },
+      {
+        "month": "Oct",
+        "revenue": 2333
+      },
+      {
+        "month": "Nov",
+        "revenue": 5297
+      },
+      {
+        "month": "Dec",
+        "revenue": 5702
+      }
+    ]
+  },
+  {
+    "id": 372,
+    "name": "Floral Printed V-Neck A-Line Kurti",
+    "price": 2199,
+    "rating": 4.8,
+    "reviews": 7610,
+    "answers": 297,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Pink"
+    ],
+    "category": "indian",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL",
+      "3XL"
+    ],
+    "images": [
+      "/detailphotos/372.1.jpg",
+      "/detailphotos/372.2.jpg",
+      "/detailphotos/372.3.jpg",
+      "/detailphotos/372.4.jpg",
+      "/detailphotos/372.5.jpg",
+      "/detailphotos/372.6.jpg"
+    ],
+    "features": [
+      "Floral print fit and flare dress",
+      "V shape neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Viscose Rayon fabric"
+    ],
+    "description": "Floral print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 9794
+      },
+      {
+        "month": "Feb",
+        "revenue": 7341
+      },
+      {
+        "month": "Mar",
+        "revenue": 5687
+      },
+      {
+        "month": "Apr",
+        "revenue": 4447
+      },
+      {
+        "month": "May",
+        "revenue": 5824
+      },
+      {
+        "month": "Jun",
+        "revenue": 2169
+      },
+      {
+        "month": "Jul",
+        "revenue": 3820
+      },
+      {
+        "month": "Aug",
+        "revenue": 3298
+      },
+      {
+        "month": "Sep",
+        "revenue": 4027
+      },
+      {
+        "month": "Oct",
+        "revenue": 2421
+      },
+      {
+        "month": "Nov",
+        "revenue": 3476
+      },
+      {
+        "month": "Dec",
+        "revenue": 1901
+      }
+    ]
+  },
+  {
+    "id": 373,
+    "name": "Ethnic Print A-Line Knee Length Dress",
+    "price": 2199,
+    "rating": 4.6,
+    "reviews": 7199,
+    "answers": 264,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Blue"
+    ],
+    "category": "indian",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "images": [
+      "/detailphotos/373.1.jpg",
+      "/detailphotos/373.2.jpg",
+      "/detailphotos/373.3.jpg",
+      "/detailphotos/373.4.jpg",
+      "/detailphotos/373.5.jpg",
+      "/detailphotos/373.6.jpg"
+    ],
+    "features": [
+      "Ethnic Motifs print fit and flare dress",
+      "V shape neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Liva fabric"
+    ],
+    "description": "Ethnic Motifs print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 9230
+      },
+      {
+        "month": "Feb",
+        "revenue": 9954
+      },
+      {
+        "month": "Mar",
+        "revenue": 3150
+      },
+      {
+        "month": "Apr",
+        "revenue": 2994
+      },
+      {
+        "month": "May",
+        "revenue": 5331
+      },
+      {
+        "month": "Jun",
+        "revenue": 6437
+      },
+      {
+        "month": "Jul",
+        "revenue": 9638
+      },
+      {
+        "month": "Aug",
+        "revenue": 2349
+      },
+      {
+        "month": "Sep",
+        "revenue": 5725
+      },
+      {
+        "month": "Oct",
+        "revenue": 2145
+      },
+      {
+        "month": "Nov",
+        "revenue": 7980
+      },
+      {
+        "month": "Dec",
+        "revenue": 4461
+      }
+    ]
+  },
+  {
+    "id": 374,
+    "name": "Ruffled Tiered Fit and Flare Midi Dress",
+    "price": 2199,
+    "rating": 4.4,
+    "reviews": 7840,
+    "answers": 301,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Green"
+    ],
+    "category": "indian",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL",
+      "3XL"
+    ],
+    "images": [
+      "/detailphotos/374.1.jpg",
+      "/detailphotos/374.2.jpg",
+      "/detailphotos/374.3.jpg",
+      "/detailphotos/374.4.jpg"
+    ],
+    "features": [
+      "Motifs print fit and flare dress",
+      "Round neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Liva fabric"
+    ],
+    "description": "Motifs print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 9643
+      },
+      {
+        "month": "Feb",
+        "revenue": 1610
+      },
+      {
+        "month": "Mar",
+        "revenue": 1107
+      },
+      {
+        "month": "Apr",
+        "revenue": 6029
+      },
+      {
+        "month": "May",
+        "revenue": 6781
+      },
+      {
+        "month": "Jun",
+        "revenue": 4823
+      },
+      {
+        "month": "Jul",
+        "revenue": 5531
+      },
+      {
+        "month": "Aug",
+        "revenue": 7402
+      },
+      {
+        "month": "Sep",
+        "revenue": 5134
+      },
+      {
+        "month": "Oct",
+        "revenue": 9238
+      },
+      {
+        "month": "Nov",
+        "revenue": 5857
+      },
+      {
+        "month": "Dec",
+        "revenue": 9392
+      }
+    ]
+  },
+  {
+    "id": 375,
+    "name": "Round Neck Ethnic Motifs Printed Gotta Patti Cotton Straight Kurta",
+    "price": 1499,
+    "rating": 4.4,
+    "reviews": 6810,
+    "answers": 279,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Yellow"
+    ],
+    "category": "indian",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/375.1.jpg",
+      "/detailphotos/375.2.jpg",
+      "/detailphotos/375.3.jpg",
+      "/detailphotos/375.4.jpg"
+    ],
+    "features": [
+      "Ethnic Motifs print fit and flare dress",
+      "Round neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Cotton fabric"
+    ],
+    "description": "Ethnic Motifs print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 3493
+      },
+      {
+        "month": "Feb",
+        "revenue": 7004
+      },
+      {
+        "month": "Mar",
+        "revenue": 6060
+      },
+      {
+        "month": "Apr",
+        "revenue": 8059
+      },
+      {
+        "month": "May",
+        "revenue": 5221
+      },
+      {
+        "month": "Jun",
+        "revenue": 7028
+      },
+      {
+        "month": "Jul",
+        "revenue": 1951
+      },
+      {
+        "month": "Aug",
+        "revenue": 7774
+      },
+      {
+        "month": "Sep",
+        "revenue": 8805
+      },
+      {
+        "month": "Oct",
+        "revenue": 3023
+      },
+      {
+        "month": "Nov",
+        "revenue": 8442
+      },
+      {
+        "month": "Dec",
+        "revenue": 8166
+      }
+    ]
+  },
+  {
+    "id": 376,
+    "name": "Floral Printed Georgette Fit & Flare Midi Dress",
+    "price": 2599,
+    "rating": 4.9,
+    "reviews": 7641,
+    "answers": 310,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "White",
+      "Blue"
+    ],
+    "category": "popular",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL",
+      "3XL"
+    ],
+    "images": [
+      "/detailphotos/376.1.jpg",
+      "/detailphotos/376.2.jpg",
+      "/detailphotos/376.3.jpg",
+      "/detailphotos/376.4.jpg",
+      "/detailphotos/376.5.jpg",
+      "/detailphotos/376.6.jpg"
+    ],
+    "features": [
+      "Floral print fit and flare dress",
+      "Round neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Cotton fabric"
+    ],
+    "description": "Floral print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 3329
+      },
+      {
+        "month": "Feb",
+        "revenue": 3482
+      },
+      {
+        "month": "Mar",
+        "revenue": 2670
+      },
+      {
+        "month": "Apr",
+        "revenue": 7832
+      },
+      {
+        "month": "May",
+        "revenue": 5383
+      },
+      {
+        "month": "Jun",
+        "revenue": 7067
+      },
+      {
+        "month": "Jul",
+        "revenue": 2626
+      },
+      {
+        "month": "Aug",
+        "revenue": 9606
+      },
+      {
+        "month": "Sep",
+        "revenue": 8040
+      },
+      {
+        "month": "Oct",
+        "revenue": 7635
+      },
+      {
+        "month": "Nov",
+        "revenue": 4411
+      },
+      {
+        "month": "Dec",
+        "revenue": 9602
+      }
+    ]
+  },
+  {
+    "id": 377,
+    "name": "Floral Printed Fit & Flare Dress",
+    "price": 2499,
+    "rating": 4.6,
+    "reviews": 7012,
+    "answers": 267,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Yellow"
+    ],
+    "category": "popular",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL",
+      "3XL",
+      "4XL"
+    ],
+    "images": [
+      "/detailphotos/377.1.jpg",
+      "/detailphotos/377.2.jpg",
+      "/detailphotos/377.3.jpg",
+      "/detailphotos/377.4.jpg"
+    ],
+    "features": [
+      "Floral print fit and flare dress",
+      "Round neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Liva fabric"
+    ],
+    "description": "Floral print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 4383
+      },
+      {
+        "month": "Feb",
+        "revenue": 7049
+      },
+      {
+        "month": "Mar",
+        "revenue": 2654
+      },
+      {
+        "month": "Apr",
+        "revenue": 6935
+      },
+      {
+        "month": "May",
+        "revenue": 3244
+      },
+      {
+        "month": "Jun",
+        "revenue": 5929
+      },
+      {
+        "month": "Jul",
+        "revenue": 6558
+      },
+      {
+        "month": "Aug",
+        "revenue": 7312
+      },
+      {
+        "month": "Sep",
+        "revenue": 5272
+      },
+      {
+        "month": "Oct",
+        "revenue": 1358
+      },
+      {
+        "month": "Nov",
+        "revenue": 8161
+      },
+      {
+        "month": "Dec",
+        "revenue": 9135
+      }
+    ]
+  },
+  {
+    "id": 378,
+    "name": "Blue Square Neck Gathered Pure Cotton Fit & Flare Dress",
+    "price": 1999,
+    "rating": 4.7,
+    "reviews": 7389,
+    "answers": 298,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Blue"
+    ],
+    "category": "popular",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL",
+      "3XL"
+    ],
+    "images": [
+      "/detailphotos/378.1.jpg",
+      "/detailphotos/378.2.jpg",
+      "/detailphotos/378.3.jpg",
+      "/detailphotos/378.4.jpg",
+      "/detailphotos/378.5.jpg",
+      "/detailphotos/378.6.jpg"
+    ],
+    "features": [
+      "Plain print fit and flare dress",
+      "Square neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Cotton fabric"
+    ],
+    "description": "Plain print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 4050
+      },
+      {
+        "month": "Feb",
+        "revenue": 2791
+      },
+      {
+        "month": "Mar",
+        "revenue": 8951
+      },
+      {
+        "month": "Apr",
+        "revenue": 4826
+      },
+      {
+        "month": "May",
+        "revenue": 9402
+      },
+      {
+        "month": "Jun",
+        "revenue": 5992
+      },
+      {
+        "month": "Jul",
+        "revenue": 7143
+      },
+      {
+        "month": "Aug",
+        "revenue": 6044
+      },
+      {
+        "month": "Sep",
+        "revenue": 6687
+      },
+      {
+        "month": "Oct",
+        "revenue": 3232
+      },
+      {
+        "month": "Nov",
+        "revenue": 7656
+      },
+      {
+        "month": "Dec",
+        "revenue": 5976
+      }
+    ]
+  },
+  {
+    "id": 379,
+    "name": "Pink Square Neck Gathered Pure Cotton Fit & Flare Dress",
+    "price": 2399,
+    "rating": 4.8,
+    "reviews": 7564,
+    "answers": 311,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Pink"
+    ],
+    "category": "popular",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL",
+      "3XL"
+    ],
+    "images": [
+      "/detailphotos/379.1.jpg",
+      "/detailphotos/379.2.jpg",
+      "/detailphotos/379.3.jpg",
+      "/detailphotos/379.4.jpg"
+    ],
+    "features": [
+      "Plain print fit and flare dress",
+      "Round neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Cotton fabric"
+    ],
+    "description": "Plain print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 9028
+      },
+      {
+        "month": "Feb",
+        "revenue": 9736
+      },
+      {
+        "month": "Mar",
+        "revenue": 9386
+      },
+      {
+        "month": "Apr",
+        "revenue": 2123
+      },
+      {
+        "month": "May",
+        "revenue": 5714
+      },
+      {
+        "month": "Jun",
+        "revenue": 2632
+      },
+      {
+        "month": "Jul",
+        "revenue": 1778
+      },
+      {
+        "month": "Aug",
+        "revenue": 1002
+      },
+      {
+        "month": "Sep",
+        "revenue": 5839
+      },
+      {
+        "month": "Oct",
+        "revenue": 9250
+      },
+      {
+        "month": "Nov",
+        "revenue": 1998
+      },
+      {
+        "month": "Dec",
+        "revenue": 8684
+      }
+    ]
+  },
+  {
+    "id": 380,
+    "name": "Ethnic Motifs Self Design Cotton A Line Midi Dress",
+    "price": 2499,
+    "rating": 4.7,
+    "reviews": 7732,
+    "answers": 290,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Green"
+    ],
+    "category": "popular",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL",
+      "3XL"
+    ],
+    "images": [
+      "/detailphotos/380.1.jpg",
+      "/detailphotos/380.2.jpg",
+      "/detailphotos/380.3.jpg",
+      "/detailphotos/380.4.jpg"
+    ],
+    "features": [
+      "Ethnic Motifs print fit and flare dress",
+      "Round neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Cotton fabric"
+    ],
+    "description": "Ethnic Motifs print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 8834
+      },
+      {
+        "month": "Feb",
+        "revenue": 9932
+      },
+      {
+        "month": "Mar",
+        "revenue": 5141
+      },
+      {
+        "month": "Apr",
+        "revenue": 9565
+      },
+      {
+        "month": "May",
+        "revenue": 8830
+      },
+      {
+        "month": "Jun",
+        "revenue": 6231
+      },
+      {
+        "month": "Jul",
+        "revenue": 7251
+      },
+      {
+        "month": "Aug",
+        "revenue": 3360
+      },
+      {
+        "month": "Sep",
+        "revenue": 9343
+      },
+      {
+        "month": "Oct",
+        "revenue": 1190
+      },
+      {
+        "month": "Nov",
+        "revenue": 3910
+      },
+      {
+        "month": "Dec",
+        "revenue": 3091
+      }
+    ]
+  },
+  {
+    "id": 381,
+    "name": "Cotton Shoulder Straps Fit and Flare Maxi Dress",
+    "price": 2199,
+    "rating": 4.5,
+    "reviews": 6794,
+    "answers": 281,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Black"
+    ],
+    "category": "popular",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL",
+      "3XL",
+      "4XL"
+    ],
+    "images": [
+      "/detailphotos/381.1.jpg",
+      "/detailphotos/381.2.jpg",
+      "/detailphotos/381.3.jpg",
+      "/detailphotos/381.4.jpg"
+    ],
+    "features": [
+      "Plain print fit and flare dress",
+      "Round neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Cotton fabric"
+    ],
+    "description": "Plain print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 5415
+      },
+      {
+        "month": "Feb",
+        "revenue": 9954
+      },
+      {
+        "month": "Mar",
+        "revenue": 2275
+      },
+      {
+        "month": "Apr",
+        "revenue": 2508
+      },
+      {
+        "month": "May",
+        "revenue": 1974
+      },
+      {
+        "month": "Jun",
+        "revenue": 6243
+      },
+      {
+        "month": "Jul",
+        "revenue": 9126
+      },
+      {
+        "month": "Aug",
+        "revenue": 5474
+      },
+      {
+        "month": "Sep",
+        "revenue": 3946
+      },
+      {
+        "month": "Oct",
+        "revenue": 9679
+      },
+      {
+        "month": "Nov",
+        "revenue": 8258
+      },
+      {
+        "month": "Dec",
+        "revenue": 2625
+      }
+    ]
+  },
+  {
+    "id": 382,
+    "name": "Plus Size Abstract Print Ruffled Georgette A-Line Midi Casual Dress",
+    "price": 2799,
+    "rating": 4.8,
+    "reviews": 7302,
+    "answers": 312,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Orange"
+    ],
+    "category": "popular",
+    "model": "Not specified",
+    "size": [
+      "XXL",
+      "3XL",
+      "4XL",
+      "5XL",
+      "6XL"
+    ],
+    "images": [
+      "/detailphotos/382.1.jpg",
+      "/detailphotos/382.2.jpg",
+      "/detailphotos/382.3.jpg",
+      "/detailphotos/382.4.jpg",
+      "/detailphotos/382.5.jpg"
+    ],
+    "features": [
+      "Abstract print fit and flare dress",
+      "Round shape neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Cotton fabric"
+    ],
+    "description": "Abstract print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 7634
+      },
+      {
+        "month": "Feb",
+        "revenue": 4824
+      },
+      {
+        "month": "Mar",
+        "revenue": 1727
+      },
+      {
+        "month": "Apr",
+        "revenue": 4513
+      },
+      {
+        "month": "May",
+        "revenue": 8448
+      },
+      {
+        "month": "Jun",
+        "revenue": 7214
+      },
+      {
+        "month": "Jul",
+        "revenue": 6680
+      },
+      {
+        "month": "Aug",
+        "revenue": 1829
+      },
+      {
+        "month": "Sep",
+        "revenue": 4725
+      },
+      {
+        "month": "Oct",
+        "revenue": 2999
+      },
+      {
+        "month": "Nov",
+        "revenue": 5583
+      },
+      {
+        "month": "Dec",
+        "revenue": 3371
+      }
+    ]
+  },
+  {
+    "id": 383,
+    "name": "Floral Print Puff Sleeve Fit & Flare Midi Dress",
+    "price": 2499,
+    "rating": 4.6,
+    "reviews": 7321,
+    "answers": 258,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Green",
+      "Yellow"
+    ],
+    "category": "popular",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL",
+      "3XL"
+    ],
+    "images": [
+      "/detailphotos/383.1.jpg",
+      "/detailphotos/383.2.jpg",
+      "/detailphotos/383.3.jpg",
+      "/detailphotos/383.4.jpg"
+    ],
+    "features": [
+      "Floral print fit and flare dress",
+      "Round neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Cotton fabric"
+    ],
+    "description": "Floral print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 5347
+      },
+      {
+        "month": "Feb",
+        "revenue": 8455
+      },
+      {
+        "month": "Mar",
+        "revenue": 8807
+      },
+      {
+        "month": "Apr",
+        "revenue": 3638
+      },
+      {
+        "month": "May",
+        "revenue": 9061
+      },
+      {
+        "month": "Jun",
+        "revenue": 7041
+      },
+      {
+        "month": "Jul",
+        "revenue": 1816
+      },
+      {
+        "month": "Aug",
+        "revenue": 9458
+      },
+      {
+        "month": "Sep",
+        "revenue": 9105
+      },
+      {
+        "month": "Oct",
+        "revenue": 1568
+      },
+      {
+        "month": "Nov",
+        "revenue": 4481
+      },
+      {
+        "month": "Dec",
+        "revenue": 7243
+      }
+    ]
+  },
+  {
+    "id": 384,
+    "name": "Floral Print Maxi Midi Dress",
+    "price": 2199,
+    "rating": 4.8,
+    "reviews": 7531,
+    "answers": 276,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Green"
+    ],
+    "category": "popular",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "images": [
+      "/detailphotos/384.1.jpg",
+      "/detailphotos/384.2.jpg",
+      "/detailphotos/384.3.jpg",
+      "/detailphotos/384.4.jpg",
+      "/detailphotos/384.5.jpg",
+      "/detailphotos/384.6.jpg"
+    ],
+    "features": [
+      "Floral print fit and flare dress",
+      "Round neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Cotton fabric"
+    ],
+    "description": "Floral print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 2997
+      },
+      {
+        "month": "Feb",
+        "revenue": 4085
+      },
+      {
+        "month": "Mar",
+        "revenue": 8206
+      },
+      {
+        "month": "Apr",
+        "revenue": 7150
+      },
+      {
+        "month": "May",
+        "revenue": 6139
+      },
+      {
+        "month": "Jun",
+        "revenue": 7432
+      },
+      {
+        "month": "Jul",
+        "revenue": 2219
+      },
+      {
+        "month": "Aug",
+        "revenue": 6080
+      },
+      {
+        "month": "Sep",
+        "revenue": 6481
+      },
+      {
+        "month": "Oct",
+        "revenue": 8109
+      },
+      {
+        "month": "Nov",
+        "revenue": 8291
+      },
+      {
+        "month": "Dec",
+        "revenue": 6804
+      }
+    ]
+  },
+  {
+    "id": 385,
+    "name": "Women Roll-Up Sleeves Opaque Casual Shirt Midi Dress",
+    "price": 2599,
+    "rating": 4.7,
+    "reviews": 7420,
+    "answers": 264,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Blue"
+    ],
+    "category": "popular",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/385.1.jpg",
+      "/detailphotos/385.2.jpg",
+      "/detailphotos/385.3.jpg",
+      "/detailphotos/385.4.jpg",
+      "/detailphotos/385.5.jpg",
+      "/detailphotos/385.6.jpg"
+    ],
+    "features": [
+      "solid shirt and fit and flare dress",
+      "Shirt collar",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Crepe fabric"
+    ],
+    "description": "Solid print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 4827
+      },
+      {
+        "month": "Feb",
+        "revenue": 4327
+      },
+      {
+        "month": "Mar",
+        "revenue": 2562
+      },
+      {
+        "month": "Apr",
+        "revenue": 6258
+      },
+      {
+        "month": "May",
+        "revenue": 6714
+      },
+      {
+        "month": "Jun",
+        "revenue": 1590
+      },
+      {
+        "month": "Jul",
+        "revenue": 2932
+      },
+      {
+        "month": "Aug",
+        "revenue": 3889
+      },
+      {
+        "month": "Sep",
+        "revenue": 6400
+      },
+      {
+        "month": "Oct",
+        "revenue": 2144
+      },
+      {
+        "month": "Nov",
+        "revenue": 4510
+      },
+      {
+        "month": "Dec",
+        "revenue": 5690
+      }
+    ]
+  },
+  {
+    "id": 386,
+    "name": "Crepe Roll-Up Sleeves Shirt Midi Dress Comes With A Belt",
+    "price": 2599,
+    "rating": 4.9,
+    "reviews": 7790,
+    "answers": 301,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Red"
+    ],
+    "category": "popular",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/386.1.jpg",
+      "/detailphotos/386.2.jpg",
+      "/detailphotos/386.3.jpg",
+      "/detailphotos/386.4.jpg"
+    ],
+    "features": [
+      "solid shirt and fit and flare dress",
+      "Shirt collar",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Crepe fabric"
+    ],
+    "description": "Solid print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 5066
+      },
+      {
+        "month": "Feb",
+        "revenue": 1349
+      },
+      {
+        "month": "Mar",
+        "revenue": 8832
+      },
+      {
+        "month": "Apr",
+        "revenue": 9576
+      },
+      {
+        "month": "May",
+        "revenue": 4025
+      },
+      {
+        "month": "Jun",
+        "revenue": 8631
+      },
+      {
+        "month": "Jul",
+        "revenue": 6873
+      },
+      {
+        "month": "Aug",
+        "revenue": 2967
+      },
+      {
+        "month": "Sep",
+        "revenue": 2062
+      },
+      {
+        "month": "Oct",
+        "revenue": 1638
+      },
+      {
+        "month": "Nov",
+        "revenue": 9966
+      },
+      {
+        "month": "Dec",
+        "revenue": 7997
+      }
+    ]
+  },
+  {
+    "id": 387,
+    "name": "Roll-Up Sleeves Crepe Shirt Midi Dress",
+    "price": 3599,
+    "rating": 4.5,
+    "reviews": 6820,
+    "answers": 274,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Yellow"
+    ],
+    "category": "popular",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/387.1.jpg",
+      "/detailphotos/387.2.jpg",
+      "/detailphotos/387.3.jpg",
+      "/detailphotos/387.4.jpg"
+    ],
+    "features": [
+      "solid shirt and fit and flare dress",
+      "Shirt collar",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Crepe fabric"
+    ],
+    "description": "Solid print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 5474
+      },
+      {
+        "month": "Feb",
+        "revenue": 9672
+      },
+      {
+        "month": "Mar",
+        "revenue": 8261
+      },
+      {
+        "month": "Apr",
+        "revenue": 2809
+      },
+      {
+        "month": "May",
+        "revenue": 1666
+      },
+      {
+        "month": "Jun",
+        "revenue": 4000
+      },
+      {
+        "month": "Jul",
+        "revenue": 6862
+      },
+      {
+        "month": "Aug",
+        "revenue": 9908
+      },
+      {
+        "month": "Sep",
+        "revenue": 3866
+      },
+      {
+        "month": "Oct",
+        "revenue": 5028
+      },
+      {
+        "month": "Nov",
+        "revenue": 5329
+      },
+      {
+        "month": "Dec",
+        "revenue": 3302
+      }
+    ]
+  },
+  {
+    "id": 388,
+    "name": "Roll-Up Sleeves Tie-Up Shirt Midi Dress",
+    "price": 3399,
+    "rating": 4.8,
+    "reviews": 7598,
+    "answers": 315,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Purple"
+    ],
+    "category": "popular",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "images": [
+      "/detailphotos/388.1.jpg",
+      "/detailphotos/388.2.jpg",
+      "/detailphotos/388.3.jpg",
+      "/detailphotos/388.4.jpg",
+      "/detailphotos/388.5.jpg",
+      "/detailphotos/388.6.jpg"
+    ],
+    "features": [
+      "solid shirt and fit and flare dress",
+      "Shirt collar",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Crepe fabric"
+    ],
+    "description": "Solid print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 9146
+      },
+      {
+        "month": "Feb",
+        "revenue": 2906
+      },
+      {
+        "month": "Mar",
+        "revenue": 5969
+      },
+      {
+        "month": "Apr",
+        "revenue": 5576
+      },
+      {
+        "month": "May",
+        "revenue": 4033
+      },
+      {
+        "month": "Jun",
+        "revenue": 8039
+      },
+      {
+        "month": "Jul",
+        "revenue": 2940
+      },
+      {
+        "month": "Aug",
+        "revenue": 4930
+      },
+      {
+        "month": "Sep",
+        "revenue": 6231
+      },
+      {
+        "month": "Oct",
+        "revenue": 6144
+      },
+      {
+        "month": "Nov",
+        "revenue": 9577
+      },
+      {
+        "month": "Dec",
+        "revenue": 5816
+      }
+    ]
+  },
+  {
+    "id": 389,
+    "name": "Roll-Up Sleeves Crepe Shirt Midi Dress",
+    "price": 3599,
+    "rating": 4.5,
+    "reviews": 6820,
+    "answers": 274,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Brown"
+    ],
+    "category": "popular",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/389.1.jpg",
+      "/detailphotos/389.2.jpg",
+      "/detailphotos/389.3.jpg",
+      "/detailphotos/389.4.jpg"
+    ],
+    "features": [
+      "solid shirt and fit and flare dress",
+      "Shirt collar",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Crepe fabric"
+    ],
+    "description": "Solid print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 9973
+      },
+      {
+        "month": "Feb",
+        "revenue": 8234
+      },
+      {
+        "month": "Mar",
+        "revenue": 5881
+      },
+      {
+        "month": "Apr",
+        "revenue": 7127
+      },
+      {
+        "month": "May",
+        "revenue": 9051
+      },
+      {
+        "month": "Jun",
+        "revenue": 3881
+      },
+      {
+        "month": "Jul",
+        "revenue": 2516
+      },
+      {
+        "month": "Aug",
+        "revenue": 3676
+      },
+      {
+        "month": "Sep",
+        "revenue": 8563
+      },
+      {
+        "month": "Oct",
+        "revenue": 1524
+      },
+      {
+        "month": "Nov",
+        "revenue": 9513
+      },
+      {
+        "month": "Dec",
+        "revenue": 9906
+      }
+    ]
+  },
+  {
+    "id": 390,
+    "name": "Women Shirt Collar A-Line Midi Dress",
+    "price": 2599,
+    "rating": 4.8,
+    "reviews": 7598,
+    "answers": 315,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Black"
+    ],
+    "category": "popular",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "images": [
+      "/detailphotos/390.1.jpg",
+      "/detailphotos/390.2.jpg",
+      "/detailphotos/390.3.jpg",
+      "/detailphotos/390.4.jpg"
+    ],
+    "features": [
+      "solid shirt and fit and flare dress",
+      "Shirt collar",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Crepe fabric"
+    ],
+    "description": "Solid print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 7630
+      },
+      {
+        "month": "Feb",
+        "revenue": 2959
+      },
+      {
+        "month": "Mar",
+        "revenue": 9149
+      },
+      {
+        "month": "Apr",
+        "revenue": 8145
+      },
+      {
+        "month": "May",
+        "revenue": 7153
+      },
+      {
+        "month": "Jun",
+        "revenue": 9501
+      },
+      {
+        "month": "Jul",
+        "revenue": 3928
+      },
+      {
+        "month": "Aug",
+        "revenue": 5554
+      },
+      {
+        "month": "Sep",
+        "revenue": 3263
+      },
+      {
+        "month": "Oct",
+        "revenue": 7369
+      },
+      {
+        "month": "Nov",
+        "revenue": 4193
+      },
+      {
+        "month": "Dec",
+        "revenue": 1787
+      }
+    ]
+  },
+  {
+    "id": 391,
+    "name": "Halter Neck Sleeveless Chiffon Fit & Flare Midi Dress",
+    "price": 2799,
+    "rating": 4.5,
+    "reviews": 6794,
+    "answers": 281,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Black"
+    ],
+    "category": "chiffon",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "images": [
+      "/detailphotos/391.1.jpg",
+      "/detailphotos/391.2.jpg",
+      "/detailphotos/391.3.jpg",
+      "/detailphotos/391.4.jpg"
+    ],
+    "features": [
+      "Plain print fit and flare dress",
+      "Round neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Chiffon fabric"
+    ],
+    "description": "Plain print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 1262
+      },
+      {
+        "month": "Feb",
+        "revenue": 7130
+      },
+      {
+        "month": "Mar",
+        "revenue": 3629
+      },
+      {
+        "month": "Apr",
+        "revenue": 5098
+      },
+      {
+        "month": "May",
+        "revenue": 8876
+      },
+      {
+        "month": "Jun",
+        "revenue": 9234
+      },
+      {
+        "month": "Jul",
+        "revenue": 8580
+      },
+      {
+        "month": "Aug",
+        "revenue": 1106
+      },
+      {
+        "month": "Sep",
+        "revenue": 8756
+      },
+      {
+        "month": "Oct",
+        "revenue": 2107
+      },
+      {
+        "month": "Nov",
+        "revenue": 9111
+      },
+      {
+        "month": "Dec",
+        "revenue": 2348
+      }
+    ]
+  },
+  {
+    "id": 392,
+    "name": "Floral Print Chiffon Kaftan Dress",
+    "price": 2799,
+    "rating": 4.8,
+    "reviews": 7302,
+    "answers": 312,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Blue"
+    ],
+    "category": "chiffon",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/392.1.jpg",
+      "/detailphotos/392.2.jpg",
+      "/detailphotos/392.3.jpg",
+      "/detailphotos/392.4.jpg",
+      "/detailphotos/392.5.jpg"
+    ],
+    "features": [
+      "floral  print fit and flare dress",
+      "Kaftan shape neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Chiffon fabric"
+    ],
+    "description": "floral  print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 3418
+      },
+      {
+        "month": "Feb",
+        "revenue": 8466
+      },
+      {
+        "month": "Mar",
+        "revenue": 5724
+      },
+      {
+        "month": "Apr",
+        "revenue": 2135
+      },
+      {
+        "month": "May",
+        "revenue": 8937
+      },
+      {
+        "month": "Jun",
+        "revenue": 2817
+      },
+      {
+        "month": "Jul",
+        "revenue": 5636
+      },
+      {
+        "month": "Aug",
+        "revenue": 6387
+      },
+      {
+        "month": "Sep",
+        "revenue": 8454
+      },
+      {
+        "month": "Oct",
+        "revenue": 5039
+      },
+      {
+        "month": "Nov",
+        "revenue": 8828
+      },
+      {
+        "month": "Dec",
+        "revenue": 7748
+      }
+    ]
+  },
+  {
+    "id": 393,
+    "name": "Women Embellished Chiffon Three-Quarter Sleeves Maxi Dress",
+    "price": 3799,
+    "rating": 4.6,
+    "reviews": 7321,
+    "answers": 258,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "NavyBlue"
+    ],
+    "category": "chiffon",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "images": [
+      "/detailphotos/393.1.jpg",
+      "/detailphotos/393.2.jpg",
+      "/detailphotos/393.3.jpg",
+      "/detailphotos/393.4.jpg"
+    ],
+    "features": [
+      "Floral print fit and flare dress",
+      "V-shape neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Chiffon fabric"
+    ],
+    "description": "Floral print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 2325
+      },
+      {
+        "month": "Feb",
+        "revenue": 4801
+      },
+      {
+        "month": "Mar",
+        "revenue": 7501
+      },
+      {
+        "month": "Apr",
+        "revenue": 5721
+      },
+      {
+        "month": "May",
+        "revenue": 4037
+      },
+      {
+        "month": "Jun",
+        "revenue": 2370
+      },
+      {
+        "month": "Jul",
+        "revenue": 9986
+      },
+      {
+        "month": "Aug",
+        "revenue": 4406
+      },
+      {
+        "month": "Sep",
+        "revenue": 9015
+      },
+      {
+        "month": "Oct",
+        "revenue": 5870
+      },
+      {
+        "month": "Nov",
+        "revenue": 4235
+      },
+      {
+        "month": "Dec",
+        "revenue": 8313
+      }
+    ]
+  },
+  {
+    "id": 394,
+    "name": "Printed Puff Sleeve Chiffon A-Line Maxi Dress",
+    "price": 2199,
+    "rating": 4.8,
+    "reviews": 7531,
+    "answers": 276,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "White",
+      "Blue"
+    ],
+    "category": "chiffon",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/394.1.jpg",
+      "/detailphotos/394.2.jpg",
+      "/detailphotos/394.3.jpg",
+      "/detailphotos/394.4.jpg"
+    ],
+    "features": [
+      "printend Puff design fit and flare dress",
+      "V-shape  neck",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Chiffon fabric"
+    ],
+    "description": "printend Puff design fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 5436
+      },
+      {
+        "month": "Feb",
+        "revenue": 9404
+      },
+      {
+        "month": "Mar",
+        "revenue": 7040
+      },
+      {
+        "month": "Apr",
+        "revenue": 8880
+      },
+      {
+        "month": "May",
+        "revenue": 8604
+      },
+      {
+        "month": "Jun",
+        "revenue": 1760
+      },
+      {
+        "month": "Jul",
+        "revenue": 6701
+      },
+      {
+        "month": "Aug",
+        "revenue": 4058
+      },
+      {
+        "month": "Sep",
+        "revenue": 9923
+      },
+      {
+        "month": "Oct",
+        "revenue": 6322
+      },
+      {
+        "month": "Nov",
+        "revenue": 4557
+      },
+      {
+        "month": "Dec",
+        "revenue": 6759
+      }
+    ]
+  },
+  {
+    "id": 395,
+    "name": "Women Floral Printed Chiffon Maxi Dress",
+    "price": 1699,
+    "rating": 4.7,
+    "reviews": 7420,
+    "answers": 264,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Peach"
+    ],
+    "category": "chiffon",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL",
+      "3XL"
+    ],
+    "images": [
+      "/detailphotos/395.1.jpg",
+      "/detailphotos/395.2.jpg",
+      "/detailphotos/395.3.jpg",
+      "/detailphotos/395.4.jpg",
+      "/detailphotos/395.5.jpg",
+      "/detailphotos/395.6.jpg"
+    ],
+    "features": [
+      "solid shirt and fit and flare dress",
+      "Shirt collar",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Chiffon fabric"
+    ],
+    "description": "Solid print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 5382
+      },
+      {
+        "month": "Feb",
+        "revenue": 5535
+      },
+      {
+        "month": "Mar",
+        "revenue": 5634
+      },
+      {
+        "month": "Apr",
+        "revenue": 1055
+      },
+      {
+        "month": "May",
+        "revenue": 5358
+      },
+      {
+        "month": "Jun",
+        "revenue": 1113
+      },
+      {
+        "month": "Jul",
+        "revenue": 1023
+      },
+      {
+        "month": "Aug",
+        "revenue": 6345
+      },
+      {
+        "month": "Sep",
+        "revenue": 1568
+      },
+      {
+        "month": "Oct",
+        "revenue": 6702
+      },
+      {
+        "month": "Nov",
+        "revenue": 6444
+      },
+      {
+        "month": "Dec",
+        "revenue": 7545
+      }
+    ]
+  },
+  {
+    "id": 396,
+    "name": "Purple Chiffon Midi Dress",
+    "price": 2599,
+    "rating": 4.9,
+    "reviews": 7790,
+    "answers": 301,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Purple"
+    ],
+    "category": "chiffon",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/396.1.jpg",
+      "/detailphotos/396.2.jpg",
+      "/detailphotos/396.3.jpg",
+      "/detailphotos/396.4.jpg"
+    ],
+    "features": [
+      "solid shirt and fit and flare dress",
+      "Shirt collar",
+      "Sleeveless, flutter sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Chiffon fabric"
+    ],
+    "description": "Solid print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 8303
+      },
+      {
+        "month": "Feb",
+        "revenue": 7451
+      },
+      {
+        "month": "Mar",
+        "revenue": 5134
+      },
+      {
+        "month": "Apr",
+        "revenue": 3560
+      },
+      {
+        "month": "May",
+        "revenue": 1563
+      },
+      {
+        "month": "Jun",
+        "revenue": 5873
+      },
+      {
+        "month": "Jul",
+        "revenue": 9659
+      },
+      {
+        "month": "Aug",
+        "revenue": 7055
+      },
+      {
+        "month": "Sep",
+        "revenue": 6953
+      },
+      {
+        "month": "Oct",
+        "revenue": 7567
+      },
+      {
+        "month": "Nov",
+        "revenue": 4621
+      },
+      {
+        "month": "Dec",
+        "revenue": 4527
+      }
+    ]
+  },
+  {
+    "id": 397,
+    "name": "Roll-Up Sleeves Crepe Shirt Midi Dress",
+    "price": 3499,
+    "rating": 4.5,
+    "reviews": 6820,
+    "answers": 274,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Maroon"
+    ],
+    "category": "chiffon",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "images": [
+      "/detailphotos/397.1.jpg",
+      "/detailphotos/397.2.jpg",
+      "/detailphotos/397.3.jpg",
+      "/detailphotos/397.4.jpg"
+    ],
+    "features": [
+      "solid shirt and fit and flare dress",
+      "V Shape collar",
+      "For Party Occasion",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Chiffon fabric"
+    ],
+    "description": "Solid print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 8906
+      },
+      {
+        "month": "Feb",
+        "revenue": 4681
+      },
+      {
+        "month": "Mar",
+        "revenue": 1245
+      },
+      {
+        "month": "Apr",
+        "revenue": 6369
+      },
+      {
+        "month": "May",
+        "revenue": 5807
+      },
+      {
+        "month": "Jun",
+        "revenue": 5749
+      },
+      {
+        "month": "Jul",
+        "revenue": 9781
+      },
+      {
+        "month": "Aug",
+        "revenue": 6986
+      },
+      {
+        "month": "Sep",
+        "revenue": 6024
+      },
+      {
+        "month": "Oct",
+        "revenue": 6616
+      },
+      {
+        "month": "Nov",
+        "revenue": 1023
+      },
+      {
+        "month": "Dec",
+        "revenue": 2718
+      }
+    ]
+  },
+  {
+    "id": 398,
+    "name": "Purple Roll-Up Sleeves Shirt Midi Dress",
+    "price": 2499,
+    "rating": 4.8,
+    "reviews": 7598,
+    "answers": 315,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Purple"
+    ],
+    "category": "chiffon",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/398.1.jpg",
+      "/detailphotos/398.2.jpg",
+      "/detailphotos/398.3.jpg",
+      "/detailphotos/398.4.jpg",
+      "/detailphotos/398.5.jpg",
+      "/detailphotos/398.6.jpg"
+    ],
+    "features": [
+      "solid shirt and fit and flare dress",
+      "Shirt collar",
+      "Sleeveless, roll-up sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Chiffon fabric"
+    ],
+    "description": "Solid print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 4854
+      },
+      {
+        "month": "Feb",
+        "revenue": 9338
+      },
+      {
+        "month": "Mar",
+        "revenue": 2692
+      },
+      {
+        "month": "Apr",
+        "revenue": 9891
+      },
+      {
+        "month": "May",
+        "revenue": 4156
+      },
+      {
+        "month": "Jun",
+        "revenue": 6881
+      },
+      {
+        "month": "Jul",
+        "revenue": 9951
+      },
+      {
+        "month": "Aug",
+        "revenue": 8398
+      },
+      {
+        "month": "Sep",
+        "revenue": 1274
+      },
+      {
+        "month": "Oct",
+        "revenue": 7080
+      },
+      {
+        "month": "Nov",
+        "revenue": 6405
+      },
+      {
+        "month": "Dec",
+        "revenue": 9852
+      }
+    ]
+  },
+  {
+    "id": 399,
+    "name": "Women Shirt Collar Roll-Up Sleeves Conversational Print Shirt Midi Dress",
+    "price": 2699,
+    "rating": 4.5,
+    "reviews": 6820,
+    "answers": 274,
+    "inStock": true,
+    "delivery": "100 RS.",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Green",
+      "Blue"
+    ],
+    "category": "chiffon",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/399.1.jpg",
+      "/detailphotos/399.2.jpg",
+      "/detailphotos/399.3.jpg",
+      "/detailphotos/399.4.jpg",
+      "/detailphotos/399.5.jpg",
+      "/detailphotos/399.6.jpg"
+    ],
+    "features": [
+      "solid shirt and fit and flare dress",
+      "Shirt collar",
+      "Sleeveless, Roll-Up Sleeves",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Chiffon fabric"
+    ],
+    "description": "Solid print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 5902
+      },
+      {
+        "month": "Feb",
+        "revenue": 1214
+      },
+      {
+        "month": "Mar",
+        "revenue": 1480
+      },
+      {
+        "month": "Apr",
+        "revenue": 5136
+      },
+      {
+        "month": "May",
+        "revenue": 9457
+      },
+      {
+        "month": "Jun",
+        "revenue": 3521
+      },
+      {
+        "month": "Jul",
+        "revenue": 8902
+      },
+      {
+        "month": "Aug",
+        "revenue": 1338
+      },
+      {
+        "month": "Sep",
+        "revenue": 7276
+      },
+      {
+        "month": "Oct",
+        "revenue": 3279
+      },
+      {
+        "month": "Nov",
+        "revenue": 5297
+      },
+      {
+        "month": "Dec",
+        "revenue": 2883
+      }
+    ]
+  },
+  {
+    "id": 400,
+    "name": "Floral Printed Tie-Ups Shirt Midi Dress",
+    "price": 3199,
+    "rating": 4.8,
+    "reviews": 7598,
+    "answers": 315,
+    "inStock": true,
+    "delivery": "FREE delivery",
+    "deliveryDate": "5 To 6 Working days",
+    "seller": "Rajwadi Poshaak Co.",
+    "color": [
+      "Green",
+      "White"
+    ],
+    "category": "chiffon",
+    "model": "Not specified",
+    "size": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "images": [
+      "/detailphotos/400.1.jpg",
+      "/detailphotos/400.2.jpg",
+      "/detailphotos/400.3.jpg",
+      "/detailphotos/400.4.jpg",
+      "/detailphotos/400.5.jpg"
+    ],
+    "features": [
+      "Floral shirt and fit and flare dress",
+      "Shirt collar",
+      "Long and roll-up sleeve",
+      "Gathered or pleated detail",
+      "Midi length in flared hem",
+      "Chiffon fabric"
+    ],
+    "description": "Floral print fit and flare dress with sleeve and Good fabric.",
+    "chartData": [
+      {
+        "month": "Jan",
+        "revenue": 9835
+      },
+      {
+        "month": "Feb",
+        "revenue": 4820
+      },
+      {
+        "month": "Mar",
+        "revenue": 2883
+      },
+      {
+        "month": "Apr",
+        "revenue": 9151
+      },
+      {
+        "month": "May",
+        "revenue": 1539
+      },
+      {
+        "month": "Jun",
+        "revenue": 2817
+      },
+      {
+        "month": "Jul",
+        "revenue": 7153
+      },
+      {
+        "month": "Aug",
+        "revenue": 2182
+      },
+      {
+        "month": "Sep",
+        "revenue": 6890
+      },
+      {
+        "month": "Oct",
+        "revenue": 9535
+      },
+      {
+        "month": "Nov",
+        "revenue": 6540
+      },
+      {
+        "month": "Dec",
+        "revenue": 7101
       }
     ]
   }
