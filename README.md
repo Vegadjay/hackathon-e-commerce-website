@@ -125,3 +125,33 @@ to get all review of product with username and its rating (for display review pa
 TODO TASKK:
 
 Create checkout page.
+Admin Panel:https://cloud.uibakery.io/dev/focus-group-wiz-kid/lPpOhWcf7H/home
+
+
+Grid:-
+https://tailwindui.com/components/marketing/sections/bento-grids
+
+
+Update that products and render that all in corosal 
+
+
+todo:
+
+Make that third page that is not complete
+https://ui.aceternity.com/components/container-scroll-animation
+https://ui.aceternity.com/components/file-upload
+https://ui.aceternity.com/components/infinite-moving-cards
+https://ui.aceternity.com/components/layout-grid
+https://ui.aceternity.com/components/sticky-scroll-reveal
+
+
+
+
+contrast +9
+Temp -10
+Saturation +9
+Exposure -6
+Hightlights +12
+Shadows +8
+Sharpen +3
+whites +9+
