@@ -34,19 +34,15 @@ const item = {
     }
 };
 
-export const VideoGrid = ({ cards, title = "Video Gallery" }: { cards: Card[], title?: string }) => {
+export const VideoGrid = ({ cards }: { cards: Card[] }) => {
     return (
-        <div className="w-full min-h-screen bg-white text-black">
+        <div className="w-full min-h-screen -mt-20 bg-white text-black">
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="text-center py-8 md:py-12"
+                className="text-center md:py-12"
             >
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-                    {title}
-                </h1>
-                <div className="h-1 w-24 bg-black mx-auto mt-4 rounded-full" />
             </motion.div>
 
             <motion.div

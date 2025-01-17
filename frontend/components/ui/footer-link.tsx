@@ -5,7 +5,6 @@ import { LinkPreview } from "@/components/ui/link-preview";
 import { Sparkles } from "lucide-react";
 
 export function RedesignedLinkPreviewDemo() {
-    // Animation variants
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -46,7 +45,6 @@ export function RedesignedLinkPreviewDemo() {
             initial="hidden"
             animate="visible"
         >
-            {/* Header */}
             <motion.div className="relative mb-10">
                 <motion.h1
                     variants={itemVariants}
@@ -69,7 +67,6 @@ export function RedesignedLinkPreviewDemo() {
                 </motion.p>
             </motion.div>
 
-            {/* Link Previews */}
             <motion.div
                 variants={itemVariants}
                 className="relative p-8 rounded-xl bg-white/60 dark:bg-gray-800/60 backdrop-blur-md shadow-2xl hover:shadow-3xl transition-shadow duration-300"
@@ -99,7 +96,6 @@ export function RedesignedLinkPreviewDemo() {
                 </motion.p>
             </motion.div>
 
-            {/* Call to Action */}
             <motion.div
                 variants={itemVariants}
                 className="text-center space-y-8 mt-14"

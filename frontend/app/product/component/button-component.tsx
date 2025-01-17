@@ -221,7 +221,7 @@ export function BuyNowButton({ product, quantity, selectedSize }: AddToCartModal
             alert("Product not found");
             return;
         }
-        router.push(`/checkout?productId=${product.id}&quantity=${quantity}&size=${selectedSize}`);
+        router.push(`/checkout?productId=${product.id}&quantity=${quantity}&size=${selectedSize}&price=${product.price}`);
     };
 
     return (

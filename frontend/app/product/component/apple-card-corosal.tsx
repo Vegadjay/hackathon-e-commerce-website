@@ -72,7 +72,7 @@ const DummyContent: React.FC<DummyContentProps> = ({ product }) => {
                 return (
                     <div
                         key={"dummy-content" + index}
-                        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4 flex flex-col"
+                        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl flex flex-col"
                     >
                         <div className="flex-grow">
                             <Image
