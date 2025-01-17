@@ -8,8 +8,9 @@ import Earthcomponent from "@/components/earthcomponent/earth-component";
 import { VideoGrid } from "@/components/ui/layout-video-grid";
 import { HeroScrollDemo } from "@/components/scroll-component/page";
 import { InfiniteMovingCardsDemo } from "@/components/infinite-scroll-component/page";
-import ProductGridComponent from "@/components/product-grid/page";
+import ProductGridComponent from "@/components/sale-product-grid/page";
 import Filtercomponent from "@/components/filter-component/filter";
+import Heading from "@/components/title/page";
 
 
 const cards = [
@@ -96,18 +97,20 @@ export function ProductGrid() {
 
       {/* <Textanimation /> */}
 
-      <div className="mt-10">
+      <div className="mt-6">
+        <Heading text="Step into Tradition with Rajwadi Poshak" />
         <FashionCarousel />
       </div>
 
 
-      {/* second component */}
 
-      <Earthcomponent />
 
-      {/* Third Component */}
+      {/* Second component */}
+      <div className="mt-20">
+        <Heading text="Elevate Your Style: Timeless Silk Suit Ensembles" />
+        <AppleCardsCarouselDemo />
+      </div>
 
-      <AppleCardsCarouselDemo />
 
       {/* Fourth Fiter component */}
 
@@ -115,18 +118,34 @@ export function ProductGrid() {
 
       {/* Our Products */}
 
-      <ProductGridComponent />
+      <div className="mt-20">
+        <Heading text="On Sale Products" />
+        {/* <Filtercomponent /> */}
+        <ProductGridComponent />
+      </div>
 
       {/* Add here to that grid component */}
-      {/* @ts-ignore */}
-      <VideoGrid cards={cards} />
 
+
+      <div className="mt-20">
+        <Heading text="Video Gallery" />
+        {/* @ts-ignore */}
+        <VideoGrid cards={cards} />
+      </div>
       {/* Scroll Effect Component */}
 
-      <HeroScrollDemo title="Our Bestsellers" discription="Checkout Here" imageId={238} />
+      <div className="-mt-20">
+        <HeroScrollDemo title="Top Pick of the Season" discription="Checkout Here" imageId={238} />
+      </div>
+
+
+      {/* Third Component */}
+      <div className="mt-20">
+        <Heading text="Fast, Reliable, and Right to Your Door!" />
+        <Earthcomponent />
+      </div>
 
       {/* Infinite Scrolling Feedback */}
-
       <InfiniteMovingCardsDemo />
 
     </motion.div>

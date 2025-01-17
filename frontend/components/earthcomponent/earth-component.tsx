@@ -4,7 +4,6 @@ import React from 'react'
 import EarthComponent from '@/app/pages/secondpage/page';
 
 
-
 const Earthcomponent = () => {
     return (
         <div>
@@ -12,7 +11,7 @@ const Earthcomponent = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
-                className="w-full py-16 bg-gradient-to-b from-transparent to-neutral-50 dark:to-neutral-900"
+                className="w-full bg-gradient-to-b from-transparent to-neutral-50 dark:to-neutral-900"
             >
                 <div className="container mx-auto px-4">
                     <motion.div
