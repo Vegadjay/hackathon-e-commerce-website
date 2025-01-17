@@ -2650,7 +2650,7 @@ const ProductGridComponent = () => {
                                     />
                                     {product.sale && (
                                         <div className="absolute top-2 right-2 bg-gradient-to-r from-red-600 to-red-400 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-md">
-                                            {product.sale} OFF
+                                            {product.sale}
                                         </div>
                                     )}
                                 </Link>
