@@ -15,7 +15,7 @@ export const InfiniteMovingCards = ({
         quote: string;
         name: string;
         title: string;
-        rating?: number; // Rating out of 5
+        rating?: number;
     }[];
     direction?: "left" | "right";
     speed?: "fast" | "normal" | "slow";
@@ -24,12 +24,19 @@ export const InfiniteMovingCards = ({
 }) => {
     const containerRef = React.useRef<HTMLDivElement>(null);
     const scrollerRef = React.useRef<HTMLUListElement>(null);
+    const [start, setStart] = useState(false);
+
+    const gradientColors = [
+        'from-purple-600/80 to-pink-500/80',
+        'from-blue-500/80 to-teal-400/80',
+        'from-green-500/80 to-emerald-400/80',
+        'from-yellow-400/80 to-orange-500/80',
+        'from-red-500/80 to-rose-400/80'
+    ];
 
     useEffect(() => {
         addAnimation();
     }, []);
-
-    const [start, setStart] = useState(false);
 
     function addAnimation() {
         if (containerRef.current && scrollerRef.current) {
@@ -113,10 +120,7 @@ export const InfiniteMovingCards = ({
             >
                 {items.map((item, idx) => (
                     <li
-                        className="w-[350px] max-w-full relative rounded-2xl border flex-shrink-0 border-gray-200 px-8 py-6 md:w-[450px] shadow-sm hover:shadow-md transition-shadow duration-200"
-                        style={{
-                            background: "linear-gradient(180deg, #ffffff, #f8fafc)",
-                        }}
+                        className={`w-[350px] max-w-full relative rounded-2xl border-0 flex-shrink-0 px-8 py-6 md:w-[450px] backdrop-blur-sm bg-gradient-to-br ${gradientColors[idx % gradientColors.length]} shadow-lg hover:shadow-xl transition-all duration-200`}
                         key={item.name}
                     >
                         <blockquote>
@@ -124,17 +128,16 @@ export const InfiniteMovingCards = ({
                                 aria-hidden="true"
                                 className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
                             ></div>
-                            {/* @ts-ignore */}
-                            <StarRating rating={item.rating} />
-                            <span className="relative z-20 text-sm leading-[1.6] text-gray-700 font-normal mt-3 block">
+                            <StarRating rating={item.rating || 0} />
+                            <span className="relative z-20 text-sm leading-[1.6] text-white font-normal mt-3 block">
                                 {item.quote}
                             </span>
                             <div className="relative z-20 mt-6 flex flex-row items-center">
                                 <span className="flex flex-col gap-1">
-                                    <span className="text-sm leading-[1.6] text-gray-900 font-medium">
+                                    <span className="text-sm leading-[1.6] text-white font-medium">
                                         {item.name}
                                     </span>
-                                    <span className="text-sm leading-[1.6] text-gray-500 font-normal">
+                                    <span className="text-sm leading-[1.6] text-white/80 font-normal">
                                         {item.title}
                                     </span>
                                 </span>

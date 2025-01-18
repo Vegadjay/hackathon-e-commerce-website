@@ -116,7 +116,7 @@ to get all review of product with username and its rating (for display review pa
 
 
 
-
+<!-- TODO: Fix that all spacing things that is not working proper -->
 
 
 
@@ -134,15 +134,14 @@ https://tailwindui.com/components/marketing/sections/bento-grids
 
 Update that products and render that all in corosal 
 
-
-todo:
-
 Make that third page that is not complete
 https://ui.aceternity.com/components/container-scroll-animation
 https://ui.aceternity.com/components/file-upload
 https://ui.aceternity.com/components/infinite-moving-cards
 https://ui.aceternity.com/components/layout-grid
 https://ui.aceternity.com/components/sticky-scroll-reveal
+
+
 
 
 For badge use this

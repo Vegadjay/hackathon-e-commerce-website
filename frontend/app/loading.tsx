@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -77,7 +78,6 @@ const Loader = () => {
           variants={bagVariants}
           className="relative"
         >
-          {/* Bag Handles with shine effect */}
           <div className="flex justify-center space-x-8">
             <div className="relative w-8 h-8 border-t-4 border-l-4 border-r-4 rounded-t-full border-red-400 overflow-hidden">
               <motion.div
