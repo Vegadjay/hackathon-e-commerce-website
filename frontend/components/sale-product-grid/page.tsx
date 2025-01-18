@@ -2499,18 +2499,8 @@ const products = [
     },
 ]
 
-
 const ProductGridComponent = () => {
-    const [selectedCategory, setSelectedCategory] = useState("All");
-    const [sortBy, setSortBy] = useState("default");
-    const [searchQuery, setSearchQuery] = useState("");
     const [isLoading, setIsLoading] = useState(true);
-    const [priceRange, setPriceRange] = useState([0, 10000]);
-    const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [showFilters, setShowFilters] = useState(true);
-
-    const filterRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -2520,168 +2510,50 @@ const ProductGridComponent = () => {
         return () => clearTimeout(timer);
     }, []);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 100) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    useEffect(() => {
-        setIsLoading(true);
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 500);
-
-        return () => clearTimeout(timer);
-    }, [selectedCategory, sortBy, searchQuery, priceRange, selectedSizes]);
-
-    const getFilteredProducts = () => {
-        return products.filter(product => {
-            if (selectedCategory !== "All" && product.category !== selectedCategory) {
-                return false;
-            }
-
-            if (searchQuery) {
-                const query = searchQuery.toLowerCase();
-                const searchMatch =
-                    product.name.toLowerCase().includes(query) ||
-                    product.description?.toLowerCase().includes(query) ||
-                    product.category.toLowerCase().includes(query);
-                if (!searchMatch) return false;
-            }
-
-            if (product.price < priceRange[0] || product.price > priceRange[1]) {
-                return false;
-            }
-
-            if (selectedSizes.length > 0) {
-                if (!product.size?.some(size => selectedSizes.includes(size))) {
-                    return false;
-                }
-            }
-
-            return true;
-        }).sort((a, b) => {
-            switch (sortBy) {
-                case "price-asc":
-                    return a.price - b.price;
-                case "price-desc":
-                    return b.price - a.price;
-                case "name-asc":
-                    return a.name.localeCompare(b.name);
-                case "name-desc":
-                    return b.name.localeCompare(a.name);
-                default:
-                    return 0;
-            }
-        });
-    };
-
-    const resetFilters = () => {
-        setSelectedCategory("All");
-        setSortBy("default");
-        setSearchQuery("");
-        setPriceRange([0, 10000]);
-        setSelectedSizes([]);
-    };
-
-    const filteredAndSortedProducts = getFilteredProducts();
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <div className="flex flex-col lg:flex-row gap-8">
-                <motion.aside
-                    ref={filterRef}
-                    className={`lg:w-64 flex-shrink-0 transition-all duration-300 ${isScrolled ? "lg:sticky lg:top-4" : ""
-                        }`}
-                    style={{
-                        position: isScrolled ? "sticky" : "relative",
-                        top: isScrolled ? "1rem" : "0",
-                        height: "fit-content",
-                        opacity: showFilters ? 1 : 0.5,
-                        transform: `translateY(${showFilters ? "0" : "-1rem"})`
-                    }}
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3 }}
-                >
-                    <div className="bg-white dark:bg-neutral-900 rounded-xl shadow-lg p-6">
-                        <ProductFilters
-                            selectedCategory={selectedCategory}
-                            onCategoryChange={setSelectedCategory}
-                            sortBy={sortBy}
-                            onSortChange={setSortBy}
-                            searchQuery={searchQuery}
-                            onSearchChange={setSearchQuery}
-                            priceRange={priceRange}
-                            onPriceRangeChange={setPriceRange}
-                            selectedSizes={selectedSizes}
-                            onSizesChange={setSelectedSizes}
-                            // @ts-ignore
-                            onReset={resetFilters}
-                        />
-                    </div>
-                </motion.aside>
-
-                {/* Products grid */}
-                <div className="flex-1">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                        {filteredAndSortedProducts.map((product) => (
-                            <motion.div
-                                key={product.id}
-                                className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-full"
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5 }}
-                                whileHover={{ y: -5 }}
-                            >
-                                <Link href={`/product/${product.id}`} className="relative pt-[100%] bg-gray-50 block">
-                                    <img
-                                        src={product.images[0]}
-                                        alt={product.name}
-                                        className="absolute top-0 left-0 w-full h-full object-contain p-4"
-                                    />
-                                    {product.sale && (
-                                        <div className="absolute top-2 right-2 bg-gradient-to-r from-red-600 to-red-400 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-md">
-                                            {product.sale}
-                                        </div>
-                                    )}
-                                </Link>
-
-                                <div className="p-4 flex flex-col flex-1">
-                                    <Link href={`/product/${product.id}`} className="group">
-                                        <div className="flex justify-between items-start mb-2">
-                                            <h3 className="text-lg font-semibold truncate flex-1 group-hover:text-blue-600">
-                                                {product.name}
-                                            </h3>
-                                        </div>
-                                    </Link>
-
-                                    <div className="flex items-center justify-between mb-3">
-                                        <div className="flex items-center gap-2">
-                                            <span className="text-xl font-bold">Rs. {product.price.toFixed(2)}</span>
-                                            {product.sale && (
-                                                <span className="text-sm text-gray-500 line-through">
-                                                    Rs.{(product.price * (1 + parseInt(product.sale) / 100)).toFixed(2)}
-                                                </span>
-                                            )}
-                                        </div>
-                                    </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {products.map((product) => (
+                    <div key={product.id} className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-full">
+                        <a href={`/product/${product.id}`} className="relative pt-[100%] bg-gray-50 block">
+                            <img
+                                src={product.images[0]}
+                                alt={product.name}
+                                className="absolute top-0 left-0 w-full h-full object-contain p-4"
+                            />
+                            {/* Sale badge */}
+                            {product.sale && (
+                                <div className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-sm font-semibold shadow-md">
+                                    {product.sale} OFF
                                 </div>
-                            </motion.div>
-                        ))}
+                            )}
+                        </a>
+
+                        <div className="p-4 flex flex-col flex-1">
+                            <a href={`/product/${product.id}`} className="group">
+                                <div className="flex justify-between items-start mb-2">
+                                    <h3 className="text-lg font-semibold truncate flex-1">
+                                        {product.name}
+                                    </h3>
+                                </div>
+                            </a>
+
+                            <div className="flex items-center justify-between mb-3">
+                                <div className="flex items-center gap-2">
+                                    <span className="text-xl font-bold">Rs. {product.price.toFixed(2)}</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                ))}
             </div>
         </div>
     );
 };
 
 export default ProductGridComponent;
+
