@@ -1,19 +1,18 @@
-// Layout.tsx
 'use client';
+
 import { useState, useEffect } from "react";
 import { useSearchParams, useParams } from "next/navigation";
 import Product from './page';
-import { products } from './data';
 import { Skeleton } from "@/components/ui/skeleton";
 
 interface Products {
-  id: number;
+  _id: string;
   name: string;
   price: number;
   rating: number;
   reviews: number;
   answers: number;
-  inStock: boolean;
+  inStock: number;
   delivery: string;
   deliveryDate: string;
   seller: string;
@@ -22,7 +21,7 @@ interface Products {
   images: string[];
   features: string[];
   description: string;
-  chartArray?: { month: string; revenue: number; }[];
+  chartArray?: { month: string; revenue: number }[];
 }
 
 const Layout = () => {
@@ -30,34 +29,41 @@ const Layout = () => {
   const searchParams = useSearchParams();
   const [selectedProduct, setSelectedProduct] = useState<Products | null>(null);
 
-  useEffect(() => {
-    const routeId = params?.id;
-    const queryId = searchParams.get('id');
+  const fetchProductById = async (productId: string) => {
+    try {
+      const response = await fetch(`/api/product/${productId}`).then((res) => res.json());
+      console.log(response,"response");
+      if (response.success) {
+        setSelectedProduct(response.data);
+      } else {
+        console.error(`Failed to fetch product: ${response.error}`);
+      }
+    } catch (error) {
+      console.error(`Error fetching product: ${error}`);
+    }
+  };
 
-    const id = Array.isArray(routeId) ? routeId[0] : routeId || (Array.isArray(queryId) ? queryId[0] : queryId) || '';
+  useEffect(() => {
+    const id:any = params?.id || searchParams.get('id') || '';
 
     if (id) {
-      const numericId = parseInt(id, 10);
-      if (!isNaN(numericId)) {
-        const foundProduct = products.find(p => p.id === numericId);
-        if (foundProduct) {
-          setSelectedProduct(foundProduct);
-        }
-      }
+      fetchProductById(id);
     }
-  }, [params, searchParams]);
+  }, []);
 
   if (!selectedProduct) {
-    return <div className="w-full h-screen">
-      <Skeleton className="w-full h-full" />
-    </div>;
+    return (
+      <div className="w-full h-screen">
+        <Skeleton className="w-full h-full" />
+      </div>
+    );
   }
 
   return (
     <div className="container mx-auto p-4">
-      <Product id={selectedProduct.id} />
+      <Product product={selectedProduct} />
     </div>
   );
-}
+};
 
 export default Layout;

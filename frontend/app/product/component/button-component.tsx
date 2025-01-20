@@ -7,14 +7,15 @@ import {
     ModalContent,
     ModalFooter,
     ModalTrigger,
+
 } from "@/components/ui/animated-modal";
 import { AnimatePresence, motion } from "framer-motion";
-import { ShoppingBag, ShoppingCart, Check, CreditCard } from "lucide-react";
+import { Check } from "lucide-react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 
 interface Product {
-    id: string;
+    _id: string;
     name: string;
     price: number;
 }
@@ -37,13 +38,11 @@ export function AddToCartModal({ product, quantity, selectedSize }: AddToCartMod
             return;
         }
 
-
         const userId = Cookies.get('userId');
         if (!userId) {
             router.push('/login');
             return;
         }
-
         try {
             setIsLoading(true);
             const response = await fetch('/api/cart', {
@@ -54,20 +53,19 @@ export function AddToCartModal({ product, quantity, selectedSize }: AddToCartMod
                 body: JSON.stringify({
                     userId,
                     products: [{
-                        productId: product.id,
+                        productId: product._id,
                         quantity,
                         price: product.price.toString(),
-                        size: selectedSize,
+                        size: selectedSize ?? "N/A",
                     }],
-                    totalPrice: product.price * quantity
+                    totalPrice: 0
                 }),
-            });
+            }).then((res) => res.json());
 
-            const data = await response.json();
-            if (!response.ok) {
-                throw new Error(data.error || 'Failed to add to cart');
+            if (!response.success) {
+                alert('Failed to add to cart. Please try again.');
+                return;
             }
-
             setIsSuccess(true);
             setTimeout(() => setIsSuccess(false), 2000);
         } catch (error) {
@@ -75,6 +73,7 @@ export function AddToCartModal({ product, quantity, selectedSize }: AddToCartMod
             alert('Failed to add to cart. Please try again.');
         } finally {
             setIsLoading(false);
+            setIsHovered(false);
         }
     };
 
@@ -82,11 +81,6 @@ export function AddToCartModal({ product, quantity, selectedSize }: AddToCartMod
         hover: { scale: 1.02 },
         tap: { scale: 0.98 },
         initial: { scale: 1 }
-    };
-
-    const overlayVariants = {
-        hover: { opacity: 0.2 },
-        initial: { opacity: 0 }
     };
 
     return (
@@ -168,6 +162,10 @@ export function AddToCartModal({ product, quantity, selectedSize }: AddToCartMod
                                         <span className="font-medium">{quantity}</span>
                                     </div>
                                     <div className="flex justify-between items-center">
+                                        <span className="text-gray-600 dark:text-gray-300">Price:</span>
+                                        <span className="font-medium">{product.price}</span>
+                                    </div>
+                                    <div className="flex justify-between items-center">
                                         <span className="text-gray-600 dark:text-gray-300">Size:</span>
                                         <span className="font-medium">{selectedSize}</span>
                                     </div>
@@ -221,7 +219,7 @@ export function BuyNowButton({ product, quantity, selectedSize }: AddToCartModal
             alert("Product not found");
             return;
         }
-        router.push(`/checkout?productId=${product.id}&quantity=${quantity}&size=${selectedSize}&price=${product.price}`);
+        router.push(`/checkout?productId=${product._id}&quantity=${quantity}&size=${selectedSize}&price=${product.price}`);
     };
 
     return (
@@ -229,8 +227,7 @@ export function BuyNowButton({ product, quantity, selectedSize }: AddToCartModal
             onClick={handleBuyNow}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className="w-full relative overflow-hidden bg-green-500 hover:bg-green-600 
-                 text-white rounded-lg h-12 transition-all duration-300"
+            className="w-full relative overflow-hidden bg-green-500 hover:bg-green-600 text-white rounded-lg h-12 transition-all duration-300"
         >
             <div className="relative w-full h-full overflow-hidden">
                 <motion.div

@@ -2,16 +2,17 @@
 
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
-import { products } from "lib/data";
 import { ProductCard } from "@/components/products/product-card-detailed";
+import { useEffect, useState } from "react";
 
 function ProductGrid() {
   const searchParams = useSearchParams();
   const category = searchParams.get("category");
+  const [filteredProducts, setFilteredProducts] = useState<any>([]);
 
-  const filteredProducts = products.filter(
-    (product) => product.category === category
-  );
+  // const filteredProducts = products.filter(
+  //   (product) => product.category === category
+  // );
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -35,6 +36,15 @@ function ProductGrid() {
     }
   };
 
+  useEffect(()=>{
+    async function fetchData(){
+      const response = await fetch(`/api/product/category/${category}`);
+      const data = await response.json();
+      setFilteredProducts(data.data);
+    }
+    fetchData();
+  },[]);
+
   return (
     <main className="mx-auto max-w-7xl px-6 py-12 sm:px-8 lg:px-10">
       <motion.div
@@ -43,9 +53,9 @@ function ProductGrid() {
         initial="hidden"
         animate="show"
       >
-        {filteredProducts.map((product) => (
+        {filteredProducts.map((product:any) => (
           <motion.div
-            key={product.id}
+            key={product._id}
             variants={itemVariants}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}

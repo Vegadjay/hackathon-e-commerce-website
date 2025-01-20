@@ -1,251 +1,296 @@
-"use client";
+'use client'
 
-import { motion } from "framer-motion";
-import { ShoppingCart, Trash2, AlertCircle, Loader2 } from "lucide-react";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import Cookies from "js-cookie";
-import { Button } from "@/components/ui/button";
+import { useState, useEffect, useCallback } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ShoppingBag, Trash2, AlertCircle, ChevronRight, Plus, Minus, ShoppingCart } from 'lucide-react'
+import Image from 'next/image'
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import Loader from '@/components/Loader'
+import Cookie from 'js-cookie'
+import { useRouter } from 'next/navigation'
 
-interface Product {
-  productId: string;
-  quantity: number;
-  size: string;
-  price: string;
-  _id: string;
+interface CartItem {
+  productId: string
+  quantity: number
+  size: string
+  price: string
+  _id: string
+  image: string
+  name: string
 }
 
-interface CartResponse {
-  success: boolean;
-  data: {
-    _id: string;
-    userId: string;
-    products: Product[];
-    totalPrice: number;
-    createdAt: string;
-    updatedAt: string;
-    __v: number;
-  };
+interface CartData {
+  success: boolean
+  data: CartItem[]
+  totalPrice: number
 }
 
-export default function CartPage() {
-  const router = useRouter();
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [cartItems, setCartItems] = useState<Product[]>([]);
-  const [totalPrice, setTotalPrice] = useState(0);
+export default function OptimizedCoolCartPage() {
+  const [cartData, setCartData] = useState<any | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [couponCode, setCouponCode] = useState('')
+  const userId = Cookie.get('userId')
+  const router = useRouter()
 
-  const [tilt, setTilt] = useState(0);
+  const fetchCartData = useCallback(async () => {
+    if (!userId) {
+      setIsLoading(false)
+      router.push('/login')
+      return
+    }
 
-  // Event handler for mouse movement over the button
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const button = e.currentTarget;
-    const { left, right } = button.getBoundingClientRect();
-    const center = (left + right) / 2;
-    const distance = e.clientX - center;
-    setTilt(distance / 10);
-  };
-
-  const handleMouseLeave = () => {
-    setTilt(0);
-  };
+    try {
+      const response = await fetch(`/api/cart/${userId}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+      }).then((res) => res.json());
+      if (!response.success) throw new Error(response.error)
+      else {
+        setCartData(response)
+      }
+    } catch (err) {
+      setError("An error occurred");
+    } finally {
+      setIsLoading(false)
+    }
+  }, [userId])
 
   useEffect(() => {
-    const fetchCartItems = async () => {
-      const userId = Cookies.get("userId");
-      if (!userId) {
-        router.push("/login");
-        return;
-      }
+    fetchCartData()
+  }, [fetchCartData])
 
-      try {
-        const response = await fetch(`/api/cart/${userId}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-
-        if (!response.ok) {
-          throw new Error("Failed to fetch cart items");
-        }
-
-        const data: CartResponse = await response.json();
-
-        if (data.success) {
-          setCartItems(data.data.products);
-          setTotalPrice(data.data.totalPrice);
-        } else {
-          throw new Error("Failed to fetch cart data");
-        }
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "An error occurred");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchCartItems();
-  }, [router]);
-
-  const handleRemoveItem = async (productId: string) => {
-    const userId = Cookies.get("userId");
-
-    if (!userId) {
-      alert("User not logged in!");
+  const handleQuantityChange = async (itemId: string, newQuantity: number, size: string, price: string) => {
+    if (!userId || !cartData) return
+    console.log("newQuantity", newQuantity)
+    if(newQuantity == 0) {
+      handleRemoveItem(itemId);
       return;
     }
 
     try {
-      const deleteResponse = await fetch(`/api/cart/${userId}/removeproduct`, {
-        method: "DELETE",
+      setIsLoading(true);
+      const response = await fetch('/api/cart', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ productId }),
-      });
+        body: JSON.stringify({
+          userId: userId,
+          products: [{
+            productId: itemId.toString(),
+            quantity: newQuantity,
+            size: size,
+            price: price
+          }],
+          totalPrice: 0
+        }),
+      }).then((res) => res.json());
+      console.log(response);
+      if (!response.success) throw new Error(response.error)
 
-      if (!deleteResponse.ok) {
-        throw new Error("Failed to remove item from cart");
-      }
-
-      const deleteData = await deleteResponse.json();
-      if (deleteData.success) {
-        setCartItems((prevItems) =>
-          prevItems.filter((item) => item.productId !== productId)
-        );
-        setTotalPrice((prevTotal) =>
-          prevTotal -
-          parseInt(cartItems.find((item) => item.productId === productId)?.price || "0")
-        );
-      } else {
-        throw new Error(deleteData.message || "Error removing item");
-      }
-    } catch (error) {
-      console.error("Failed to remove item:", error);
-      alert("Failed to remove item. Please try again.");
+      await fetchCartData()
+      setIsLoading(false);
+    } catch (err) {
+      setError('Failed to update quantity');
     }
-  };
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <Loader2 className="h-6 w-6 animate-spin" />
-        <span className="ml-2">Loading cart...</span>
-      </div>
-    );
   }
+
+  const handleRemoveItem = async (itemId: string) => {
+    if (!userId || !cartData) return
+    console.log('Removing item:', itemId)
+    try {
+      const response = await fetch(`/api/cart/${userId}/removeproduct`, {
+        method: 'DELETE',
+        body: JSON.stringify({ productId: itemId.toString() })
+      }).then((res) => res.json());
+
+      if (!response.success) {
+        throw new Error(response.error)
+      }
+      else {
+        await fetchCartData()
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to remove item')
+    }
+  }
+
+  const handleApplyCoupon = () => {
+    // Implement coupon logic here
+    console.log('Applying coupon:', couponCode)
+  }
+
+  if (isLoading) return <Loader />
 
   if (error) {
     return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-center"
+        className="max-w-md mx-auto mt-10 bg-white p-8 rounded-lg shadow-lg text-center"
       >
-        <motion.div
-          initial={{ scale: 0.8 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.5, bounce: 0.4, type: "spring" }}
-          className="flex justify-center mb-4"
+        <AlertCircle className="h-16 w-16 text-red-500 mx-auto mb-4" />
+        <h2 className="text-2xl font-bold text-gray-800 mb-2">Oops! Something went wrong</h2>
+        <p className="text-gray-600 mb-4">{error || 'Unable to load cart data'}</p>
+        <Button
+          onClick={() => window.location.reload()}
+          className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105"
         >
-          <AlertCircle className="h-14 w-14 text-red-500" />
-        </motion.div>
-        <h2 className="text-2xl font-semibold text-gray-900">
-          Oops! No items in your cart.
-        </h2>
-        <p className="mt-2 text-gray-600">
-          It looks like you haven’t added anything yet.
-        </p>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.5, duration: 0.3, type: "spring" }}
-        >
-          <Button
-            onClick={() => router.push("/")}
-            className="mt-6 px-8 py-3 text-lg font-medium text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 shadow-lg"
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave} 
-            style={{
-              transform: `rotateZ(${tilt}deg)`,
-              transition: "transform 0.2s ease-out",
-            }}
-          >
-            <div className="flex items-center gap-3">
-              <motion.img
-                src="/animation_gifs/shopping-bags.png"
-                alt="Shopping Bag"
-                height={24}
-                width={24}
-                className="h-6 w-6 object-contain"
-                initial={{ rotate: 0 }}
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.8, ease: "easeInOut" }}
-              />
-              <span>Continue Shopping</span>
-            </div>
-          </Button>
-        </motion.div>
+          Try Again
+        </Button>
       </motion.div>
-    </div>
+    )
+  }
 
+  if (cartData.data.length == 0) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-md mx-auto mt-10 bg-white p-8 rounded-lg shadow-lg text-center"
+      >
+        <ShoppingCart className="h-16 w-16 text-gray-500 mx-auto mb-4" />
+        <h2 className="text-2xl font-bold text-gray-800 mb-2">Your Cart is Empty</h2>
+        <p className="text-gray-600 mb-4">Looks like you haven't added anything to your cart yet.</p>
+        <Button
+          onClick={() => router.push("/")}
+          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105"
+        >
+          Start Shopping
+        </Button>
+      </motion.div>
     );
   }
 
+
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="mx-auto max-w-5xl p-6 bg-white shadow-md rounded-lg">
-        <div className="flex items-center justify-between mb-8">
-          <h1 className="text-2xl font-bold text-gray-800">
-            <ShoppingCart className="inline-block w-6 h-6 mr-2" />
-            Your Cart
-          </h1>
-        </div>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="max-w-5xl mx-auto mt-10 bg-white rounded-lg shadow-xl overflow-hidden"
+    >
+      <div className="px-4 py-5 sm:p-6">
+        <h1 className="text-3xl font-extrabold text-gray-900 flex items-center mb-8">
+          <ShoppingBag className="w-8 h-8 mr-2 text-purple-600" />
+          Your Stylish Cart
+        </h1>
 
-        {cartItems.length === 0 ? (
-          <p className="text-gray-500 text-center">Your cart is empty.</p>
-        ) : (
-          <>
-            <ul className="divide-y divide-gray-200">
-              {cartItems.map((item) => (
-                <li key={item._id} className="flex justify-between py-4">
-                  <div>
-                    <p className="text-gray-800 font-semibold">
-                      Product ID: {item.productId}
-                    </p>
-                    <p className="text-gray-600">Size: {item.size}</p>
-                    <p className="text-gray-600">
-                      Price: ₹{item.price} x {item.quantity}
-                    </p>
-                  </div>
-                  <div className="flex items-center">
-                    <Button
-                      variant="outline"
-                      onClick={() => handleRemoveItem(item.productId)}
-                    >
-                      <Trash2 className="w-4 h-4" />
-                      Remove
-                    </Button>
-                  </div>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-6 text-right">
-              <p className="text-lg font-semibold">Total: ₹{totalPrice}</p>
+        <AnimatePresence>
+          {cartData.data.map((item: any) => (
+            <motion.div
+              key={item._id}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20 }}
+              transition={{ duration: 0.3 }}
+              className="flex items-center space-x-4 border-b border-gray-200 py-4"
+            >
+              <div className="flex-shrink-0 w-24 h-24 bg-gray-200 rounded-md overflow-hidden">
+                <Image
+                  src={item.image || "/placeholder.svg"}
+                  alt={item.name}
+                  width={100}
+                  height={100}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex-grow">
+                <h3 className="text-lg font-medium text-gray-900">{item.name}</h3>
+                <p className="text-gray-500">Size: {item.size}</p>
+                <p className="text-purple-600 font-semibold">₹{item.price}</p>
+                <div className="flex items-center mt-2">
+                  <Button
+                    onClick={() => {
+                      handleQuantityChange(item.productId, Math.max(0, item.quantity - 1), item.size, item.price)
+                    }}
+                    variant="outline"
+                    size="icon"
+                    className="h-8 w-8"
+                  >
+                    <Minus className="h-4 w-4" />
+                  </Button>
+                  <span className="mx-2 text-gray-700">{item.quantity}</span>
+                  <Button
+                    onClick={() => {
+                      handleQuantityChange(item.productId, item.quantity + 1, item.size, item.price)
+                    }}
+                    variant="outline"
+                    size="icon"
+                    className="h-8 w-8"
+                  >
+                    <Plus className="h-4 w-4" />
+                  </Button>
+                </div>
+              </div>
               <Button
-                className="mt-4"
-                onClick={() => alert("Proceeding to checkout...")}
+                onClick={() => handleRemoveItem(item.productId)}
+                variant="outline"
+                className="flex items-center space-x-1 hover:scale-110 hover:bg-white text-red-900 hover:text-red-700 transition duration-300"
               >
-                Proceed to Checkout
+                <Trash2 className="w-4 h-4" />
+                <span>Remove</span>
               </Button>
-            </div>
-          </>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+
+        {cartData.data.length === 0 && (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="text-center text-gray-500 my-8"
+          >
+            Your cart is empty. Let's add some fabulous items!
+          </motion.p>
         )}
+
+        <div className="mt-8">
+          <div className="flex justify-between items-center mb-4">
+            <span className="text-lg font-medium text-gray-900">Subtotal</span>
+            <span className="text-2xl font-bold text-purple-600">₹{cartData.totalPrice}</span>
+          </div>
+
+          <div className="space-y-4">
+            {/* <div>
+              <Label htmlFor="coupon" className="block text-sm font-medium text-gray-700">
+                Coupon Code
+              </Label>
+              <div className="mt-1 flex rounded-md shadow-sm">
+                <Input
+                  type="text"
+                  name="coupon"
+                  id="coupon"
+                  value={couponCode}
+                  onChange={(e) => setCouponCode(e.target.value)}
+                  className="flex-1 min-w-0 block w-full px-3 py-2 rounded-md focus:ring-purple-500 focus:border-purple-500 sm:text-sm border-gray-300"
+                  placeholder="Enter coupon code"
+                />
+                <Button
+                  onClick={handleApplyCoupon}
+                  className="ml-2 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+                >
+                  Apply
+                </Button>
+              </div>
+            </div> */}
+
+            <Button
+              className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center"
+              onClick={() => router.push('/checkout')}
+            >
+              <span>Proceed to Checkout</span>
+              <ChevronRight className="w-5 h-5 ml-2" />
+            </Button>
+          </div>
+        </div>
       </div>
-    </div>
-  );
+    </motion.div>
+  )
 }

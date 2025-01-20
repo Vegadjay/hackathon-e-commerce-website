@@ -1,8 +1,10 @@
 "use client"
 
 import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
+// @ts-ignore
 import { Chart, type ChartConfig, ChartTooltipContent } from "@/components/ui"
-import { Card } from "some-other-module"
+import { Card } from "@/components/ui/card"
+import { ChartTooltip } from "@/components/ui/chart"
 
 const chartData = [
     { month: "Jan", revenue: 1500 },
@@ -29,7 +31,9 @@ const chartConfig = {
 export function Component() {
     return (
         <Card>
+            {/* @ts-ignore */}
             <Card.Header title="Monthly Revenue Overview" description="Jan - Dec 2024" />
+            {/* @ts-ignore */}
             <Card.Content>
                 <Chart config={chartConfig}>
                     <LineChart
@@ -52,6 +56,7 @@ export function Component() {
                         />
                     </LineChart>
                 </Chart>
+                {/* @ts-ignore */}
             </Card.Content>
         </Card>
     )

@@ -4,7 +4,7 @@ import { ShoppingCart } from "lucide-react";
 import { motion } from 'framer-motion';
 
 interface ProductCardProps {
-  id: number;
+  _id: any;
   name: string;
   price: number;
   images: string[];
@@ -14,7 +14,7 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ 
-  id, 
+  _id, 
   name, 
   price, 
   description, 
@@ -22,7 +22,7 @@ export function ProductCard({
   images 
 }: ProductCardProps) {
   return (
-    <Link href={`/product/${id}`}>
+    <Link href={`/product/${_id}`}>
       <motion.div 
         className="group relative overflow-hidden rounded-lg bg-white shadow-md hover:shadow-xl transition-all duration-300"
         whileHover={{ scale: 1.02 }}
@@ -34,6 +34,7 @@ export function ProductCard({
             alt={name}
             width={400}
             height={400}
+
             className="h-full w-full object-cover object-center transform group-hover:scale-110 transition-transform duration-500"
             loading="lazy"
           />

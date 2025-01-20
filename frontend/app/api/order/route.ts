@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import Order from '@/models/Order';
-import connectToDatabase from 'lib/dbConnect';
+import connectToDatabase from '@/lib/dbConnect';
 import { z } from 'zod';
 import User from '@/models/User';
 import nodemailer from 'nodemailer';

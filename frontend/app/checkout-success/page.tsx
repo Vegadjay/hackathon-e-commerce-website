@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
-import { products } from "lib/data";
+import { products } from "@/lib/data";
 import { ProductCard } from "@/components/products/product-card-detailed";
 
 function ProductGrid() {

@@ -1,6 +1,5 @@
 "use client";
 import React from 'react';
-import { LineChart, Line, XAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Star, Heart, Share2, Check, AlertCircle, Facebook, Twitter, Plus, Minus, Linkedin } from "lucide-react";
@@ -10,30 +9,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import ImageSwapper from "@/components/image/page";
 import Cookies from "js-cookie";
 import { AddToCartModal, BuyNowButton } from "@/app/product/component/button-component";
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { products } from '@/lib/data';
 import RevenueChart from '@/app/product/component/price-chart';
 import { Compare } from '@/components/ui/compare';
 
 interface ProductProps {
-  id: number;
+  product: any;
 }
 
-const Product: React.FC<ProductProps> = ({ id }) => {
+const Product: React.FC<ProductProps> = ({product}) => {
   const router = useRouter();
   const [quantity, setQuantity] = useState(1);
-  const [selectedSize, setSelectedSize] = useState("");
+  const [selectedSize, setSelectedSize] = useState(product.size[0]);
   const [isLoading, setIsLoading] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
   const [showShareMenu, setShowShareMenu] = useState(false);
-
-  const product = products.find((p) => p.id === id);
-
-  useState(() => {
-    if (product && product.size && product.size.length > 0) {
-      setSelectedSize(product.size[0]);
-    }
-  });
 
   const handleClick = () => {
     setIsSaved(!isSaved);
@@ -87,56 +76,6 @@ const Product: React.FC<ProductProps> = ({ id }) => {
     }
   };
 
-  const handleAddToCart = async () => {
-    if (!product) {
-      alert('Product not found');
-      return;
-    }
-
-    setIsLoading(true);
-    const userId = Cookies.get('userId');
-
-    if (!userId) {
-      router.push('/login');
-      return;
-    }
-    try {
-      const response = await fetch('/api/cart', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          userId: userId,
-          products: [
-            {
-              productId: "677816d602b67aeb8b631fd0",
-              quantity: quantity,
-              price: product.price.toString(),
-              size: selectedSize,
-            }
-          ],
-          totalPrice: 0
-        }),
-      });
-
-      const data = await response.json();
-
-      if (!data.success) {
-        throw new Error(data.error || 'Failed to add to cart');
-      }
-
-      alert('Added to cart successfully!');
-    } catch (error) {
-      console.error('Add to cart error:', error);
-      alert('Failed to add to cart. Please try again.');
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const totalSizes = ["XS", "S", "M", "L", "XL", "XXL", "XXXL"];
-
   const handleBuyNow = () => {
     if (product) {
       router.push(`/checkout?productId=${product.id}&quantity=${quantity}&size=${selectedSize}`);
@@ -154,7 +93,7 @@ const Product: React.FC<ProductProps> = ({ id }) => {
           <AlertCircle className="mx-auto h-12 w-12 text-red-500" />
           <h1 className="mt-4 text-2xl font-bold text-gray-800">Product Not Found</h1>
           <p className="text-gray-600 mt-2">
-            The product you are looking for (ID: {id}) does not exist or has been removed.
+            The product you are looking for NAME: ${product.name} does not exist or has been removed.
           </p>
           <button
             onClick={() => router.push("/")}
@@ -324,7 +263,7 @@ const Product: React.FC<ProductProps> = ({ id }) => {
               <div className="space-y-2">
                 <label className="block text-sm font-medium text-gray-700">Size</label>
                 <div className="flex gap-2">
-                  {product.size?.map((size) => {
+                  {product.size?.map((size:any) => {
                     const available = isSizeAvailable(size);
                     return (
                       <button
@@ -405,7 +344,7 @@ const Product: React.FC<ProductProps> = ({ id }) => {
               <div className="space-y-4">
                 <h2 className="font-bold text-lg">About this item</h2>
                 <ul className="space-y-2">
-                  {product.features.map((feature, index) => (
+                  {product.features.map((feature:any, index:any) => (
                     <motion.li
                       key={index}
                       initial={{ opacity: 0, x: -20 }}
@@ -461,6 +400,7 @@ const Product: React.FC<ProductProps> = ({ id }) => {
       </div>
     </motion.div>
   );
+
 };
 
 

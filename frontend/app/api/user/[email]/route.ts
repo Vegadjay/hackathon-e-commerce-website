@@ -1,24 +1,6 @@
 import { NextResponse } from 'next/server';
-import dbConnect from 'lib/dbConnect';
+import dbConnect from '@/lib/dbConnect';
 import User from '@/models/User';
-// import jwt from 'jsonwebtoken';
-
-// async function authenticate(req: Request) {
-// 	const token = req.headers.get('authorization')?.split(' ')[1];
-// 	if (!token) {
-// 		throw new Error('Unauthorized: Token is missing');
-// 	}
-
-// 	try {
-// 		const decoded: any = jwt.verify(token, process.env.JWT_SECRET as string);
-// 		if (decoded?.userId) {
-// 			return decoded;
-// 		}
-// 		return false;
-// 	} catch (error) {
-// 		throw new Error('Unauthorized: Invalid token');
-// 	}
-// }
 
 export async function GET(req: Request, { params }: { params: { email: string } }) {
 	try {

@@ -1,12 +1,10 @@
 interface Product {
-  id: number;
   name: string | "";
   sale?: string;
   price: number;
   rating: number;
   reviews: number;
-  answers: number;
-  inStock: boolean;
+  inStock: number;
   delivery: string;
   deliveryDate: string;
   seller: string;
@@ -27,14 +25,13 @@ interface ChartData {
 }
 
 export const products: Product[] = [
+
   {
-    "id": 1,
     "name": "Indigo Dream Suit Set",
     "price": 3199,
     "rating": 5,
     "reviews": 10000,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshak Co.",
@@ -117,13 +114,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 2,
     "name": "Mogra Gher Mul Cotton Suit Set",
     "price": 2899,
     "rating": 5.5,
     "reviews": 11000,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "9 To 12 Working days",
     "seller": "Rajwadi Poshak Co.",
@@ -207,13 +202,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 3,
     "name": "Tarin Green Floral Print Embroidered Suit Set",
     "price": 3199,
     "rating": 4.5,
     "reviews": 9000,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Indigo Apparel Co.",
@@ -296,13 +289,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 4,
     "name": "Izza Blue Floral Handblock Print Suit Set",
     "price": 4899,
     "rating": 3.5,
     "reviews": 7000,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Indigo Apparel Co.",
@@ -386,13 +377,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 5,
     "name": "Bhargavi with Chanderi Dupttta Suit Set",
     "price": 4299,
     "rating": 2.6,
     "reviews": 5200,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Indigo Apparel Co.",
@@ -474,13 +463,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 6,
     "name": "Ryza Megenta Floral Flarey Suit Set",
     "price": 4899,
     "rating": 6,
     "reviews": 12000,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Indigo Apparel Co.",
@@ -565,13 +552,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 7,
     "name": "Paisley Kashish Block Print Suit Set",
     "price": 4799,
     "rating": 4.5,
     "reviews": 9000,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Indigo Apparel Co.",
@@ -655,13 +640,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 8,
     "name": "Gaeti Green Embroidery Handblock Chanderi Kurta Pant Set",
     "price": 4999,
     "rating": 4,
     "reviews": 8000,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Indigo Apparel Co.",
@@ -746,13 +729,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 9,
     "name": "Royal Affairs Handblock Kurta and Pant Only",
     "price": 3399,
     "rating": 4.2,
     "reviews": 8500,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Indigo Apparel Co.",
@@ -836,13 +817,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 10,
     "name": "Patina Handblock Short Kurta",
     "price": 1499,
     "rating": 4.3,
     "reviews": 8600,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Indigo Apparel Co.",
@@ -925,13 +904,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 11,
     "name": "Peach Floral Buti Print Cotton Short Kurta",
     "price": 1499,
     "rating": 3.8,
     "reviews": 7500,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Indigo Apparel Co.",
@@ -1015,13 +992,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 12,
     "name": "FLORAL FANTASY SHORT KURTA",
     "price": 1099,
     "rating": 1,
     "reviews": 2000,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Indigo Apparel Co.",
@@ -1105,13 +1080,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 13,
     "name": "Mogra Gher Mul Cotton Suit Set",
     "price": 2899,
     "rating": 4,
     "reviews": 8000,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "9 To 12 Working days",
     "seller": "Indigo Apparel Co.",
@@ -1195,13 +1168,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 14,
     "name": "Najia Green Floral Handblock Print Suit Set",
     "price": 4899,
     "rating": 1,
     "reviews": 2000,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Indigo Apparel Co.",
@@ -1284,13 +1255,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 15,
     "name": "Mehreen Maroon Anarkali Cotton Suit Set",
     "price": 3449,
     "rating": 4,
     "reviews": 8000,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Indigo Apparel Co.",
@@ -1374,13 +1343,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 16,
     "name": "Bageecha Chanderi Silk Suit with Handwork Detailing",
     "price": 6199,
     "rating": 3.8,
     "reviews": 7500,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Indigo Apparel Co.",
@@ -1465,13 +1432,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 17,
     "name": "Parnia Peach Embroidery Handblock Chanderi Suit Set",
     "price": 5899,
     "rating": 3.9,
     "reviews": 7800,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Indigo Apparel Co.",
@@ -1555,13 +1520,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 18,
     "name": "Iris Blue Floral Chanderi Straight Fit Suit Set",
     "price": 5499,
     "rating": 3.8,
     "reviews": 7600,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Indigo Apparel Co.",
@@ -1645,13 +1608,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 19,
     "name": "Naadia Block Printed Cotton Kalidaar Handwork Suit Set",
     "price": 4899,
     "rating": 4.2,
     "reviews": 8300,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Indigo Apparel Co.",
@@ -1736,13 +1697,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 20,
     "name": "Yami Yellow Embroidered Anarkali Suit Set",
     "price": 5499,
     "rating": 2.2,
     "reviews": 4500,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Indigo Apparel Co.",
@@ -1826,13 +1785,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 21,
     "name": "Paakiza Purple Cotton Straight Handwork Suit Set",
     "price": 5399,
     "rating": 4.5,
     "reviews": 8900,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Indigo Apparel Co.",
@@ -1916,13 +1873,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 22,
     "name": "Lavanya Habutai Silk Suit Set",
     "price": 5999,
     "rating": 4.2,
     "reviews": 5000,
-    "answers": 154,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -2007,13 +1962,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 23,
     "name": "Kusum Suit Set in Silk with Handwork",
     "price": 5999,
     "rating": 4,
     "reviews": 5760,
-    "answers": 206,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -2099,13 +2052,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 24,
     "name": "Tyohar Jacquard Silk Handwork Suit Set with Organza Dupatta",
     "price": 5999,
     "rating": 4.3,
     "reviews": 12000,
-    "answers": 398,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -2188,13 +2139,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 25,
     "name": "Riyaaz Silk Suit Set with Jacquard Crush Dupatta",
     "price": 5499,
     "rating": 4.6,
     "reviews": 7041,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -2279,13 +2228,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 26,
     "name": "Sanjari Muslin Silk Suit Set with Organza Dupatta",
     "price": 5499,
     "rating": 4.4,
     "reviews": 9496,
-    "answers": 276,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -2370,13 +2317,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 27,
     "name": "Naari Zari Silk Suit Set with Patchwork & Embroidery",
     "price": 6499,
     "rating": 4.9,
     "reviews": 4303,
-    "answers": 122,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -2457,13 +2402,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 28,
     "name": "Sakhi Silk Suit Set with Embroidered Floral Detailing",
     "price": 5999,
     "rating": 4.5,
     "reviews": 7403,
-    "answers": 156,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -2549,13 +2492,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 29,
     "name": "Kalyani Silk Satin Embroidered Suit Set with Organza Dupatta",
     "price": 5999,
     "rating": 5,
     "reviews": 200,
-    "answers": 34,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -2642,13 +2583,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 30,
     "name": "Ruby Floral A-line Silk Suit set",
     "price": 5499,
     "rating": 4.2,
     "reviews": 10200,
-    "answers": 304,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -2734,13 +2673,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 31,
     "name": "Ruby Floral A-line Silk Suit set",
     "price": 5699,
     "rating": 4.6,
     "reviews": 7450,
-    "answers": 127,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -2826,13 +2763,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 32,
     "name": "Gerua Chanderi Silk Suit with Handwork Detailing",
     "price": 5999,
     "rating": 4.5,
     "reviews": 7230,
-    "answers": 97,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -2918,13 +2853,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 33,
     "name": "Jade Oasis Coord Set with Floral Embroidered Detailing",
     "price": 3299,
     "rating": 4.9,
     "reviews": 12030,
-    "answers": 345,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -3012,13 +2945,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 34,
     "name": "Moonlight silk Embroidered Coord Set",
     "price": 3299,
     "rating": 4.8,
     "reviews": 10676,
-    "answers": 237,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -3102,13 +3033,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 35,
     "name": "Sun & Moon Pink Embroidered Coord Set",
     "price": 2899,
     "rating": 4.1,
     "reviews": 9676,
-    "answers": 130,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -3194,13 +3123,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 36,
     "name": "Ink Blue Handblock Co- Ord Set",
     "price": 3699,
     "rating": 4.3,
     "reviews": 8776,
-    "answers": 245,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -3286,13 +3213,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 37,
     "name": "Desi Bloom Handblock Cotton Floral coord set",
     "price": 3699,
     "rating": 4.6,
     "reviews": 4276,
-    "answers": 85,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -3376,13 +3301,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 38,
     "name": "Abstract Waves Black Cord Set",
     "price": 1999,
     "rating": 4.1,
     "reviews": 10376,
-    "answers": 293,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -3466,13 +3389,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 39,
     "name": "Sage Green Handblock Co-Ord Set",
     "price": 3299,
     "rating": 4.7,
     "reviews": 6376,
-    "answers": 113,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -3557,13 +3478,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 40,
     "name": "Sunrise Splash White Cord Set",
     "price": 1999,
     "rating": 4.4,
     "reviews": 9376,
-    "answers": 243,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -3647,13 +3566,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 41,
     "name": "Rosheen Red Floral Cord set",
     "price": 3699,
     "rating": 4.3,
     "reviews": 12376,
-    "answers": 346,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -3740,13 +3657,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 42,
     "name": "Yellow Safari Cord Set",
     "price": 1999,
     "rating": 4.1,
     "reviews": 13446,
-    "answers": 346,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -3831,13 +3746,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 43,
     "name": "Yellow Safari Cord Set",
     "price": 3299,
     "rating": 4.5,
     "reviews": 6446,
-    "answers": 196,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -3922,13 +3835,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 44,
     "name": "Green Goddess Coord Set in Silk with Floral Motifs",
     "price": 2999,
     "rating": 4.1,
     "reviews": 12046,
-    "answers": 245,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -4015,13 +3926,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 45,
     "name": "Midnight Jungle Cord Set",
     "price": 1899,
     "rating": 4.7,
     "reviews": 7046,
-    "answers": 245,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -4107,13 +4016,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 46,
     "name": "Maharani Pink Handblock Cotton Floral Coord Set",
     "price": 3699,
     "rating": 4.5,
     "reviews": 8746,
-    "answers": 268,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -4199,13 +4106,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 47,
     "name": "Sunset Leopard Print Cord set",
     "price": 1899,
     "rating": 4.1,
     "reviews": 13646,
-    "answers": 123,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -4289,13 +4194,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 48,
     "name": "Sky Blue Semi Formal Handblock Kaftan",
     "price": 2199,
     "rating": 4.3,
     "reviews": 5646,
-    "answers": 183,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -4380,13 +4283,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 49,
     "name": "Royal Red Handblock Kaftan",
     "price": 2199,
     "rating": 4.7,
     "reviews": 4646,
-    "answers": 103,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -4471,13 +4372,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 50,
     "name": "Bouncy Beige Floral Handblock Mul Cotton Kaftan",
     "price": 2199,
     "rating": 4.1,
     "reviews": 9846,
-    "answers": 163,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -4561,13 +4460,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 51,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 3.9,
     "reviews": 7700,
-    "answers": 244,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -4645,13 +4542,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 52,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 3.5,
     "reviews": 7600,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -4729,13 +4624,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 53,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3599,
     "rating": 4,
     "reviews": 8100,
-    "answers": 294,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -4813,13 +4706,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 54,
     "name": "Blue Party Wear Sequin Work Georgette Saree",
     "price": 5399,
     "rating": 4.1,
     "reviews": 7900,
-    "answers": 274,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Premium co.",
@@ -4897,13 +4788,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 55,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 3.6,
     "reviews": 6600,
-    "answers": 184,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak co.",
@@ -4981,13 +4870,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 56,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 3.8,
     "reviews": 7800,
-    "answers": 259,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak co.",
@@ -5066,13 +4953,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 57,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 3.8,
     "reviews": 7100,
-    "answers": 174,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak co.",
@@ -5151,13 +5036,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 58,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 3.6,
     "reviews": 6600,
-    "answers": 184,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak co.",
@@ -5235,13 +5118,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 59,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4,
     "reviews": 7900,
-    "answers": 284,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak co.",
@@ -5319,13 +5200,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 60,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4,
     "reviews": 7800,
-    "answers": 264,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak co.",
@@ -5403,13 +5282,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 61,
     "name": "Yellow Festive Bandhani Embroidered Pure Georgette Saree",
     "price": 6799,
     "rating": 4,
     "reviews": 7700,
-    "answers": 244,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Premium co.",
@@ -5488,13 +5365,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 62,
     "name": "Multicolour Traditional Embroidered Bandhani Pure Georgette Saree",
     "price": 5799,
     "rating": 3.9,
     "reviews": 6700,
-    "answers": 164,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Premium co.",
@@ -5572,13 +5447,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 63,
     "name": "Yellow Traditional Embroidered Bandhani Pure Georgette Saree",
     "price": 5599,
     "rating": 3.8,
     "reviews": 5700,
-    "answers": 156,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Premium co.",
@@ -5656,13 +5529,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 64,
     "name": "Heavy Bandhani Embroidered Pure Georgette Pink Saree",
     "price": 5799,
     "rating": 4.2,
     "reviews": 8700,
-    "answers": 264,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Premium co.",
@@ -5740,13 +5611,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 65,
     "name": "Mustard Traditional Bandhani Embroidered Pure Georgette Saree",
     "price": 6399,
     "rating": 3.9,
     "reviews": 6800,
-    "answers": 184,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Premium co.",
@@ -5824,13 +5693,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 66,
     "name": "Embroidered Georgette Blue Saree with Unstitched Blouse",
     "price": 4599,
     "rating": 3.9,
     "reviews": 7400,
-    "answers": 204,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Premium co.",
@@ -5910,13 +5777,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 67,
     "name": "Red Traditional Bandhani Embroidered Pure Georgette Saree",
     "price": 5199,
     "rating": 4,
     "reviews": 6500,
-    "answers": 198,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Premium co.",
@@ -5994,13 +5859,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 68,
     "name": "Red Heavy Bandhani Embroidered Pure Georgette Saree",
     "price": 5999,
     "rating": 4.1,
     "reviews": 8200,
-    "answers": 264,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Premium co.",
@@ -6078,13 +5941,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 69,
     "name": "Red Festive Embroidered Bandhani Pure Georgette Saree",
     "price": 5799,
     "rating": 4,
     "reviews": 6410,
-    "answers": 209,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Premium co.",
@@ -6162,13 +6023,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 70,
     "name": "Yellow Heavy Bandhani Embroidered Pure Georgette Saree",
     "price": 6799,
     "rating": 3.9,
     "reviews": 6415,
-    "answers": 199,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Premium co.",
@@ -6246,13 +6105,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 71,
     "name": "Party Wear Embroidered Pure Georgette White Saree",
     "price": 5799,
     "rating": 4,
     "reviews": 7510,
-    "answers": 254,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Premium co.",
@@ -6330,13 +6187,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 72,
     "name": "Party Wear Embroidered Pure Georgette Black Saree",
     "price": 5799,
     "rating": 4.1,
     "reviews": 7980,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Premium co.",
@@ -6414,13 +6269,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 73,
     "name": "Party Wear Embroidered Net Red Saree",
     "price": 7299,
     "rating": 4.2,
     "reviews": 7980,
-    "answers": 244,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Premium co.",
@@ -6498,13 +6351,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 74,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4.2,
     "reviews": 6700,
-    "answers": 254,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -6582,13 +6433,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 75,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4.1,
     "reviews": 6700,
-    "answers": 254,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -6666,13 +6515,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 76,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4.3,
     "reviews": 6600,
-    "answers": 294,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -6750,13 +6597,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 77,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 3.9,
     "reviews": 5810,
-    "answers": 189,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -6834,13 +6679,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 78,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4.3,
     "reviews": 5960,
-    "answers": 264,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -6918,13 +6761,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 79,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4.6,
     "reviews": 8460,
-    "answers": 304,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -7003,13 +6844,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 80,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4.2,
     "reviews": 6860,
-    "answers": 249,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -7088,13 +6927,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 81,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4.3,
     "reviews": 6560,
-    "answers": 249,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -7172,13 +7009,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 82,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4.6,
     "reviews": 5960,
-    "answers": 169,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -7256,13 +7091,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 83,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4.2,
     "reviews": 5930,
-    "answers": 190,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -7340,13 +7173,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 84,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4.3,
     "reviews": 6450,
-    "answers": 269,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -7425,13 +7256,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 85,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4.5,
     "reviews": 5490,
-    "answers": 169,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -7509,13 +7338,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 86,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4.2,
     "reviews": 5560,
-    "answers": 149,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -7594,13 +7421,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 87,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4.2,
     "reviews": 5560,
-    "answers": 149,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -7678,13 +7503,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 88,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4.4,
     "reviews": 6247,
-    "answers": 318,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -7763,13 +7586,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 89,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4,
     "reviews": 5894,
-    "answers": 272,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -7847,13 +7668,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 90,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 3.9,
     "reviews": 5781,
-    "answers": 289,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -7931,13 +7750,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 91,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4.5,
     "reviews": 7318,
-    "answers": 346,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -8016,13 +7833,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 92,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4.2,
     "reviews": 5560,
-    "answers": 149,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -8100,13 +7915,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 93,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4.6,
     "reviews": 5800,
-    "answers": 240,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -8184,13 +7997,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 94,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4.8,
     "reviews": 5850,
-    "answers": 234,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -8269,13 +8080,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 95,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4.4,
     "reviews": 5900,
-    "answers": 220,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -8353,13 +8162,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 96,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4.2,
     "reviews": 6000,
-    "answers": 172,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -8438,13 +8245,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 97,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4.5,
     "reviews": 6100,
-    "answers": 183,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -8523,13 +8328,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 98,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4.6,
     "reviews": 6200,
-    "answers": 246,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -8608,13 +8411,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 99,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4.3,
     "reviews": 6250,
-    "answers": 207,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -8693,13 +8494,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 100,
     "name": "Mulmul Cotton Printed Saree",
     "price": 3499,
     "rating": 4.4,
     "reviews": 6300,
-    "answers": 289,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "seller": "Rajvadi Poshaak Co.",
@@ -8777,13 +8576,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 101,
     "name": "A Distinctively Fragile beige Handblock Printed Cotton Kaftan Tunic With Pants (Set of 2)",
     "price": 2499,
     "rating": 4.4,
     "reviews": 10846,
-    "answers": 243,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -8867,13 +8664,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 102,
     "name": "The Reminiscing Red Blossom Hand-block Printed Cotton Kaftan",
     "price": 2199,
     "rating": 4.9,
     "reviews": 4869,
-    "answers": 189,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -8957,13 +8752,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 103,
     "name": "Serene Blue floral Handblock Kaftan Night Suit",
     "price": 2479,
     "rating": 5,
     "reviews": 3269,
-    "answers": 59,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -9047,13 +8840,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 104,
     "name": "Maroon & White Handblock Slip-On Kaftan",
     "price": 2199,
     "rating": 4.4,
     "reviews": 5769,
-    "answers": 343,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -9140,13 +8931,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 105,
     "name": "A Playful Green Handblock Printed Cotton Kaftan Tunic With Pants (Set of 2)",
     "price": 2499,
     "rating": 4.8,
     "reviews": 6469,
-    "answers": 103,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -9230,13 +9019,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 106,
     "name": "Flickering Flames Of Yellow Handblock Printed Cotton Kaftan Tunic With Pants (Set of 2)",
     "price": 2499,
     "rating": 4.5,
     "reviews": 12069,
-    "answers": 145,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -9320,13 +9107,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 107,
     "name": "An Exquisitely Attractive Pink Handblock Printed Cotton Kaftan Tunic With Pants (Set of 2)",
     "price": 2499,
     "rating": 4.1,
     "reviews": 13900,
-    "answers": 345,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -9410,13 +9195,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 108,
     "name": "A Tender Tincture Of Green Handblock Printed Cotton Kaftan Tunic In Contrast With Red Pants (Set of 2)",
     "price": 2499,
     "rating": 4,
     "reviews": 8987,
-    "answers": 235,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -9500,13 +9283,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 109,
     "name": "Mesmerizing Blue Handblock Printed Cotton Kaftan",
     "price": 1959,
     "rating": 4.8,
     "reviews": 6887,
-    "answers": 105,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -9589,13 +9370,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 110,
     "name": "A Natural Tint Of Green Handblock Printed Cotton Kaftan Tunic With Pants (Set of 2)",
     "price": 2499,
     "rating": 4.5,
     "reviews": 6237,
-    "answers": 247,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -9679,13 +9458,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 111,
     "name": "An Intrinsic Yellow Blossom Handblock Printed Cotton Kaftan Tunic With Pants (Set of 2)",
     "price": 2499,
     "rating": 4.1,
     "reviews": 12887,
-    "answers": 167,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -9770,13 +9547,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 112,
     "name": "The Soothing Mystical Hued Handblock Printed Cotton Kaftan",
     "price": 1959,
     "rating": 4.1,
     "reviews": 12887,
-    "answers": 167,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -9860,13 +9635,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 113,
     "name": "An Absolute Chic Handblock Cotton Night Suit",
     "price": 2199,
     "rating": 4.5,
     "reviews": 2387,
-    "answers": 23,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -9949,13 +9722,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 114,
     "name": "A Fit For A Queen Handblock Cotton Night Suit",
     "price": 2199,
     "rating": 4.2,
     "reviews": 6387,
-    "answers": 213,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -10039,13 +9810,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 115,
     "name": "A Tender Green Tone Handblock Cotton Night Suit",
     "price": 2199,
     "rating": 4.9,
     "reviews": 4387,
-    "answers": 104,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -10129,13 +9898,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 116,
     "name": "An Eloquent Beige Handblock Cotton Night Suit",
     "price": 2199,
     "rating": 5,
     "reviews": 3046,
-    "answers": 78,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -10219,13 +9986,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 117,
     "name": "An Eloquent Beige Handblock Cotton Night Suit",
     "price": 4049,
     "rating": 4.5,
     "reviews": 8765,
-    "answers": 134,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -10309,13 +10074,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 118,
     "name": "Black Airey Linen Long Kurta",
     "price": 999,
     "rating": 4.1,
     "reviews": 5765,
-    "answers": 127,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -10401,13 +10164,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 119,
     "name": "Navy Blue Airey Linen Long Kurta",
     "price": 999,
     "rating": 4.1,
     "reviews": 5765,
-    "answers": 127,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -10492,13 +10253,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 120,
     "name": "Tiffany Blue Airey Linen Long Kurta",
     "price": 999,
     "rating": 4.4,
     "reviews": 3465,
-    "answers": 136,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -10583,13 +10342,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 121,
     "name": "Rose Taupe Airey Linen Long Kurta",
     "price": 999,
     "rating": 4.4,
     "reviews": 3465,
-    "answers": 136,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -10674,13 +10431,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 122,
     "name": "Flamingo Pink Airey Linen Long Kurta",
     "price": 999,
     "rating": 4.7,
     "reviews": 1365,
-    "answers": 13,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -10765,13 +10520,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 123,
     "name": "Seawood Airey Linen Short Kurta",
     "price": 899,
     "rating": 4.3,
     "reviews": 4565,
-    "answers": 45,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -10857,13 +10610,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 124,
     "name": "Umber Airey Linen Short Kurta",
     "price": 899,
     "rating": 4,
     "reviews": 8565,
-    "answers": 235,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -10948,13 +10699,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 125,
     "name": "Caramel Airey Linen Short Kurta",
     "price": 999,
     "rating": 4.5,
     "reviews": 3965,
-    "answers": 135,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -11038,13 +10787,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 126,
     "name": "Umber Cotton Pants(pant)",
     "price": 899,
     "rating": 4.7,
     "reviews": 4965,
-    "answers": 114,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -11129,13 +10876,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 127,
     "name": "Black Cotton Pants",
     "price": 899,
     "rating": 4.3,
     "reviews": 3065,
-    "answers": 109,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -11220,13 +10965,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 128,
     "name": "Maroon Cotton Pants",
     "price": 899,
     "rating": 5,
     "reviews": 365,
-    "answers": 9,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -11311,13 +11054,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 129,
     "name": "Flamingo Pink Cotton Pant",
     "price": 899,
     "rating": 4.5,
     "reviews": 3695,
-    "answers": 92,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -11402,13 +11143,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 130,
     "name": "Mustard Cotton Pants",
     "price": 899,
     "rating": 4.2,
     "reviews": 5695,
-    "answers": 113,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -11493,13 +11232,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 131,
     "name": "Rose Taupe Cotton Pants",
     "price": 899,
     "rating": 4.6,
     "reviews": 7695,
-    "answers": 56,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -11583,13 +11320,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 132,
     "name": "Seawood Cotton Pants",
     "price": 899,
     "rating": 4.2,
     "reviews": 4595,
-    "answers": 126,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -11673,13 +11408,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 133,
     "name": "Navy Blue Cotton Pants",
     "price": 899,
     "rating": 4.4,
     "reviews": 12395,
-    "answers": 426,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -11764,13 +11497,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 134,
     "name": "Umber Palazzo pant",
     "price": 899,
     "rating": 4,
     "reviews": 3395,
-    "answers": 36,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -11855,13 +11586,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 135,
     "name": "Rose Taupe Palazzo pant",
     "price": 899,
     "rating": 4.5,
     "reviews": 4795,
-    "answers": 232,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -11946,13 +11675,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 136,
     "name": "Maroon Palazzo pant",
     "price": 899,
     "rating": 4,
     "reviews": 8795,
-    "answers": 452,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -12038,13 +11765,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 137,
     "name": "Mustard Palazzo pant",
     "price": 899,
     "rating": 4.7,
     "reviews": 3795,
-    "answers": 52,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -12129,13 +11854,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 138,
     "name": "Seawood Palazzo pant",
     "price": 899,
     "rating": 4.2,
     "reviews": 12395,
-    "answers": 342,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -12219,13 +11942,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 139,
     "name": "Pea Green Palazzo pant",
     "price": 899,
     "rating": 4.6,
     "reviews": 6395,
-    "answers": 82,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -12310,13 +12031,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 140,
     "name": "Imperial Red Palazzo pant",
     "price": 899,
     "rating": 5,
     "reviews": 395,
-    "answers": 12,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -12401,13 +12120,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 141,
     "name": "Off-White 4-Way Stretchable Pants",
     "price": 1199,
     "rating": 4.5,
     "reviews": 3395,
-    "answers": 132,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -12492,13 +12209,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 142,
     "name": "Burnt Maroon 4-Way Stretchable Pants",
     "price": 1199,
     "rating": 4.7,
     "reviews": 5495,
-    "answers": 454,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -12583,13 +12298,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 143,
     "name": "Navy Blue 4-Way Stretchable Pants",
     "price": 1199,
     "rating": 4.2,
     "reviews": 2305,
-    "answers": 43,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -12674,13 +12387,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 144,
     "name": "Dark Grey 4-Way Stretchable Pants",
     "price": 1199,
     "rating": 4,
     "reviews": 7805,
-    "answers": 203,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -12765,13 +12476,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 145,
     "name": "Mustard 4-Way Stretchable Pants",
     "price": 1199,
     "rating": 4.3,
     "reviews": 2305,
-    "answers": 13,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -12857,13 +12566,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 146,
     "name": "Maroon 4-Way Stretchable Pants",
     "price": 1199,
     "rating": 4.7,
     "reviews": 4505,
-    "answers": 146,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -12949,13 +12656,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 147,
     "name": "Hot Pink 4-Way Stretchable Pants",
     "price": 1199,
     "rating": 4.5,
     "reviews": 7845,
-    "answers": 16,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -13041,13 +12746,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 148,
     "name": "Black 4-Way Stretchable Pants",
     "price": 1199,
     "rating": 5,
     "reviews": 8868,
-    "answers": 86,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -13133,13 +12836,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 149,
     "name": "Mogra Gher Mul Cotton Suit Set (Plus Size)",
     "price": 3199,
     "rating": 4.5,
     "reviews": 4868,
-    "answers": 46,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -13221,13 +12922,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 150,
     "name": "Saanvi Maroon Floral Print Suit Set (Plus Size)",
     "price": 3199,
     "rating": 4.7,
     "reviews": 1376,
-    "answers": 34,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -13309,13 +13008,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 151,
     "name": "Goel Green Handblock Pintuck Straight Chanderi Suit Set (Plus Size)",
     "price": 6199,
     "rating": 4.2,
     "reviews": 12576,
-    "answers": 231,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -13397,13 +13094,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 152,
     "name": "Banni Blue Cotton Straight Suit Set (Plus Size)",
     "price": 4799,
     "rating": 5,
     "reviews": 3076,
-    "answers": 13,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -13485,13 +13180,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 153,
     "name": "Najia Green Floral Handblock Print Suit Set(Plus Size)",
     "price": 5499,
     "rating": 4.1,
     "reviews": 6898,
-    "answers": 124,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -13573,13 +13266,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 154,
     "name": "Rosheen Red Floral Block Print Embroidered Suit Set (Plus Size)",
     "price": 5499,
     "rating": 4.4,
     "reviews": 4532,
-    "answers": 155,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -13661,13 +13352,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 155,
     "name": "Izza Blue Floral Handblock Print Suit Set(Plus Size)",
     "price": 5499,
     "rating": 4.7,
     "reviews": 5444,
-    "answers": 89,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -13749,13 +13438,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 156,
     "name": "Shrija Maroon Floral Print Embroidered Suit Set (Plus Size)",
     "price": 3399,
     "rating": 4.2,
     "reviews": 9853,
-    "answers": 132,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -13837,13 +13524,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 157,
     "name": "Saanvi Anarkali Flair Suit Set (Plus Size)",
     "price": 3199,
     "rating": 4.5,
     "reviews": 7853,
-    "answers": 13,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -13925,13 +13610,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 158,
     "name": "Begu Blue Floral Anarkali Suit Set (Plus Size)",
     "price": 4999,
     "rating": 4.7,
     "reviews": 6563,
-    "answers": 190,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -14013,13 +13696,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 159,
     "name": "Indigo Dream Suit Set(Plus Size)",
     "price": 3599,
     "rating": 4.4,
     "reviews": 7756,
-    "answers": 19,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -14101,13 +13782,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 160,
     "name": "Bagh Suit Set with Full Sleeves & Flared Design(Plus Size)",
     "price": 3199,
     "rating": 4.6,
     "reviews": 4654,
-    "answers": 343,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -14189,13 +13868,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 161,
     "name": "Pankhuri Pink Cotton Jaal Print Straight Pintuck Kurta",
     "price": 1899,
     "rating": 4.2,
     "reviews": 9483,
-    "answers": 44,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -14282,13 +13959,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 162,
     "name": "Maroon Floral Buti Print Cotton Straight Kurta",
     "price": 1599,
     "rating": 4.5,
     "reviews": 6583,
-    "answers": 75,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -14374,13 +14049,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 163,
     "name": "Sea Green Floral Print Cotton Straight Kurta",
     "price": 2399,
     "rating": 4,
     "reviews": 4474,
-    "answers": 67,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -14465,13 +14138,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 164,
     "name": "Peach Floral Buti Print Cotton Straight Kurta",
     "price": 2399,
     "rating": 4,
     "reviews": 4474,
-    "answers": 67,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -14551,13 +14222,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 165,
     "name": "Sehar Leafy Handblock Printed Anarkali Kurta",
     "price": 2399,
     "rating": 4.3,
     "reviews": 8745,
-    "answers": 49,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -14642,13 +14311,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 166,
     "name": "Bella Blue Hand Block Print Cotton Straight Kurta",
     "price": 2599,
     "rating": 4.2,
     "reviews": 3479,
-    "answers": 34,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -14733,13 +14400,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 167,
     "name": "Uzma Off White Buti Print Cotton Straight Kurta",
     "price": 1799,
     "rating": 4.6,
     "reviews": 7434,
-    "answers": 83,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -14824,13 +14489,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 168,
     "name": "Shanza Floral Handblock Print Kalidar Kurta",
     "price": 2499,
     "rating": 4,
     "reviews": 3478,
-    "answers": 83,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -14915,13 +14578,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 169,
     "name": "Urvashi Floral Handblock Printed A- Line Kurta",
     "price": 2399,
     "rating": 4.7,
     "reviews": 7434,
-    "answers": 45,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -15006,13 +14667,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 170,
     "name": "Sayra Peach Floral Handblock Printed A-Line Kurta",
     "price": 2399,
     "rating": 4.1,
     "reviews": 4533,
-    "answers": 65,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -15097,13 +14756,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 171,
     "name": "Paisley Kashish Block Print Kurta Pant Set",
     "price": 4099,
     "rating": 4.4,
     "reviews": 8533,
-    "answers": 143,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -15185,13 +14842,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 172,
     "name": "Neelanjana A-line Kurta Pant Set",
     "price": 2899,
     "rating": 4.2,
     "reviews": 7674,
-    "answers": 78,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -15274,13 +14929,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 173,
     "name": "Indigo Dream Kurta Pant Set",
     "price": 2999,
     "rating": 4.4,
     "reviews": 5674,
-    "answers": 41,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -15363,13 +15016,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 174,
     "name": "Rain in Red Handblock Gher Kurta and Pant Only",
     "price": 3599,
     "rating": 4.8,
     "reviews": 3474,
-    "answers": 231,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -15452,13 +15103,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 175,
     "name": "NASREEN GREEN FLORAL BLOCK PRINT EMBROIDERY KURTA AND PANT ONLY",
     "price": 4099,
     "rating": 4,
     "reviews": 9474,
-    "answers": 343,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -15541,13 +15190,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 176,
     "name": "Anisa Block Printed Cotton Kalidaar Handwork Kurta Pant Set",
     "price": 3899,
     "rating": 4.5,
     "reviews": 6743,
-    "answers": 232,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -15632,13 +15279,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 177,
     "name": "Badrah Blue Handblock Cotton Pleated Straight Kurta Pant Set",
     "price": 3599,
     "rating": 4.7,
     "reviews": 3443,
-    "answers": 34,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -15721,13 +15366,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 178,
     "name": "Gulfi Green Handblock Cotton Straight Kurta Pant Set",
     "price": 3599,
     "rating": 4,
     "reviews": 9483,
-    "answers": 233,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -15812,13 +15455,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 179,
     "name": "Rashida Red Cotton Anarkali Kurta Pant Set",
     "price": 3699,
     "rating": 4.2,
     "reviews": 7584,
-    "answers": 32,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -15900,13 +15541,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 180,
     "name": "Savri Green Floral Handblock Kurta And Pant Only",
     "price": 3599,
     "rating": 4.6,
     "reviews": 6437,
-    "answers": 34,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -15990,13 +15629,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 181,
     "name": "Red Applique Handwork Cotton Suit Set",
     "price": 2599,
     "rating": 4.9,
     "reviews": 5373,
-    "answers": 23,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -16081,13 +15718,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 182,
     "name": "Kanak Floral Straight Fit Suit Set",
     "price": 2399,
     "rating": 5,
     "reviews": 7786,
-    "answers": 65,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -16173,13 +15808,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 183,
     "name": "Teal Blue Floral Print Embroidered Cotton Suit Set",
     "price": 2399,
     "rating": 4.9,
     "reviews": 4783,
-    "answers": 15,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -16264,13 +15897,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 184,
     "name": "Turquoise Saga A-Line Suit Set",
     "price": 2999,
     "rating": 4.9,
     "reviews": 3473,
-    "answers": 15,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -16356,13 +15987,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 185,
     "name": "Oishi orange floral cotton suit set",
     "price": 2299,
     "rating": 5,
     "reviews": 4756,
-    "answers": 35,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -16447,13 +16076,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 186,
     "name": "Sapphire Floral A-line Silk Suit Set",
     "price": 5499,
     "rating": 5,
     "reviews": 4756,
-    "answers": 35,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -16539,13 +16166,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 187,
     "name": "Ivory Blue Floral Embroidery Cotton Suit Set",
     "price": 1840,
     "rating": 5,
     "reviews": 4874,
-    "answers": 42,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -16630,13 +16255,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 188,
     "name": "Maroon Straight Fit Floral Women's Cotton Kurta With Pant Only",
     "price": 2999,
     "rating": 4.9,
     "reviews": 7565,
-    "answers": 45,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -16721,13 +16344,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 189,
     "name": "White Waters Straight Fit Suit Set",
     "price": 3199,
     "rating": 5,
     "reviews": 3643,
-    "answers": 23,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -16813,13 +16434,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 190,
     "name": "Summer Spectrum Embroidery Cotton Kurta Pant",
     "price": 1740,
     "rating": 4.9,
     "reviews": 8744,
-    "answers": 34,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -16902,13 +16521,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 191,
     "name": "Deep Sapphire Lace Detailed Zari Suit Set",
     "price": 3199,
     "rating": 4.8,
     "reviews": 13744,
-    "answers": 144,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -16994,13 +16611,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 192,
     "name": "Opaline Innocence Pure Cotton Straight Suit Set",
     "price": 2299,
     "rating": 5,
     "reviews": 4744,
-    "answers": 43,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -17085,13 +16700,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 193,
     "name": "Maroon Gold and Gota work Straight fit Cotton Kurta With Pant Only",
     "price": 2349,
     "rating": 4.9,
     "reviews": 8343,
-    "answers": 23,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -17173,13 +16786,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 194,
     "name": "Treasured Soft Pure Handblock Cotton King Size Bedsheet",
     "price": 2799,
     "rating": 4.5,
     "reviews": 22,
-    "answers": 2,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -17260,13 +16871,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 195,
     "name": "Pristine Priceless Pure Handblock Cotton King Size Bedsheet",
     "price": 2799,
     "rating": 4.6,
     "reviews": 45,
-    "answers": 5,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -17347,13 +16956,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 196,
     "name": "Fluffy Floral Pure Handblock Cotton King Size Bedsheet",
     "price": 2799,
     "rating": 4.4,
     "reviews": 34,
-    "answers": 4,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -17434,13 +17041,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 197,
     "name": "Ready To Rest Floral Pure Handblock King Size Bedsheet",
     "price": 2799,
     "rating": 4.5,
     "reviews": 65,
-    "answers": 8,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -17521,13 +17126,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 198,
     "name": "Lush Lavender Pure cotton Queen size bedsheet with pillow covers",
     "price": 1249,
     "rating": 4.7,
     "reviews": 24,
-    "answers": 2,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -17608,13 +17211,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 199,
     "name": "Spring Palms Pure Cotton Queen Size Bedsheet",
     "price": 1249,
     "rating": 4.1,
     "reviews": 45,
-    "answers": 4,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -17695,13 +17296,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 200,
     "name": "Leafy Haven Cord Set",
     "price": 1899,
     "rating": 4.6,
     "reviews": 7343,
-    "answers": 231,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -17787,13 +17386,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 201,
     "name": "Black Traditional Bandhani Embroidered Lace Georgette Saree",
     "price": 4399,
     "rating": 4.5,
     "reviews": 6250,
-    "answers": 259,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -17871,13 +17468,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 202,
     "name": "Red Traditional Embroidered Bandhani Pure Georgette Saree",
     "price": 5799,
     "rating": 4.3,
     "reviews": 6000,
-    "answers": 250,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -17955,13 +17550,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 203,
     "name": "Traditional Sea Green Embroidered Pure Georgette Saree",
     "price": 4699,
     "rating": 4.4,
     "reviews": 6200,
-    "answers": 220,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -18040,13 +17633,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 204,
     "name": "Red Zari Woven Design Heavy Banarasi Saree",
     "price": 5699,
     "rating": 4.5,
     "reviews": 6300,
-    "answers": 230,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -18124,13 +17715,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 205,
     "name": "Festive Zari Woven Heavy Banarasi Lavender Saree",
     "price": 6799,
     "rating": 4.6,
     "reviews": 6400,
-    "answers": 240,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -18209,13 +17798,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 206,
     "name": "Orange Zari Woven Heavy Banarasi Saree",
     "price": 6799,
     "rating": 4.7,
     "reviews": 6500,
-    "answers": 250,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -18293,13 +17880,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 207,
     "name": "Green Leheriya Embroidered Pure Georgette Saree",
     "price": 4699,
     "rating": 4.8,
     "reviews": 6600,
-    "answers": 260,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -18377,13 +17962,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 208,
     "name": "Violet Leheriya Embroidered Pure Georgette Saree",
     "price": 4699,
     "rating": 4.1,
     "reviews": 6700,
-    "answers": 270,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -18461,13 +18044,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 209,
     "name": "Festive Zari Woven Design Heavy Banarasi Saree",
     "price": 5699,
     "rating": 4,
     "reviews": 6800,
-    "answers": 280,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -18546,13 +18127,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 210,
     "name": "Festive Red Zari Woven Heavy Banarasi Saree",
     "price": 6799,
     "rating": 4.2,
     "reviews": 6900,
-    "answers": 290,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -18631,13 +18210,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 211,
     "name": "Sequin Embellished Georgette Party Wear Saree",
     "price": 4999,
     "rating": 4.3,
     "reviews": 7000,
-    "answers": 300,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -18715,13 +18292,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 212,
     "name": "Festive Maroon Zari Woven Heavy Banarasi Saree",
     "price": 6799,
     "rating": 4.4,
     "reviews": 7100,
-    "answers": 310,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -18801,13 +18376,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 213,
     "name": "Festive Burgundy Zari Woven Heavy Banarasi Saree",
     "price": 6799,
     "rating": 4.5,
     "reviews": 7200,
-    "answers": 320,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -18884,13 +18457,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 214,
     "name": "Violet Bandhani Embroidered Pure Georgette Saree",
     "price": 4699,
     "rating": 4.6,
     "reviews": 7300,
-    "answers": 330,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -18967,13 +18538,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 215,
     "name": "Teal Bandhani Embroidered Pure Georgette Saree",
     "price": 4699,
     "rating": 4.7,
     "reviews": 7400,
-    "answers": 340,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -19051,13 +18620,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 216,
     "name": "Wine Pure Georgette Leheriya Mirror Work Saree",
     "price": 4699,
     "rating": 4.8,
     "reviews": 7500,
-    "answers": 350,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -19135,13 +18702,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 217,
     "name": "Festive Zari Woven Heavy Banarasi Maroon Saree",
     "price": 6799,
     "rating": 3.8,
     "reviews": 7600,
-    "answers": 360,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -19219,13 +18784,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 218,
     "name": "Sequinned Net Saree",
     "price": 3999,
     "rating": 3.8,
     "reviews": 5650,
-    "answers": 149,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -19301,13 +18864,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 219,
     "name": "Geometric Printed Pure Cotton Mulmul Bagru Saree",
     "price": 6999,
     "rating": 4.2,
     "reviews": 6290,
-    "answers": 268,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -19383,13 +18944,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 220,
     "name": "Ethnic Motifs Printed Pure Cotton Mulmul Bagru Saree",
     "price": 6999,
     "rating": 3.9,
     "reviews": 5720,
-    "answers": 290,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -19465,13 +19024,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 221,
     "name": "Floral Pure Cotton Bagru Saree",
     "price": 6999,
     "rating": 4.5,
     "reviews": 7490,
-    "answers": 309,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -19547,13 +19104,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 222,
     "name": "Floral Printed Pure Cotton Mulmul Bagru Saree",
     "price": 6999,
     "rating": 4.3,
     "reviews": 6400,
-    "answers": 180,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -19629,13 +19184,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 223,
     "name": "Printed Pure Cotton Mulmul Bagru Saree",
     "price": 6999,
     "rating": 4.1,
     "reviews": 6850,
-    "answers": 240,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -19711,13 +19264,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 224,
     "name": "Floral Pure Cotton Block Print Saree",
     "price": 6999,
     "rating": 4.6,
     "reviews": 7800,
-    "answers": 324,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -19793,13 +19344,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 225,
     "name": "Floral Pure Cotton Bagru Saree",
     "price": 6999,
     "rating": 3.9,
     "reviews": 5650,
-    "answers": 190,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -19874,13 +19423,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 226,
     "name": "Checked Pure Cotton Mulmul Bagru Saree",
     "price": 6999,
     "rating": 4.4,
     "reviews": 6500,
-    "answers": 310,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -19956,13 +19503,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 227,
     "name": "Floral Printed Pure Cotton Bagru Saree",
     "price": 6999,
     "rating": 4.2,
     "reviews": 6100,
-    "answers": 225,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -20037,13 +19582,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 228,
     "name": "Floral Pure Cotton Bagru Saree",
     "price": 6999,
     "rating": 4.7,
     "reviews": 7000,
-    "answers": 278,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -20120,13 +19663,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 229,
     "name": "Floral Pure Cotton Block Print Saree",
     "price": 6999,
     "rating": 3.9,
     "reviews": 5750,
-    "answers": 210,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -20202,13 +19743,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 230,
     "name": "Floral Printed Pure Cotton Mulmul Bagru Saree",
     "price": 6999,
     "rating": 4.5,
     "reviews": 6200,
-    "answers": 280,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -20284,13 +19823,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 231,
     "name": "Floral Pure Cotton Block Print Saree",
     "price": 3999,
     "rating": 4.1,
     "reviews": 5800,
-    "answers": 215,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -20366,13 +19903,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 232,
     "name": "Striped Pure Cotton Block Print Saree",
     "price": 3999,
     "rating": 4.4,
     "reviews": 6700,
-    "answers": 230,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -20449,13 +19984,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 233,
     "name": "Pure Cotton Block Print Saree",
     "price": 6999,
     "rating": 4.3,
     "reviews": 6600,
-    "answers": 295,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -20531,13 +20064,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 234,
     "name": "Tie and Dye Pure Cotton Block Print Saree",
     "price": 3999,
     "rating": 3.9,
     "reviews": 5750,
-    "answers": 290,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -20615,13 +20146,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 235,
     "name": "Floral Pure Cotton Bagru Saree",
     "price": 6999,
     "rating": 4.1,
     "reviews": 5900,
-    "answers": 250,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -20695,13 +20224,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 236,
     "name": "Floral Pure Cotton Bagru Saree",
     "price": 6999,
     "rating": 4.2,
     "reviews": 6050,
-    "answers": 265,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -20777,13 +20304,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 237,
     "name": "Floral Pure Cotton Block Print Saree",
     "price": 6999,
     "rating": 4.2,
     "reviews": 6100,
-    "answers": 225,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -20859,13 +20384,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 238,
     "name": "Floral Pure Cotton Block Print Saree",
     "price": 9744,
     "rating": 4.2,
     "reviews": 6150,
-    "answers": 265,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -20940,13 +20463,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 239,
     "name": "Red & Gold-Toned Ethnic Motifs Embroidered Organza Designer Saree",
     "price": 9744,
     "rating": 4.5,
     "reviews": 6450,
-    "answers": 278,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -21021,13 +20542,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 240,
     "name": "Ethnic Motifs Embroidered Organza Designer Saree",
     "price": 9744,
     "rating": 4,
     "reviews": 6720,
-    "answers": 230,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -21102,13 +20621,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 241,
     "name": "Teal & Gold-Toned Embellished Designer Saree",
     "price": 3647,
     "rating": 3.9,
     "reviews": 5980,
-    "answers": 301,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -21184,13 +20701,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 242,
     "name": "Striped Zari Silk Blend Saree",
     "price": 2694,
     "rating": 4.3,
     "reviews": 6700,
-    "answers": 290,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -21266,13 +20781,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 243,
     "name": "Floral Beads and Stones Silk Blend Saree",
     "price": 5777,
     "rating": 4.1,
     "reviews": 6800,
-    "answers": 280,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -21346,13 +20859,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 244,
     "name": "Blue Embellished Silk Blend Fusion Saree",
     "price": 9744,
     "rating": 4.2,
     "reviews": 7000,
-    "answers": 290,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -21427,13 +20938,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 245,
     "name": "Floral Zari Poly Chiffon Saree",
     "price": 5250,
     "rating": 4,
     "reviews": 6800,
-    "answers": 270,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -21508,13 +21017,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 246,
     "name": "Ethnic Motifs Gotta Patti Silk Blend Designer Saree",
     "price": 6744,
     "rating": 4.5,
     "reviews": 7200,
-    "answers": 310,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -21590,13 +21097,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 247,
     "name": "Ethnic Motifs Gotta Patti Silk Blend Saree",
     "price": 5777,
     "rating": 4.7,
     "reviews": 7600,
-    "answers": 320,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -21672,13 +21177,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 248,
     "name": "Floral Zari Saree",
     "price": 3124,
     "rating": 4.4,
     "reviews": 6900,
-    "answers": 305,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -21754,13 +21257,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 249,
     "name": "Floral Embroidered Zari Saree",
     "price": 5250,
     "rating": 4.2,
     "reviews": 7000,
-    "answers": 275,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -21835,13 +21336,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 250,
     "name": "Maroon Solid Saree",
     "price": 1790,
     "rating": 4.4,
     "reviews": 7200,
-    "answers": 300,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -21916,13 +21415,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 251,
     "name": "Embellished Tikli Sequinned Ruffled Saree",
     "price": 9744,
     "rating": 4.1,
     "reviews": 6800,
-    "answers": 290,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -22000,13 +21497,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 252,
     "name": "Floral Embroidered Stones-Studded Organza Saree",
     "price": 5250,
     "rating": 4.2,
     "reviews": 7000,
-    "answers": 275,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -22082,13 +21577,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 253,
     "name": "Red & Gold-Toned Floral Embroidered Organza Designer Saree",
     "price": 9744,
     "rating": 4.4,
     "reviews": 7200,
-    "answers": 300,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -22164,13 +21657,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 254,
     "name": "Green & Gold-Toned Floral Embroidered Organza Designer Saree",
     "price": 9744,
     "rating": 4,
     "reviews": 6650,
-    "answers": 280,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -22246,13 +21737,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 255,
     "name": "Green & Gold-Toned Floral Embroidered Organza Designer Saree",
     "price": 9744,
     "rating": 4.3,
     "reviews": 6900,
-    "answers": 315,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -22327,13 +21816,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 256,
     "name": "Chiffon Georgette Printed Border Saree",
     "price": 9744,
     "rating": 4.5,
     "reviews": 7300,
-    "answers": 320,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -22408,13 +21895,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 257,
     "name": "Gotta Patti Satin Designer Saree",
     "price": 9744,
     "rating": 4.6,
     "reviews": 7400,
-    "answers": 330,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -22489,13 +21974,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 258,
     "name": "Printed Silk Blend Saree",
     "price": 9744,
     "rating": 4.5,
     "reviews": 7050,
-    "answers": 320,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -22570,13 +22053,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 259,
     "name": "Women Green Premium Casual Shirt",
     "price": 2349,
     "rating": 4.2,
     "reviews": 6150,
-    "answers": 259,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -22663,13 +22144,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 260,
     "name": "Women Premium Colourblocked Denim Casual Shirt",
     "price": 2349,
     "rating": 4.2,
     "reviews": 6150,
-    "answers": 259,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -22755,13 +22234,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 261,
     "name": "Women Maroon Premium Casual Shirt",
     "price": 2349,
     "rating": 4.2,
     "reviews": 6150,
-    "answers": 259,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -22847,13 +22324,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 262,
     "name": "Women Premium Colourblocked Denim Casual Shirt",
     "price": 2349,
     "rating": 4.2,
     "reviews": 6150,
-    "answers": 259,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -22936,13 +22411,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 263,
     "name": "Premium Floral Printed Cutaway Collar Oversized Casual Shirt",
     "price": 2349,
     "rating": 4.3,
     "reviews": 6700,
-    "answers": 300,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -23027,13 +22500,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 264,
     "name": "Premium Spread Collar Printed Relaxed Fit Cotton Casual Shirt",
     "price": 2349,
     "rating": 4.1,
     "reviews": 7150,
-    "answers": 310,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -23119,13 +22590,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 265,
     "name": "Women Premium Slim Fit Opaque Casual Shirt",
     "price": 2349,
     "rating": 4.1,
     "reviews": 6250,
-    "answers": 275,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -23209,13 +22678,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 266,
     "name": "Women Mustard Premium Puff Sleeves Casual Shirt",
     "price": 2349,
     "rating": 4,
     "reviews": 6400,
-    "answers": 284,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -23299,13 +22766,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 267,
     "name": "Premium Oversized Spread Collar Satin Party Shirt",
     "price": 2349,
     "rating": 3.9,
     "reviews": 6750,
-    "answers": 290,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -23389,13 +22854,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 268,
     "name": "Premium Slim Fit Striped Casual Shirt",
     "price": 2349,
     "rating": 4.3,
     "reviews": 7000,
-    "answers": 310,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -23480,13 +22943,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 269,
     "name": "Blue & White Premium Opaque Striped Casual Shirt",
     "price": 2349,
     "rating": 4.4,
     "reviews": 7200,
-    "answers": 325,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -23571,13 +23032,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 270,
     "name": "Women Olive Green Premium Floral Printed Casual Shirt",
     "price": 2349,
     "rating": 4,
     "reviews": 6050,
-    "answers": 285,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -23660,13 +23119,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 271,
     "name": "Women Premium Floral Printed Formal Shirt",
     "price": 2349,
     "rating": 4.2,
     "reviews": 7150,
-    "answers": 295,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -23749,13 +23206,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 272,
     "name": "Women Textured Premium Fit Sheer Cotton Party Shirt",
     "price": 2349,
     "rating": 3.8,
     "reviews": 7300,
-    "answers": 310,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -23840,13 +23295,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 273,
     "name": "Women White Premium Cotton Casual Shirt",
     "price": 2349,
     "rating": 4.2,
     "reviews": 6650,
-    "answers": 280,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -23931,13 +23384,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 274,
     "name": "Premium Band Collar Pleated Formal Shirt",
     "price": 2349,
     "rating": 3.9,
     "reviews": 5800,
-    "answers": 290,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -24022,13 +23473,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 275,
     "name": "Premium Slim Fit Cotton Formal Shirt",
     "price": 2349,
     "rating": 4.3,
     "reviews": 7100,
-    "answers": 320,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -24112,13 +23561,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 276,
     "name": "Women Premium Oversized Spread Collar Satin Party Shirt",
     "price": 2349,
     "rating": 4.1,
     "reviews": 7000,
-    "answers": 305,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -24203,13 +23650,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 277,
     "name": "Premium Band Collar Pleated Formal Shirt",
     "price": 2349,
     "rating": 4,
     "reviews": 6600,
-    "answers": 290,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -24295,13 +23740,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 278,
     "name": "Premium Checked Textured Puff Sleeves Casual Shirt",
     "price": 2349,
     "rating": 4.2,
     "reviews": 6750,
-    "answers": 310,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -24386,13 +23829,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 279,
     "name": "Premium Vertical Striped Spread Collar Pure Cotton Slim Fit Formal Shirt",
     "price": 2349,
     "rating": 3.8,
     "reviews": 5950,
-    "answers": 285,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -24478,13 +23919,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 280,
     "name": "Premium Checked Textured Puff Sleeves Casual Shirt",
     "price": 2349,
     "rating": 4,
     "reviews": 6100,
-    "answers": 295,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -24567,13 +24006,11 @@ export const products: Product[] = [
       }
     ]
   }, {
-    "id": 281,
     "name": "Women Super Combed Cotton Thermal Top with StayWarm Technology - 2503",
     "price": 699.0,
     "rating": 4.2,
     "reviews": 6150,
-    "answers": 281,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -24657,13 +24094,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 282,
     "name": "Women Black Solid Thermal Tops",
     "price": 999.0,
     "rating": 4.2,
     "reviews": 6150,
-    "answers": 259,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -24746,13 +24181,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 283,
     "name": "Women Anti Bacterial Heat Retention Thermal T-Shirt",
     "price": 1049.0,
     "rating": 4.2,
     "reviews": 6150,
-    "answers": 259,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -24837,13 +24270,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 284,
     "name": "Super Combed Cotton Three Quarter Sleeve Thermal Top with StayWarm Technology -2503",
     "price": 969.0,
     "rating": 4.2,
     "reviews": 6150,
-    "answers": 259,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -24928,13 +24359,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 285,
     "name": "Soft Touch Microfiber Thermal Top with StayWarm Technology-2511",
     "price": 969.0,
     "rating": 4.3,
     "reviews": 6700,
-    "answers": 300,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -25019,13 +24448,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 286,
     "name": "Women Ultra Lightweight Thermal Top with Sweat Wicking and Antimicrobial Finish",
     "price": 1049.0,
     "rating": 4.1,
     "reviews": 7150,
-    "answers": 310,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -25108,13 +24535,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 287,
     "name": "Super Combed Cotton Three Quarter Sleeve Thermal Top with StayWarm Technology -2503",
     "price": 1049.0,
     "rating": 4.1,
     "reviews": 6250,
-    "answers": 597,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -25196,13 +24621,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 288,
     "name": "Ribbed Sleeveless Thermal Tops",
     "price": 2598.0,
     "rating": 4.0,
     "reviews": 6400,
-    "answers": 284,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -25286,13 +24709,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 289,
     "name": "Women Ultra Lightweight Thermal Vest with Sweat Wicking and Antimicrobial Finish",
     "price": 899.0,
     "rating": 3.9,
     "reviews": 6750,
-    "answers": 290,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -25377,13 +24798,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 290,
     "name": "Women Ultra Lightweight Thermal Top with Sweat Wicking and Antimicrobial Finish",
     "price": 1049.0,
     "rating": 4.3,
     "reviews": 7000,
-    "answers": 310,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -25466,13 +24885,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 291,
     "name": "Women Loose Fit Skiing Base Layer Thermal Top",
     "price": 1049.0,
     "rating": 4.4,
     "reviews": 7200,
-    "answers": 325,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -25556,13 +24973,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 292,
     "name": "Woven Nylon Thermal Top",
     "price": 2999.0,
     "rating": 4.0,
     "reviews": 6050,
-    "answers": 285,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -25646,13 +25061,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 293,
     "name": "Round Neck Long Sleeves Swim Top",
     "price": 2199.0,
     "rating": 4.2,
     "reviews": 7150,
-    "answers": 295,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -25736,13 +25149,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 294,
     "name": "Women White & Green Printed Swim Padded Crop Top",
     "price": 1449.0,
     "rating": 3.8,
     "reviews": 7300,
-    "answers": 310,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -25828,13 +25239,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 295,
     "name": "Round Neck Long Sleeves Swim Top",
     "price": 2199.0,
     "rating": 4.2,
     "reviews": 6650,
-    "answers": 280,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -25918,13 +25327,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 296,
     "name": "",
     "price": 2299.0,
     "rating": 3.9,
     "reviews": 5800,
-    "answers": 290,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -26007,13 +25414,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 297,
     "name": "Women Navy Blue Solid Swim Top",
     "price": 2599.0,
     "rating": 4.3,
     "reviews": 7100,
-    "answers": 320,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -26097,13 +25502,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 298,
     "name": "Women Dark Blue Printed Padded Crop Swim Tops",
     "price": 2349.0,
     "rating": 4.1,
     "reviews": 7000,
-    "answers": 305,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -26186,13 +25589,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 299,
     "name": "Women Solid Round Neck Long Sleeves Swim Top",
     "price": 780.0,
     "rating": 4.0,
     "reviews": 6600,
-    "answers": 290,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -26276,13 +25677,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 300,
     "name": "Printed Swim T-shirt",
     "price": 1999.0,
     "rating": 4.2,
     "reviews": 6750,
-    "answers": 310,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -26367,13 +25766,11 @@ export const products: Product[] = [
   },
 
   {
-    "id": 301,
     "name": "Gerua Chanderi Silk Unstitched Suit Set",
     "price": 4399,
     "rating": 4.4,
     "reviews": 8457,
-    "answers": 34,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -26458,13 +25855,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 302,
     "name": "Vrinda Chanderi Silk Unstitched Suit Set",
     "price": 4399,
     "rating": 4.5,
     "reviews": 6438,
-    "answers": 78,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -26549,13 +25944,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 303,
     "name": "Blue Peonies Chanderi Silk Unstitched Suit Set",
     "price": 4399,
     "rating": 4.6,
     "reviews": 7344,
-    "answers": 98,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -26640,13 +26033,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 304,
     "name": "Falak Chintz Block Print Chanderi Unstitched Suit set",
     "price": 4399,
     "rating": 4,
     "reviews": 6347,
-    "answers": 58,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -26731,13 +26122,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 305,
     "name": "Lavanya Habutai Silk Unstitched suit set",
     "price": 4999,
     "rating": 4.4,
     "reviews": 3447,
-    "answers": 28,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -26822,13 +26211,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 306,
     "name": "Sanjari Muslin Silk with Organza Dupatta Unstitched Suit Set",
     "price": 4499,
     "rating": 4.7,
     "reviews": 6344,
-    "answers": 34,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -26915,13 +26302,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 307,
     "name": "Kusum Unstitch suit set in Silk with Handwork",
     "price": 4999,
     "rating": 4.1,
     "reviews": 7554,
-    "answers": 54,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -27009,13 +26394,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 308,
     "name": "Mogra Gher Mul Cotton Unstitched Suit Set",
     "price": 2199,
     "rating": 4.4,
     "reviews": 3465,
-    "answers": 87,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -27100,13 +26483,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 309,
     "name": "Indigo Dream Cotton Unstitched Suit Set",
     "price": 2199,
     "rating": 3.9,
     "reviews": 4758,
-    "answers": 45,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -27191,13 +26572,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 310,
     "name": "Saanvi Anarkali Flair Unstitched Suit Set",
     "price": 2199,
     "rating": 4.1,
     "reviews": 6487,
-    "answers": 43,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -27282,13 +26661,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 311,
     "name": "Gaeti Green Handblock Chanderi Unstitched Suit set",
     "price": 4399,
     "rating": 4.7,
     "reviews": 3643,
-    "answers": 39,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -27373,13 +26750,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 312,
     "name": "Gulnaaz Green Handblock Chanderi Unstitched Suit set",
     "price": 4399,
     "rating": 4.5,
     "reviews": 7832,
-    "answers": 32,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -27464,13 +26839,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 313,
     "name": "Fire Brick Floral Unstitched Cotton Suit Set",
     "price": 2199,
     "rating": 4.4,
     "reviews": 5454,
-    "answers": 34,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -27555,13 +26928,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 314,
     "name": "HOOR FLORAL PRINT COTTON UNSTITCHED SUIT SET",
     "price": 2199,
     "rating": 4.1,
     "reviews": 7844,
-    "answers": 82,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -27645,13 +27016,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 315,
     "name": "Rachida Red Handblock Chanderi Unstitched Sui tset",
     "price": 4399,
     "rating": 4.9,
     "reviews": 2363,
-    "answers": 12,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -27736,13 +27105,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 316,
     "name": "Parnia Peach Handblock Chanderi Unstitched Suit set",
     "price": 4399,
     "rating": 4.8,
     "reviews": 6563,
-    "answers": 23,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -27827,13 +27194,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 317,
     "name": "Rabab Punch Pink Handblock Unstitched Suit Set",
     "price": 3299,
     "rating": 4.7,
     "reviews": 3465,
-    "answers": 34,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -27918,13 +27283,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 318,
     "name": "White and Red Handblock Unstitched Suit Set",
     "price": 3299,
     "rating": 4.6,
     "reviews": 4798,
-    "answers": 36,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -28009,13 +27372,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 319,
     "name": "RED CHAKORI STRAIGHT UNSTITCHED CHANDERI DUPATTA SUIT SET",
     "price": 3299,
     "rating": 4.5,
     "reviews": 5798,
-    "answers": 38,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -28099,13 +27460,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 320,
     "name": "Ulfat Green Floral Handblock Unstitched Suit Set",
     "price": 3299,
     "rating": 4.4,
     "reviews": 6798,
-    "answers": 40,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -28190,13 +27549,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 321,
     "name": "Naadia Block Printed Cotton Unstitched Suit set",
     "price": 3299,
     "rating": 4.3,
     "reviews": 7898,
-    "answers": 42,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -28281,13 +27638,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 322,
     "name": "Royal Affairs Handblock Unstitched suit set",
     "price": 3299,
     "rating": 4.2,
     "reviews": 8998,
-    "answers": 44,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -28372,13 +27727,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 323,
     "name": "Mesmerizing Maroon Floral Handblock Unstitched Suit set with embroidered Pants",
     "price": 3299,
     "rating": 4.1,
     "reviews": 9098,
-    "answers": 46,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -28462,13 +27815,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 324,
     "name": "Topaz Green Retro Flower Unstitched Cotton Suit Set",
     "price": 3299,
     "rating": 4,
     "reviews": 10098,
-    "answers": 48,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -28553,14 +27904,12 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 325,
     "name": "RASHIDA RED COTTON ANARKALI UNSTITCHED SUIT SET",
     "price": 3299,
     "sale": "Buy 2 Get 1 free",
     "rating": 4.9,
     "reviews": 2783,
-    "answers": 28,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -28645,14 +27994,12 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 326,
     "name": "PAISLEY HANDBLOCK UNSTITCHED SUIT SET",
     "price": 3299,
     "sale": "Buy 2 Get 1 free",
     "rating": 4.8,
     "reviews": 3483,
-    "answers": 30,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -28737,14 +28084,12 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 327,
     "name": "Badra Blue Floral Cotton Unstitched Suit set",
     "price": 3299,
     "sale": "Buy 2 Get 1 free",
     "rating": 4.7,
     "reviews": 4583,
-    "answers": 32,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -28829,14 +28174,12 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 328,
     "name": "EILA CHANDERI UNSTITCHED SUIT SET",
     "price": 4399,
     "sale": "Buy 2 Get 1 free",
     "rating": 4.6,
     "reviews": 5683,
-    "answers": 34,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -28921,13 +28264,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 329,
     "name": "Rain in Red Handblock Unstitched Suit Set with Dupatta",
     "price": 3299,
     "rating": 4.6,
     "reviews": 5683,
-    "answers": 34,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -29012,13 +28353,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 330,
     "name": "DEEP SAPPHIRE UNSTITCHED SUIT SET",
     "price": 2199,
     "rating": 4.5,
     "reviews": 6783,
-    "answers": 36,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -29103,13 +28442,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 331,
     "name": "Pinkish Lace Embroidered Silk Suit Set",
     "price": 4299,
     "rating": 4.4,
     "reviews": 7883,
-    "answers": 38,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -29194,13 +28531,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 332,
     "name": "Pink Palash Silk Suit with Embroidery Detailing",
     "price": 3999,
     "rating": 4.3,
     "reviews": 8983,
-    "answers": 38,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -29285,13 +28620,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 333,
     "name": "Aanshi Embroidered Silk Suit Set",
     "price": 4299,
     "rating": 4.2,
     "reviews": 9083,
-    "answers": 40,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -29376,14 +28709,12 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 334,
     "name": "Wildflower White Dress with Embroidery Detailing",
     "price": 3499,
     "sale": "33% Off",
     "rating": 4.9,
     "reviews": 2183,
-    "answers": 28,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -29468,14 +28799,12 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 335,
     "name": "Classic Navy Stripes Cord Set",
     "price": 1899,
     "sale": "30% Off",
     "rating": 4.8,
     "reviews": 2383,
-    "answers": 30,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -29560,14 +28889,12 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 336,
     "name": "Midnight Mirage Co-ord Set",
     "price": 2899,
     "sale": "40% Off",
     "rating": 4.7,
     "reviews": 3483,
-    "answers": 32,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -29652,14 +28979,12 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 337,
     "name": "Akshara Peach A-Line Suit Set",
     "price": 3199,
     "sale": "35% Off",
     "rating": 4.6,
     "reviews": 4583,
-    "answers": 34,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -29744,14 +29069,12 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 338,
     "name": "Season's Delight Straight Fit Cotton Suit Set",
     "price": 2499,
     "sale": "37% Off",
     "rating": 4.5,
     "reviews": 5683,
-    "answers": 45,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "Rs. 100",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -29836,14 +29159,12 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 339,
     "name": "Ritzy Blue Lace Embroidered Straight Suit Set",
     "price": 2299,
     "sale": "39% Off",
     "rating": 4.4,
     "reviews": 6783,
-    "answers": 47,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -29928,14 +29249,12 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 340,
     "name": "Palace Pink Gher Suit Set",
     "price": 1840,
     "sale": "40% Off",
     "rating": 4.3,
     "reviews": 7883,
-    "answers": 49,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -30020,14 +29339,12 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 341,
     "name": "Women Coffee Brown Slub Effect V-Neck Pure Cotton T-shirt",
     "sale": "60% Off",
     "price": 799,
     "rating": 3.7,
     "reviews": 4800,
-    "answers": 160,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "Not specified",
     "color": [
@@ -30103,14 +29420,12 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 342,
     "name": "Women Green Cotton Relaxed Fit T-shirt",
     "sale": "55% Off",
     "price": 999,
     "rating": 3.5,
     "reviews": 4700,
-    "answers": 175,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "Not specified",
     "color": [
@@ -30186,14 +29501,12 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 343,
     "name": "Antimicrobial Finish Training Rapid-Dry T-shirt",
     "sale": "50% Off",
     "price": 899,
     "rating": 3.4,
     "reviews": 4850,
-    "answers": 178,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "Not specified",
     "color": [
@@ -30269,14 +29582,12 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 344,
     "name": "Women Graphic Printed Round Neck Cotton Oversized T-Shirt",
     "sale": "61% Off",
     "price": 899,
     "rating": 3.6,
     "reviews": 5100,
-    "answers": 173,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "Not specified",
     "color": [
@@ -30353,14 +29664,12 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 345,
     "name": "Mandarin Flush Micro Floral Oversized T-shirt",
     "sale": "59% Off",
     "price": 999,
     "rating": 3.3,
     "reviews": 5200,
-    "answers": 176,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "Not specified",
     "color": [
@@ -30436,14 +29745,12 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 346,
     "name": "Floral Embroidered Net Sweetheart Neck Straight Kurta With Trousers & Dupatta",
     "sale": "35% Off",
     "price": 3599,
     "rating": 4.1,
     "reviews": 6750,
-    "answers": 290,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -30529,14 +29836,12 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 347,
     "name": "Floral Embroidered Net Sweetheart Neck Straight Kurta With Trousers & Dupatta",
     "sale": "30% Off",
     "price": 3599,
     "rating": 4.3,
     "reviews": 6900,
-    "answers": 300,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -30620,14 +29925,12 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 348,
     "name": "Floral Embroidered Net Sweetheart Neck Straight Kurta With Trousers & Dupatta",
     "sale": "32% Off",
     "price": 3599,
     "rating": 4.2,
     "reviews": 7100,
-    "answers": 320,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -30710,14 +30013,12 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 349,
     "name": "Geometric Printed Block Print Saree",
     "sale": "29% Off",
     "price": 3999,
     "rating": 4.5,
     "reviews": 7300,
-    "answers": 340,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -30793,14 +30094,12 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 350,
     "name": "Geometric Printed Saree",
     "sale": "37% Off",
     "price": 3999,
     "rating": 4,
     "reviews": 6450,
-    "answers": 280,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -30877,13 +30176,11 @@ export const products: Product[] = [
   },
 
   {
-    "id": 351,
     "name": "Green White Ethnic Motifs Cotton 144 TC Queen Bedsheet With 2 Pillow Covers",
     "price": 2699.0,
     "rating": 4.2,
     "reviews": 6150,
-    "answers": 358,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "Not specified",
     "color": [
@@ -30961,13 +30258,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 352,
     "name": "Rust 350 TC Queen Bedsheet with 2 Pillow Covers",
     "price": 9999.0,
     "rating": 4.4,
     "reviews": 5792,
-    "answers": 328,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -31043,13 +30338,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 353,
     "name": "Lifestyle Brown Printed Pure Cotton 220 TC King Bedsheet Set 2.74 x 2.74 m",
     "price": 2099.0,
     "rating": 4.6,
     "reviews": 7461,
-    "answers": 317,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "Not specified",
     "color": [
@@ -31125,13 +30418,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 354,
     "name": "Gold-Toned Egyptian Cotton Fitted 230 TC King Bedsheet",
     "price": 2799.0,
     "rating": 4.1,
     "reviews": 7325,
-    "answers": 312,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "Not specified",
     "color": [
@@ -31206,13 +30497,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 355,
     "name": "Blue & Cream-Coloured Floral 144 TC Queen Bedsheet with 2 Pillow Covers",
     "price": 2599.0,
     "rating": 4.3,
     "reviews": 6430,
-    "answers": 267,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "Not specified",
     "color": [
@@ -31289,13 +30578,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 356,
     "name": "Yellow & Red Floral 300 TC King Bedsheet with 2 Pillow Covers",
     "price": 699.0,
     "rating": 4.8,
     "reviews": 6807,
-    "answers": 256,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -31372,13 +30659,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 357,
     "name": "Beige Printed 220 TC Pure Cotton Super King Bedsheet with 2 Pillow Covers",
     "price": 2999.0,
     "rating": 4.7,
     "reviews": 7281,
-    "answers": 317,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "Not specified",
     "color": [
@@ -31454,13 +30739,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 358,
     "name": "Green & White Floral Cotton Fitted 210 TC King Bedsheet With 2 Pillow Covers",
     "price": 3049.0,
     "rating": 4.4,
     "reviews": 6812,
-    "answers": 286,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -31537,13 +30820,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 359,
     "name": "Blue Geometric Printed Microfiber 144TC Queen Bedsheet Set",
     "price": 799.0,
     "rating": 4.2,
     "reviews": 6150,
-    "answers": 358,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "Not specified",
     "color": [
@@ -31620,13 +30901,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 360,
     "name": "Blue & Pink Geometric 300 TC King Fitted Bedsheet With 2 Pillow Covers",
     "price": 699.0,
     "rating": 4.8,
     "reviews": 6807,
-    "answers": 256,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "Not specified",
     "color": [
@@ -31703,13 +30982,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 361,
     "name": "Women Cotton Floral Printed Fit and Flare Midi Dress",
     "price": 2999,
     "rating": 4.6,
     "reviews": 5812,
-    "answers": 342,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -31797,13 +31074,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 362,
     "name": "Women Tie-Dye Printed Pure Cotton Tunic",
     "price": 1899,
     "rating": 4.7,
     "reviews": 6013,
-    "answers": 279,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -31890,13 +31165,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 363,
     "name": "Shirt Collar Animal Print Maxi Dress",
     "price": 3099,
     "rating": 4.5,
     "reviews": 5783,
-    "answers": 315,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -31984,13 +31257,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 364,
     "name": "Ethnic Motifs Printed Puff Sleeves Fit and Flare Midi Dress",
     "price": 1899,
     "rating": 4.8,
     "reviews": 6150,
-    "answers": 241,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -32075,13 +31346,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 365,
     "name": "Ethnic Motifs Printed Halter Neck Sleeveless Maxi Dress",
     "price": 2399,
     "rating": 4.9,
     "reviews": 7203,
-    "answers": 202,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -32166,13 +31435,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 366,
     "name": "Women Printed Cotton Tunic",
     "price": 1899,
     "rating": 4.8,
     "reviews": 7302,
-    "answers": 312,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -32260,13 +31527,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 367,
     "name": "Ethnic Print Puff Sleeves Tiered Cotton A-Line Midi Dress",
     "price": 2499,
     "rating": 4.7,
     "reviews": 7543,
-    "answers": 275,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -32353,13 +31618,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 368,
     "name": "Floral Print Empire Longline Top",
     "price": 1899,
     "rating": 4.6,
     "reviews": 7021,
-    "answers": 289,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -32444,13 +31707,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 369,
     "name": "Floral Print A-Line Midi Dress",
     "price": 2499,
     "rating": 4.5,
     "reviews": 6793,
-    "answers": 242,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -32538,13 +31799,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 370,
     "name": "Ethnic Motifs Print A-Line Maxi Dress",
     "price": 2499,
     "rating": 4.9,
     "reviews": 7681,
-    "answers": 298,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -32630,13 +31889,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 371,
     "name": "Women Maxi Dress",
     "price": 2899,
     "rating": 4.7,
     "reviews": 7401,
-    "answers": 229,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -32723,13 +31980,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 372,
     "name": "Floral Printed V-Neck A-Line Kurti",
     "price": 2199,
     "rating": 4.8,
     "reviews": 7610,
-    "answers": 297,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -32816,13 +32071,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 373,
     "name": "Ethnic Print A-Line Knee Length Dress",
     "price": 2199,
     "rating": 4.6,
     "reviews": 7199,
-    "answers": 264,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -32907,13 +32160,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 374,
     "name": "Ruffled Tiered Fit and Flare Midi Dress",
     "price": 2199,
     "rating": 4.4,
     "reviews": 7840,
-    "answers": 301,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -32998,13 +32249,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 375,
     "name": "Round Neck Ethnic Motifs Printed Gotta Patti Cotton Straight Kurta",
     "price": 1499,
     "rating": 4.4,
     "reviews": 6810,
-    "answers": 279,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -33088,13 +32337,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 376,
     "name": "Floral Printed Georgette Fit & Flare Midi Dress",
     "price": 2599,
     "rating": 4.9,
     "reviews": 7641,
-    "answers": 310,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -33182,13 +32429,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 377,
     "name": "Floral Printed Fit & Flare Dress",
     "price": 2499,
     "rating": 4.6,
     "reviews": 7012,
-    "answers": 267,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -33274,13 +32519,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 378,
     "name": "Blue Square Neck Gathered Pure Cotton Fit & Flare Dress",
     "price": 1999,
     "rating": 4.7,
     "reviews": 7389,
-    "answers": 298,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -33367,13 +32610,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 379,
     "name": "Pink Square Neck Gathered Pure Cotton Fit & Flare Dress",
     "price": 2399,
     "rating": 4.8,
     "reviews": 7564,
-    "answers": 311,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -33458,13 +32699,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 380,
     "name": "Ethnic Motifs Self Design Cotton A Line Midi Dress",
     "price": 2499,
     "rating": 4.7,
     "reviews": 7732,
-    "answers": 290,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -33549,13 +32788,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 381,
     "name": "Cotton Shoulder Straps Fit and Flare Maxi Dress",
     "price": 2199,
     "rating": 4.5,
     "reviews": 6794,
-    "answers": 281,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -33641,13 +32878,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 382,
     "name": "Plus Size Abstract Print Ruffled Georgette A-Line Midi Casual Dress",
     "price": 2799,
     "rating": 4.8,
     "reviews": 7302,
-    "answers": 312,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -33731,13 +32966,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 383,
     "name": "Floral Print Puff Sleeve Fit & Flare Midi Dress",
     "price": 2499,
     "rating": 4.6,
     "reviews": 7321,
-    "answers": 258,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -33823,13 +33056,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 384,
     "name": "Floral Print Maxi Midi Dress",
     "price": 2199,
     "rating": 4.8,
     "reviews": 7531,
-    "answers": 276,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -33914,13 +33145,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 385,
     "name": "Women Roll-Up Sleeves Opaque Casual Shirt Midi Dress",
     "price": 2599,
     "rating": 4.7,
     "reviews": 7420,
-    "answers": 264,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -34006,13 +33235,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 386,
     "name": "Crepe Roll-Up Sleeves Shirt Midi Dress Comes With A Belt",
     "price": 2599,
     "rating": 4.9,
     "reviews": 7790,
-    "answers": 301,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -34096,13 +33323,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 387,
     "name": "Roll-Up Sleeves Crepe Shirt Midi Dress",
     "price": 3599,
     "rating": 4.5,
     "reviews": 6820,
-    "answers": 274,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -34186,13 +33411,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 388,
     "name": "Roll-Up Sleeves Tie-Up Shirt Midi Dress",
     "price": 3399,
     "rating": 4.8,
     "reviews": 7598,
-    "answers": 315,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -34277,13 +33500,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 389,
     "name": "Roll-Up Sleeves Crepe Shirt Midi Dress",
     "price": 3599,
     "rating": 4.5,
     "reviews": 6820,
-    "answers": 274,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -34367,13 +33588,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 390,
     "name": "Women Shirt Collar A-Line Midi Dress",
     "price": 2599,
     "rating": 4.8,
     "reviews": 7598,
-    "answers": 315,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -34456,13 +33675,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 391,
     "name": "Halter Neck Sleeveless Chiffon Fit & Flare Midi Dress",
     "price": 2799,
     "rating": 4.5,
     "reviews": 6794,
-    "answers": 281,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -34545,13 +33762,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 392,
     "name": "Floral Print Chiffon Kaftan Dress",
     "price": 2799,
     "rating": 4.8,
     "reviews": 7302,
-    "answers": 312,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -34636,13 +33851,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 393,
     "name": "Women Embellished Chiffon Three-Quarter Sleeves Maxi Dress",
     "price": 3799,
     "rating": 4.6,
     "reviews": 7321,
-    "answers": 258,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -34725,13 +33938,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 394,
     "name": "Printed Puff Sleeve Chiffon A-Line Maxi Dress",
     "price": 2199,
     "rating": 4.8,
     "reviews": 7531,
-    "answers": 276,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -34816,13 +34027,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 395,
     "name": "Women Floral Printed Chiffon Maxi Dress",
     "price": 1699,
     "rating": 4.7,
     "reviews": 7420,
-    "answers": 264,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -34909,13 +34118,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 396,
     "name": "Purple Chiffon Midi Dress",
     "price": 2599,
     "rating": 4.9,
     "reviews": 7790,
-    "answers": 301,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -34999,13 +34206,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 397,
     "name": "Roll-Up Sleeves Crepe Shirt Midi Dress",
     "price": 3499,
     "rating": 4.5,
     "reviews": 6820,
-    "answers": 274,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -35088,13 +34293,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 398,
     "name": "Purple Roll-Up Sleeves Shirt Midi Dress",
     "price": 2499,
     "rating": 4.8,
     "reviews": 7598,
-    "answers": 315,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -35180,13 +34383,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 399,
     "name": "Women Shirt Collar Roll-Up Sleeves Conversational Print Shirt Midi Dress",
     "price": 2699,
     "rating": 4.5,
     "reviews": 6820,
-    "answers": 274,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "100 RS.",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -35273,13 +34474,11 @@ export const products: Product[] = [
     ]
   },
   {
-    "id": 400,
     "name": "Floral Printed Tie-Ups Shirt Midi Dress",
     "price": 3199,
     "rating": 4.8,
     "reviews": 7598,
-    "answers": 315,
-    "inStock": true,
+    "inStock": 10,
     "delivery": "FREE delivery",
     "deliveryDate": "5 To 6 Working days",
     "seller": "Rajwadi Poshaak Co.",
@@ -35364,4 +34563,5 @@ export const products: Product[] = [
       }
     ]
   }
+
 ]

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import dbConnect from 'lib/dbConnect';
+import dbConnect from '@/lib/dbConnect';
 import { Cart } from '@/models/Cart';
 import User from '@/models/User';
 
