@@ -10,6 +10,7 @@ import { ShoppingBag, Truck, CreditCard, Check, ChevronRight } from 'lucide-reac
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import Loader from '@/components/Loader'
 
 const tabVariants = {
     hidden: { opacity: 0, y: 10 },
@@ -17,7 +18,11 @@ const tabVariants = {
 }
 
 export default function AnimatedCheckout() {
-    const [activeTab, setActiveTab] = useState('products')
+    const [activeTab, setActiveTab] = useState<string>('products')
+    const [paymentMethod, setPaymentMethod] = useState<"razorpay" | "cod">('cod')
+    const [couponValue, setCouponValue] = useState<number>(100)
+    const [orderNotes, setOrderNotes] = useState('')
+    const [urgent, setUrgent] = useState<boolean>(false)
     const [address, setAddress] = useState({
         street: '',
         city: '',
@@ -25,11 +30,13 @@ export default function AnimatedCheckout() {
         zipCode: '',
         country: 'India',
     })
-    const [couponCode, setCouponCode] = useState('')
+    const [paymentStatus, setPaymentStatus] = useState<'pending' | 'completed' | 'failed' | 'refunded'>('pending')
+    const [couponCode, setCouponCode] = useState<string>('')
     const userId = Cookies.get('userId');
     const [products, setProducts] = useState<any>([])
     const [user, setUser] = useState<any>({})
     const router = useRouter();
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleNextStep = () => {
         if (activeTab === 'products') setActiveTab('address')
@@ -41,39 +48,114 @@ export default function AnimatedCheckout() {
         else if (activeTab === 'address') setActiveTab('products')
     }
 
-    const handlePlaceOrder = () => {
-        // Implement order placement logic here
+    const handlePlaceOrder = async() => {
         console.log('Order placed!')
+        const orderBody = {
+            userId: userId,
+            products: [
+                {
+                    "productId": "6782bfac6c9ac1302fb22648",
+                    "name": "T-Shirt",
+                    "quantity": 2,
+                    "size": "M",
+                    "price": "20.00"
+                },
+                {
+                    "productId": "6782bfac6c9ac1302fb22648",
+                    "name": "Jeans",
+                    "quantity": 1,
+                    "size": "L",
+                    "price": "50.00"
+                }
+            ],
+            totalPrice: parseFloat((products.totalPrice + 99 + parseFloat(((products.totalPrice) * 0.18).toString()) - couponValue + (urgent ? 100 : 0)).toFixed(2)),
+            shippingAddress: {
+                street: address.street,
+                city: address.city,
+                state: address.state,
+                zipCode: address.zipCode,
+                country: address.country
+            },
+            paymentMethod: paymentMethod,
+            paymentStatus: paymentStatus,
+            orderNotes: orderNotes,
+            urgent: urgent,
+            shippingDetails: {
+                carrier: "FedEx",
+                trackingNumber: Math.floor(100000000 + Math.random() * 900000000).toString(),
+                estimatedDeliveryDate: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
+            }
+        }
+        try {
+            const response = await fetch('/api/order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(orderBody)
+            }).then((res) => res.json());
+            console.log(response);
+            if (response.success) {
+                console.log('Order placed successfully!');
+                console.log(response.message);
+                router.push('/');
+            }
+            else {
+                console.error(response.error);
+            }
+        }
+        catch (error) {
+            console.error(error);
+        }
+        finally {
+        }
+
     }
 
     const fetchAllRequiredData = async () => {
+        setIsLoading(true);
         if (!userId) {
             router.push('/login');
         };
-        //fetch All products
-        const response = await fetch(`/api/cart/${userId}`).then((res) => res.json());
-        if (response.success) {
-            if (response.data.length === 0) {
-                router.push('/cart');
-            }
-            setProducts(response);
-        }
-        else {
-            console.error(response.error);
-        }
-        //fetch address
-        const response2 = await fetch(`/api/user/get/${userId}`).then((res) => res.json());
-        if(response2.success) {
-            setUser(response2.data);
-            setAddress(response2.data.address);
-        }
-        //fetch payment
+        try {
 
+            //fetch All products
+            const response = await fetch(`/api/cart/${userId}`).then((res) => res.json());
+            if (response.success) {
+                if (response.data.length === 0) {
+                    router.push('/cart');
+                }
+                setProducts(response);
+            }
+            else {
+                console.error(response.error);
+                setIsLoading(false);
+            }
+            //fetch address
+            const response2 = await fetch(`/api/user/get/${userId}`).then((res) => res.json());
+            if (response2.success) {
+                setUser(response2.data);
+                setAddress(response2.data.address);
+            }
+        }
+        catch (error) {
+            console.error(error);
+        }
+        finally{
+            setIsLoading(false);
+        }
     };
 
     useEffect(() => {
+
         fetchAllRequiredData();
     }, []);
+
+    if (isLoading) {
+        return <>
+            <Loader />
+        </>
+    }
 
     return (
         <motion.div
@@ -195,18 +277,71 @@ export default function AnimatedCheckout() {
                                 <h2 className="text-2xl font-bold mb-4 text-red-800">Payment Details</h2>
                                 <div className="space-y-4">
                                     <div>
-                                        <Label htmlFor="cardNumber">Card Number</Label>
-                                        <Input id="cardNumber" placeholder="1234 5678 9012 3456" className="mt-1" />
+                                        <Label className="text-lg font-semibold">Select Payment Method</Label>
+                                        <div className="mt-2 space-y-2">
+                                            <label className="flex items-center space-x-2 cursor-pointer">
+                                                <input
+                                                    type="radio"
+                                                    name="paymentMethod"
+                                                    value="razorpay"
+                                                    checked={paymentMethod === 'razorpay'}
+                                                    onChange={() => setPaymentMethod('razorpay')}
+                                                    className="form-radio text-red-600"
+                                                />
+                                                <span>Razorpay</span>
+                                            </label>
+                                            <label className="flex items-center space-x-2 cursor-pointer">
+                                                <input
+                                                    type="radio"
+                                                    name="paymentMethod"
+                                                    value="cod"
+                                                    checked={paymentMethod === 'cod'}
+                                                    onChange={() => setPaymentMethod('cod')}
+                                                    className="form-radio text-red-600"
+                                                />
+                                                <span>Cash on Delivery</span>
+                                            </label>
+                                        </div>
                                     </div>
-                                    <div className="flex space-x-4">
-                                        <div className="flex-1">
-                                            <Label htmlFor="expiryDate">Expiry Date</Label>
-                                            <Input id="expiryDate" placeholder="MM/YY" className="mt-1" />
-                                        </div>
-                                        <div className="flex-1">
-                                            <Label htmlFor="cvv">CVV</Label>
-                                            <Input id="cvv" placeholder="123" className="mt-1" />
-                                        </div>
+
+                                    <AnimatePresence mode="wait">
+                                        {paymentMethod === 'razorpay' && (
+                                            <motion.div
+                                                key="razorpay"
+                                                initial={{ opacity: 0, height: 0 }}
+                                                animate={{ opacity: 1, height: 'auto' }}
+                                                exit={{ opacity: 0, height: 0 }}
+                                                transition={{ duration: 0.3 }}
+                                            >
+                                                <p className="text-sm text-gray-600">
+                                                    You will be redirected to Razorpay to complete your payment securely.
+                                                </p>
+                                            </motion.div>
+                                        )}
+
+                                        {paymentMethod === 'cod' && (
+                                            <motion.div
+                                                key="cod"
+                                                initial={{ opacity: 0, height: 0 }}
+                                                animate={{ opacity: 1, height: 'auto' }}
+                                                exit={{ opacity: 0, height: 0 }}
+                                                transition={{ duration: 0.3 }}
+                                            >
+                                                <p className="text-sm text-gray-600">
+                                                    Pay with cash upon delivery. Additional fees may apply.
+                                                </p>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                    <div className="flex items-center mt-4">
+                                        <input
+                                            type="checkbox"
+                                            id="urgent"
+                                            checked={urgent}
+                                            onChange={(e) => setUrgent(e.target.checked)}
+                                            className="form-checkbox text-red-600"
+                                        />
+                                        <Label htmlFor="urgent" className="ml-2">Urgent Delivery (Additional charges may apply)</Label>
                                     </div>
                                     <div>
                                         <Label htmlFor="couponCode">Coupon Code</Label>
@@ -229,12 +364,43 @@ export default function AnimatedCheckout() {
                                         </div>
                                         <div className="flex justify-between mt-2">
                                             <span>Shipping:</span>
-                                            <span>₹99</span>
+                                            <span>+ ₹99</span>
                                         </div>
+                                        <div className="flex justify-between mt-2">
+                                            <span>Coupon:</span>
+                                            <span>- ₹{couponValue}</span>
+                                        </div>
+                                        <div className="flex justify-between mt-2">
+                                            <span>CGST (9%):</span>
+                                            <span>+ ₹{((products.totalPrice) * 0.09).toFixed(2)}</span>
+                                        </div>
+                                        <div className="flex justify-between mt-2">
+                                            <span>SGST (9%):</span>
+                                            <span>+ ₹{((products.totalPrice) * 0.09).toFixed(2)}</span>
+                                        </div>
+                                        {urgent && <div className="flex justify-between mt-2">
+                                            <span>Urgent Delivery Charges:</span>
+                                            <span>+ ₹100</span>
+                                        </div>}
                                         <div className="flex justify-between mt-2 font-bold">
                                             <span>Total:</span>
-                                            <span>₹{products.totalPrice + 99}</span>
+                                            <span>
+                                                ₹
+                                                {(((products.totalPrice + 99 + parseFloat(((products.totalPrice) * 0.18).toString()) - couponValue + (urgent ? 100 : 0)))
+                                                ).toFixed(2)}
+                                            </span>
                                         </div>
+                                    </div>
+                                    <div>
+                                        <Label htmlFor="orderNotes">Order Notes</Label>
+                                        <Input
+                                            id="orderNotes"
+                                            value={orderNotes}
+                                            onChange={(e) => { setOrderNotes(e.target.value) }}
+                                            placeholder="Enter any special instructions (max 200 characters)"
+                                            maxLength={200}
+                                            className="mt-1"
+                                        />
                                     </div>
                                 </div>
                             </TabsContent>
@@ -251,7 +417,7 @@ export default function AnimatedCheckout() {
                                 Next <ChevronRight className="w-4 h-4 ml-2" />
                             </Button>
                         ) : (
-                            <Button onClick={handlePlaceOrder} className="ml-auto bg-red-700 hover:bg-red-800">
+                            <Button onClick={handlePlaceOrder} className="ml-auto bg-green-700 hover:bg-green-800">
                                 Place Order <Check className="w-4 h-4 ml-2" />
                             </Button>
                         )}

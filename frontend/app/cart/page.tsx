@@ -283,7 +283,10 @@ export default function OptimizedCoolCartPage() {
 
             <Button
               className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center"
-              onClick={() => router.push('/checkout')}
+              onClick={() =>{
+                setIsLoading(true);
+                router.push('/checkout')
+              }}
             >
               <span>Proceed to Checkout</span>
               <ChevronRight className="w-5 h-5 ml-2" />
