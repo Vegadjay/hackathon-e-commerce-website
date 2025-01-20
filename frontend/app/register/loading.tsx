@@ -7,7 +7,6 @@ export default function Loading() {
     <div className="relative">
       <div className="w-12 h-12 border-4 border-gray-200 rounded-full absolute" />
 
-      {/* Animated overlay */}
       <motion.div
         className="w-12 h-12 border-4 border-transparent rounded-full border-t-pink-500 absolute"
         animate={{
@@ -20,7 +19,6 @@ export default function Loading() {
         }}
       />
 
-      {/* Copy effect element */}
       <motion.div
         className="w-12 h-12 border-4 border-transparent rounded-full border-t-pink-500/30 absolute"
         initial={{ scale: 0.8, opacity: 0 }}

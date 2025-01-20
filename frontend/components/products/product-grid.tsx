@@ -8,7 +8,7 @@ import Earthcomponent from "@/components/earthcomponent/earth-component";
 import { VideoGrid } from "@/components/ui/layout-video-grid";
 import { HeroScrollDemo } from "@/components/scroll-component/page";
 import { InfiniteMovingCardsDemo } from "@/components/infinite-scroll-component/page";
-import ProductGridComponent from "@/components/sale-product-grid/page";
+import ProductGridComponent from "@/components/catagory-product-grid/page";
 import Filtercomponent from "@/components/filter-component/filter";
 import Heading from "@/components/title/page";
 
@@ -99,7 +99,6 @@ export function ProductGrid() {
       animate="visible"
       variants={pageTransition}
     >
-      {/* Fashion Carousel Section */}
       <div className="mt-6">
         <Heading text="Step into Tradition with Rajwadi Poshak" />
         <div className="w-full overflow-hidden">
@@ -107,7 +106,6 @@ export function ProductGrid() {
         </div>
       </div>
 
-      {/* Shop the Look Section */}
       <div className="mt-10 sm:mt-20">
         <Heading text="Shop the Look" />
         <div className="w-full overflow-hidden">
@@ -115,15 +113,15 @@ export function ProductGrid() {
         </div>
       </div>
 
-      {/* Sale Products Section */}
-      <div className="mt-10 sm:mt-20">
+      {/* Todo: This is component and in this component there is one error so change that error. */}
+
+      {/* <div className="mt-10 sm:mt-20">
         <Heading text="On Sale Products" />
         <div className="w-full">
           <ProductGridComponent />
         </div>
-      </div>
+      </div> */}
 
-      {/* Video Gallery Section */}
       <div className="mt-10 sm:mt-20">
         <Heading text="Video Gallery" />
         <div className="w-full mt-32 lg:mt-0 md:mt-0">
@@ -132,11 +130,11 @@ export function ProductGrid() {
         </div>
       </div>
 
-      {/* Hero Scroll Section */}
       <div className="-mt-20 sm:-mt-32">
         <HeroScrollDemo
           title="Top Pick of the Season"
           discription="Checkout Here"
+          // todo:- Add that product that is added to here
           imageId={238}
         />
       </div>
