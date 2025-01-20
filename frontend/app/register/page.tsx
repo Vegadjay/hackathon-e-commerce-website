@@ -9,14 +9,24 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useRenderContext } from '@/contexts/RenderContext';
 import { CheckCircle2, XCircle, Send } from 'lucide-react';
 
-const formVariants = {
-  hidden: { opacity: 0, y: 50 },
+const containerVariants = {
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    y: 0,
     transition: {
-      duration: 0.6,
-      ease: "easeOut"
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const floatingBubbleVariants = {
+  animate: {
+    y: [0, -15, 0],
+    transition: {
+      duration: 3,
+      repeat: Infinity,
+      ease: "easeInOut"
     }
   }
 };
@@ -75,8 +85,8 @@ const InputField: React.FC<InputFieldProps> = ({
       placeholder={placeholder}
       disabled={disabled}
       className={`w-full px-4 py-2 border-2 rounded-lg outline-none transition-colors
-        ${error ? 'border-red-500 bg-red-50' : 'border-gray-300 focus:border-blue-500'}
-        ${error ? 'focus:border-red-500' : 'focus:border-blue-500'}
+        ${error ? 'border-red-500 bg-red-50' : 'border-gray-300 focus:border-red-500'}
+        ${error ? 'focus:border-red-500' : 'focus:border-red-500'}
         ${disabled ? 'bg-gray-100 cursor-not-allowed' : ''}
       `}
     />
@@ -307,20 +317,45 @@ export default function Register() {
         [name]: value,
       }));
     }
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: '' }));
     }
   };
 
   return (
-    <div className="min-h-screen py-12 px-4 bg-gradient-to-br from-blue-50 to-purple-50">
+    <div className="min-h-screen py-12 px-4 bg-gradient-to-br from-red-50 to-red-100">
+      <div className="absolute inset-0 -z-10">
+        <motion.div
+          animate={{
+            rotate: 360,
+            transition: { duration: 20, repeat: Infinity, ease: "linear" }
+          }}
+          className="absolute top-1/4 -left-12 w-96 h-96 bg-red-200/30 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            rotate: -360,
+            transition: { duration: 25, repeat: Infinity, ease: "linear" }
+          }}
+          className="absolute bottom-1/4 -right-12 w-96 h-96 bg-red-200/30 rounded-full blur-3xl"
+        />
+      </div>
       <motion.div
         initial="hidden"
         animate="visible"
-        variants={formVariants}
+        variants={containerVariants}
         className="max-w-4xl mx-auto"
       >
+        <motion.div
+          variants={floatingBubbleVariants}
+          animate="animate"
+          className="absolute -top-4 -left-4 w-16 h-16 bg-red-400/10 rounded-full backdrop-blur-sm"
+        />
+        <motion.div
+          variants={floatingBubbleVariants}
+          animate="animate"
+          className="absolute top-1/2 -right-8 w-20 h-20 bg-red-400/10 rounded-full backdrop-blur-sm"
+        />
         <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
           <div className="px-8 py-12">
             <motion.div
@@ -328,7 +363,7 @@ export default function Register() {
               animate={{ opacity: 1, y: 0 }}
               className="text-center mb-12"
             >
-              <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-red-600 to-red-600 bg-clip-text text-transparent">
                 Join Our Community
               </h2>
               <p className="mt-4 text-gray-600">
@@ -366,8 +401,8 @@ export default function Register() {
                     type="button"
                     onClick={handleSendOtp}
                     disabled={isSendingOtp || isOtpVerified}
-                    className="mt-6 h-10 w-10 p-2 bg-blue-500 text-white rounded-lg
-                  hover:bg-blue-600 disabled:bg-gray-400 transition-colors
+                    className="mt-6 h-10 w-10 p-2 bg-red-500 text-white rounded-lg
+                  hover:bg-red-600 disabled:bg-gray-400 transition-colors
                    flex items-center justify-center"
                   >
                     {isSendingOtp ? (
@@ -396,14 +431,14 @@ export default function Register() {
                     />
                     <div className="absolute right-2 top-8 flex items-center space-x-2">
                       {isOtpVerified ? (
-                        <CheckCircle2 className="w-6 h-6 text-green-500" />
+                        <CheckCircle2 className="w-6 h-6 text-red-500" />
                       ) : (
                         <motion.button
                           type="button"
                           onClick={handleVerifyOtp}
                           disabled={isVerifyingOtp}
-                          className="px-4 py-2 bg-green-500 text-white rounded-lg text-sm
-                            hover:bg-green-600 disabled:bg-gray-400 transition-colors"
+                          className="px-4 py-2 bg-red-500 text-white rounded-lg text-sm
+                            hover:bg-red-600 disabled:bg-gray-400 transition-colors"
                         >
                           {isVerifyingOtp ? 'Verifying...' : 'Verify OTP'}
                         </motion.button>
@@ -498,7 +533,7 @@ export default function Register() {
                   whileTap={{ scale: 0.99 }}
                   type="submit"
                   disabled={isLoading || !isOtpVerified}
-                  className="w-full px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl 
+                  className="w-full px-8 py-4 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-xl 
                     font-medium transition-all shadow-lg hover:shadow-xl disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {isLoading ? (
@@ -517,7 +552,7 @@ export default function Register() {
 
                 <p className="text-center text-gray-600">
                   Already have an account?{' '}
-                  <Link href="/login" className="text-blue-600 hover:text-blue-700 font-medium">
+                  <Link href="/login" className="text-red-600 hover:text-red-700 font-medium">
                     Sign in
                   </Link>
                 </p>

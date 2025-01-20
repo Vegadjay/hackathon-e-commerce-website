@@ -52,13 +52,13 @@ const CustomInput = ({ icon: Icon, error, ...props }: { icon: React.ComponentTyp
       className="relative group"
     >
       <div className="relative">
-        <div className="absolute left-3 top-1/2 -translate-y-1/2 text-purple-400 group-focus-within:text-indigo-600 transition-colors">
+        <div className="absolute left-3 top-1/2 -translate-y-1/2 text-red-400 group-focus-within:text-red-600 transition-colors">
           <Icon size={20} />
         </div>
         <input
           {...props}
           className={`w-full pl-12 pr-4 py-3 bg-white/50 backdrop-blur-sm border-2 rounded-xl
-          ${error ? 'border-red-400' : 'border-purple-200 group-focus-within:border-indigo-400'}
+          ${error ? 'border-red-400' : 'border-red-200 group-focus-within:border-red-400'}
           transition-all duration-300 outline-none`}
         />
       </div>
@@ -95,6 +95,7 @@ export default function Login() {
 
       if (response.ok && result.success) {
         toast.success('Logged in successfully!');
+        location.reload();
         setFormData({ email: '', password: '' });
 
         if (result.token) {
@@ -167,25 +168,23 @@ export default function Login() {
   }, []);
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
-      {/* Animated background elements */}
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-red-50 via-red-100 to-red-200">
       <div className="absolute inset-0 -z-10">
         <motion.div
           animate={{
             rotate: 360,
             transition: { duration: 20, repeat: Infinity, ease: "linear" }
           }}
-          className="absolute top-1/4 -left-12 w-96 h-96 bg-purple-200/30 rounded-full blur-3xl"
+          className="absolute top-1/4 -left-12 w-96 h-96 bg-red-200/30 rounded-full blur-3xl"
         />
         <motion.div
           animate={{
             rotate: -360,
             transition: { duration: 25, repeat: Infinity, ease: "linear" }
           }}
-          className="absolute bottom-1/4 -right-12 w-96 h-96 bg-indigo-200/30 rounded-full blur-3xl"
+          className="absolute bottom-1/4 -right-12 w-96 h-96 bg-red-200/30 rounded-full blur-3xl"
         />
       </div>
-
       <div className="container mx-auto px-4 py-16 relative">
         <motion.div
           initial="hidden"
@@ -193,28 +192,27 @@ export default function Login() {
           variants={containerVariants}
           className="max-w-md mx-auto"
         >
-          {/* Floating decorative elements */}
           <motion.div
             variants={floatingBubbleVariants}
             animate="animate"
-            className="absolute -top-4 -left-4 w-16 h-16 bg-purple-400/10 rounded-full backdrop-blur-sm"
+            className="absolute -top-4 -left-4 w-16 h-16 bg-red-400/10 rounded-full backdrop-blur-sm"
           />
           <motion.div
             variants={floatingBubbleVariants}
             animate="animate"
-            className="absolute top-1/2 -right-8 w-20 h-20 bg-indigo-400/10 rounded-full backdrop-blur-sm"
+            className="absolute top-1/2 -right-8 w-20 h-20 bg-red-400/10 rounded-full backdrop-blur-sm"
           />
 
           <div className="bg-white/40 backdrop-blur-lg rounded-3xl shadow-xl overflow-hidden border border-white/50">
             <div className="p-8">
               <motion.div className="text-center mb-10" variants={itemVariants}>
                 <motion.div
-                  className="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-2xl flex items-center justify-center"
+                  className="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center"
                   whileHover={{ rotate: 5, scale: 1.05 }}
                 >
                   <User size={40} className="text-white" />
                 </motion.div>
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-red-600 to-red-800 bg-clip-text text-transparent">
                   Welcome Back
                 </h2>
                 <p className="mt-3 text-gray-600">
@@ -253,7 +251,7 @@ export default function Login() {
                   whileTap={{ scale: 0.98 }}
                   type="submit"
                   disabled={isLoading}
-                  className="w-full py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-xl
+                  className="w-full py-3 bg-gradient-to-r from-red-600 to-red-800 text-white rounded-xl
                     font-medium flex items-center justify-center gap-2 group hover:shadow-lg transition-shadow"
                 >
                   {isLoading ? 'Signing in...' : (
@@ -270,7 +268,7 @@ export default function Login() {
                 >
                   <Link
                     href="/forgot-password"
-                    className="text-sm text-purple-600 hover:text-indigo-600 transition-colors"
+                    className="text-sm text-red-600 hover:text-red-700 transition-colors"
                   >
                     Forgot your password?
                   </Link>
@@ -280,8 +278,8 @@ export default function Login() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={loginWithGoogle}
-                    className="w-full flex items-center justify-center gap-3 py-3 border-2 border-purple-200
-                      rounded-xl text-gray-700 hover:bg-white/50 hover:border-purple-300 transition-all"
+                    className="w-full flex items-center justify-center gap-3 py-3 border-2 border-red-200
+                      rounded-xl text-gray-700 hover:bg-white/50 hover:border-red-300 transition-all"
                   >
                     <img
                       src="/google.svg"
@@ -295,7 +293,7 @@ export default function Login() {
                     Don't have an account?{' '}
                     <Link
                       href="/register"
-                      className="text-purple-600 hover:text-indigo-600 transition-colors font-medium"
+                      className="text-red-600 hover:text-red-700 transition-colors font-medium"
                     >
                       Sign Up
                     </Link>

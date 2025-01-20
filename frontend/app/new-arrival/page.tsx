@@ -10,10 +10,6 @@ function ProductGrid() {
   const category = searchParams.get("category");
   const [filteredProducts, setFilteredProducts] = useState<any>([]);
 
-  // const filteredProducts = products.filter(
-  //   (product) => product.category === category
-  // );
-
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
@@ -36,14 +32,14 @@ function ProductGrid() {
     }
   };
 
-  useEffect(()=>{
-    async function fetchData(){
+  useEffect(() => {
+    async function fetchData() {
       const response = await fetch(`/api/product/category/${category}`);
       const data = await response.json();
       setFilteredProducts(data.data);
     }
     fetchData();
-  },[]);
+  }, []);
 
   return (
     <main className="mx-auto max-w-7xl px-6 py-12 sm:px-8 lg:px-10">
@@ -53,7 +49,7 @@ function ProductGrid() {
         initial="hidden"
         animate="show"
       >
-        {filteredProducts.map((product:any) => (
+        {filteredProducts.map((product: any) => (
           <motion.div
             key={product._id}
             variants={itemVariants}
