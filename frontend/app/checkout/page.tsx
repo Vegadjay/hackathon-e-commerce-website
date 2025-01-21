@@ -52,22 +52,7 @@ export default function AnimatedCheckout() {
         console.log('Order placed!')
         const orderBody = {
             userId: userId,
-            products: [
-                {
-                    "productId": "6782bfac6c9ac1302fb22648",
-                    "name": "T-Shirt",
-                    "quantity": 2,
-                    "size": "M",
-                    "price": "20.00"
-                },
-                {
-                    "productId": "6782bfac6c9ac1302fb22648",
-                    "name": "Jeans",
-                    "quantity": 1,
-                    "size": "L",
-                    "price": "50.00"
-                }
-            ],
+            products: products.data,
             totalPrice: parseFloat((products.totalPrice + 99 + parseFloat(((products.totalPrice) * 0.18).toString()) - couponValue + (urgent ? 100 : 0)).toFixed(2)),
             shippingAddress: {
                 street: address.street,
