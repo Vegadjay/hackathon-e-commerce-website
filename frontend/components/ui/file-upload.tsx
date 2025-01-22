@@ -26,9 +26,11 @@ const secondaryVariant = {
 };
 
 export const FileUpload = ({
+    onClick,
     onChange,
 }: {
     onChange?: (files: File[]) => void;
+    onClick?: () => void
 }) => {
     const [files, setFiles] = useState<File[]>([]);
     const fileInputRef = useRef<HTMLInputElement>(null);
