@@ -34,7 +34,7 @@ const OrderSchema = z.object({
   totalPrice: z.number().positive("Total price must be greater than 0"),
   shippingAddress: ShippingAddressSchema,
   status: z.enum(['pending', 'processing', 'shipped', 'delivered', 'cancelled', 'returned']).optional(),
-  paymentMethod: z.enum(['credit_card', 'paypal', 'bank_transfer', 'cod', 'upi']),
+  paymentMethod: z.enum(['credit_card', 'paypal', 'bank_transfer', 'cod', 'upi','razorpay']),
   paymentStatus: z.enum(['pending', 'completed', 'failed', 'refunded']).optional(),
   orderNotes: z.string().optional(),
   urgent: z.boolean().optional(),

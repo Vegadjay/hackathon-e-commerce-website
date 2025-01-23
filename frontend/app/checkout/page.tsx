@@ -1,5 +1,11 @@
 'use client'
 
+declare global {
+    interface Window {
+        Razorpay: any;
+    }
+}
+
 import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -19,7 +25,7 @@ const tabVariants = {
 
 export default function AnimatedCheckout() {
     const [activeTab, setActiveTab] = useState<string>('products')
-    const [paymentMethod, setPaymentMethod] = useState<"razorpay" | "cod">('cod')
+    const [paymentMethod, setPaymentMethod] = useState<"razorpay" | "cod" | "upi" | "card">('cod')
     const [couponValue, setCouponValue] = useState<number>(100)
     const [orderNotes, setOrderNotes] = useState('')
     const [urgent, setUrgent] = useState<boolean>(false)
@@ -48,7 +54,7 @@ export default function AnimatedCheckout() {
         else if (activeTab === 'address') setActiveTab('products')
     }
 
-    const handlePlaceOrder = async() => {
+    const handlePlaceOrder = async () => {
         console.log('Order placed!')
         const orderBody = {
             userId: userId,
@@ -61,7 +67,7 @@ export default function AnimatedCheckout() {
                 zipCode: address.zipCode,
                 country: address.country
             },
-            paymentMethod: paymentMethod,
+            paymentMethod: paymentMethod ?? "pending",
             paymentStatus: paymentStatus,
             orderNotes: orderNotes,
             urgent: urgent,
@@ -126,9 +132,84 @@ export default function AnimatedCheckout() {
         catch (error) {
             console.error(error);
         }
-        finally{
+        finally {
             setIsLoading(false);
         }
+    };
+
+    const generateOrder = async () => {
+        try {
+            const orderUrl = `/api/payment/orders`;
+            const response = await fetch(orderUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(
+                    {
+                        amount: 1000
+                    }
+                )
+            }).then((res) => res.json());
+
+            if (response.success) {
+                console.log(response);
+            }
+            initPayment(response.data);
+        } catch (error) {
+        }
+    }
+
+    const initPayment = (data: any) => {
+        const options:any = {
+            key: "rzp_test_EfZ5xkx1ssjM7g",
+            amount: 1000,
+            currency: data.currency,
+            name: "Rajwadi Poshak",
+            description: "Pay securely to rajwadi poshak",
+            image: "R",
+            modal: {
+                ondismiss: function () {
+                    console.log('Transaction was not completed, window closed.');
+                }
+            },
+            order_id: data.id,
+            handler: async (response: any) => {
+                try {
+                    const verifyUrl = `/api/payment/verify`;
+                    const resp = await fetch(verifyUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(response)
+                    }).then((res) => res.json());
+
+                    if (resp.success) {
+                        alert("payment successfull.")
+                        setPaymentStatus("completed")
+                        setPaymentMethod("razorpay");
+                        return true;
+                    }
+                    else {
+                        setPaymentStatus("failed")
+                        alert("payment failed!");
+                        return false;
+                    }
+                    
+                } catch (error) {
+                    console.log(error)
+                    setPaymentStatus("failed")
+                    return false;
+                }
+            },
+            theme: {
+                color: "#3469c1",
+            },
+        };
+        console.log(options, "1pqppqpq")
+        const rzp1 = new window.Razorpay(options);
+        rzp1.open();
     };
 
     useEffect(() => {
@@ -298,9 +379,10 @@ export default function AnimatedCheckout() {
                                                 exit={{ opacity: 0, height: 0 }}
                                                 transition={{ duration: 0.3 }}
                                             >
-                                                <p className="text-sm text-gray-600">
+                                                {/* <p className="text-sm text-gray-600">
                                                     You will be redirected to Razorpay to complete your payment securely.
-                                                </p>
+                                                </p> */}
+                                                <Button onClick={generateOrder} className='text-white'>Pay Online</Button>
                                             </motion.div>
                                         )}
 
@@ -371,7 +453,8 @@ export default function AnimatedCheckout() {
                                             <span>Total:</span>
                                             <span>
                                                 ₹
-                                                {(((products.totalPrice + 99 + parseFloat(((products.totalPrice) * 0.18).toString()) - couponValue + (urgent ? 100 : 0)))
+
+                                                {paymentStatus=="completed" ? 0 :(((products.totalPrice + 99 + parseFloat(((products.totalPrice) * 0.18).toString()) - couponValue + (urgent ? 100 : 0)))
                                                 ).toFixed(2)}
                                             </span>
                                         </div>
