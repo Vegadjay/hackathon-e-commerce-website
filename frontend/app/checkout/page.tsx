@@ -17,6 +17,7 @@ import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import Loader from '@/components/Loader'
+import EnhancedInvoiceComponent from '@/components/invoice';
 
 const tabVariants = {
     hidden: { opacity: 0, y: 10 },
@@ -24,6 +25,7 @@ const tabVariants = {
 }
 
 export default function AnimatedCheckout() {
+    const [openInvoice, setOpenInvoice] = useState(false);
     const [activeTab, setActiveTab] = useState<string>('products')
     const [paymentMethod, setPaymentMethod] = useState<"razorpay" | "cod" | "upi" | "card">('cod')
     const [couponValue, setCouponValue] = useState<number>(100)
@@ -89,7 +91,7 @@ export default function AnimatedCheckout() {
             if (response.success) {
                 console.log('Order placed successfully!');
                 console.log(response.message);
-                router.push('/');
+                setOpenInvoice(true);
             }
             else {
                 console.error(response.error);
@@ -137,6 +139,34 @@ export default function AnimatedCheckout() {
         }
     };
 
+    const demoInvoiceDetails = {
+        invoiceNumber: "INV-20250123",
+        date: new Date().toISOString().split('T')[0],
+        dueDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        customerName: user.username,
+        customerEmail: user.email,
+        custromerPhone: user.phone,
+        customerAddress: `${address.street}, ${address.city}, ${address.state}, ${address.country}, ${address.zipCode}`,
+        items: products?.data,
+        subtotal: products.totalPrice,
+        cgst: (products.totalPrice) * 0.09,
+        sgst: (products.totalPrice) * 0.09,
+        shipping: 0,
+        total: parseFloat((products.totalPrice + 99 + parseFloat(((products.totalPrice) * 0.18).toString()) - couponValue + (urgent ? 100 : 0)).toFixed(2)),
+        paymentTerms: "Payment due within 5 days of the invoice date.",
+        notes: "Thank you for shopping with Rajwadi Poshak! Please contact us for any queries.",
+    };
+
+    const demoCompanyDetails = {
+        name: "Rajwadi Poshak",
+        address: "456 Bazaar Street, Jaipur, Rajasthan, India",
+        gstin: "27AABCU9603R1ZL",
+        email: "support@rajwadiposhak.com",
+        phone: "+91-1122334477",
+        website: "www.rajwadiposhak.com",
+    };
+
+
     const generateOrder = async () => {
         try {
             const orderUrl = `/api/payment/orders`;
@@ -157,11 +187,12 @@ export default function AnimatedCheckout() {
             }
             initPayment(response.data);
         } catch (error) {
+            console.log(error)
         }
     }
 
     const initPayment = (data: any) => {
-        const options:any = {
+        const options: any = {
             key: "rzp_test_EfZ5xkx1ssjM7g",
             amount: 1000,
             currency: data.currency,
@@ -196,7 +227,7 @@ export default function AnimatedCheckout() {
                         alert("payment failed!");
                         return false;
                     }
-                    
+
                 } catch (error) {
                     console.log(error)
                     setPaymentStatus("failed")
@@ -454,7 +485,7 @@ export default function AnimatedCheckout() {
                                             <span>
                                                 ₹
 
-                                                {paymentStatus=="completed" ? 0 :(((products.totalPrice + 99 + parseFloat(((products.totalPrice) * 0.18).toString()) - couponValue + (urgent ? 100 : 0)))
+                                                {paymentStatus == "completed" ? 0 : (((products.totalPrice + 99 + parseFloat(((products.totalPrice) * 0.18).toString()) - couponValue + (urgent ? 100 : 0)))
                                                 ).toFixed(2)}
                                             </span>
                                         </div>
@@ -492,6 +523,17 @@ export default function AnimatedCheckout() {
                     </div>
                 </div>
             </Tabs>
+            {openInvoice &&
+                <EnhancedInvoiceComponent
+                    isOpen={true}
+                    onClose={() => {
+                        setIsLoading(true);
+                        router.push("/");
+                    }}
+                    invoiceDetails={demoInvoiceDetails}
+                    companyDetails={demoCompanyDetails}
+                />}
+
         </motion.div>
     )
 }
