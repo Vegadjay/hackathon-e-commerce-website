@@ -1,6 +1,5 @@
 "use client";
-import React from 'react';
-import { useState } from "react";
+import React, { useEffect, useState } from 'react';
 import { useRouter } from "next/navigation";
 import { Star, Heart, Share2, Check, AlertCircle, Facebook, Twitter, Plus, Minus, Linkedin } from "lucide-react";
 import { FaWhatsapp } from 'react-icons/fa';
@@ -15,16 +14,40 @@ interface ProductProps {
   product: any;
 }
 
-const Product: React.FC<ProductProps> = ({product}) => {
+const Product: React.FC<ProductProps> = ({ product }) => {
   const router = useRouter();
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState(product.size[0]);
-  const [isLoading, setIsLoading] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
   const [showShareMenu, setShowShareMenu] = useState(false);
 
-  const handleClick = () => {
-    setIsSaved(!isSaved);
+  useEffect(() => {
+    // Check if product is in local storage wishlist on component mount
+    const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+    const isProductSaved = wishlist.some((item: any) => item._id === product._id);
+    setIsSaved(isProductSaved);
+  }, [product._id]);
+
+  const handleWishlistToggle = () => {
+    // Get current wishlist from local storage
+    const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+
+    if (!isSaved) {
+      // Add product to wishlist
+      const updatedWishlist = [...wishlist, {
+        _id: product._id,
+        name: product.name,
+        price: product.price,
+        image: product.images[0]
+      }];
+      localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
+      setIsSaved(true);
+    } else {
+      // Remove product from wishlist
+      const updatedWishlist = wishlist.filter((item: any) => item._id !== product._id);
+      localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
+      setIsSaved(false);
+    }
   };
 
   const handleShare = (platform: string) => {
@@ -75,16 +98,6 @@ const Product: React.FC<ProductProps> = ({product}) => {
     }
   };
 
-  const handleBuyNow = () => {
-    if (product) {
-      router.push(`/checkout?productId=${product.id}&quantity=${quantity}&size=${selectedSize}`);
-    } else {
-      alert("Product not found");
-    }
-  };
-
-
-  // todo Change this ui
   if (!product) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -92,7 +105,7 @@ const Product: React.FC<ProductProps> = ({product}) => {
           <AlertCircle className="mx-auto h-12 w-12 text-red-500" />
           <h1 className="mt-4 text-2xl font-bold text-gray-800">Product Not Found</h1>
           <p className="text-gray-600 mt-2">
-            The product you are looking for NAME: ${product.name} does not exist or has been removed.
+            The product you are looking for does not exist or has been removed.
           </p>
           <button
             onClick={() => router.push("/")}
@@ -182,18 +195,17 @@ const Product: React.FC<ProductProps> = ({product}) => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={handleClick}
-                  className="flex items-center gap-2 text-gray-600 hover:text-red-500"
+                  onClick={handleWishlistToggle}
+                  className={`flex items-center gap-2 text-gray-600 hover:text-red-500`}
                 >
                   <Heart
-                    className="w-5 h-5"
+                    className={`w-5 h-5`}
                     fill={isSaved ? "#ef4444" : "none"}
                     color={isSaved ? "#ef4444" : "currentColor"}
                   />
                   {isSaved ? 'Saved' : 'Save'}
                 </motion.button>
 
-                {/* Compare Button */}
                 <Link href="/product/compare">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
@@ -207,7 +219,6 @@ const Product: React.FC<ProductProps> = ({product}) => {
               </div>
             </div>
           </motion.div>
-
 
           <motion.div
             className="lg:col-span-1 self-start"
@@ -262,7 +273,7 @@ const Product: React.FC<ProductProps> = ({product}) => {
               <div className="space-y-2">
                 <label className="block text-sm font-medium text-gray-700">Size</label>
                 <div className="flex gap-2">
-                  {product.size?.map((size:any) => {
+                  {product.size?.map((size: any) => {
                     const available = isSizeAvailable(size);
                     return (
                       <button
@@ -332,8 +343,7 @@ const Product: React.FC<ProductProps> = ({product}) => {
                     className={`p-2 rounded-full ${quantity >= 10 ? 'bg-gray-100 text-gray-400' : 'bg-blue-100 text-blue-500 hover:bg-blue-200'
                       }`}
                     onClick={() => handleQuantityChange('increase')}
-                    disabled={quantity >= 10}
-                  >
+                    disabled={quantity >= 10}>
                     <Plus className="w-4 h-4" />
                   </motion.button>
                 </div>
@@ -343,7 +353,7 @@ const Product: React.FC<ProductProps> = ({product}) => {
               <div className="space-y-4">
                 <h2 className="font-bold text-lg">About this item</h2>
                 <ul className="space-y-2">
-                  {product.features.map((feature:any, index:any) => (
+                  {product.features.map((feature: any, index: any) => (
                     <motion.li
                       key={index}
                       initial={{ opacity: 0, x: -20 }}
@@ -360,13 +370,11 @@ const Product: React.FC<ProductProps> = ({product}) => {
 
               <div className="w-full space-y-4 p-4">
                 <AddToCartModal
-                  // @ts-ignore
                   product={product}
                   quantity={quantity}
                   selectedSize={selectedSize}
                 />
                 <BuyNowButton
-                  // @ts-ignore
                   product={product}
                   quantity={quantity}
                   selectedSize={selectedSize}
@@ -387,6 +395,7 @@ const Product: React.FC<ProductProps> = ({product}) => {
             <p className="whitespace-pre-line">{product.description}</p>
           </div>
         </motion.div>
+
         {product?.chartData && product.chartData.length > 0 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -399,8 +408,6 @@ const Product: React.FC<ProductProps> = ({product}) => {
       </div>
     </motion.div>
   );
-
 };
-
 
 export default Product;

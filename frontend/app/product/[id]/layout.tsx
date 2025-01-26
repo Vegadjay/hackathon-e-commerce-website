@@ -32,7 +32,6 @@ const Layout = () => {
   const fetchProductById = async (productId: string) => {
     try {
       const response = await fetch(`/api/product/${productId}`).then((res) => res.json());
-      console.log(response,"response");
       if (response.success) {
         setSelectedProduct(response.data);
       } else {
@@ -44,7 +43,7 @@ const Layout = () => {
   };
 
   useEffect(() => {
-    const id:any = params?.id || searchParams.get('id') || '';
+    const id: any = params?.id || searchParams.get('id') || '';
 
     if (id) {
       fetchProductById(id);

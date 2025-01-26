@@ -28,7 +28,7 @@ const itemVariants = {
 
 export default function Footer() {
   return (
-    <footer className="w-full mt-10 mb-10 pt-16 pb-8 relative overflow-hidden">
+    <footer className="w-full mt-10 mb-10 pt-16 pb-8 relative overflow-hidden -z-30">
       <div className="absolute inset-0 -z-10 hidden md:block">
         <Image
           src='/footer/f6.jpg'

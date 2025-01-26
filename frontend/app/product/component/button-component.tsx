@@ -7,12 +7,12 @@ import {
     ModalContent,
     ModalFooter,
     ModalTrigger,
-
 } from "@/components/ui/animated-modal";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check } from "lucide-react";
 import Cookies from "js-cookie";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 interface Product {
     _id: string;
@@ -26,11 +26,25 @@ interface AddToCartModalProps {
     selectedSize: string;
 }
 
+// Helper function to extract product ID from pathname
+const extractProductId = (pathname: string): string | null => {
+    const parts = pathname.split('/');
+    const productIndex = parts.indexOf('product');
+    if (productIndex !== -1 && parts[productIndex + 1]) {
+        return parts[productIndex + 1];
+    }
+    return null;
+};
+
 export function AddToCartModal({ product, quantity, selectedSize }: AddToCartModalProps) {
     const [isHovered, setIsHovered] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
     const router = useRouter();
+    const pathname = usePathname();
+
+    // Extract product ID from URL
+    const productId = extractProductId(pathname);
 
     const handleAddToCart = async () => {
         if (!product) {
@@ -53,7 +67,7 @@ export function AddToCartModal({ product, quantity, selectedSize }: AddToCartMod
                 body: JSON.stringify({
                     userId,
                     products: [{
-                        productId: product._id,
+                        productId: productId || product._id,
                         quantity,
                         price: product.price.toString(),
                         size: selectedSize ?? "N/A",
@@ -62,6 +76,7 @@ export function AddToCartModal({ product, quantity, selectedSize }: AddToCartMod
                 }),
             }).then((res) => res.json());
 
+            console.log("ProductId from URL:", productId);
             if (!response.success) {
                 alert('Failed to add to cart. Please try again.');
                 return;
@@ -213,13 +228,17 @@ export function AddToCartModal({ product, quantity, selectedSize }: AddToCartMod
 export function BuyNowButton({ product, quantity, selectedSize }: AddToCartModalProps) {
     const [isHovered, setIsHovered] = useState(false);
     const router = useRouter();
+    const pathname = usePathname();
+
+    // Extract product ID from URL
+    const productId = extractProductId(pathname);
 
     const handleBuyNow = () => {
         if (!product) {
             alert("Product not found");
             return;
         }
-        router.push(`/checkout?productId=${product._id}&quantity=${quantity}&size=${selectedSize}&price=${product.price}`);
+        router.push(`/checkout?productId=${productId || product._id}&quantity=${quantity}&size=${selectedSize}&price=${product.price}`);
     };
 
     return (

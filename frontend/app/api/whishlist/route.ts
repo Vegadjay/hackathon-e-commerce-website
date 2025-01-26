@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import Wishlist from "@/models/Whishlist";
-import connectToDatabase from "lib/dbConnect";
+import connectToDatabase from "@/lib/dbConnect";
 import { z } from "zod";
 
 const AddToWishlistSchema = z.object({

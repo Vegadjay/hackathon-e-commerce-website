@@ -4,6 +4,7 @@ import connectToDatabase from '@/lib/dbConnect';
 import { z } from 'zod';
 import User from '@/models/User';
 import nodemailer from 'nodemailer';
+import { Cart } from '@/models/Cart';
 
 const ProductSchema = z.object({
   productId: z.string().nonempty("Product ID is required"),
@@ -79,7 +80,7 @@ export async function POST(req: Request) {
     await user.save();
 
     await sendEmail(savedOrder, user.email);
-
+    await Cart.deleteOne({ _id: parsedData.userId });
     return NextResponse.json({ success: true, data: savedOrder }, { status: 200 });
 
   } catch (error) {

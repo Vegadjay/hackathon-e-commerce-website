@@ -37,6 +37,7 @@ export function AppleCardsCarouselDemo() {
         selectedProductIds.indexOf(a.id) - selectedProductIds.indexOf(b.id)
     );
 
+    // @ts-ignore
     const cards = sortedProducts.map((product: Product, index) => (
         <Card
             key={product.id}
@@ -53,9 +54,7 @@ export function AppleCardsCarouselDemo() {
 
     return (
         <div className="w-full h-full">
-            <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-6xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
-                Know our Product and Feel the Luxury
-            </h2>
+            {/* @ts-ignore */}
             <Carousel items={cards} />
         </div>
     );
