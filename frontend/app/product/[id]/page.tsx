@@ -7,7 +7,6 @@ import { FaWhatsapp } from 'react-icons/fa';
 import Link from 'next/link';
 import { motion, AnimatePresence } from "framer-motion";
 import ImageSwapper from "@/components/image/page";
-import Cookies from "js-cookie";
 import { AddToCartModal, BuyNowButton } from "@/app/product/component/button-component";
 import RevenueChart from '@/app/product/component/price-chart';
 import { Compare } from '@/components/ui/compare';

@@ -2,14 +2,20 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ShoppingBag, Trash2, AlertCircle, ChevronRight, Plus, Minus, ShoppingCart } from 'lucide-react'
+import { ShoppingBag, Trash2, AlertCircle, ChevronRight, Plus, Minus, ShoppingCart, LucideLoader } from 'lucide-react'
 import Image from 'next/image'
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import Loader from '@/components/Loader'
 import Cookie from 'js-cookie'
 import { useRouter } from 'next/navigation'
+
+function debounce(func: Function, delay: number) {
+  let timeoutId: NodeJS.Timeout
+  return (...args: any[]) => {
+    clearTimeout(timeoutId)
+    timeoutId = setTimeout(() => func(...args), delay)
+  }
+}
 
 interface CartItem {
   productId: string
@@ -32,6 +38,7 @@ export default function OptimizedCoolCartPage() {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [couponCode, setCouponCode] = useState('')
+  const [removingItemId, setRemovingItemId] = useState<string | null>(null);
   const userId = Cookie.get('userId')
   const router = useRouter()
 
@@ -62,43 +69,54 @@ export default function OptimizedCoolCartPage() {
     fetchCartData()
   }, [fetchCartData])
 
-  const handleQuantityChange = async (itemId: string, newQuantity: number, size: string, price: string) => {
-    if (!userId || !cartData) return
-    console.log("newQuantity", newQuantity)
-    if(newQuantity == 0) {
-      handleRemoveItem(itemId);
-      return;
-    }
+  const handleQuantityChange = useCallback(
+    debounce(async (itemId: string, newQuantity: number, size: string, price: string) => {
+      if (!userId || !cartData) return
+      if (newQuantity === 0) {
+        handleRemoveItem(itemId)
+        return
+      }
+      else if(newQuantity > 10){
+        alert("can't add more than 10");
+        return;
+      }
 
-    try {
-      setIsLoading(true);
-      const response = await fetch('/api/cart', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          userId: userId,
-          products: [{
-            productId: itemId.toString(),
-            quantity: newQuantity,
-            size: size,
-            price: price
-          }],
-          totalPrice: 0
-        }),
-      }).then((res) => res.json());
-      console.log(response);
-      if (!response.success) throw new Error(response.error)
+      try {
+        const response = await fetch('/api/cart', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            userId: userId,
+            products: [{
+              productId: itemId.toString(),
+              quantity: newQuantity,
+              size: size,
+              price: price
+            }],
+            totalPrice: 0
+          }),
+        }).then((res) => res.json())
 
-      await fetchCartData()
-      setIsLoading(false);
-    } catch (err) {
-      setError('Failed to update quantity');
-    }
-  }
+        if (!response.success) throw new Error(response.error)
+        await fetchCartData()
+      } catch (err) {
+        setError('Failed to update quantity')
+        // Revert the quantity change if the API call fails
+        setCartData((prevData: any) => ({
+          ...prevData,
+          data: prevData.data.map((item: any) =>
+            item.productId === itemId ? { ...item, quantity: item.quantity } : item
+          )
+        }))
+      }
+    }, 800),
+    [userId, cartData, fetchCartData]
+  )
 
   const handleRemoveItem = async (itemId: string) => {
+    setRemovingItemId(itemId);
     if (!userId || !cartData) return
     console.log('Removing item:', itemId)
     try {
@@ -115,6 +133,9 @@ export default function OptimizedCoolCartPage() {
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to remove item')
+    }
+    finally {
+      setRemovingItemId(null);
     }
   }
 
@@ -146,7 +167,7 @@ export default function OptimizedCoolCartPage() {
     )
   }
 
-  if (cartData.data.length == 0) {
+  if (cartData?.data.length == 0) {
     return (
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -182,7 +203,7 @@ export default function OptimizedCoolCartPage() {
         </h1>
 
         <AnimatePresence>
-          {cartData.data.map((item: any) => (
+          {cartData?.data.map((item: any) => (
             <motion.div
               key={item._id}
               initial={{ opacity: 0, x: -20 }}
@@ -207,7 +228,14 @@ export default function OptimizedCoolCartPage() {
                 <div className="flex items-center mt-2">
                   <Button
                     onClick={() => {
-                      handleQuantityChange(item.productId, Math.max(0, item.quantity - 1), item.size, item.price)
+                      const newQuantity = Math.max(0, item.quantity - 1)
+                      setCartData((prevData: any) => ({
+                        ...prevData,
+                        data: prevData.data.map((cartItem: any) =>
+                          cartItem.productId === item.productId ? { ...cartItem, quantity: newQuantity } : cartItem
+                        )
+                      }))
+                      handleQuantityChange(item.productId, newQuantity, item.size, item.price)
                     }}
                     variant="outline"
                     size="icon"
@@ -216,31 +244,44 @@ export default function OptimizedCoolCartPage() {
                     <Minus className="h-4 w-4" />
                   </Button>
                   <span className="mx-2 text-gray-700">{item.quantity}</span>
-                  <Button
+                    <Button
                     onClick={() => {
-                      handleQuantityChange(item.productId, item.quantity + 1, item.size, item.price)
+                      const newQuantity = item.quantity + 1
+                      setCartData((prevData: any) => ({
+                      ...prevData,
+                      data: prevData.data.map((cartItem: any) =>
+                        cartItem.productId === item.productId ? { ...cartItem, quantity: newQuantity } : cartItem
+                      )
+                      }))
+                      handleQuantityChange(item.productId, newQuantity, item.size, item.price)
                     }}
                     variant="outline"
                     size="icon"
                     className="h-8 w-8"
-                  >
+                    disabled={item.quantity >= 10}
+                    >
                     <Plus className="h-4 w-4" />
-                  </Button>
+                    </Button>
                 </div>
               </div>
               <Button
                 onClick={() => handleRemoveItem(item.productId)}
                 variant="outline"
                 className="flex items-center space-x-1 hover:scale-110 hover:bg-white text-red-900 hover:text-red-700 transition duration-300"
+                disabled={removingItemId === item.productId}
               >
-                <Trash2 className="w-4 h-4" />
+                {removingItemId === item.productId ? (
+                  <LucideLoader className="w-4 h-4 animate-spin" />
+                ) : (
+                  <Trash2 className="w-4 h-4" />
+                )}
                 <span>Remove</span>
               </Button>
             </motion.div>
           ))}
         </AnimatePresence>
 
-        {cartData.data.length === 0 && (
+        {cartData?.data.length === 0 && (
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -254,36 +295,13 @@ export default function OptimizedCoolCartPage() {
         <div className="mt-8">
           <div className="flex justify-between items-center mb-4">
             <span className="text-lg font-medium text-gray-900">Subtotal</span>
-            <span className="text-2xl font-bold text-purple-600">₹{cartData.totalPrice}</span>
+            <span className="text-2xl font-bold text-purple-600">₹{cartData?.totalPrice}</span>
           </div>
 
           <div className="space-y-4">
-            {/* <div>
-              <Label htmlFor="coupon" className="block text-sm font-medium text-gray-700">
-                Coupon Code
-              </Label>
-              <div className="mt-1 flex rounded-md shadow-sm">
-                <Input
-                  type="text"
-                  name="coupon"
-                  id="coupon"
-                  value={couponCode}
-                  onChange={(e) => setCouponCode(e.target.value)}
-                  className="flex-1 min-w-0 block w-full px-3 py-2 rounded-md focus:ring-purple-500 focus:border-purple-500 sm:text-sm border-gray-300"
-                  placeholder="Enter coupon code"
-                />
-                <Button
-                  onClick={handleApplyCoupon}
-                  className="ml-2 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
-                >
-                  Apply
-                </Button>
-              </div>
-            </div> */}
-
             <Button
               className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center"
-              onClick={() =>{
+              onClick={() => {
                 setIsLoading(true);
                 router.push('/checkout')
               }}
