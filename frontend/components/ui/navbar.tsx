@@ -58,6 +58,7 @@ const collections = {
       { title: "Cotton", category: "cotton" },
       { title: "Silk", category: "silk" },
       { title: "Chiffon", category: "chiffon" },
+      { title: "Georgette", category: "georgette" },
       { title: "Premium Fabrics", category: "premium" }
     ]
   },
@@ -88,8 +89,6 @@ export function MainMenu({ isMobile = false, onLinkClick = () => { } }) {
     onLinkClick();
   };
 
-
-  // todo: Add that both button to here
   if (isMobile) {
     return (
       <div className="w-full space-y-1">
@@ -128,7 +127,6 @@ export function MainMenu({ isMobile = false, onLinkClick = () => { } }) {
                       </button>
                     ))}
                   </div>
-                  {/* todo: add here */}
                 </motion.div>
               )}
             </AnimatePresence>
@@ -205,7 +203,7 @@ export function Navbar() {
 
             if (response.ok) {
               const userData = await response.json();
-              setUsername(userData.user.username);
+              setUsername(userData.username);
             } else {
               setUsername("User");
             }
@@ -284,11 +282,29 @@ export function Navbar() {
               >
                 <div className="py-1">
                   <div className="px-4 py-2 text-sm text-gray-900 border-b border-gray-100">
-                    <p className="font-medium capitalize">{username}</p>
+                    <p className="font-medium capitalize">{username ?? "User"}</p>
                     {session?.user?.email && (
                       <p className="text-xs text-gray-500 truncate">{session.user.email}</p>
                     )}
                   </div>
+                  <button
+                    onClick={() => {
+                      router.push("/whishlist");
+                      setIsDropdownOpen(false);
+                    }}
+                    className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Wishlist
+                  </button>
+                  <button
+                    onClick={() => {
+                      router.push("/your-orders");
+                      setIsDropdownOpen(false);
+                    }}
+                    className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Your Orders
+                  </button>
                   <button
                     onClick={() => {
                       router.push("/updateprofile");
