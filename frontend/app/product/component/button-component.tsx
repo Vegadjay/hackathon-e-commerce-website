@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
     Modal,
     ModalBody,
@@ -9,9 +9,10 @@ import {
     ModalTrigger,
 } from "@/components/ui/animated-modal";
 import { AnimatePresence, motion } from "framer-motion";
-import { Check, AlertCircle } from "lucide-react";
+import { Check } from "lucide-react";
 import Cookies from "js-cookie";
 import { useRouter, usePathname } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 interface Product {
     _id: string;
@@ -25,6 +26,7 @@ interface AddToCartModalProps {
     selectedSize: string;
 }
 
+// Helper function to extract product ID from pathname
 const extractProductId = (pathname: string): string | null => {
     const parts = pathname.split('/');
     const productIndex = parts.indexOf('product');
@@ -38,10 +40,10 @@ export function AddToCartModal({ product, quantity, selectedSize }: AddToCartMod
     const [isHovered, setIsHovered] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
-    const [isConfirmed, setIsConfirmed] = useState(false);
     const router = useRouter();
     const pathname = usePathname();
 
+    // Extract product ID from URL
     const productId = extractProductId(pathname);
 
     const handleAddToCart = async () => {
@@ -55,7 +57,6 @@ export function AddToCartModal({ product, quantity, selectedSize }: AddToCartMod
             router.push('/login');
             return;
         }
-
         try {
             setIsLoading(true);
             const response = await fetch('/api/cart', {
@@ -81,7 +82,6 @@ export function AddToCartModal({ product, quantity, selectedSize }: AddToCartMod
                 return;
             }
             setIsSuccess(true);
-            setIsConfirmed(true); // Set confirmed state to true after successful addition
             setTimeout(() => setIsSuccess(false), 2000);
         } catch (error) {
             console.error('Add to cart error:', error);
@@ -101,20 +101,17 @@ export function AddToCartModal({ product, quantity, selectedSize }: AddToCartMod
     return (
         <Modal>
             <ModalTrigger
-                className={`w-full relative overflow-hidden ${isConfirmed ? 'bg-gray-500' : 'bg-black'
-                    } dark:bg-white dark:text-black text-white rounded-lg group/modal-btn 
-                h-12 transition-all duration-300 ${isConfirmed ? 'cursor-not-allowed' : 'cursor-pointer'
-                    }`}
-                disabled={isConfirmed}
+                className="w-full relative overflow-hidden bg-black dark:bg-white 
+                   dark:text-black text-white rounded-lg group/modal-btn 
+                   h-12 transition-all duration-300"
                 //@ts-ignore
-                onMouseEnter={() => !isConfirmed && setIsHovered(true)}
-                onMouseLeave={() => !isConfirmed && setIsHovered(false)}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
             >
                 <div className="relative w-full h-full overflow-hidden">
                     <motion.button
-                        disabled={isConfirmed}
-                        onMouseEnter={() => !isConfirmed && setIsHovered(true)}
-                        onMouseLeave={() => !isConfirmed && setIsHovered(false)}
+                        onMouseEnter={() => setIsHovered(true)}
+                        onMouseLeave={() => setIsHovered(false)}
                         className="w-full relative overflow-hidden bg-transperent 
                             text-white items-center -p-10 rounded-lg h-12 transition-all duration-300"
                     >
@@ -122,21 +119,19 @@ export function AddToCartModal({ product, quantity, selectedSize }: AddToCartMod
                             <motion.div
                                 className="absolute inset-0 flex items-center justify-center"
                                 initial={{ x: 10 }}
-                                animate={{ x: isHovered && !isConfirmed ? -500 : 0 }}
+                                animate={{ x: isHovered ? -500 : 0 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                {isConfirmed ? 'Added to Cart' : 'Add to Cart'}
+                                Add to Cart
                             </motion.div>
-                            {!isConfirmed && (
-                                <motion.div
-                                    className="absolute inset-0 flex items-center justify-center"
-                                    initial={{ x: 200 }}
-                                    animate={{ x: isHovered ? 0 : 300 }}
-                                    transition={{ duration: 0.3 }}
-                                >
-                                    <img src="/animation_gifs/shopping-bags.png" alt="" height={30} width={30} />
-                                </motion.div>
-                            )}
+                            <motion.div
+                                className="absolute inset-0 flex items-center justify-center"
+                                initial={{ x: 200 }}
+                                animate={{ x: isHovered ? 0 : 300 }}
+                                transition={{ duration: 0.3 }}
+                            >
+                                <img src="/animation_gifs/shopping-bags.png" alt="" height={30} width={30} />
+                            </motion.div>
                         </div>
                     </motion.button>
                 </div>
@@ -202,17 +197,15 @@ export function AddToCartModal({ product, quantity, selectedSize }: AddToCartMod
                 </ModalContent>
                 <ModalFooter className="gap-4">
                     <motion.button
-                        className={`px-4 py-2 bg-gradient-to-r ${isConfirmed
-                            ? 'from-gray-400 to-gray-500 cursor-not-allowed'
-                            : 'from-black to-gray-800 hover:shadow-lg'
-                            } dark:from-white dark:to-gray-200 text-white dark:text-black 
-                        rounded-md text-sm w-full transition-all duration-300
-                        disabled:opacity-50 disabled:cursor-not-allowed`}
+                        className="px-4 py-2 bg-gradient-to-r from-black to-gray-800 
+                       dark:from-white dark:to-gray-200 text-white dark:text-black 
+                       rounded-md text-sm w-full transition-all duration-300
+                       disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg"
                         onClick={handleAddToCart}
-                        disabled={isLoading || isConfirmed}
+                        disabled={isLoading}
                         variants={buttonVariants}
-                        whileHover={!isConfirmed && "hover"}
-                        whileTap={!isConfirmed && "tap"}
+                        whileHover="hover"
+                        whileTap="tap"
                     >
                         {isLoading ? (
                             <motion.div
@@ -222,8 +215,6 @@ export function AddToCartModal({ product, quantity, selectedSize }: AddToCartMod
                             >
                                 <span>Adding...</span>
                             </motion.div>
-                        ) : isConfirmed ? (
-                            "Added to Cart"
                         ) : (
                             "Confirm"
                         )}
@@ -239,6 +230,7 @@ export function BuyNowButton({ product, quantity, selectedSize }: AddToCartModal
     const router = useRouter();
     const pathname = usePathname();
 
+    // Extract product ID from URL
     const productId = extractProductId(pathname);
 
     const handleBuyNow = () => {

@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { FileUpload } from "@/components/ui/file-upload";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import Loader from "@/components/Loader";
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -31,6 +33,7 @@ function FileUploadDemo() {
     const [previewUrls, setPreviewUrls] = useState<string[]>([]);
     const [recommendedProducts, setRecommendedProducts] = useState<any[]>([]);
     const [productImagePaths, setProductImagePaths] = useState([]);
+    const [loading, setLoading] = useState<boolean>(false);
 
     const handleFileUpload = async (uploadedFiles: File[]) => {
         if (!uploadedFiles || uploadedFiles.length === 0) return;
@@ -39,12 +42,13 @@ function FileUploadDemo() {
 
         const urls = uploadedFiles.map((file) => URL.createObjectURL(file));
         setPreviewUrls((prevUrls) => [...prevUrls, ...urls]);
-
+        setLoading(true);
         try {
             const formData = new FormData();
             formData.append("file", uploadedFiles[0]);
-
-            const response = await fetch("http://localhost:5000/recommend", {
+            const python_url = process.env.NEXT_PUBLIC_PYTHON_URL;
+            console.log(python_url,"python url");
+            const response = await fetch(`${python_url}/recommend`, {
                 method: "POST",
                 body: formData,
             });
@@ -52,7 +56,7 @@ function FileUploadDemo() {
             if (response.ok) {
                 const data = await response.json();
                 const paths = data.recommendations.map((path: string) => {
-                    const cleanPath = path.replace("converted\\", "").replace(".jpg", "");
+                    const cleanPath = path.replace("converted\\", "");
                     return cleanPath;
                 });
                 setProductImagePaths(paths);
@@ -66,8 +70,9 @@ function FileUploadDemo() {
     };
 
     const findProducts = async (files: any) => {
+        setLoading(true);
         const updatedFiles = files.recommendations.map((file: any) =>
-            file.replace("converted\\", "").replace(".jpg", "")
+            file.replace("converted\\", "")
         );
         setRecommendedProducts([]);
 
@@ -77,7 +82,7 @@ function FileUploadDemo() {
                     const response = await fetch(`/api/product/find/${url}`);
                     if (response.ok) {
                         const data = await response.json();
-                        return data;
+                        return data.data;
                     } else {
                         console.error("Error fetching product:", await response.text());
                         return null;
@@ -87,6 +92,7 @@ function FileUploadDemo() {
 
             const validProducts = productDetails.filter((product) => product !== null);
             setRecommendedProducts(validProducts);
+            setLoading(false);
         } catch (err) {
             console.log(err);
         }
@@ -94,7 +100,7 @@ function FileUploadDemo() {
 
     return (
         <div className="space-y-8">
-            <div className="w-full max-w-4xl mx-auto min-h-96 border border-dashed bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 rounded-lg">
+            <div className="w-full max-w-5xl mx-auto min-h-96 border border-dashed bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 rounded-lg">
                 <FileUpload onChange={handleFileUpload} />
 
                 <div className="mt-4">
@@ -145,32 +151,40 @@ function FileUploadDemo() {
                     variants={containerVariants}
                     initial="hidden"
                     animate="show"
-                    className="w-full max-w-4xl mx-auto"
+                    className="w-full max-w-5xl mx-auto"
                 >
                     <h2 className="text-xl font-semibold mb-4">Recommended Products</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {productImagePaths.map((imagePath, index) => (
-                            <motion.div
-                                key={index}
-                                variants={itemVariants}
-                                className="p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-black"
-                            >
-                                <div className="relative aspect-square rounded-lg overflow-hidden mb-4">
-                                    <Image
-                                        // todo: Here check one time this is working perfect or not
-                                        src={`/detailphotos/${imagePath}.webp` || `/detailphotos/${imagePath}.jpg`}
-                                        alt={`Product ${index + 1}`}
-                                        width={300}
-                                        height={300}
-                                        className="object-cover"
-                                    />
-                                </div>
-                                <p className="text-sm text-red-600 dark:text-neutral-400">
-                                    Path: {imagePath + ".webp"}
-                                </p>
-                            </motion.div>
-                        ))}
-                    </div>
+                    {
+                        loading ? <Loader /> :
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                                {recommendedProducts.map((product, index) => (
+                                    <motion.div
+                                        key={index}
+                                        variants={itemVariants}
+                                        className="p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-black flex flex-col items-center"
+                                    >
+                                        <Link href={`/product/${product._id}`} className="w-full">
+                                            <div className="relative aspect-square rounded-lg overflow-hidden mb-3">
+                                                <Image
+                                                    src={`${product.images[0]}`}
+                                                    alt={`Product ${index + 1}`}
+                                                    width={300}
+                                                    height={300}
+                                                    className="object-cover w-full h-full"
+                                                />
+                                            </div>
+                                        </Link>
+                                        <p className="text-sm text-center text-black-600 dark:text-neutral-400 mb-1">
+                                            {product.name}
+                                        </p>
+                                        <p className="text-sm text-center text-black-600 dark:text-neutral-400">
+                                            Price: ₹{product.price}
+                                        </p>
+                                    </motion.div>
+                                ))}
+                            </div>
+
+                    }
                 </motion.div>
             )}
         </div>

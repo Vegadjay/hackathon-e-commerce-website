@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import Order from '@/models/Order';
-import connectToDatabase from '@/lib/dbConnect';
+import Order from '@/models/Order'; // Adjust the import path as per your structure
+import connectToDatabase from '@/lib/dbConnect'; // Utility to connect to MongoDB
 import { z } from 'zod';
 
 const ProductSchema = z.object({

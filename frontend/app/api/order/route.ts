@@ -4,6 +4,7 @@ import connectToDatabase from '@/lib/dbConnect';
 import { z } from 'zod';
 import User from '@/models/User';
 import nodemailer from 'nodemailer';
+import { Cart } from '@/models/Cart';
 
 const ProductSchema = z.object({
   productId: z.string().nonempty("Product ID is required"),
@@ -17,7 +18,7 @@ const ShippingAddressSchema = z.object({
   street: z.string().nonempty("Street is required"),
   city: z.string().nonempty("City is required"),
   state: z.string().nonempty("State is required"),
-  zipCode: z.string().regex(/^\d{5}$/, "Invalid ZIP code"),
+  zipCode: z.string().regex(/^\d{6}$/, "Invalid ZIP code"),
   country: z.string().nonempty("Country is required")
 });
 
@@ -34,7 +35,7 @@ const OrderSchema = z.object({
   totalPrice: z.number().positive("Total price must be greater than 0"),
   shippingAddress: ShippingAddressSchema,
   status: z.enum(['pending', 'processing', 'shipped', 'delivered', 'cancelled', 'returned']).optional(),
-  paymentMethod: z.enum(['credit_card', 'paypal', 'bank_transfer', 'cod', 'upi']),
+  paymentMethod: z.enum(['credit_card', 'paypal', 'bank_transfer', 'cod', 'upi','razorpay']),
   paymentStatus: z.enum(['pending', 'completed', 'failed', 'refunded']).optional(),
   orderNotes: z.string().optional(),
   urgent: z.boolean().optional(),
@@ -53,18 +54,18 @@ export async function POST(req: Request) {
       return NextResponse.json({ success: false, error: 'User not found' }, { status: 404 });
     }
 
-    const calculatedTotalPrice = parsedData.products.reduce((total, product) => {
-      return total + (parseFloat(product.price) * product.quantity);
-    }, 0);
+    // const calculatedTotalPrice = parsedData.products.reduce((total, product) => {
+    //   return total + (parseFloat(product.price) * product.quantity);
+    // }, 0);
 
-    if (calculatedTotalPrice !== parsedData.totalPrice) {
-      return NextResponse.json({ success: false, error: 'Total price mismatch' }, { status: 400 });
-    }
+    // if (calculatedTotalPrice !== parsedData.totalPrice) {
+    //   return NextResponse.json({ success: false, error: 'Total price mismatch' }, { status: 400 });
+    // }
 
     const newOrder = new Order({
       userId: parsedData.userId,
       products: parsedData.products,
-      totalPrice: calculatedTotalPrice,
+      totalPrice: parsedData.totalPrice,
       shippingAddress: parsedData.shippingAddress,
       status: 'pending',
       paymentMethod: parsedData.paymentMethod,
@@ -79,7 +80,7 @@ export async function POST(req: Request) {
     await user.save();
 
     await sendEmail(savedOrder, user.email);
-
+    await Cart.deleteOne({ _id: parsedData.userId });
     return NextResponse.json({ success: true, data: savedOrder }, { status: 200 });
 
   } catch (error) {

@@ -1,183 +1,539 @@
-'use client';
+'use client'
 
-import React, { useEffect, useState } from 'react';
-import { useRouter, usePathname, useSearchParams } from 'next/navigation';
-import { motion } from 'framer-motion';
-import { ShoppingBag, CreditCard, Truck, Clock } from 'lucide-react';
-
-interface CheckoutParams {
-    productId: string;
-    quantity: number;
-    size: string;
-    price: number;
+declare global {
+    interface Window {
+        Razorpay: any;
+    }
 }
 
-const CheckoutPage = () => {
+import React, { useEffect, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { ShoppingBag, Truck, CreditCard, Check, ChevronRight } from 'lucide-react'
+import Cookies from 'js-cookie'
+import { useRouter } from 'next/navigation'
+import Image from 'next/image'
+import Loader from '@/components/Loader'
+import EnhancedInvoiceComponent from '@/components/invoice';
+
+const tabVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+}
+
+export default function AnimatedCheckout() {
+    const [openInvoice, setOpenInvoice] = useState(false);
+    const [activeTab, setActiveTab] = useState<string>('products')
+    const [paymentMethod, setPaymentMethod] = useState<"razorpay" | "cod" | "upi" | "card">('cod')
+    const [couponValue, setCouponValue] = useState<number>(100)
+    const [orderNotes, setOrderNotes] = useState('')
+    const [urgent, setUrgent] = useState<boolean>(false)
+    const [address, setAddress] = useState({
+        street: '',
+        city: '',
+        state: '',
+        zipCode: '',
+        country: 'India',
+    })
+    const [paymentStatus, setPaymentStatus] = useState<'pending' | 'completed' | 'failed' | 'refunded'>('pending')
+    const [couponCode, setCouponCode] = useState<string>('')
+    const userId = Cookies.get('userId');
+    const [products, setProducts] = useState<any>([])
+    const [user, setUser] = useState<any>({})
     const router = useRouter();
-    const pathname = usePathname();
-    const searchParams = useSearchParams();
+    const [isLoading, setIsLoading] = useState(false);
 
-    const [params, setParams] = useState<CheckoutParams | null>(null);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        // Extract parameters from `searchParams`
-        const productId = searchParams.get('productId');
-        const quantity = searchParams.get('quantity');
-        const size = searchParams.get('size');
-        const price = searchParams.get('price');
-
-        if (productId && quantity && size && price) {
-            setParams({
-                productId,
-                quantity: parseInt(quantity, 10),
-                size,
-                price: parseFloat(price),
-            });
-            setLoading(false);
-        } else {
-            console.error('Missing required query parameters.');
-            router.push('/error');  
-        }
-    }, [searchParams, router]);
-
-    if (loading) {
-        return (
-            <div className="min-h-screen flex items-center justify-center">
-                <motion.div
-                    className="text-2xl text-gray-600"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                >
-                    Loading checkout...
-                </motion.div>
-            </div>
-        );
+    const handleNextStep = () => {
+        if (activeTab === 'products') setActiveTab('address')
+        else if (activeTab === 'address') setActiveTab('payment')
     }
 
-    const subtotal = params ? params.price * params.quantity : 0;
-    const shippingCost = 100;
-    const tax = subtotal * 0.18;
-    const total = subtotal + shippingCost + tax;
+    const handlePreviousStep = () => {
+        if (activeTab === 'payment') setActiveTab('address')
+        else if (activeTab === 'address') setActiveTab('products')
+    }
+
+    const handlePlaceOrder = async () => {
+        console.log('Order placed!')
+        const orderBody = {
+            userId: userId,
+            products: products.data,
+            totalPrice: parseFloat((products.totalPrice + 99 + parseFloat(((products.totalPrice) * 0.18).toString()) - couponValue + (urgent ? 100 : 0)).toFixed(2)),
+            shippingAddress: {
+                street: address.street,
+                city: address.city,
+                state: address.state,
+                zipCode: address.zipCode,
+                country: address.country
+            },
+            paymentMethod: paymentMethod ?? "pending",
+            paymentStatus: paymentStatus,
+            orderNotes: orderNotes,
+            urgent: urgent,
+            shippingDetails: {
+                carrier: "FedEx",
+                trackingNumber: Math.floor(100000000 + Math.random() * 900000000).toString(),
+                estimatedDeliveryDate: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
+            }
+        }
+        try {
+            const response = await fetch('/api/order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(orderBody)
+            }).then((res) => res.json());
+            console.log(response);
+            if (response.success) {
+                console.log('Order placed successfully!');
+                console.log(response.message);
+                setOpenInvoice(true);
+            }
+            else {
+                console.error(response.error);
+            }
+        }
+        catch (error) {
+            console.error(error);
+        }
+        finally {
+        }
+
+    }
+
+    const fetchAllRequiredData = async () => {
+        setIsLoading(true);
+        if (!userId) {
+            router.push('/login');
+        };
+        try {
+
+            //fetch All products
+            const response = await fetch(`/api/cart/${userId}`).then((res) => res.json());
+            if (response.success) {
+                if (response.data.length === 0) {
+                    router.push('/cart');
+                }
+                setProducts(response);
+            }
+            else {
+                console.error(response.error);
+                setIsLoading(false);
+            }
+            //fetch address
+            const response2 = await fetch(`/api/user/get/${userId}`).then((res) => res.json());
+            if (response2.success) {
+                setUser(response2.data);
+                setAddress(response2.data.address);
+            }
+        }
+        catch (error) {
+            console.error(error);
+        }
+        finally {
+            setIsLoading(false);
+        }
+    };
+
+    const demoInvoiceDetails = {
+        invoiceNumber: "INV-20250123",
+        date: new Date().toISOString().split('T')[0],
+        dueDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        customerName: user.username,
+        customerEmail: user.email,
+        custromerPhone: user.phone,
+        customerAddress: `${address.street}, ${address.city}, ${address.state}, ${address.country}, ${address.zipCode}`,
+        items: products?.data,
+        subtotal: products.totalPrice,
+        cgst: (products.totalPrice) * 0.09,
+        sgst: (products.totalPrice) * 0.09,
+        shipping: 0,
+        total: parseFloat((products.totalPrice + 99 + parseFloat(((products.totalPrice) * 0.18).toString()) - couponValue + (urgent ? 100 : 0)).toFixed(2)),
+        paymentTerms: "Payment due within 5 days of the invoice date.",
+        notes: "Thank you for shopping with Rajwadi Poshak! Please contact us for any queries.",
+    };
+
+    const demoCompanyDetails = {
+        name: "Rajwadi Poshak",
+        address: "456 Bazaar Street, Jaipur, Rajasthan, India",
+        gstin: "27AABCU9603R1ZL",
+        email: "support@rajwadiposhak.com",
+        phone: "+91-1122334477",
+        website: "www.rajwadiposhak.com",
+    };
+
+
+    const generateOrder = async () => {
+        try {
+            const orderUrl = `/api/payment/orders`;
+            const response = await fetch(orderUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(
+                    {
+                        amount: 1000
+                    }
+                )
+            }).then((res) => res.json());
+
+            if (response.success) {
+                console.log(response);
+            }
+            initPayment(response.data);
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const initPayment = (data: any) => {
+        const options: any = {
+            key: "rzp_test_EfZ5xkx1ssjM7g",
+            amount: 1000,
+            currency: data.currency,
+            name: "Rajwadi Poshak",
+            description: "Pay securely to rajwadi poshak",
+            image: "R",
+            modal: {
+                ondismiss: function () {
+                    console.log('Transaction was not completed, window closed.');
+                }
+            },
+            order_id: data.id,
+            handler: async (response: any) => {
+                try {
+                    const verifyUrl = `/api/payment/verify`;
+                    const resp = await fetch(verifyUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(response)
+                    }).then((res) => res.json());
+
+                    if (resp.success) {
+                        alert("payment successfull.")
+                        setPaymentStatus("completed")
+                        setPaymentMethod("razorpay");
+                        return true;
+                    }
+                    else {
+                        setPaymentStatus("failed")
+                        alert("payment failed!");
+                        return false;
+                    }
+
+                } catch (error) {
+                    console.log(error)
+                    setPaymentStatus("failed")
+                    return false;
+                }
+            },
+            theme: {
+                color: "#3469c1",
+            },
+        };
+        console.log(options, "1pqppqpq")
+        const rzp1 = new window.Razorpay(options);
+        rzp1.open();
+    };
+
+    useEffect(() => {
+
+        fetchAllRequiredData();
+    }, []);
+
+    if (isLoading) {
+        return <>
+            <Loader />
+        </>
+    }
 
     return (
-        <div className="min-h-screen bg-gray-50 py-12">
-            <motion.div
-                className="max-w-3xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-            >
-                <div className="p-8">
-                    <motion.h1
-                        className="text-3xl font-bold mb-8 text-center"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.2 }}
-                    >
-                        Checkout Details
-                    </motion.h1>
-
-                    <div className="grid md:grid-cols-2 gap-8">
-                        {/* Order Summary */}
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="max-w-6xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden"
+        >
+            <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+                <TabsList className="grid w-full grid-cols-3 bg-red-100">
+                    <TabsTrigger value="products" className="data-[state=active]:bg-red-200">
+                        <ShoppingBag className="w-5 h-5 mr-2" />
+                        Products
+                    </TabsTrigger>
+                    <TabsTrigger value="address" className="data-[state=active]:bg-red-200">
+                        <Truck className="w-5 h-5 mr-2" />
+                        Address
+                    </TabsTrigger>
+                    <TabsTrigger value="payment" className="data-[state=active]:bg-red-200">
+                        <CreditCard className="w-5 h-5 mr-2" />
+                        Payment
+                    </TabsTrigger>
+                </TabsList>
+                <div className="p-6">
+                    <AnimatePresence mode="wait">
                         <motion.div
-                            className="space-y-6"
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.3 }}
+                            key={activeTab}
+                            variants={tabVariants}
+                            initial="hidden"
+                            animate="visible"
+                            exit="hidden"
                         >
-                            <div className="bg-gray-50 p-6 rounded-lg">
-                                <h2 className="text-xl font-semibold mb-4 flex items-center">
-                                    <ShoppingBag className="mr-2" />
-                                    Order Summary
-                                </h2>
-                                <div className="space-y-3 text-gray-600">
-                                    <div className="flex justify-between">
-                                        <span>Product ID:</span>
-                                        <span className="font-medium">{params?.productId}</span>
-                                    </div>
-                                    <div className="flex justify-between">
-                                        <span>Size:</span>
-                                        <span className="font-medium">{params?.size}</span>
-                                    </div>
-                                    <div className="flex justify-between">
-                                        <span>Quantity:</span>
-                                        <span className="font-medium">{params?.quantity}</span>
-                                    </div>
-                                    <div className="flex justify-between">
-                                        <span>Price per item:</span>
-                                        <span className="font-medium">₹{params?.price.toFixed(2)}</span>
+                            <TabsContent value="products">
+                                <h2 className="text-2xl font-bold mb-4 text-red-800">Your Products</h2>
+                                <AnimatePresence>
+                                    {products.data?.map((item: any) => (
+                                        <motion.div
+                                            key={item._id}
+                                            initial={{ opacity: 0, x: -20 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            exit={{ opacity: 0, x: 20 }}
+                                            transition={{ duration: 0.3 }}
+                                            className="flex items-center space-x-4 border-b border-gray-200 py-4"
+                                        >
+                                            <div className="flex-shrink-0 w-24 h-24 bg-gray-200 rounded-md overflow-hidden">
+                                                <Image
+                                                    src={item.image || "/placeholder.svg"}
+                                                    alt={item.name}
+                                                    width={100}
+                                                    height={100}
+                                                    className="w-full h-full object-cover"
+                                                />
+                                            </div>
+                                            <div className="flex-grow">
+                                                <h3 className="text-lg font-medium text-gray-900">{item.name}</h3>
+                                                <p className="text-gray-500">Size: {item.size}</p>
+                                                <p className="text-purple-600 font-semibold">Price: ₹{item.price} X {item.quantity}</p>
+                                            </div>
+                                        </motion.div>
+                                    ))}
+                                    <p className="text-lg font-semibold text-gray-900">Total Payable Amount: ₹{products.totalPrice}</p>
+                                </AnimatePresence>
+                            </TabsContent>
+                            <TabsContent value="address">
+                                <h2 className="text-2xl font-bold mb-4 text-red-800">Delivery Address</h2>
+                                <div className="space-y-4">
+                                    <div>
+                                        <Label htmlFor="address">Address</Label>
+                                        <Input
+                                            id="Street"
+                                            value={address.street ?? ""}
+                                            onChange={(e) => setAddress({ ...address, street: e.target.value })}
+                                            placeholder="Enter your full address"
+                                            className="mt-1"
+                                        />
+                                        <Label htmlFor="city">City</Label>
+                                        <Input
+                                            id="city"
+                                            value={address.city ?? ""}
+                                            onChange={(e) => setAddress({ ...address, city: e.target.value })}
+                                            placeholder="Enter your city"
+                                            className="mt-1"
+                                        />
+                                        <Label htmlFor="state">State</Label>
+                                        <Input
+                                            id="state"
+                                            value={address.state ?? ""}
+                                            onChange={(e) => setAddress({ ...address, state: e.target.value })}
+                                            placeholder="Enter your state"
+                                            className="mt-1"
+                                        />
+                                        <Label htmlFor="pincode">Pincode</Label>
+                                        <Input
+                                            id="pincode"
+                                            value={address.zipCode ?? ""}
+                                            onChange={(e) => setAddress({ ...address, zipCode: e.target.value })}
+                                            placeholder="Enter your pincode"
+                                            className="mt-1"
+                                        />
+                                        <Label htmlFor="country">Country</Label>
+                                        <Input
+                                            id="country"
+                                            value={address.country ?? ""}
+                                            onChange={(e) => setAddress({ ...address, country: e.target.value })}
+                                            placeholder="Enter your country"
+                                            className="mt-1"
+                                        />
+                                        <Label htmlFor="phone">Phone</Label>
+                                        <Input
+                                            id="phone"
+                                            value={user.phone ?? ""}
+                                            placeholder="Enter your phone number"
+                                            className="mt-1"
+                                        />
                                     </div>
                                 </div>
-                            </div>
+                            </TabsContent>
+                            <TabsContent value="payment">
+                                <h2 className="text-2xl font-bold mb-4 text-red-800">Payment Details</h2>
+                                <div className="space-y-4">
+                                    <div>
+                                        <Label className="text-lg font-semibold">Select Payment Method</Label>
+                                        <div className="mt-2 space-y-2">
+                                            <label className="flex items-center space-x-2 cursor-pointer">
+                                                <input
+                                                    type="radio"
+                                                    name="paymentMethod"
+                                                    value="razorpay"
+                                                    checked={paymentMethod === 'razorpay'}
+                                                    onChange={() => setPaymentMethod('razorpay')}
+                                                    className="form-radio text-red-600"
+                                                />
+                                                <span>Razorpay</span>
+                                            </label>
+                                            <label className="flex items-center space-x-2 cursor-pointer">
+                                                <input
+                                                    type="radio"
+                                                    name="paymentMethod"
+                                                    value="cod"
+                                                    checked={paymentMethod === 'cod'}
+                                                    onChange={() => setPaymentMethod('cod')}
+                                                    className="form-radio text-red-600"
+                                                />
+                                                <span>Cash on Delivery</span>
+                                            </label>
+                                        </div>
+                                    </div>
 
-                            <div className="bg-gray-50 p-6 rounded-lg">
-                                <h2 className="text-xl font-semibold mb-4 flex items-center">
-                                    <Truck className="mr-2" />
-                                    Delivery Details
-                                </h2>
-                                <div className="space-y-2 text-gray-600">
-                                    <div className="flex items-center">
-                                        <Clock className="w-4 h-4 mr-2" />
-                                        <span>Expected delivery: 3-5 business days</span>
+                                    <AnimatePresence mode="wait">
+                                        {paymentMethod === 'razorpay' && (
+                                            <motion.div
+                                                key="razorpay"
+                                                initial={{ opacity: 0, height: 0 }}
+                                                animate={{ opacity: 1, height: 'auto' }}
+                                                exit={{ opacity: 0, height: 0 }}
+                                                transition={{ duration: 0.3 }}
+                                            >
+                                                {/* <p className="text-sm text-gray-600">
+                                                    You will be redirected to Razorpay to complete your payment securely.
+                                                </p> */}
+                                                <Button onClick={generateOrder} className='text-white'>Pay Online</Button>
+                                            </motion.div>
+                                        )}
+
+                                        {paymentMethod === 'cod' && (
+                                            <motion.div
+                                                key="cod"
+                                                initial={{ opacity: 0, height: 0 }}
+                                                animate={{ opacity: 1, height: 'auto' }}
+                                                exit={{ opacity: 0, height: 0 }}
+                                                transition={{ duration: 0.3 }}
+                                            >
+                                                <p className="text-sm text-gray-600">
+                                                    Pay with cash upon delivery. Additional fees may apply.
+                                                </p>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                    <div className="flex items-center mt-4">
+                                        <input
+                                            type="checkbox"
+                                            id="urgent"
+                                            checked={urgent}
+                                            onChange={(e) => setUrgent(e.target.checked)}
+                                            className="form-checkbox text-red-600"
+                                        />
+                                        <Label htmlFor="urgent" className="ml-2">Urgent Delivery (Additional charges may apply)</Label>
                                     </div>
-                                    <div className="text-sm text-gray-500">
-                                        Standard shipping will be applied
+                                    <div>
+                                        <Label htmlFor="couponCode">Coupon Code</Label>
+                                        <div className="flex mt-1">
+                                            <Input
+                                                id="couponCode"
+                                                value={couponCode}
+                                                onChange={(e) => setCouponCode(e.target.value)}
+                                                placeholder="Enter coupon code"
+                                                className="flex-grow"
+                                            />
+                                            <Button variant="outline" className="ml-2">Apply</Button>
+                                        </div>
+                                    </div>
+                                    <div className="bg-red-100 p-4 rounded-md">
+                                        <h3 className="font-semibold text-lg mb-2">Order Summary</h3>
+                                        <div className="flex justify-between">
+                                            <span>Subtotal:</span>
+                                            <span>₹{products.totalPrice}</span>
+                                        </div>
+                                        <div className="flex justify-between mt-2">
+                                            <span>Shipping:</span>
+                                            <span>+ ₹99</span>
+                                        </div>
+                                        <div className="flex justify-between mt-2">
+                                            <span>Coupon:</span>
+                                            <span>- ₹{couponValue}</span>
+                                        </div>
+                                        <div className="flex justify-between mt-2">
+                                            <span>CGST (9%):</span>
+                                            <span>+ ₹{((products.totalPrice) * 0.09).toFixed(2)}</span>
+                                        </div>
+                                        <div className="flex justify-between mt-2">
+                                            <span>SGST (9%):</span>
+                                            <span>+ ₹{((products.totalPrice) * 0.09).toFixed(2)}</span>
+                                        </div>
+                                        {urgent && <div className="flex justify-between mt-2">
+                                            <span>Urgent Delivery Charges:</span>
+                                            <span>+ ₹100</span>
+                                        </div>}
+                                        <div className="flex justify-between mt-2 font-bold">
+                                            <span>Total:</span>
+                                            <span>
+                                                ₹
+
+                                                {paymentStatus == "completed" ? 0 : (((products.totalPrice + 99 + parseFloat(((products.totalPrice) * 0.18).toString()) - couponValue + (urgent ? 100 : 0)))
+                                                ).toFixed(2)}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <Label htmlFor="orderNotes">Order Notes</Label>
+                                        <Input
+                                            id="orderNotes"
+                                            value={orderNotes}
+                                            onChange={(e) => { setOrderNotes(e.target.value) }}
+                                            placeholder="Enter any special instructions (max 200 characters)"
+                                            maxLength={200}
+                                            className="mt-1"
+                                        />
                                     </div>
                                 </div>
-                            </div>
+                            </TabsContent>
                         </motion.div>
-
-                        {/* Payment Summary */}
-                        <motion.div
-                            className="space-y-6"
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.4 }}
-                        >
-                            <div className="bg-gray-50 p-6 rounded-lg">
-                                <h2 className="text-xl font-semibold mb-4 flex items-center">
-                                    <CreditCard className="mr-2" />
-                                    Payment Details
-                                </h2>
-                                <div className="space-y-3">
-                                    <div className="flex justify-between text-gray-600">
-                                        <span>Subtotal:</span>
-                                        <span className="font-medium">₹{subtotal.toFixed(2)}</span>
-                                    </div>
-                                    <div className="flex justify-between text-gray-600">
-                                        <span>Shipping:</span>
-                                        <span className="font-medium">₹{shippingCost.toFixed(2)}</span>
-                                    </div>
-                                    <div className="flex justify-between text-gray-600">
-                                        <span>Tax (18%):</span>
-                                        <span className="font-medium">₹{tax.toFixed(2)}</span>
-                                    </div>
-                                    <div className="h-px bg-gray-200 my-4"></div>
-                                    <div className="flex justify-between text-lg font-bold">
-                                        <span>Total:</span>
-                                        <span>₹{total.toFixed(2)}</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <motion.button
-                                className="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                            >
-                                Proceed to Payment
-                            </motion.button>
-
-                            <p className="text-sm text-gray-500 text-center mt-4">
-                                By proceeding, you agree to our terms and conditions
-                            </p>
-                        </motion.div>
+                    </AnimatePresence>
+                    <div className="mt-6 flex justify-between">
+                        {activeTab !== 'products' && (
+                            <Button onClick={handlePreviousStep} variant="outline">
+                                Previous
+                            </Button>
+                        )}
+                        {activeTab !== 'payment' ? (
+                            <Button onClick={handleNextStep} className="ml-auto">
+                                Next <ChevronRight className="w-4 h-4 ml-2" />
+                            </Button>
+                        ) : (
+                            <Button onClick={handlePlaceOrder} className="ml-auto bg-green-700 hover:bg-green-800">
+                                Place Order <Check className="w-4 h-4 ml-2" />
+                            </Button>
+                        )}
                     </div>
                 </div>
-            </motion.div>
-        </div>
-    );
-};
+            </Tabs>
+            {openInvoice &&
+                <EnhancedInvoiceComponent
+                    isOpen={true}
+                    onClose={() => {
+                        setIsLoading(true);
+                        router.push("/");
+                    }}
+                    invoiceDetails={demoInvoiceDetails}
+                    companyDetails={demoCompanyDetails}
+                />}
 
-export default CheckoutPage;
+        </motion.div>
+    )
+}

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/dbConnect';
 import { Cart } from '@/models/Cart';
-import User from '@/models/User';
+import Product from '@/models/Product';
 
 export async function GET(
 	request: Request,
@@ -11,34 +11,47 @@ export async function GET(
 		await dbConnect();
 
 		const { userId } = params;
-		const user = await User.findById(userId);
 
-		if (!user) {
+		if (!userId) {
 			return NextResponse.json(
-				{ success: false, error: 'User not found' },
-				{ status: 404 }
+				{ success: true, error: 'User ID is required' },
+				{ status: 400 }
 			);
 		}
 
-		const cartid = user.cart;
-
-		if (!cartid) {
-			return NextResponse.json(
-				{ success: false, error: 'Cart not found' },
-				{ status: 404 }
-			);
-		}
-
-		const cart = await Cart.findById(cartid);
+		let cart = await Cart.findOne({ userId: userId });
 
 		if (!cart) {
 			return NextResponse.json(
-				{ success: false, error: 'Cart not found' },
+				{ success: true, data: [], totalPrice: 0 },
 				{ status: 404 }
 			);
 		}
 
-		return NextResponse.json({ success: true, data: cart }, { status: 200 });
+		let productsWithDetails: any = await Promise.all(
+			cart.products.map(async (item: any) => {
+				const product = await Product.findById(item.productId);
+				if (product) {
+					return {
+						...item._doc,
+						name: product.name,
+						image: product.images[0],
+					};
+				}
+				else {
+					return null;
+				}
+			})
+		);
+
+		productsWithDetails = productsWithDetails.filter((item: any) => item !== null);
+
+		let totalPrice: number = 0;
+		for (let i = 0; i < productsWithDetails.length; i++) {
+			totalPrice += productsWithDetails[i].price * productsWithDetails[i].quantity;
+		}
+
+		return NextResponse.json({ success: true, data: productsWithDetails, totalPrice: totalPrice }, { status: 200 });
 	} catch (error) {
 		return NextResponse.json(
 			{ success: false, error: (error as Error).message },
@@ -69,11 +82,6 @@ export async function DELETE(
 				{ success: false, error: 'Cart not found!' },
 				{ status: 404 }
 			);
-		}
-		const user = await User.findOne({ cart: cartId });
-		if (user) {
-			user.cart = undefined;
-			await user.save();
 		}
 		await cart.deleteOne();
 

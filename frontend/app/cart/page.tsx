@@ -1,259 +1,342 @@
-"use client";
+'use client'
 
-import { motion } from "framer-motion";
-import { ShoppingCart, Trash2, AlertCircle, Loader2 } from "lucide-react";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import Cookies from "js-cookie";
-import { Button } from "@/components/ui/button";
+import { useState, useEffect, useCallback } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ShoppingBag, Trash2, AlertCircle, ChevronRight, Plus, Minus, ShoppingCart, LucideLoader } from 'lucide-react'
+import Image from 'next/image'
+import { Button } from "@/components/ui/button"
+import Loader from '@/components/Loader'
+import Cookie from 'js-cookie'
+import { useRouter } from 'next/navigation'
 
-interface Product {
-  productId: string;
-  quantity: number;
-  size: string;
-  price: string;
-  _id: string;
+function debounce(func: Function, delay: number) {
+  let timeoutId: NodeJS.Timeout
+  return (...args: any[]) => {
+    clearTimeout(timeoutId)
+    timeoutId = setTimeout(() => func(...args), delay)
+  }
 }
 
-interface CartResponse {
-  success: boolean;
-  data: {
-    _id: string;
-    userId: string;
-    products: Product[];
-    totalPrice: number;
-    createdAt: string;
-    updatedAt: string;
-    __v: number;
-  };
+interface CartItem {
+  productId: string
+  quantity: number
+  size: string
+  price: string
+  _id: string
+  image: string
+  name: string
 }
 
-export default function CartPage() {
-  const router = useRouter();
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [cartItems, setCartItems] = useState<Product[]>([]);
-  const [totalPrice, setTotalPrice] = useState(0);
-  const [tilt, setTilt] = useState(0);
+interface CartData {
+  success: boolean
+  data: CartItem[]
+  totalPrice: number
+}
 
-  // Mouse interaction for button tilt effect
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const button = e.currentTarget;
-    const { left, right } = button.getBoundingClientRect();
-    const center = (left + right) / 2;
-    const distance = e.clientX - center;
-    setTilt(distance / 10);
-  };
+export default function OptimizedCoolCartPage() {
+  const [cartData, setCartData] = useState<CartData | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [couponCode, setCouponCode] = useState('')
+  const [removeLoading, setRemoveLoading] = useState(false);
+  const [removingItemId, setRemovingItemId] = useState<string | null>(null);
+  const userId = Cookie.get('userId')
+  const router = useRouter()
 
-  const handleMouseLeave = () => {
-    setTilt(0);
-  };
-
-  useEffect(() => {
-    const fetchCartItems = async () => {
-      const userId = Cookies.get("userId");
-      if (!userId) {
-        router.push("/login");
-        return;
-      }
-
-      try {
-        const response = await fetch(`/api/cart/${userId}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-
-        if (!response.ok) {
-          throw new Error("Failed to fetch cart items");
-        }
-
-        const data: CartResponse = await response.json();
-
-        if (data.success) {
-          setCartItems(data.data.products);
-          setTotalPrice(data.data.totalPrice);
-        } else {
-          throw new Error("Failed to fetch cart data");
-        }
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "An error occurred");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchCartItems();
-  }, [router]);
-
-  const handleRemoveItem = async (productId: string) => {
-    const userId = Cookies.get("userId");
-
+  const fetchCartData = useCallback(async () => {
     if (!userId) {
-      alert("User not logged in!");
-      return;
+      setIsLoading(false)
+      router.push('/login')
+      return
     }
 
     try {
-      const deleteResponse = await fetch(`/api/cart/${userId}/removeproduct`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ productId }),
-      });
-
-      if (!deleteResponse.ok) {
-        throw new Error("Failed to remove item from cart");
-      }
-
-      const deleteData = await deleteResponse.json();
-      if (deleteData.success) {
-        setCartItems((prevItems) =>
-          prevItems.filter((item) => item.productId !== productId)
-        );
-        setTotalPrice((prevTotal) =>
-          prevTotal -
-          parseInt(cartItems.find((item) => item.productId === productId)?.price || "0")
-        );
-      } else {
-        throw new Error(deleteData.message || "Error removing item");
-      }
-    } catch (error) {
-      console.error("Failed to remove item:", error);
-      alert("Failed to remove item. Please try again.");
+      const response = await fetch(`/api/cart/${userId}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+      })
+      const data = await response.json()
+      if (!data.success) throw new Error(data.error)
+      setCartData(data)
+    } catch (err) {
+      setError("An error occurred while fetching cart data")
+    } finally {
+      setIsLoading(false)
     }
-  };
+  }, [userId, router])
 
-  if (isLoading) {
+  useEffect(() => {
+    fetchCartData()
+  }, [fetchCartData])
+
+  const handleQuantityChange = useCallback(
+    debounce(async (itemId: string, newQuantity: number, size: string, price: string) => {
+      if (!userId || !cartData) return
+      if (newQuantity === 0) {
+        handleRemoveItem(itemId)
+        return
+      }
+
+      try {
+        const response = await fetch('/api/cart', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            userId: userId,
+            products: [{
+              productId: itemId.toString(),
+              quantity: newQuantity,
+              size: size,
+              price: price
+            }],
+            totalPrice: 0
+          }),
+        }).then((res) => res.json())
+
+        if (!response.success) throw new Error(response.error)
+        await fetchCartData()
+      } catch (err) {
+        setError('Failed to update quantity')
+        // Revert the quantity change if the API call fails
+        setCartData((prevData: any) => ({
+          ...prevData,
+          data: prevData.data.map((item: any) =>
+            item.productId === itemId ? { ...item, quantity: item.quantity } : item
+          )
+        }))
+      }
+    }, 500),
+    [userId, cartData, fetchCartData]
+  )
+
+  const handleRemoveItem = async (itemId: string) => {
+    setRemovingItemId(itemId);
+    if (!userId || !cartData) return
+    console.log('Removing item:', itemId)
+    try {
+      const response = await fetch(`/api/cart/${userId}/removeproduct`, {
+        method: 'DELETE',
+        body: JSON.stringify({ productId: itemId.toString() })
+      }).then((res) => res.json());
+
+      if (!response.success) {
+        throw new Error(response.error)
+      }
+      else {
+        await fetchCartData()
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to remove item')
+    }
+    finally {
+      setRemovingItemId(null);
+    }
+  }
+
+  const handleApplyCoupon = () => {
+    // Implement coupon logic here
+    console.log('Applying coupon:', couponCode)
+  }
+
+  if (isLoading) return <Loader />
+
+  if (error) {
     return (
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="min-h-screen flex items-center justify-center bg-red-50"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-md mx-auto mt-10 bg-white p-8 rounded-lg shadow-lg text-center"
       >
-        <div className="flex items-center space-x-3">
-          <Loader2 className="h-8 w-8 text-red-500 animate-spin" />
-          <span className="text-red-700 font-semibold">Loading cart...</span>
-        </div>
+        <AlertCircle className="h-16 w-16 text-red-500 mx-auto mb-4" />
+        <h2 className="text-2xl font-bold text-gray-800 mb-2">Oops! Something went wrong</h2>
+        <p className="text-gray-600 mb-4">{error || 'Unable to load cart data'}</p>
+        <Button
+          onClick={() => window.location.reload()}
+          className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105"
+        >
+          Try Again
+        </Button>
+      </motion.div>
+    )
+  }
+
+  if (cartData?.data.length == 0) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-md mx-auto mt-10 bg-white p-8 rounded-lg shadow-lg text-center"
+      >
+        <ShoppingCart className="h-16 w-16 text-gray-500 mx-auto mb-4" />
+        <h2 className="text-2xl font-bold text-gray-800 mb-2">Your Cart is Empty</h2>
+        <p className="text-gray-600 mb-4">Looks like you haven't added anything to your cart yet.</p>
+        <Button
+          onClick={() => router.push("/")}
+          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105"
+        >
+          Start Shopping
+        </Button>
       </motion.div>
     );
   }
 
-  if (error || cartItems.length === 0) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-red-50">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center p-8 bg-white rounded-xl shadow-lg"
-        >
-          <motion.div
-            initial={{ scale: 0.8 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.5, bounce: 0.4, type: "spring" }}
-            className="flex justify-center mb-6"
-          >
-            <AlertCircle className="h-16 w-16 text-red-500" />
-          </motion.div>
-          <h2 className="text-3xl font-bold text-red-900 mb-4">
-            Your Cart is Empty
-          </h2>
-          <p className="text-red-700 mb-6">
-            Looks like you haven't added any items to your cart yet.
-          </p>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.4, type: "spring" }}
-          >
-            <Button
-              onClick={() => router.push("/")}
-              className="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105"
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
-              style={{
-                transform: `rotateZ(${tilt}deg)`,
-                transition: "transform 0.2s ease-out",
-              }}
-            >
-              <ShoppingCart className="mr-3" />
-              Continue Shopping
-            </Button>
-          </motion.div>
-        </motion.div>
-      </div>
-    );
-  }
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className="min-h-screen bg-red-50 py-12"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="max-w-5xl mx-auto mt-10 bg-white rounded-lg shadow-xl overflow-hidden"
     >
-      <div className="mx-auto max-w-5xl p-8 bg-white rounded-xl shadow-lg">
-        <motion.div
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center justify-between mb-8"
-        >
-          <h1 className="text-3xl font-bold text-red-900 flex items-center">
-            <ShoppingCart className="mr-4 text-red-500" size={32} />
-            Your Cart
-          </h1>
-        </motion.div>
+      <div className="px-4 py-5 sm:p-6">
+        <h1 className="text-3xl font-extrabold text-gray-900 flex items-center mb-8">
+          <ShoppingBag className="w-8 h-8 mr-2 text-purple-600" />
+          Your Stylish Cart
+        </h1>
 
-        <ul className="divide-y divide-red-200">
-          {cartItems.map((item) => (
-            <motion.li
-              key={item._id}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3 }}
-              className="flex justify-between items-center py-6 hover:bg-red-50 rounded-lg px-4"
-            >
-              <div>
-                <p className="text-red-900 font-semibold text-lg">
-                  Product ID: {item.productId}
-                </p>
-                <p className="text-red-700">Size: {item.size}</p>
-                <p className="text-red-800 font-medium">
-                  Price: ₹{item.price} x {item.quantity}
-                </p>
-              </div>
-              <Button
-                variant="destructive"
-                onClick={() => handleRemoveItem(item.productId)}
-                className="bg-red-100 text-red-700 hover:bg-red-200 transition-colors"
+        {cartData && cartData.data && cartData.data.length > 0 ? (
+          <AnimatePresence>
+            {cartData.data.map((item: CartItem) => (
+              <motion.div
+                key={item._id}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 20 }}
+                transition={{ duration: 0.3 }}
+                className="flex items-center space-x-4 border-b border-gray-200 py-4"
               >
-                <Trash2 className="mr-2" />
-                Remove
-              </Button>
-            </motion.li>
-          ))}
-        </ul>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          className="mt-8 pt-6 border-t border-red-200 text-right"
-        >
-          <p className="text-2xl font-bold text-red-900 mb-4">
-            Total: ₹{totalPrice}
-          </p>
-          <Button
-            className="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105"
-            onClick={() => alert("Proceeding to checkout...")}
+                <div className="flex-shrink-0 w-24 h-24 bg-gray-200 rounded-md overflow-hidden">
+                  <Image
+                    src={item.image || "/placeholder.svg"}
+                    alt={item.name}
+                    width={100}
+                    height={100}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex-grow">
+                  <h3 className="text-lg font-medium text-gray-900">{item.name}</h3>
+                  <p className="text-gray-500">Size: {item.size}</p>
+                  <p className="text-purple-600 font-semibold">₹{item.price}</p>
+                  <div className="flex items-center mt-2">
+                    <Button
+                      onClick={() => {
+                        const newQuantity = Math.max(0, item.quantity - 1)
+                        setCartData((prevData: any) => ({
+                          ...prevData,
+                          data: prevData.data.map((cartItem: any) =>
+                            cartItem.productId === item.productId ? { ...cartItem, quantity: newQuantity } : cartItem
+                          )
+                        }))
+                        handleQuantityChange(item.productId, newQuantity, item.size, item.price)
+                      }}
+                      variant="outline"
+                      size="icon"
+                      className="h-8 w-8"
+                    >
+                      <Minus className="h-4 w-4" />
+                    </Button>
+                    <span className="mx-2 text-gray-700">{item.quantity}</span>
+                    <Button
+                      onClick={() => {
+                        const newQuantity = item.quantity + 1
+                        setCartData((prevData: any) => ({
+                          ...prevData,
+                          data: prevData.data.map((cartItem: any) =>
+                            cartItem.productId === item.productId ? { ...cartItem, quantity: newQuantity } : cartItem
+                          )
+                        }))
+                        handleQuantityChange(item.productId, newQuantity, item.size, item.price)
+                      }}
+                      variant="outline"
+                      size="icon"
+                      className="h-8 w-8"
+                    >
+                      <Plus className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+                <Button
+                  onClick={() => handleRemoveItem(item.productId)}
+                  variant="outline"
+                  className="flex items-center space-x-1 hover:scale-110 hover:bg-white text-red-900 hover:text-red-700 transition duration-300"
+                  disabled={removingItemId === item.productId}
+                >
+                  {removingItemId === item.productId ? (
+                    <LucideLoader className="w-4 h-4 animate-spin" />
+                  ) : (
+                    <Trash2 className="w-4 h-4" />
+                  )}
+                  <span>Remove</span>
+                </Button>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        ) : (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="text-center text-gray-500 my-8"
           >
-            Proceed to Checkout
-          </Button>
-        </motion.div>
+            Your cart is empty. Let's add some fabulous items!
+          </motion.p>
+        )}
+
+        <div className="mt-8">
+          <div className="flex justify-between items-center mb-4">
+            <span className="text-lg font-medium text-gray-900">Subtotal</span>
+            <span className="text-2xl font-bold text-purple-600">₹{parseFloat(cartData?.totalPrice?.toString() || '0').toFixed(2)}</span>
+          </div>
+
+          <div className="space-y-4">
+            {/* <div>
+              <Label htmlFor="coupon" className="block text-sm font-medium text-gray-700">
+                Coupon Code
+              </Label>
+              <div className="mt-1 flex rounded-md shadow-sm">
+                <Input
+                  type="text"
+                  name="coupon"
+                  id="coupon"
+                  value={couponCode}
+                  onChange={(e) => setCouponCode(e.target.value)}
+                  className="flex-1 min-w-0 block w-full px-3 py-2 rounded-md focus:ring-purple-500 focus:border-purple-500 sm:text-sm border-gray-300"
+                  placeholder="Enter coupon code"
+                />
+                <Button
+                  onClick={handleApplyCoupon}
+                  className="ml-2 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+                >
+                  Apply
+                </Button>
+              </div>
+            </div> */}
+
+            <Button
+              className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center"
+              onClick={() => {
+                setIsLoading(true);
+                router.push('/checkout')
+              }}
+              disabled={isLoading || !cartData || cartData.data.length === 0}
+            >
+              {isLoading ? (
+                <LucideLoader className="w-5 h-5 animate-spin mr-2" />
+              ) : (
+                <>
+                  <span>Proceed to Checkout</span>
+                  <ChevronRight className="w-5 h-5 ml-2" />
+                </>
+              )}
+            </Button>
+          </div>
+        </div>
       </div>
     </motion.div>
-  );
+  )
 }

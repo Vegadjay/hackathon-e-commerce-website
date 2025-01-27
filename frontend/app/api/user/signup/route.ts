@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { z } from 'zod';
-import dbConnect from '@/lib/dbConnect';
+import dbConnect from 'lib/dbConnect';
 import User from '@/models/User';
 
 const JWT_SECRET = process.env.JWT_SECRET;

@@ -147,7 +147,7 @@ function MainComponent() {
         />
       </div>
 
-      <div className="mt-10 sm:mt-20">
+      <div className="mt-10 sm:mt-20 hidden md:block">
         <Heading text="Fast, Reliable, and Right to Your Door!" />
         <div className="hidden md:block">
           <Earthcomponent />
