@@ -2,27 +2,30 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Heart, Trash2, ShoppingCart } from "lucide-react";
+import { Heart, Trash2 } from "lucide-react";
 import Cookies from "js-cookie";
 import { toast } from "sonner";
-import { response } from "express";
+
 interface Product {
-	id: string;
+	_id: string;
 	name: string;
 	price: number;
 	originalPrice: number;
-	description: string;
-	images: string[];
-	category: string;
-	inStock: boolean;
+	description?: string;
+	image: string;
+	category?: string;
+	inStock?: boolean;
 }
+
 export default function WishlistPage() {
 	const [wishlistItems, setWishlistItems] = useState<Product[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
+
 	useEffect(() => {
 		fetchWishlistItems();
 	}, []);
-	const fetchWishlistItems = async () => {
+
+	const fetchWishlistItems = () => {
 		try {
 			const userId = Cookies.get("userId");
 			if (!userId) {
@@ -30,7 +33,7 @@ export default function WishlistPage() {
 				setIsLoading(false);
 				return;
 			}
-			const wishlist:any = localStorage.getItem("wishlist");
+			const wishlist = localStorage.getItem("wishlist");
 			if (!wishlist) {
 				toast.error("No items in the wishlist.");
 				setIsLoading(false);
@@ -38,7 +41,6 @@ export default function WishlistPage() {
 			}
 			const products = JSON.parse(wishlist);
 			setWishlistItems(products);
-			
 		} catch (error) {
 			console.error("Error fetching wishlist:", error);
 			toast.error("Something went wrong. Please try again.");
@@ -46,6 +48,19 @@ export default function WishlistPage() {
 			setIsLoading(false);
 		}
 	};
+
+	const removeFromWishlist = (productId: string) => {
+		try {
+			const updatedWishlist = wishlistItems.filter((item) => item._id !== productId);
+			setWishlistItems(updatedWishlist);
+			localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
+			toast.success("Item removed from wishlist.");
+		} catch (error) {
+			console.error("Error removing item from wishlist:", error);
+			toast.error("Failed to remove the item. Please try again.");
+		}
+	};
+
 	if (isLoading) {
 		return (
 			<div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -57,6 +72,7 @@ export default function WishlistPage() {
 			</div>
 		);
 	}
+
 	return (
 		<div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
 			<div className="max-w-7xl mx-auto">
@@ -81,9 +97,9 @@ export default function WishlistPage() {
 					</div>
 				) : (
 					<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-						{wishlistItems.map((product:any) => (
+						{wishlistItems.map((product) => (
 							<motion.div
-								key={product.id}
+								key={product._id}
 								initial={{ opacity: 0, y: 20 }}
 								animate={{ opacity: 1, y: 0 }}
 								exit={{ opacity: 0, y: 20 }}
@@ -97,11 +113,6 @@ export default function WishlistPage() {
 											className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-200"
 										/>
 									</div>
-									{!product.inStock && (
-										<div className="absolute top-2 right-2 bg-red-500 text-white px-3 py-1 rounded-full text-sm">
-											Out of Stock
-										</div>
-									)}
 								</Link>
 								<div className="p-4">
 									<Link href={`/product/${product._id}`}>
@@ -109,18 +120,15 @@ export default function WishlistPage() {
 											{product.name}
 										</h3>
 									</Link>
-									<div className="flex items-baseline mb-2">
+									<div className="flex items-baseline justify-between mb-2">
 										<span className="text-xl font-bold text-red-600">₹{product.price}</span>
-										{product.originalPrice > product.price && (
-											<>
-												<span className="ml-2 text-sm text-gray-500 line-through">
-													₹{product.originalPrice}
-												</span>
-												<span className="ml-2 text-sm text-green-500">
-													{Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% off
-												</span>
-											</>
-										)}
+										<button
+											onClick={() => removeFromWishlist(product._id)}
+											className="mt-2 inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-red-600 bg-gray-100 hover:bg-gray-200"
+										>
+											<Trash2 className="h-5 w-5 mr-2" />
+											Remove
+										</button>
 									</div>
 								</div>
 							</motion.div>
