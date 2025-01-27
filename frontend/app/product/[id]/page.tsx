@@ -9,10 +9,23 @@ import ImageSwapper from "@/components/image/page";
 import { AddToCartModal, BuyNowButton } from "@/app/product/component/button-component";
 import RevenueChart from '@/app/product/component/price-chart';
 import { Compare } from '@/components/ui/compare';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { ProductCard } from '@/components/ui/product-card';
 
 interface ProductProps {
   product: any;
 }
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.3,
+      ease: "easeOut"
+    }
+  }
+};
 
 const Product: React.FC<ProductProps> = ({ product }) => {
   const router = useRouter();
@@ -20,13 +33,25 @@ const Product: React.FC<ProductProps> = ({ product }) => {
   const [selectedSize, setSelectedSize] = useState(product.size[0]);
   const [isSaved, setIsSaved] = useState(false);
   const [showShareMenu, setShowShareMenu] = useState(false);
+  const [simmilarProducts,setSimmilarProducts] = useState<any>([]);
 
   useEffect(() => {
     // Check if product is in local storage wishlist on component mount
     const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
     const isProductSaved = wishlist.some((item: any) => item._id === product._id);
     setIsSaved(isProductSaved);
+    setTimeout(() => {
+      fetchMoreLikeThis();
+    }, 2200);
   }, [product._id]);
+
+  const fetchMoreLikeThis = async () => {
+    const res = await fetch(`/api/product/category/${product.category}`).then((res)=>res.json());
+    if(res.success){
+      console.log(res)
+      setSimmilarProducts(res.data);
+    }
+  }
 
   const handleWishlistToggle = () => {
     // Get current wishlist from local storage
@@ -405,6 +430,28 @@ const Product: React.FC<ProductProps> = ({ product }) => {
             <RevenueChart data={product.chartData} />
           </motion.div>
         )}
+
+        <Card className="w-full mt-8">
+          <CardHeader>
+            <CardTitle>More Like this</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="h-64 w-full">
+              {simmilarProducts.length > 0 && <>
+              {simmilarProducts.slice(0, 7).map((product: any) => {
+                return <motion.div
+                      key={product._id}
+                      variants={itemVariants}
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      {/* <ProductCard {...product} /> */}
+                    </motion.div>
+              })}
+              </>}
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </motion.div>
   );

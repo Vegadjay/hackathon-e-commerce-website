@@ -46,8 +46,9 @@ function FileUploadDemo() {
         try {
             const formData = new FormData();
             formData.append("file", uploadedFiles[0]);
-
-            const response = await fetch("http://localhost:5000/recommend", {
+            const python_url = process.env.PYTHON_URL;
+            console.log(python_url,"python url");
+            const response = await fetch(`${python_url}/recommend`, {
                 method: "POST",
                 body: formData,
             });
