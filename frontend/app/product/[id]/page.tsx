@@ -19,7 +19,7 @@ interface ProductProps {
 const Product: React.FC<ProductProps> = ({ product }) => {
   const router = useRouter();
   const [quantity, setQuantity] = useState(1);
-  const [selectedSize, setSelectedSize] = useState(product.size ? product.size[0] : 'N/A');
+  const [selectedSize, setSelectedSize] = useState(product.size ? product.size[0] : '5 meter');
   const [isSaved, setIsSaved] = useState(false);
   const [showShareMenu, setShowShareMenu] = useState(false);
   const [simmilarProducts,setSimmilarProducts] = useState<any>([]);
@@ -313,7 +313,7 @@ const Product: React.FC<ProductProps> = ({ product }) => {
                       </button>
                     );
                   })}
-                  {product.size==undefined ? <h1>N/A</h1> : null}
+                  {product.size == undefined ? <h1>5 meter</h1> : null}
                 </div>
               </div>
 

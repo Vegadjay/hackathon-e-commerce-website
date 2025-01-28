@@ -203,7 +203,7 @@ export function Navbar() {
 
             if (response.ok) {
               const userData = await response.json();
-              setUsername(userData.username);
+              setUsername(userData.data.username);
             } else {
               setUsername("User");
             }

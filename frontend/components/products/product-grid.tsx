@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import FashionCarousel from "@/components/products/product-corosal";
 import { AppleCardsCarouselDemo } from "@/app/product/component/apple-card-corosal";
@@ -9,7 +9,6 @@ import { VideoGrid } from "@/components/ui/layout-video-grid";
 import { HeroScrollDemo } from "@/components/scroll-component/page";
 import { InfiniteMovingCardsDemo } from "@/components/infinite-scroll-component/page";
 import ProductGridComponent from "@/components/sale-product-grid/page";
-import Filtercomponent from "@/components/filter-component/filter";
 import Heading from "@/components/title/page";
 import Intercom from '@intercom/messenger-js-sdk';
 
@@ -47,7 +46,6 @@ const pageTransition = {
 
 function MainComponent() {
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [sortBy, setSortBy] = useState("default");
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [priceRange, setPriceRange] = useState([0, 10000]);

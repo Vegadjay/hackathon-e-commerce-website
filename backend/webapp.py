@@ -30,8 +30,8 @@ model = load_model()
 
 # Load precomputed features and filenames
 def load_embeddings():
-    features_list = np.array(pickle.load(open('embeddings.pkl', 'rb')))
-    filenames = pickle.load(open('filenames.pkl', 'rb'))
+    features_list = np.array(pickle.load(open('embeddings2.pkl', 'rb')))
+    filenames = pickle.load(open('filenames2.pkl', 'rb'))
     return features_list, filenames
 
 features_list, filenames = load_embeddings()
@@ -56,7 +56,7 @@ def feature_extraction(img, model):
     return normalized_result
 
 # Find the top N similar images using FAISS for fast retrieval
-def recommend(features, features_list, n_recommendations=10):
+def recommend(features, features_list, n_recommendations=15):
     index = faiss.IndexFlatL2(features_list.shape[1])
     index.add(features_list.astype('float32'))
     distances, indices = index.search(np.array([features], dtype='float32'), n_recommendations)
