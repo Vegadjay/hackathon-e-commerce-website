@@ -27,22 +27,19 @@ const itemVariants = {
 };
 
 const categories = [
-  { title: 'Suit Sets', href: '/category/suit-sets' },
-  { title: 'Kurta Sets', href: '/category/kurta-sets' },
-  { title: 'Dresses', href: '/category/dresses' },
-  { title: 'Unstitched Suit Sets', href: '/category/unstitched-suit-sets' },
-  { title: 'Handblock Suit Sets', href: '/category/handblock-suit-sets' },
-  { title: 'Handpainted Suit Sets', href: '/category/handpainted-suit-sets' },
-  { title: 'Kaftans', href: '/category/kaftans' },
-  { title: 'Premium Chanderi Suit-sets', href: '/category/premium-chanderi-suit-sets' },
-  { title: 'Premium Handwork Suit Sets', href: '/category/premium-handwork-suit-sets' },
+  { title: 'Kurta Sets', href: '/ethnic-wear?category=kurta-sets' },
+  { title: 'Indian wear', href: '/ethnic-wear?category=indian' },
+  { title: 'Top rated products', href: '/ethnic-wear?category=top-rated' },
+  { title: 'Premium Fabric', href: '/bestsellers?category=premium' },
+  { title: 'Chiffons', href: '/ethnic-wear?category=chiffon' },
+  { title: 'Solid wear clothing', href: '/ethnic-wear?category=solid-wear-clothing' },
 ];
 
 const basePath = '/customer';
 const information = [
   { title: 'About Us', href: '/aboutus' },
   { title: 'Exchange/Return Policy', href: `${basePath}/returnpolicy` },
-  { title: 'Track Your Order', href: `${basePath}/trackyourorder` },
+  { title: 'Track Your Order', href: `/trackyourorder` },
   { title: 'Privacy Policy', href: `${basePath}/privacypolicy` },
   { title: 'Terms and Conditions', href: `${basePath}/terms-and-conditions` },
   { title: 'Customize Products', href: `${basePath}/customize-products` },
@@ -51,10 +48,10 @@ const information = [
 ];
 
 const socialLinks = [
-  { icon: Github, href: 'https://github.com/Vegadjay' },
+  { icon: Github, href: 'https://github.com/hemang-patel-9' },
   { icon: Instagram, href: 'https://instagram.com/jay_vegad_1' },
   { icon: Youtube, href: 'https://www.youtube.com/@JAY_VEGAD' },
-  { icon: Linkedin, href: 'https://www.linkedin.com/in/vegadjay' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/hemang-baldha-b75a0b257/' },
 ];
 
 export default function Footer() {

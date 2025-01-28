@@ -37,17 +37,15 @@ function FileUploadDemo() {
 
     const handleFileUpload = async (uploadedFiles: File[]) => {
         if (!uploadedFiles || uploadedFiles.length === 0) return;
-
+        setLoading(true);
         setFiles((prevFiles) => [...prevFiles, ...uploadedFiles]);
 
         const urls = uploadedFiles.map((file) => URL.createObjectURL(file));
         setPreviewUrls((prevUrls) => [...prevUrls, ...urls]);
-        setLoading(true);
         try {
             const formData = new FormData();
             formData.append("file", uploadedFiles[0]);
             const python_url = process.env.NEXT_PUBLIC_PYTHON_URL;
-            console.log(python_url,"python url");
             const response = await fetch(`${python_url}/recommend`, {
                 method: "POST",
                 body: formData,
@@ -56,7 +54,7 @@ function FileUploadDemo() {
             if (response.ok) {
                 const data = await response.json();
                 const paths = data.recommendations.map((path: string) => {
-                    const cleanPath = path.replace("converted\\", "");
+                    const cleanPath = path.replace("dataset\\", "");
                     return cleanPath;
                 });
                 setProductImagePaths(paths);
@@ -72,7 +70,7 @@ function FileUploadDemo() {
     const findProducts = async (files: any) => {
         setLoading(true);
         const updatedFiles = files.recommendations.map((file: any) =>
-            file.replace("converted\\", "")
+            file.replace("dataset\\", "")
         );
         setRecommendedProducts([]);
 
@@ -99,14 +97,14 @@ function FileUploadDemo() {
     };
 
     return (
-        <div className="space-y-8">
+        <div className="space-y-8 h-screen">
             <div className="w-full max-w-5xl mx-auto min-h-96 border border-dashed bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 rounded-lg">
                 <FileUpload onChange={handleFileUpload} />
 
                 <div className="mt-4">
                     <label
                         htmlFor="camera-input"
-                        className="block text-center py-2 px-4 bg-blue-500 text-white rounded-lg cursor-pointer"
+                        className="block text-center py-2 px-4 bg-blue-500 text-white rounded-lg cursor-pointer sm:hidden"
                     >
                         Use Camera
                     </label>

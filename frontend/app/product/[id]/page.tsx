@@ -10,27 +10,16 @@ import { AddToCartModal, BuyNowButton } from "@/app/product/component/button-com
 import RevenueChart from '@/app/product/component/price-chart';
 import { Compare } from '@/components/ui/compare';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ProductCard } from '@/components/ui/product-card';
+import Image from 'next/image';
 
 interface ProductProps {
   product: any;
 }
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.3,
-      ease: "easeOut"
-    }
-  }
-};
 
 const Product: React.FC<ProductProps> = ({ product }) => {
   const router = useRouter();
   const [quantity, setQuantity] = useState(1);
-  const [selectedSize, setSelectedSize] = useState(product.size[0]);
+  const [selectedSize, setSelectedSize] = useState(product.size ? product.size[0] : 'N/A');
   const [isSaved, setIsSaved] = useState(false);
   const [showShareMenu, setShowShareMenu] = useState(false);
   const [simmilarProducts,setSimmilarProducts] = useState<any>([]);
@@ -48,7 +37,6 @@ const Product: React.FC<ProductProps> = ({ product }) => {
   const fetchMoreLikeThis = async () => {
     const res = await fetch(`/api/product/category/${product.category}`).then((res)=>res.json());
     if(res.success){
-      console.log(res)
       setSimmilarProducts(res.data);
     }
   }
@@ -325,6 +313,7 @@ const Product: React.FC<ProductProps> = ({ product }) => {
                       </button>
                     );
                   })}
+                  {product.size==undefined ? <h1>N/A</h1> : null}
                 </div>
               </div>
 
@@ -436,20 +425,38 @@ const Product: React.FC<ProductProps> = ({ product }) => {
             <CardTitle>More Like this</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="h-64 w-full">
-              {simmilarProducts.length > 0 && <>
-              {simmilarProducts.slice(0, 7).map((product: any) => {
-                return <motion.div
-                      key={product._id}
-                      variants={itemVariants}
-                      whileHover={{ scale: 1.03 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      {/* <ProductCard {...product} /> */}
-                    </motion.div>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {simmilarProducts.slice(0, 10).map((product: any) => {
+                return (
+                  <motion.div
+                    key={product._id} // Add a unique key
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="group relative flex flex-col overflow-hidden rounded-xl bg-white shadow-md hover:shadow-lg transition-all duration-300"
+                  >
+                    <Link href={`/product/${product._id}`}>
+                      <div className="relative w-full h-56">
+                        <Image
+                          src={product.images[0]}
+                          alt={product.name}
+                          fill
+                          className="object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                        />
+                      </div>
+                    </Link>
+                    <div className="p-4 bg-white">
+                      <h3 className="text-lg font-semibold text-gray-800 group-hover:text-red-600 truncate">
+                        {product.name}
+                      </h3>
+                      <p className="mt-1 text-sm text-gray-600 truncate">{product.description || "No description available"}</p>
+                      <div className="mt-2 text-black font-bold group-hover:text-red-500">Price : ₹{product.price}</div>
+                    </div>
+                  </motion.div>
+                );
               })}
-              </>}
             </div>
+
           </CardContent>
         </Card>
       </div>

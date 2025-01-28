@@ -54,14 +54,6 @@ export async function POST(req: Request) {
       return NextResponse.json({ success: false, error: 'User not found' }, { status: 404 });
     }
 
-    // const calculatedTotalPrice = parsedData.products.reduce((total, product) => {
-    //   return total + (parseFloat(product.price) * product.quantity);
-    // }, 0);
-
-    // if (calculatedTotalPrice !== parsedData.totalPrice) {
-    //   return NextResponse.json({ success: false, error: 'Total price mismatch' }, { status: 400 });
-    // }
-
     const newOrder = new Order({
       userId: parsedData.userId,
       products: parsedData.products,
@@ -80,7 +72,7 @@ export async function POST(req: Request) {
     await user.save();
 
     await sendEmail(savedOrder, user.email);
-    await Cart.deleteOne({ _id: parsedData.userId });
+    await Cart.deleteOne({ userId: parsedData.userId });
     return NextResponse.json({ success: true, data: savedOrder }, { status: 200 });
 
   } catch (error) {
