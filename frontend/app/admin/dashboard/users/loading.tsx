@@ -2,9 +2,9 @@
 import Loader from "@/components/Loader"
 
 const loading = () => {
-  return (
-    <Loader />
-  )
+	return (
+		<Loader />
+	)
 }
 
 export default loading
