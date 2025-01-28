@@ -111,7 +111,7 @@ export default function EnhancedInvoiceComponent({ isOpen, onClose, invoiceDetai
 												</TableRow>
 											</TableHeader>
 											<TableBody>
-												{invoiceDetails.items.map((item:any) => (
+												{invoiceDetails.items.map((item: any) => (
 													<TableRow key={item.productId}>
 														<TableCell>{item.name}</TableCell>
 														<TableCell className="text-right">{item.quantity}</TableCell>
