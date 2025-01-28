@@ -25,7 +25,6 @@ const Product: React.FC<ProductProps> = ({ product }) => {
   const [simmilarProducts,setSimmilarProducts] = useState<any>([]);
 
   useEffect(() => {
-    // Check if product is in local storage wishlist on component mount
     const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
     const isProductSaved = wishlist.some((item: any) => item._id === product._id);
     setIsSaved(isProductSaved);
@@ -42,11 +41,9 @@ const Product: React.FC<ProductProps> = ({ product }) => {
   }
 
   const handleWishlistToggle = () => {
-    // Get current wishlist from local storage
     const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
 
     if (!isSaved) {
-      // Add product to wishlist
       const updatedWishlist = [...wishlist, {
         _id: product._id,
         name: product.name,
