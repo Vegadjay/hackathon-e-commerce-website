@@ -1,29 +1,104 @@
 'use client';
 
-import React from 'react';
-import { ShoppingCart, Package, Box, Check } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { ShoppingCart, Package, Box, Check, Ban } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import CategoryGrid from '@/app/admin/dashboard/components/catagorygrid';
 
+interface OrderStats {
+    totalOrders: number;
+    totalPendingOrders: number;
+    totalCancelledOrders: number;
+    totalDeliveredOrders: number;
+    totalProcessingOrders: number;
+    totalMoneyToday: number;
+    totalMoneyThisMonth: number;
+    totalMoneyTillNow: number;
+}
+
 const DashboardStats = () => {
-    const stats = [
+    const [orderStats, setOrderStats] = useState<OrderStats | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        const fetchOrderStats = async () => {
+            try {
+                const response = await fetch('/api/admin/order');
+                if (!response.ok) throw new Error('Failed to fetch order statistics');
+                const result = await response.json();
+                if (result.success && result.data) {
+                    setOrderStats(result.data);
+                } else {
+                    throw new Error('Invalid response format');
+                }
+            } catch (err: any) {
+                console.error('Error fetching order stats:', err);
+                setError(err.message || 'Failed to load order statistics');
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchOrderStats();
+    }, []);
+
+    const stats = orderStats ? [
         {
             title: 'Today Order',
-            amount: 'Rs. 300',
+            amount: `₹${orderStats.totalMoneyToday.toLocaleString('en-IN')}`,
             bgColor: 'bg-teal-600',
         },
         {
             title: 'This Month',
-            amount: 'Rs.5000',
+            amount: `₹${orderStats.totalMoneyThisMonth.toLocaleString('en-IN')}`,
             bgColor: 'bg-blue-500',
         },
         {
-            title: 'Total Order',
-            amount: 'Rs. 95000',
+            title: 'Total Revenue',
+            amount: `₹${orderStats.totalMoneyTillNow.toLocaleString('en-IN')}`,
             bgColor: 'bg-green-600',
         },
-    ];
+    ] : [];
+
+    const orderStatusCards = orderStats ? [
+        {
+            label: 'Total Orders',
+            value: orderStats.totalOrders.toString(),
+            icon: ShoppingCart,
+            bgColor: 'bg-orange-50',
+            iconColor: 'text-orange-500',
+        },
+        {
+            label: 'Orders Pending',
+            value: orderStats.totalPendingOrders.toString(),
+            icon: Package,
+            bgColor: 'bg-blue-50',
+            iconColor: 'text-blue-500',
+        },
+        {
+            label: 'Orders Processing',
+            value: orderStats.totalProcessingOrders.toString(),
+            icon: Box,
+            bgColor: 'bg-teal-50',
+            iconColor: 'text-teal-500',
+        },
+        {
+            label: 'Orders Delivered',
+            value: orderStats.totalDeliveredOrders.toString(),
+            icon: Check,
+            bgColor: 'bg-green-50',
+            iconColor: 'text-green-500',
+        },
+        {
+            label: 'Orders Cancelled',
+            value: orderStats.totalCancelledOrders.toString(),
+            icon: Ban,
+            bgColor: 'bg-red-50',
+            iconColor: 'text-red-500',
+        },
+    ] : [];
 
     const product = [{
         chartData: [
@@ -42,36 +117,26 @@ const DashboardStats = () => {
         ],
     }];
 
-    const orderStats = [
-        {
-            label: 'Total Order',
-            value: '169',
-            icon: ShoppingCart,
-            bgColor: 'bg-orange-50',
-            iconColor: 'text-orange-500',
-        },
-        {
-            label: 'Order Pending',
-            value: '34',
-            icon: Package,
-            bgColor: 'bg-blue-50',
-            iconColor: 'text-blue-500',
-        },
-        {
-            label: 'Order Processing',
-            value: '59',
-            icon: Box,
-            bgColor: 'bg-teal-50',
-            iconColor: 'text-teal-500',
-        },
-        {
-            label: 'Order Delivered',
-            value: '65',
-            icon: Check,
-            bgColor: 'bg-green-50',
-            iconColor: 'text-green-500',
-        },
-    ];
+    if (isLoading) {
+        return (
+            <div className="flex justify-center items-center min-h-screen">
+                <div className="animate-spin rounded-full h-16 w-16 border-4 border-primary border-t-transparent" />
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="p-6">
+                <Card className="bg-red-50 border-red-200">
+                    <CardContent className="p-6">
+                        <h3 className="text-red-600 text-lg font-semibold">Error Loading Dashboard</h3>
+                        <p className="text-red-500 mt-2">{error}</p>
+                    </CardContent>
+                </Card>
+            </div>
+        );
+    }
 
     return (
         <div className="p-6 space-y-6">
@@ -86,8 +151,8 @@ const DashboardStats = () => {
                 ))}
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                {orderStats.map((stat, index) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
+                {orderStatusCards.map((stat, index) => (
                     <Card key={index} className="border">
                         <CardContent className="p-4 flex items-center gap-4">
                             <div className={`${stat.bgColor} p-3 rounded-full`}>
@@ -103,7 +168,7 @@ const DashboardStats = () => {
             </div>
 
             <div className="p-6 bg-white rounded-lg shadow-md">
-                <h3 className="text-lg font-semibold mb-4">Last Year Sales Overview (2023) </h3>
+                <h3 className="text-lg font-semibold mb-4">Last Year Sales Overview (2023)</h3>
                 <ResponsiveContainer width="100%" height={400}>
                     <LineChart
                         data={product[0].chartData}

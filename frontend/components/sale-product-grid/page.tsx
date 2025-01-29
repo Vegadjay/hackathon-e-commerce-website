@@ -2,10 +2,9 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Star, ShoppingCart, Package, ImageOff } from 'lucide-react';
+import { Star, ImageOff, Info } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { toast } from "sonner";
 
 export interface Product {
     _id: string;
@@ -30,7 +29,6 @@ const ProductGridComponent: React.FC = () => {
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
     const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
-    const [addingToCart, setAddingToCart] = useState<Record<string, boolean>>({});
 
     useEffect(() => {
         fetchProducts();
@@ -53,39 +51,6 @@ const ProductGridComponent: React.FC = () => {
             setError(err.message || 'Failed to fetch data.');
         } finally {
             setIsLoading(false);
-        }
-    };
-
-    const handleAddToCart = async (product: Product) => {
-        try {
-            setAddingToCart(prev => ({ ...prev, [product._id]: true }));
-
-            const response = await fetch('/api/cart', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    productId: product._id,
-                    quantity: 1,
-                    price: product.price,
-                    name: product.name,
-                    image: product.images[0]
-                }),
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to add item to cart');
-            }
-
-            const result = await response.json();
-            toast.success('Added to cart successfully');
-
-        } catch (error) {
-            console.error('Add to cart error:', error);
-            toast.error('Failed to add item to cart');
-        } finally {
-            setAddingToCart(prev => ({ ...prev, [product._id]: false }));
         }
     };
 
@@ -130,7 +95,6 @@ const ProductGridComponent: React.FC = () => {
                 {products.map((product) => {
                     const redirectLink = product.redirectLink || '/404';
                     const hasValidImage = !imageErrors[product._id];
-                    const isAddingToCart = addingToCart[product._id];
 
                     return (
                         <motion.div
@@ -200,16 +164,15 @@ const ProductGridComponent: React.FC = () => {
                                     </div>
 
                                     {product.inStock > 0 ? (
-                                        <button
-                                            onClick={() => handleAddToCart(product)}
-                                            disabled={isAddingToCart}
-                                            className="w-full bg-red-600 text-white py-2.5 rounded-lg text-sm 
-                                                     hover:bg-red-700 transition-colors duration-200 flex items-center justify-center gap-2 group
-                                                     disabled:bg-red-400 disabled:cursor-not-allowed"
-                                        >
-                                            <ShoppingCart className={`w-4 h-4 ${isAddingToCart ? 'animate-spin' : 'group-hover:animate-bounce'}`} />
-                                            <span>{isAddingToCart ? 'Adding...' : 'Add to Cart'}</span>
-                                        </button>
+                                        <Link href={redirectLink}>
+                                            <button
+                                                className="w-full bg-red-600 text-white py-2.5 rounded-lg text-sm 
+                                                         hover:bg-red-700 transition-colors duration-200 flex items-center justify-center gap-2 group"
+                                            >
+                                                <Info className="w-4 h-4 group-hover:animate-bounce" />
+                                                <span>See More</span>
+                                            </button>
+                                        </Link>
                                     ) : (
                                         <div className="w-full bg-red-50 text-red-600 text-center py-2.5 rounded-lg text-sm">
                                             Out of Stock

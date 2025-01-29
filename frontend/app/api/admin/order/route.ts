@@ -2,8 +2,8 @@ import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/dbConnect';
 import Order from '@/models/Order';
 
-export async function GET(req:Request){
-	try{
+export async function GET(req: Request) {
+	try {
 		await dbConnect();
 
 		const totalOrders = await Order.find().countDocuments();
@@ -64,8 +64,8 @@ export async function GET(req:Request){
 		const totalMoneyTillNowValue = totalMoneyTillNow.length > 0 ? totalMoneyTillNow[0].totalMoney : 0;
 
 		return NextResponse.json({
-			success:true,
-			data:{
+			success: true,
+			data: {
 				totalOrders,
 				totalPendingOrders,
 				totalCancelledOrders,
@@ -75,9 +75,9 @@ export async function GET(req:Request){
 				totalMoneyThisMonth,
 				totalMoneyTillNow: totalMoneyTillNowValue,
 			}
-		},{status:200});
+		}, { status: 200 });
 
-	}catch(e){
-		return NextResponse.json({success:false,data:null},{status:500});
+	} catch (e) {
+		return NextResponse.json({ success: false, data: null }, { status: 500 });
 	}
 }

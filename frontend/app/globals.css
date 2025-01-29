@@ -120,3 +120,22 @@
         border: 3px solid transparent;
     }
 }
+
+@layer utilities {
+  .animate-scroll {
+    animation: scroll var(--animation-duration) linear infinite var(--animation-direction);
+  }
+
+  .pause-on-hover:hover .animate-scroll {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50%));
+  }
+}

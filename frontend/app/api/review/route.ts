@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import connectToDatabase from "lib/dbConnect";
+import connectToDatabase from "@/lib/dbConnect";
 import Review from "@/models/Review";
 
 const ReviewSchema = z.object({
