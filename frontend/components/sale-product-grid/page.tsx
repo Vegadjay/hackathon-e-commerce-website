@@ -168,8 +168,8 @@ const ProductGridComponent: React.FC = () => {
                                     {product.inStock > 0 ? (
                                         <Link href={redirectLink}>
                                             <button
-                                                className="w-full bg-red-600 text-white py-2.5 rounded-lg text-sm 
-                                                         hover:bg-red-700 transition-colors duration-200 flex items-center justify-center gap-2 group"
+                                                className="w-full bg-red-500 text-white py-2.5 rounded-lg text-sm 
+                                                         hover:bg-red-600 transition-colors duration-200 flex items-center justify-center gap-2 group"
                                             >
                                                 <Info className="w-4 h-4 group-hover:animate-bounce" />
                                                 <span>See More</span>
