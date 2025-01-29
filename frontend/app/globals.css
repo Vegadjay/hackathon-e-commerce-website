@@ -4,6 +4,7 @@
 
 @layer base {
     :root {
+        /* Light Mode Variables */
         --light: 223.81 0% 98%;
         --dark: 239.95 9% 6%;
         --bg: 0 0% 100%;
@@ -14,8 +15,6 @@
         --secondary-fg: 240.01 6% 10%;
         --tertiary: 0 0% 100%;
         --tertiary-fg: 240 4% 16%;
-        --overlay: 0 0% 100%;
-        --overlay-fg: 239.93 9% 4%;
         --muted: 240 5.88% 90%;
         --muted-fg: 240 4% 41%;
         --accent: 216.77 100% 50%;
@@ -35,14 +34,17 @@
         --ring: var(--primary);
         --toggle: 240.01 5% 84%;
         --radius: 0.5rem;
+
+        /* Chart Colors */
         --primary-chart: 216.74 100% 45%;
         --secondary-chart: 219.83 100% 77%;
         --tertiary-chart: 216.01 92% 60%;
         --highlight-chart: 210 98% 78%;
-        --accent-chart: 210 98% 78%
+        --accent-chart: 210 98% 78%;
     }
 
     .dark {
+        /* Dark Mode Variables */
         --bg: 0 0% 0%;
         --fg: 223.81 0% 98%;
         --primary: 216.04 98% 52%;
@@ -51,31 +53,33 @@
         --secondary-fg: 223.81 0% 98%;
         --tertiary: 240.02 10% 6%;
         --tertiary-fg: 239.99 4% 96%;
+        --muted: 239.95 3% 16%;
+        --muted-fg: 240 5.03% 64.9%;
         --accent: 216.04 98% 52%;
         --accent-fg: 0 0% 100%;
         --accent-subtle: 215.99 94% 6%;
         --accent-subtle-fg: 204.92 100% 77%;
-        --overlay: 240.03 6% 6%;
-        --overlay-fg: 223.81 0% 98%;
-        --muted: 239.95 3% 16%;
-        --muted-fg: 240 5.03% 64.9%;
-        --info: 205.77 100% 50%;
-        --info-fg: 0 0% 100%;
         --success: 161.17 91% 31%;
         --success-fg: 151.77 82% 96%;
+        --info: 205.77 100% 50%;
+        --info-fg: 0 0% 100%;
         --ring: var(--primary);
         --toggle: 239.99 5% 26%;
         --border: 240.01 7.1% 15%;
         --input: 239.95 3% 16%;
+
+        /* Dark Mode Chart Colors */
         --primary-chart: 221.19 83% 53%;
         --secondary-chart: 211.99 95% 68%;
         --tertiary-chart: 216.01 92% 60%;
         --highlight-chart: 210 98% 78%;
-        --accent-chart: 212 96% 87%
+        --accent-chart: 212 96% 87%;
     }
 }
 
 @layer base {
+
+    /* Global Styles */
     html {
         @apply scroll-smooth;
     }
@@ -92,7 +96,7 @@
         @apply bg-bg text-fg;
     }
 
-    /* dark mode */
+    /* Dark Mode Scrollbar */
     .dark {
         scrollbar-width: thin;
 
@@ -103,7 +107,7 @@
         }
     }
 
-    /* Chrome, Edge, and Safari */
+    /* Scrollbar Styling for Chrome, Edge, and Safari */
     *::-webkit-scrollbar {
         width: 8px;
         height: 8px;
@@ -122,31 +126,35 @@
 }
 
 @layer utilities {
-  .animate-scroll {
-    animation: scroll var(--animation-duration) linear infinite var(--animation-direction);
-  }
 
-  .pause-on-hover:hover .animate-scroll {
-    animation-play-state: paused;
-  }
+    /* Scroll Animation */
+    .animate-scroll {
+        animation: scroll var(--animation-duration) linear infinite var(--animation-direction);
+    }
+
+    .pause-on-hover:hover .animate-scroll {
+        animation-play-state: paused;
+    }
 }
 
+/* Scroll Keyframes */
 @keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(calc(-50%));
-  }
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-50%));
+    }
 }
 
+/* Remove Number Input Arrows */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-/* Firefox */
 input[type=number] {
     -moz-appearance: textfield;
 }
