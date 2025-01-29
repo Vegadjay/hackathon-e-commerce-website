@@ -90,8 +90,6 @@ export async function POST(req: Request) {
 }
 
 const sendEmail = async (orderDetails: any, email: string) => {
-  console.log("Sending email to ", email);
-  console.log("Order details", orderDetails);
 
   const generateEmailHTML = (orderDetails: any) => {
     const productRows = orderDetails.products
@@ -238,7 +236,6 @@ const sendEmail = async (orderDetails: any, email: string) => {
 
   try {
     await transporter.sendMail(mailOptions);
-    console.log('Email sent successfully');
   } catch (error) {
     console.error('Error sending email:', error);
     throw new Error('Failed to send email');

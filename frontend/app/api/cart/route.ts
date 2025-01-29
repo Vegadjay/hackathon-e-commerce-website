@@ -21,7 +21,6 @@ const cartSchema = z.object({
 export async function POST(request: Request) {
 	try {
 		const body = await request.json();
-		console.log(body, " is my body");
 		const parsedBody = cartSchema.parse(body);
 
 		await dbConnect();
@@ -35,19 +34,15 @@ export async function POST(request: Request) {
 
 		const existingCart = await Cart.findOne({ userId: parsedBody.userId });
 		if (existingCart) {
-			console.log("the cart is already exists.");
-			console.log(existingCart);
 			parsedBody.products.forEach((newProduct: IProduct) => {
 				const existingProduct = existingCart.products.find(
 					(product: IProduct) => product.productId.toString() === newProduct.productId
 				);
 
 				if (existingProduct) {
-					console.log("the product is already exists.");
 					existingProduct.quantity = newProduct.quantity;
 					existingProduct.size = newProduct.size;
 				} else {
-					console.log("the product is not exists.PUSHED!!!!!!!!!!!");
 					existingCart.products.push(newProduct);
 				}
 			});
@@ -63,7 +58,6 @@ export async function POST(request: Request) {
 
 			return NextResponse.json({ success: true, data: existingCart }, { status: 200 });
 		}
-		console.log("NEW CART!!!!!!!!!!!!!!");
 		const newCart = await Cart.create(parsedBody);
 
 		let totalPrice: number = 0;

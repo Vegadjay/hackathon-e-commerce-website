@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
-import dbConnect from 'lib/dbConnect';
+import dbConnect from '@/lib/dbConnect';
 import bcrypt from 'bcrypt';
 
 export async function POST(req: Request) {
@@ -53,7 +53,6 @@ export async function POST(req: Request) {
 		};
 
 		await transporter.sendMail(mailOptions);
-		console.log("OTP is ", otp);
 		otp = await bcrypt.hash(otp, 10);
 
 		const data = {

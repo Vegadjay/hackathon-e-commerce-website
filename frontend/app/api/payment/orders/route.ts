@@ -4,7 +4,7 @@ import crypto from "crypto"
 
 export async function POST(req: Request) {
 	const { amount } = await req.json();
-	console.log(amount);
+	(amount);
 	try {
 		const instance = new Razorpay({
 			key_id: process.env.RAZORPAY_KEY_ID as string,

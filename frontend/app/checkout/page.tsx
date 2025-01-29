@@ -57,7 +57,6 @@ export default function AnimatedCheckout() {
     }
 
     const handlePlaceOrder = async () => {
-        console.log('Order placed!')
         const orderBody = {
             userId: userId,
             products: products.data,
@@ -87,10 +86,7 @@ export default function AnimatedCheckout() {
                 },
                 body: JSON.stringify(orderBody)
             }).then((res) => res.json());
-            console.log(response);
             if (response.success) {
-                console.log('Order placed successfully!');
-                console.log(response.message);
                 setOpenInvoice(true);
             }
             else {
@@ -145,7 +141,7 @@ export default function AnimatedCheckout() {
         dueDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
         customerName: user.username,
         customerEmail: user.email,
-        custromerPhone: user.phone,
+        customerPhone: user.phone,
         customerAddress: `${address.street}, ${address.city}, ${address.state}, ${address.country}, ${address.zipCode}`,
         items: products?.data,
         subtotal: products.totalPrice,
@@ -183,11 +179,10 @@ export default function AnimatedCheckout() {
             }).then((res) => res.json());
 
             if (response.success) {
-                console.log(response);
             }
             initPayment(response.data);
         } catch (error) {
-            console.log(error)
+            console.error(error);
         }
     }
 
@@ -229,7 +224,6 @@ export default function AnimatedCheckout() {
                     }
 
                 } catch (error) {
-                    console.log(error)
                     setPaymentStatus("failed")
                     return false;
                 }
@@ -238,7 +232,6 @@ export default function AnimatedCheckout() {
                 color: "#3469c1",
             },
         };
-        console.log(options, "1pqppqpq")
         const rzp1 = new window.Razorpay(options);
         rzp1.open();
     };

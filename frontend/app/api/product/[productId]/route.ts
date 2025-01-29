@@ -7,7 +7,6 @@ export async function GET(req: Request,
 ) {
 
 	const { productId } = params;
-	console.log(productId,"productId");
 	if (!productId){
 		return NextResponse.json({ success: false, error: 'Product ID is required' }, { status: 400 });
 	}

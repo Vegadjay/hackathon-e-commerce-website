@@ -20,7 +20,6 @@ export default function TrackYourOrder() {
                     email: email
                 })
             }).then((res) => res.json());
-            console.log(data)
             if (data.success === true) {
                 setTrackingInfo({
                     orderStatus: data.data.status,

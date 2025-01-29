@@ -64,7 +64,6 @@ export default function UpdateProfile() {
 
         if (response.ok) {
           const userData = await response.json();
-          console.log(userData.data);
           setFormData(userData.data);
         } else {
           setApiMessage('Failed to load user data');
