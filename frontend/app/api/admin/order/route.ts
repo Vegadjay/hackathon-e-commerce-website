@@ -9,7 +9,7 @@ export async function GET(req: Request) {
 		const totalOrders = await Order.find().countDocuments();
 		const totalPendingOrders = await Order.find({ status: 'pending' }).countDocuments();
 		const totalCancelledOrders = await Order.find({ status: 'cancelled' }).countDocuments();
-		const totalDeliveredOrders = await Order.find({ status: 'delivered' }).countDocuments();
+		const totalDeliveredOrders = await Order.find({ status: 'shipped' }).countDocuments();
 		const totalProcessingOrders = await Order.find({ status: 'processing' }).countDocuments();
 		const totalMoneyforTodaysOrders = await Order.aggregate([
 			{

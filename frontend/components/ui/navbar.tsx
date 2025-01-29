@@ -76,13 +76,13 @@ export function MainMenu({ isMobile = false, onLinkClick = () => { } }) {
   const [openCategory, setOpenCategory] = useState(null);
   const router = useRouter();
 
-  const handleCategoryClick = (category) => {
+  const handleCategoryClick = (category: any) => {
     if (isMobile) {
       setOpenCategory(openCategory === category ? null : category);
     }
   };
 
-  const handleLinkClick = (basePath, category) => {
+  const handleLinkClick = (basePath: any, category: any) => {
     router.push(`${basePath}?category=${category}`);
     onLinkClick();
   };
