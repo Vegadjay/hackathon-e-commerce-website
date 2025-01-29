@@ -5,6 +5,8 @@ import Providers from '@/app/session_providers/SessionProvider';
 import { Navbar } from '@/components/ui/navbar';
 import { RenderProvider } from "@/contexts/RenderContext";
 import Footer from '@/components/layout/footer';
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,9 +23,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
       </head>
       <body className={inter.className}>
+        <Analytics />
+        <SpeedInsights />
         <RenderProvider>
           <Providers>
             <Navbar />
