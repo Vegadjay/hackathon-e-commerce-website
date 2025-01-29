@@ -6,6 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import CategoryGrid from '@/app/admin/dashboard/components/catagorygrid';
 import { useRouter } from 'next/navigation';
+import Loader from '@/components/Loader';
 
 interface OrderStats {
     totalOrders: number;
@@ -129,9 +130,7 @@ const DashboardStats = () => {
 
     if (isLoading) {
         return (
-            <div className="flex justify-center items-center min-h-screen">
-                <div className="animate-spin rounded-full h-16 w-16 border-4 border-primary border-t-transparent" />
-            </div>
+            <Loader/>
         );
     }
 
