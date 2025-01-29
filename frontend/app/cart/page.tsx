@@ -115,7 +115,6 @@ export default function OptimizedCoolCartPage() {
   const handleRemoveItem = async (itemId: string) => {
     setRemovingItemId(itemId);
     if (!userId || !cartData) return
-    console.log('Removing item:', itemId)
     try {
       const response = await fetch(`/api/cart/${userId}/removeproduct`, {
         method: 'DELETE',
@@ -138,7 +137,6 @@ export default function OptimizedCoolCartPage() {
 
   const handleApplyCoupon = () => {
     // Implement coupon logic here
-    console.log('Applying coupon:', couponCode)
   }
 
   if (isLoading) return <Loader />

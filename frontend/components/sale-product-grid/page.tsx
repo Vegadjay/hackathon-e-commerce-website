@@ -2,13 +2,10 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Star, ShoppingCart, Package, ImageOff } from 'lucide-react';
+import { Star, ImageOff, Info } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { toast } from "sonner";
-import Cookies from 'js-cookie';
 import { useRouter } from 'next/navigation';
-import { Button } from '../ui/button';
 
 export interface Product {
     _id: string;
@@ -33,7 +30,6 @@ const ProductGridComponent: React.FC = () => {
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
     const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
-    const [addingToCart, setAddingToCart] = useState<Record<string, boolean>>({});
     const router = useRouter();
 
     useEffect(() => {
@@ -170,9 +166,15 @@ const ProductGridComponent: React.FC = () => {
                                     </div>
 
                                     {product.inStock > 0 ? (
-                                        <Button className="w-full bg-blue-600 text-white text-center py-2.5 rounded-lg text-sm" onClick={() => { router.push(redirectLink)}}>
-                                            View More
-                                        </Button>
+                                        <Link href={redirectLink}>
+                                            <button
+                                                className="w-full bg-red-600 text-white py-2.5 rounded-lg text-sm 
+                                                         hover:bg-red-700 transition-colors duration-200 flex items-center justify-center gap-2 group"
+                                            >
+                                                <Info className="w-4 h-4 group-hover:animate-bounce" />
+                                                <span>See More</span>
+                                            </button>
+                                        </Link>
                                     ) : (
                                         <div className="w-full bg-red-50 text-red-600 text-center py-2.5 rounded-lg text-sm">
                                             Out of Stock

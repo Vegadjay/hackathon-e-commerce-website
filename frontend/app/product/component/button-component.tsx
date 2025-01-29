@@ -76,7 +76,6 @@ export function AddToCartModal({ product, quantity, selectedSize }: AddToCartMod
                 }),
             }).then((res) => res.json());
 
-            console.log("ProductId from URL:", productId);
             if (!response.success) {
                 alert('Failed to add to cart. Please try again.');
                 return;

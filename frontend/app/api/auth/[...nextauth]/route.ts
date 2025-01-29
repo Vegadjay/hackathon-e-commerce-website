@@ -28,7 +28,6 @@ export const handler = NextAuth({
 				const user = await User.findOne({ email: token.email });
 
 				if (!user) {
-					console.log("User not found");
 					session.user = {
 						success: false,
 						message: "User not found",

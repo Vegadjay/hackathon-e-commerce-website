@@ -24,7 +24,6 @@ export const InfiniteMovingCards = ({
 }) => {
     const containerRef = React.useRef<HTMLDivElement>(null);
     const scrollerRef = React.useRef<HTMLUListElement>(null);
-    const [start, setStart] = useState(false);
 
     const gradientColors = [
         'from-purple-600/80 to-pink-500/80',
@@ -35,53 +34,51 @@ export const InfiniteMovingCards = ({
     ];
 
     useEffect(() => {
-        addAnimation();
-    }, []);
+        if (!containerRef.current || !scrollerRef.current) return;
 
-    function addAnimation() {
-        if (containerRef.current && scrollerRef.current) {
-            const scrollerContent = Array.from(scrollerRef.current.children);
+        const scrollerContent = Array.from(scrollerRef.current.children);
 
-            scrollerContent.forEach((item) => {
-                const duplicatedItem = item.cloneNode(true);
-                if (scrollerRef.current) {
-                    scrollerRef.current.appendChild(duplicatedItem);
+        // Create duplicates for infinite scroll
+        scrollerContent.forEach((item) => {
+            const duplicatedItem = item.cloneNode(true);
+            if (scrollerRef.current) {
+                scrollerRef.current.appendChild(duplicatedItem);
+            }
+        });
+
+        // Set CSS variables for animation
+        const directionValue = direction === "left" ? "forwards" : "reverse";
+        const speedValue = speed === "fast" ? "20s" : speed === "normal" ? "40s" : "60s";
+
+        containerRef.current.style.setProperty("--animation-direction", directionValue);
+        containerRef.current.style.setProperty("--animation-duration", speedValue);
+
+        // Add the styles dynamically
+        const styleSheet = document.createElement("style");
+        styleSheet.textContent = `
+            @keyframes scroll {
+                from {
+                    transform: translateX(0);
                 }
-            });
-
-            getDirection();
-            getSpeed();
-            setStart(true);
-        }
-    }
-
-    const getDirection = () => {
-        if (containerRef.current) {
-            if (direction === "left") {
-                containerRef.current.style.setProperty(
-                    "--animation-direction",
-                    "forwards"
-                );
-            } else {
-                containerRef.current.style.setProperty(
-                    "--animation-direction",
-                    "reverse"
-                );
+                to {
+                    transform: translateX(calc(-50%));
+                }
             }
-        }
-    };
 
-    const getSpeed = () => {
-        if (containerRef.current) {
-            if (speed === "fast") {
-                containerRef.current.style.setProperty("--animation-duration", "20s");
-            } else if (speed === "normal") {
-                containerRef.current.style.setProperty("--animation-duration", "40s");
-            } else {
-                containerRef.current.style.setProperty("--animation-duration", "80s");
+            .animate-scroll {
+                animation: scroll var(--animation-duration) linear infinite var(--animation-direction);
             }
-        }
-    };
+
+            .hover-pause:hover .animate-scroll {
+                animation-play-state: paused;
+            }
+        `;
+        document.head.appendChild(styleSheet);
+
+        return () => {
+            styleSheet.remove();
+        };
+    }, [direction, speed, items]);
 
     const StarRating = ({ rating }: { rating: number }) => {
         const fullStars = Math.floor(rating);
@@ -107,21 +104,20 @@ export const InfiniteMovingCards = ({
             ref={containerRef}
             className={cn(
                 "scroller relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+                pauseOnHover && "hover-pause",
                 className
             )}
         >
             <ul
                 ref={scrollerRef}
                 className={cn(
-                    "flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap",
-                    start && "animate-scroll",
-                    pauseOnHover && "hover:[animation-play-state:paused]"
+                    "flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap animate-scroll"
                 )}
             >
                 {items.map((item, idx) => (
                     <li
                         className={`w-[350px] max-w-full relative rounded-2xl border-0 flex-shrink-0 px-8 py-6 md:w-[450px] backdrop-blur-sm bg-gradient-to-br ${gradientColors[idx % gradientColors.length]} shadow-lg hover:shadow-xl transition-all duration-200`}
-                        key={item.name}
+                        key={`${item.name}-${idx}`}
                     >
                         <blockquote>
                             <div

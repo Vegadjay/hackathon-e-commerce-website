@@ -100,7 +100,6 @@ const AdminCategoryDashboard = () => {
 
     const id = searchParams.get('id');
     const category = searchParams.get('category');
-    console.log(id, category);
 
     useEffect(() => {
         const categoryFromUrl = getCategoryFromPath();

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { InputField } from '@/components/layout/inputBox';
 import { useRouter } from 'next/navigation';
 import Cookie from 'js-cookie';
+import Loader from '@/components/Loader';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -55,7 +56,7 @@ export default function UpdateProfile() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch(`/api/user/update/${userId}`, {
+        const response = await fetch(`/api/admin/user/${userId}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -64,7 +65,6 @@ export default function UpdateProfile() {
 
         if (response.ok) {
           const userData = await response.json();
-          console.log(userData.data);
           setFormData(userData.data);
         } else {
           setApiMessage('Failed to load user data');
@@ -99,7 +99,7 @@ export default function UpdateProfile() {
     }
 
     try {
-      const response = await fetch(`/api/user/update/${userId}`, {
+      const response = await fetch(`/api/admin/user/${userId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -112,7 +112,7 @@ export default function UpdateProfile() {
       if (response.ok) {
         setApiMessage('Profile updated successfully!');
         setTimeout(() => {
-          router.push('/profile');
+          router.push('/updateprofile');
         }, 1500);
       } else {
         setApiMessage(data.error || 'Update failed.');
@@ -146,9 +146,7 @@ export default function UpdateProfile() {
 
   if (!isDataLoaded) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
-      </div>
+      <Loader/>
     );
   }
 
@@ -168,7 +166,7 @@ export default function UpdateProfile() {
         variants={containerVariants}
         className="max-w-4xl mx-auto"
       >
-        <div className="bg-white/80 backdrop-blur-sm shadow-2xl rounded-3xl overflow-hidden border-2 border-pink-100">
+        <div className="bg-white/80 shadow-2xl rounded-3xl overflow-hidden border-2 border-pink-100">
           <div className="relative px-8 py-12">
             <motion.div
               className="relative text-center mb-12"
@@ -270,7 +268,8 @@ export default function UpdateProfile() {
                 >
                   {isLoading ? 'Updating...' : 'Update Profile'}
                 </motion.button>
-                <Link href="/">
+                <br/><br/>
+                <Link href={""}>
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}

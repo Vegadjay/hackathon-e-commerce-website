@@ -12,9 +12,8 @@ import {
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { User, ShoppingCart, Menu, X, ChevronDown } from "lucide-react";
+import { User, Menu, X, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
-import { useCart } from "@/lib/store";
 import { useRouter } from "next/navigation";
 import { useRenderContext } from "@/contexts/RenderContext";
 import Cookies from "js-cookie";
@@ -77,15 +76,14 @@ export function MainMenu({ isMobile = false, onLinkClick = () => { } }) {
   const [openCategory, setOpenCategory] = useState(null);
   const router = useRouter();
 
-  const handleCategoryClick = (category: any) => {
+  const handleCategoryClick = (category) => {
     if (isMobile) {
       setOpenCategory(openCategory === category ? null : category);
     }
   };
 
-  const handleLinkClick = (basePath: any, category: any) => {
-    const url = `${basePath}?category=${category}`;
-    router.push(url);
+  const handleLinkClick = (basePath, category) => {
+    router.push(`${basePath}?category=${category}`);
     onLinkClick();
   };
 
@@ -171,8 +169,6 @@ export function MainMenu({ isMobile = false, onLinkClick = () => { } }) {
 
 export function Navbar() {
   const router = useRouter();
-  const items = useCart((state) => state.items);
-  const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
   const [isMenuOpen, setMenuOpen] = useState(false);
   const { data: session, status } = useSession();
   const [isMobile, setIsMobile] = useState(false);
@@ -180,9 +176,7 @@ export function Navbar() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [username, setUsername] = useState("");
-  const { shouldRender, triggerRender } = useRenderContext();
-
-
+  const { triggerRender } = useRenderContext();
   const userId = Cookies.get('userId');
 
   useEffect(() => {
@@ -205,21 +199,13 @@ export function Navbar() {
               const userData = await response.json();
               setUsername(userData.data.username);
             } else {
-              setUsername("User");
+              setUsername(session?.user?.name || session?.user?.email?.split('@')[0] || "User");
             }
           } catch (error) {
             console.error("Failed to fetch username:", error);
-            if (session?.user?.name) {
-              setUsername(session.user.name);
-            } else if (session?.user?.email) {
-              const emailUsername = session.user.email.split('@')[0];
-              setUsername(emailUsername);
-            } else {
-              setUsername("User");
-            }
+            setUsername(session?.user?.name || session?.user?.email?.split('@')[0] || "User");
           }
         }
-
         setIsAuthChecked(true);
       } catch (error) {
         console.error("Auth check failed:", error);
@@ -228,7 +214,7 @@ export function Navbar() {
       }
     };
     checkAuth();
-  }, [session, status]);
+  }, [session, status, userId]);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1024);
@@ -240,10 +226,7 @@ export function Navbar() {
   const handleLogout = async () => {
     try {
       await signOut({ redirect: false });
-      const cookies = Cookies.get();
-      Object.keys(cookies).forEach(cookie => {
-        Cookies.remove(cookie);
-      });
+      Object.keys(Cookies.get()).forEach(cookie => Cookies.remove(cookie));
       setIsAuthenticated(false);
       setIsDropdownOpen(false);
       triggerRender();
@@ -254,22 +237,18 @@ export function Navbar() {
   };
 
   const AuthButton = () => {
-    if (!isAuthChecked) {
-      return null;
-    }
+    if (!isAuthChecked) return null;
 
     if (isAuthenticated) {
       return (
         <div className="relative inline-block text-left">
-          <div className="flex items-center space-x-4">
-            <button
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              className="flex items-center space-x-2 rounded-full bg-gray-100 px-4 py-2 text-gray-600 hover:bg-gray-200"
-            >
-              <User className="h-5 w-5" />
-              <span className="hidden sm:inline capitalize">{username}</span>
-            </button>
-          </div>
+          <button
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            className="flex items-center space-x-2 rounded-full bg-gray-100 px-4 py-2 text-gray-600 hover:bg-gray-200"
+          >
+            <User className="h-5 w-5" />
+            <span className="hidden sm:inline capitalize">{username}</span>
+          </button>
 
           <AnimatePresence>
             {isDropdownOpen && (
@@ -282,7 +261,7 @@ export function Navbar() {
               >
                 <div className="py-1">
                   <div className="px-4 py-2 text-sm text-gray-900 border-b border-gray-100">
-                    <p className="font-medium capitalize">{username ?? "User"}</p>
+                    <p className="font-medium capitalize">{username}</p>
                     {session?.user?.email && (
                       <p className="text-xs text-gray-500 truncate">{session.user.email}</p>
                     )}
@@ -313,6 +292,24 @@ export function Navbar() {
                     className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
                   >
                     Profile Settings
+                  </button>
+                  <button
+                    onClick={() => {
+                      router.push("/findproduct");
+                      setIsDropdownOpen(false);
+                    }}
+                    className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Find Product
+                  </button>
+                  <button
+                    onClick={() => {
+                      router.push("/cart");
+                      setIsDropdownOpen(false);
+                    }}
+                    className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Cart
                   </button>
                   <button
                     onClick={handleLogout}
@@ -367,23 +364,6 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-4">
-            <Link
-              href="/cart"
-              className="relative flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2 text-gray-600 hover:bg-gray-200"
-            >
-              <ShoppingCart className="h-5 w-5" />
-              <span className="hidden sm:inline">Cart</span>
-              {itemCount > 0 && (
-                <motion.span
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs text-white"
-                >
-                  {itemCount}
-                </motion.span>
-              )}
-            </Link>
-
             <AuthButton />
 
             <button

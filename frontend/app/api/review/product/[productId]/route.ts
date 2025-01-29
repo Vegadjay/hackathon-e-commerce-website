@@ -17,7 +17,6 @@ export async function GET(
 
 	try {
 		await connectToDatabase();
-		console.log("ProductId", productId);
 		const review = await Review.find({
 			productId: productId,
 		});
