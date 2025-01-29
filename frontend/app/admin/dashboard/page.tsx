@@ -5,6 +5,7 @@ import { ShoppingCart, Package, Box, Check, Ban } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import CategoryGrid from '@/app/admin/dashboard/components/catagorygrid';
+import { useRouter } from 'next/navigation';
 
 interface OrderStats {
     totalOrders: number;
@@ -21,6 +22,7 @@ const DashboardStats = () => {
     const [orderStats, setOrderStats] = useState<OrderStats | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const router = useRouter();
 
     useEffect(() => {
         const fetchOrderStats = async () => {
@@ -43,6 +45,14 @@ const DashboardStats = () => {
 
         fetchOrderStats();
     }, []);
+
+    const handleChnagePage = () => {
+        router.push("/admin/dashboard/orders")
+    }
+
+    const handleCheckUser = () => {
+        router.push("/admin/dashboard/users")
+    }
 
     const stats = orderStats ? [
         {
@@ -168,7 +178,17 @@ const DashboardStats = () => {
             </div>
 
             <div className="p-6 bg-white rounded-lg shadow-md">
-                <h3 className="text-lg font-semibold mb-4">Last Year Sales Overview (2023)</h3>
+                <div className='flex justify-between'>
+                    <div>
+                        <h3 className="text-lg font-semibold mb-4">Last Year Sales Overview (2024)</h3>
+                    </div>
+                    <div className='flex gap-5'>
+                        <button className='p-4 bg-blue-300 border border-black rounded-full h-10 w-56 items-center justify-center flex'
+                            onClick={handleCheckUser}>Check All Users</button>
+                        <button className='p-4 bg-red-300 border border-black rounded-full h-10 w-56 items-center justify-center flex'
+                            onClick={handleChnagePage}>Check All Order</button>
+                    </div>
+                </div>
                 <ResponsiveContainer width="100%" height={400}>
                     <LineChart
                         data={product[0].chartData}
