@@ -141,7 +141,7 @@ function MainComponent() {
         <HeroScrollDemo
           title="Top Pick of the Season"
           discription="Checkout Here"
-          imageId={`678fc51e553541b1cace0786`}
+          imageId={`678fc51e553541b1cace06b4`}
         />
       </div>
 

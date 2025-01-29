@@ -73,7 +73,6 @@ export function ProductGrid() {
     loadMoreProducts();
   }, [sortBy]);
 
-  // Add scroll listener
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -117,7 +116,6 @@ export function ProductGrid() {
           </motion.div>
         ))}
 
-        {/* Loading skeletons */}
         {loading && (
           <>
             {[...Array(PRODUCTS_PER_BATCH)].map((_, index) => (
