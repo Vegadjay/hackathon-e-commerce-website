@@ -129,36 +129,6 @@ export default function Login() {
     }));
   };
 
-  const loginWithGoogle = async () => {
-    try {
-      const result = await signIn('google', {
-        redirect: false,
-        callbackUrl: '/'
-      });
-
-      if (result?.error) {
-        toast.error('Google login failed. Please try again.');
-        return;
-      }
-
-      if (status === "authenticated" && session?.user?.token) {
-        Cookies.set('token', session.user.token, {
-          expires: 7,
-          secure: process.env.NODE_ENV === 'production',
-          httpOnly: false
-        });
-        toast.success('Logged in successfully!');
-        triggerRender();
-        router.push('/');
-      } else if (status === "authenticated" && !session?.user?.token) {
-        toast.error(session?.user?.message || 'Login failed, please try again.');
-      }
-    } catch (error) {
-      console.error('Error logging in with Google:', error);
-      toast.error('An error occurred with Google login. Please try again.');
-    }
-  };
-
   useEffect(() => {
     const token = Cookies.get('token');
     if (token) {
@@ -272,22 +242,6 @@ export default function Login() {
                   >
                     Forgot your password?
                   </Link>
-
-                  <motion.button
-                    type="button"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={loginWithGoogle}
-                    className="w-full flex items-center justify-center gap-3 py-3 border-2 border-red-200
-                      rounded-xl text-gray-700 hover:bg-white/50 hover:border-red-300 transition-all"
-                  >
-                    <img
-                      src="/google.svg"
-                      alt="Google"
-                      className="w-5 h-5"
-                    />
-                    Continue with Google
-                  </motion.button>
 
                   <p className="text-gray-600">
                     Don't have an account?{' '}
