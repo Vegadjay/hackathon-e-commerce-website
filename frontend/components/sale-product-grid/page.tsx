@@ -6,6 +6,9 @@ import { Star, ShoppingCart, Package, ImageOff } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { toast } from "sonner";
+import Cookies from 'js-cookie';
+import { useRouter } from 'next/navigation';
+import { Button } from '../ui/button';
 
 export interface Product {
     _id: string;
@@ -31,6 +34,7 @@ const ProductGridComponent: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
     const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
     const [addingToCart, setAddingToCart] = useState<Record<string, boolean>>({});
+    const router = useRouter();
 
     useEffect(() => {
         fetchProducts();
@@ -53,39 +57,6 @@ const ProductGridComponent: React.FC = () => {
             setError(err.message || 'Failed to fetch data.');
         } finally {
             setIsLoading(false);
-        }
-    };
-
-    const handleAddToCart = async (product: Product) => {
-        try {
-            setAddingToCart(prev => ({ ...prev, [product._id]: true }));
-
-            const response = await fetch('/api/cart', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    productId: product._id,
-                    quantity: 1,
-                    price: product.price,
-                    name: product.name,
-                    image: product.images[0]
-                }),
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to add item to cart');
-            }
-
-            const result = await response.json();
-            toast.success('Added to cart successfully');
-
-        } catch (error) {
-            console.error('Add to cart error:', error);
-            toast.error('Failed to add item to cart');
-        } finally {
-            setAddingToCart(prev => ({ ...prev, [product._id]: false }));
         }
     };
 
@@ -130,12 +101,11 @@ const ProductGridComponent: React.FC = () => {
                 {products.map((product) => {
                     const redirectLink = product.redirectLink || '/404';
                     const hasValidImage = !imageErrors[product._id];
-                    const isAddingToCart = addingToCart[product._id];
 
                     return (
                         <motion.div
                             key={product._id}
-                            className="bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden h-[500px] sm:h-[600px] flex flex-col"
+                            className="bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden h-[400px] sm:h-[490px] flex flex-col"
                             whileHover={{ y: -5 }}
                         >
                             <div className="relative h-[250px] sm:h-[300px]">
@@ -200,16 +170,9 @@ const ProductGridComponent: React.FC = () => {
                                     </div>
 
                                     {product.inStock > 0 ? (
-                                        <button
-                                            onClick={() => handleAddToCart(product)}
-                                            disabled={isAddingToCart}
-                                            className="w-full bg-red-600 text-white py-2.5 rounded-lg text-sm 
-                                                     hover:bg-red-700 transition-colors duration-200 flex items-center justify-center gap-2 group
-                                                     disabled:bg-red-400 disabled:cursor-not-allowed"
-                                        >
-                                            <ShoppingCart className={`w-4 h-4 ${isAddingToCart ? 'animate-spin' : 'group-hover:animate-bounce'}`} />
-                                            <span>{isAddingToCart ? 'Adding...' : 'Add to Cart'}</span>
-                                        </button>
+                                        <Button className="w-full bg-blue-600 text-white text-center py-2.5 rounded-lg text-sm" onClick={() => { router.push(redirectLink)}}>
+                                            View More
+                                        </Button>
                                     ) : (
                                         <div className="w-full bg-red-50 text-red-600 text-center py-2.5 rounded-lg text-sm">
                                             Out of Stock

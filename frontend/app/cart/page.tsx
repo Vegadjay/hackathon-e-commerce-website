@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import Loader from '@/components/Loader'
 import Cookie from 'js-cookie'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 function debounce(func: Function, delay: number) {
   let timeoutId: NodeJS.Timeout
@@ -209,15 +210,17 @@ export default function OptimizedCoolCartPage() {
                 transition={{ duration: 0.3 }}
                 className="flex items-center space-x-4 border-b border-gray-200 py-4"
               >
-                <div className="flex-shrink-0 w-24 h-24 bg-gray-200 rounded-md overflow-hidden">
-                  <Image
-                    src={item.image || "/placeholder.svg"}
-                    alt={item.name}
-                    width={100}
-                    height={100}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                <Link href={`/product/${item._id}`}>
+                  <div className="flex-shrink-0 w-24 h-24 bg-gray-200 rounded-md overflow-hidden">
+                    <Image
+                      src={item.image || "/placeholder.svg"}
+                      alt={item.name}
+                      width={100}
+                      height={100}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </Link>
                 <div className="flex-grow">
                   <h3 className="text-lg font-medium text-gray-900">{item.name}</h3>
                   <p className="text-gray-500">Size: {item.size}</p>

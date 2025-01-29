@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from "react";
-import { useSearchParams, useParams } from "next/navigation";
+import { useSearchParams, useParams, redirect, useRouter } from "next/navigation";
 import Product from './page';
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -28,6 +28,7 @@ const Layout = () => {
   const params = useParams();
   const searchParams = useSearchParams();
   const [selectedProduct, setSelectedProduct] = useState<Products | null>(null);
+  const router = useRouter();
 
   const fetchProductById = async (productId: string) => {
     try {
@@ -35,6 +36,7 @@ const Layout = () => {
       if (response.success) {
         setSelectedProduct(response.data);
       } else {
+        router.back();
         console.error(`Failed to fetch product: ${response.error}`);
       }
     } catch (error) {

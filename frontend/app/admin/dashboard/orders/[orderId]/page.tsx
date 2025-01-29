@@ -88,7 +88,7 @@ export default function OrderDetailsPage() {
 		// Handle nested fields
 		if (name.includes('.')) {
 			const [parent, child] = name.split('.');
-			setEditedOrder(prev => ({
+			setEditedOrder((prev:any) => ({
 				...prev,
 				[parent]: {
 					...prev[parent as keyof Partial<Order>],
