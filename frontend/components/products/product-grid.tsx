@@ -117,7 +117,6 @@ function MainComponent() {
         </div>
       </div>
 
-      {/* Sale Products Section */}
       <div className="mt-10 sm:mt-20">
         <Heading text="Our Products" />
         <div className="w-full">
@@ -125,9 +124,6 @@ function MainComponent() {
         </div>
       </div>
 
-      {/* todo: Add here that sale product cod */}
-
-      {/* Video Gallery Section */}
       <div className="mt-10 sm:mt-20">
         <Heading text="Video Gallery" />
         <div className="w-full mt-32 lg:mt-0 md:mt-0">

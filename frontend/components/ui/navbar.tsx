@@ -188,7 +188,7 @@ export function Navbar() {
 
         if (isAuthed) {
           try {
-            const response = await fetch(`http://localhost:3000/api/user/get/${userId}`, {
+            const response = await fetch(`/api/user/get/${userId}`, {
               headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
