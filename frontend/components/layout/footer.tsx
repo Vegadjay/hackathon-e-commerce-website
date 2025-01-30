@@ -48,10 +48,10 @@ const information = [
 ];
 
 const socialLinks = [
-  { icon: Github, href: 'https://github.com/hemang-patel-9' },
+  { icon: Github, href: 'https://github.com/Vegadjay' },
   { icon: Instagram, href: 'https://instagram.com/jay_vegad_1' },
   { icon: Youtube, href: 'https://www.youtube.com/@JAY_VEGAD' },
-  { icon: Linkedin, href: 'https://www.linkedin.com/in/hemang-baldha-b75a0b257/' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/vegadjay/' },
 ];
 
 export default function Footer() {
