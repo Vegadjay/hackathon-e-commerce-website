@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { User, Mail, Phone, MapPin, Calendar, Shield, Search, ChevronDown, ChevronUp } from 'lucide-react'
+import { User, Mail, Phone, MapPin, Calendar, Shield, Search, ChevronDown, ChevronUp, LucideLoader } from 'lucide-react'
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -40,6 +40,7 @@ export default function AdminUsersPage() {
 	const [error, setError] = useState<string | null>(null)
 	const [searchTerm, setSearchTerm] = useState('')
 	const [expandedUser, setExpandedUser] = useState<string | null>(null)
+	const [spinner,setSpinner] = useState<boolean>(false);
 	const router = useRouter();
 
 	useEffect(() => {
@@ -169,7 +170,13 @@ export default function AdminUsersPage() {
 												<span className="text-sm font-semibold text-gray-700">Orders: {user.orders.length}</span>
 											</div>
 											<div className="flex items-center space-x-2">
-												<Button className="text-sm font-semibold text-white" onClick={()=>{router.push(`/admin/dashboard/users/${user._id}`)}}>View more</Button>
+												<Button className="text-sm font-semibold text-white" onClick={()=>{
+													setSpinner(true);
+													router.push(`/admin/dashboard/users/${user._id}`)}}>
+													{spinner ?
+														<LucideLoader className="w-4 h-4 animate-spin" /> : "View More"
+													}
+												</Button>
 											</div>
 										</motion.div>
 									)}

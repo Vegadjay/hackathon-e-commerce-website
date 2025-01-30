@@ -12,7 +12,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { ShoppingBag, Truck, CreditCard, Check, ChevronRight } from 'lucide-react'
+import { ShoppingBag, Truck, CreditCard, Check, ChevronRight, LucideLoader } from 'lucide-react'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
@@ -31,6 +31,7 @@ export default function AnimatedCheckout() {
     const [couponValue, setCouponValue] = useState<number>(100)
     const [orderNotes, setOrderNotes] = useState('')
     const [urgent, setUrgent] = useState<boolean>(false)
+    const [spinner, setSpinner] = useState<string>("");
     const [address, setAddress] = useState({
         street: '',
         city: '',
@@ -57,6 +58,7 @@ export default function AnimatedCheckout() {
     }
 
     const handlePlaceOrder = async () => {
+        setSpinner("order");
         const orderBody = {
             userId: userId,
             products: products.data,
@@ -97,6 +99,7 @@ export default function AnimatedCheckout() {
             console.error(error);
         }
         finally {
+            setSpinner("");
         }
 
     }
@@ -164,6 +167,7 @@ export default function AnimatedCheckout() {
 
 
     const generateOrder = async () => {
+        setSpinner("payment");
         try {
             const orderUrl = `/api/payment/orders`;
             const response = await fetch(orderUrl, {
@@ -179,10 +183,13 @@ export default function AnimatedCheckout() {
             }).then((res) => res.json());
 
             if (response.success) {
+                initPayment(response.data);
             }
-            initPayment(response.data);
         } catch (error) {
             console.error(error);
+        }
+        finally {
+            setSpinner("");
         }
     }
 
@@ -288,7 +295,7 @@ export default function AnimatedCheckout() {
                                             animate={{ opacity: 1, x: 0 }}
                                             exit={{ opacity: 0, x: 20 }}
                                             transition={{ duration: 0.3 }}
-                                            className="flex items-center space-x-4 border-b border-gray-200 py-4"
+                                            className="flex items-center mb-2 space-x-4 border-b border-gray-200 py-4"
                                         >
                                             <div className="flex-shrink-0 w-24 h-24 bg-gray-200 rounded-md overflow-hidden">
                                                 <Image
@@ -359,6 +366,7 @@ export default function AnimatedCheckout() {
                                             value={user.phone ?? ""}
                                             placeholder="Enter your phone number"
                                             className="mt-1"
+                                            disabled
                                         />
                                     </div>
                                 </div>
@@ -403,7 +411,11 @@ export default function AnimatedCheckout() {
                                                 exit={{ opacity: 0, height: 0 }}
                                                 transition={{ duration: 0.3 }}
                                             >
-                                                <Button onClick={generateOrder} className='text-white'>Pay Online</Button>
+                                                <Button onClick={generateOrder} className='text-white'>
+                                                    {spinner=="payment" ? 
+                                                        <LucideLoader className="w-4 h-4 animate-spin" /> : "Pay Online"    
+                                                }
+                                                </Button>   
                                             </motion.div>
                                         )}
 
@@ -502,12 +514,16 @@ export default function AnimatedCheckout() {
                             </Button>
                         )}
                         {activeTab !== 'payment' ? (
-                            <Button onClick={handleNextStep} className="ml-auto">
+                            <Button onClick={handleNextStep} className="ml-auto text-white">
                                 Next <ChevronRight className="w-4 h-4 ml-2" />
                             </Button>
                         ) : (
-                            <Button onClick={handlePlaceOrder} className="ml-auto bg-green-700 hover:bg-green-800">
-                                Place Order <Check className="w-4 h-4 ml-2" />
+                            <Button onClick={handlePlaceOrder} className="ml-auto bg-green-700 hover:bg-green-800 text-white">
+                                    {spinner == "order" ?
+                                        <LucideLoader className="w-4 h-4 animate-spin" /> : <>
+                                            Place Order <Check className="w-4 h-4 ml-2" />
+                                        </>
+                                    }
                             </Button>
                         )}
                     </div>

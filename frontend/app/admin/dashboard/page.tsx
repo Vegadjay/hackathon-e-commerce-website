@@ -177,15 +177,21 @@ const DashboardStats = () => {
             </div>
 
             <div className="p-6 bg-white rounded-lg shadow-md">
-                <div className='flex justify-between'>
-                    <div>
-                        <h3 className="text-lg font-semibold mb-4">Last Year Sales Overview (2024)</h3>
-                    </div>
-                    <div className='flex gap-5'>
-                        <button className='p-4 bg-blue-300 border border-black rounded-full h-10 w-56 items-center justify-center flex'
-                            onClick={handleCheckUser}>Check All Users</button>
-                        <button className='p-4 bg-red-300 border border-black rounded-full h-10 w-56 items-center justify-center flex'
-                            onClick={handleChnagePage}>Check All Order</button>
+                <div className="flex flex-col sm:flex-row justify-between gap-4">
+                    <h3 className="text-lg font-semibold">Last Year Sales Overview (2024)</h3>
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-5">
+                        <button
+                            className="p-4 bg-blue-300 border border-black rounded-full h-10 w-full sm:w-56 flex items-center justify-center"
+                            onClick={handleCheckUser}
+                        >
+                            Check All Users
+                        </button>
+                        <button
+                            className="p-4 bg-red-300 border border-black rounded-full h-10 w-full sm:w-56 flex items-center justify-center"
+                            onClick={handleChnagePage}
+                        >
+                            Check All Orders
+                        </button>
                     </div>
                 </div>
                 <ResponsiveContainer width="100%" height={400}>
@@ -202,6 +208,7 @@ const DashboardStats = () => {
                     </LineChart>
                 </ResponsiveContainer>
             </div>
+
             <CategoryGrid />
         </div>
     );

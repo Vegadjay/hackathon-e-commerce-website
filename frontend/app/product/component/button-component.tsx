@@ -232,12 +232,46 @@ export function BuyNowButton({ product, quantity, selectedSize }: AddToCartModal
     // Extract product ID from URL
     const productId = extractProductId(pathname);
 
-    const handleBuyNow = () => {
-        if (!product) {
-            alert("Product not found");
-            return;
-        }
-        router.push(`/checkout?productId=${productId || product._id}&quantity=${quantity}&size=${selectedSize}&price=${product.price}`);
+    const handleBuyNow = async() => {
+            if (!product) {
+                alert('Product not found');
+                return;
+            }
+
+            const userId = Cookies.get('userId');
+            if (!userId) {
+                router.push('/login');
+                return;
+            }
+            try {
+                const response = await fetch('/api/cart', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        userId,
+                        products: [{
+                            productId: productId || product._id,
+                            quantity,
+                            price: product.price.toString(),
+                            size: selectedSize ?? "N/A",
+                        }],
+                        totalPrice: 0
+                    }),
+                }).then((res) => res.json());
+
+                if (!response.success) {
+                    alert('Failed to add to cart. Please try again.');
+                    return;
+                }
+                router.push("/cart");
+            } catch (error) {
+                console.error('Add to cart error:', error);
+                alert('Failed to add to cart. Please try again.');
+            } finally {
+                setIsHovered(false);
+            }
     };
 
     return (
@@ -253,7 +287,7 @@ export function BuyNowButton({ product, quantity, selectedSize }: AddToCartModal
                     initial={{ x: 10 }}
                     animate={{ x: isHovered ? -500 : 0 }}
                     transition={{ duration: 0.3 }}
-                >
+                    >
                     Buy Now
                 </motion.div>
                 <motion.div

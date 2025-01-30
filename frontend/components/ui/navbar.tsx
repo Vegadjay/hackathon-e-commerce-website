@@ -12,7 +12,7 @@ import {
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { User, Menu, X, ChevronDown } from "lucide-react";
+import { User, Menu, X, ChevronDown, Heart, Package, ShoppingCart, LogOut, BrainCircuit } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useRenderContext } from "@/contexts/RenderContext";
@@ -271,53 +271,54 @@ export function Navbar() {
                       router.push("/whishlist");
                       setIsDropdownOpen(false);
                     }}
-                    className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                    className="flex items-center gap-2 w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
                   >
-                    Wishlist
+                    <Heart size={16} /> Wishlist
                   </button>
                   <button
                     onClick={() => {
                       router.push("/your-orders");
                       setIsDropdownOpen(false);
                     }}
-                    className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                    className="flex items-center gap-2 w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
                   >
-                    Your Orders
+                    <Package size={16} /> Your Orders
                   </button>
                   <button
                     onClick={() => {
                       router.push("/updateprofile");
                       setIsDropdownOpen(false);
                     }}
-                    className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                    className="flex items-center gap-2 w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
                   >
-                    Profile Settings
+                    <User size={16} /> Profile Settings
                   </button>
                   <button
                     onClick={() => {
                       router.push("/findproduct");
                       setIsDropdownOpen(false);
                     }}
-                    className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                    className="flex items-center gap-2 w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
                   >
-                    Find Product
+                    <BrainCircuit size={16} /> StyleSnap AI
                   </button>
                   <button
                     onClick={() => {
                       router.push("/cart");
                       setIsDropdownOpen(false);
                     }}
-                    className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                    className="flex items-center gap-2 w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
                   >
-                    Cart
+                    <ShoppingCart size={16} /> Cart
                   </button>
                   <button
                     onClick={handleLogout}
-                    className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                    className="flex items-center gap-2 w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
                   >
-                    Sign Out
+                    <LogOut size={16} /> Sign Out
                   </button>
                 </div>
+
               </motion.div>
             )}
           </AnimatePresence>

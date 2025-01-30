@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Package, Truck, CreditCard, Calendar, MapPin, AlertTriangle, ChevronDown, ChevronUp, Search } from 'lucide-react'
+import { Package, Truck, CreditCard, Calendar, MapPin, AlertTriangle, ChevronDown, ChevronUp, Search, LucideLoader } from 'lucide-react'
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -57,6 +57,7 @@ export default function AdminOrdersPage() {
 	const [error, setError] = useState<string | null>(null)
 	const [searchTerm, setSearchTerm] = useState('')
 	const [expandedOrder, setExpandedOrder] = useState<string | null>(null)
+	const [spinner,setSpinner] = useState<boolean>(false);
 	const router = useRouter();
 
 	useEffect(() => {
@@ -248,7 +249,13 @@ export default function AdminOrdersPage() {
 													<p className="text-sm text-red-600">{order.cancellationReason}</p>
 												</div>
 											)}
-											<Button className='text-white' onClick={() => { router.push(`/admin/dashboard/orders/${order._id}`)}}>View more</Button>
+											<Button className='text-white' onClick={() => {
+												setSpinner(true);
+												router.push(`/admin/dashboard/orders/${order._id}`)}}>
+												{spinner ?
+													<LucideLoader className="w-4 h-4 animate-spin" /> : "View More"
+												}
+											</Button>
 										</motion.div>
 									)}
 								</AnimatePresence>
