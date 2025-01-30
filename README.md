@@ -6,23 +6,27 @@ Rajwadi Poshak is an online fashion store specializing in ethnic and traditional
 - 🛍️ User authentication (Signup/Login)
 - 👗 Product listing with categories & filters
 - 🛒 Shopping cart & wishlist
+- 📱 AI based product recommendation & search
 - 💳 Secure checkout & payment integration
 - 📦 Order tracking & management
-- 🏢 Admin dashboard for product and order management
+- 🏢 Admin dashboard for product, order and many more management
 - 📱 Mobile-responsive design
 
 ## 🛠 Technology Stack
 
 ### Frontend:
-- <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind"/>
+<img src="https://skillicons.dev/icons?i=nextjs,ts,tailwind"/>
 
 ### Backend:
-- <img src="https://skillicons.dev/icons?i=nodejs,express"/>
-- MongoDB for database
-- JWT authentication for security
+- Nextjs provide its own backend services and support SSR
+- JWT authentication for security and many more
+<img src="https://skillicons.dev/icons?i=nextjs,mongodb"/>
+
+### AI's Backend:
+<img src="https://skillicons.dev/icons?i=python,flask"/>
 
 ### Additional Tools:
-- <img src="https://skillicons.dev/icons?i=cloudinary,vercel,stripe"/>
+<img src="https://skillicons.dev/icons?i=vercel"/>
 
 ## 🚀 Installation & Setup
 
@@ -67,32 +71,12 @@ The application will be available at `http://localhost:3000/`.
 - Frontend: Deployed on [Vercel](https://rajwadiposhak.vercel.app/)
 - Backend: Hosted on a cloud-based service
 
-## 🤝 Contributing
-Contributions are welcome! To contribute:
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature-branch`)
-3. Commit changes (`git commit -m 'Add new feature'`)
-4. Push to the branch (`git push origin feature-branch`)
-5. Open a Pull Request
-
 ## 📜 License
 This project is licensed under the MIT License.
 
 ## 📞 Contact
 For any inquiries or support, reach out to:
-- **Email**: contact@rajwadiposhak.com
-- **Phone**: +91 8849251028
-
-### 📫 Connect with Us:
-<a href="https://www.linkedin.com/company/rajwadi-poshak" target="_blank">
-    <img src="https://skillicons.dev/icons?i=linkedin" alt="LinkedIn"/>
-</a>
-<a href="https://www.instagram.com/rajwadi_poshak" target="_blank">
-    <img src="https://skillicons.dev/icons?i=instagram" alt="Instagram"/>
-</a>
-<a href="https://twitter.com/rajwadi_poshak" target="_blank">
-    <img src="https://skillicons.dev/icons?i=twitter" alt="Twitter"/>
-</a>
+- **Email**: hemang9705@gmail.com or jayvegad@gmail.com
+- **Phone**: +91 9016482643 or +91 8849251028
 
 Let's bring elegance and tradition together! 👗✨
-
