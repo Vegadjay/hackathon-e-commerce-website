@@ -48,10 +48,10 @@ const information = [
 ];
 
 const socialLinks = [
-  { icon: Github, href: 'https://github.com/Vegadjay' },
-  { icon: Instagram, href: 'https://instagram.com/jay_vegad_1' },
-  { icon: Youtube, href: 'https://www.youtube.com/@JAY_VEGAD' },
-  { icon: Linkedin, href: 'https://www.linkedin.com/in/vegadjay/' },
+  { icon: Github, href: 'https://github.com' },
+  { icon: Instagram, href: 'https://instagram.com' },
+  { icon: Youtube, href: 'https://www.youtube.com' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/' },
 ];
 
 export default function Footer() {
