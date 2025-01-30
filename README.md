@@ -28,6 +28,10 @@ Rajwadi Poshak is an online fashion store specializing in ethnic and traditional
 ### Additional Tools:
 <img src="https://skillicons.dev/icons?i=vercel"/>
 
+## ⚠️ Caution for AI Server:
+- The AI server is free and may have load limitations. Please expect potential delays if there is high traffic.
+- The AI server runs on HTTP, so you may need to disable browser security for local development to avoid issues with mixed content. This is crucial for uninterrupted testing and usage.
+
 ## 🚀 Installation & Setup
 
 ### Prerequisites
@@ -50,26 +54,12 @@ npm run dev
 ```
 The application will be available at `http://localhost:3000/`.
 
-## 📡 API Endpoints
-### Authentication
-- `POST /api/auth/register` - Register a new user
-- `POST /api/auth/login` - Login user
-
-### Products
-- `GET /api/products` - Fetch all products
-- `GET /api/products/:id` - Get a specific product
-- `POST /api/products` - Add a new product (Admin only)
-- `PUT /api/products/:id` - Update product (Admin only)
-- `DELETE /api/products/:id` - Remove a product (Admin only)
-
-### Orders
-- `POST /api/orders` - Create a new order
-- `GET /api/orders/:userId` - Get user orders
-- `GET /api/orders` - Get all orders (Admin only)
-
 ## 🌍 Deployment
 - Frontend: Deployed on [Vercel](https://rajwadiposhak.vercel.app/)
 - Backend: Hosted on a cloud-based service
+
+## 🌐 Website
+- visit website on [https://rajwadiposhak.vercel.app](https://rajwadiposhak.vercel.app/)
 
 ## 📜 License
 This project is licensed under the MIT License.
