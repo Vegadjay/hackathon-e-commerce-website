@@ -1,84 +1,98 @@
-`localhost:3000/admin/dashboard`
+# <p align="center">Welcome to Rajwadi Poshak! 👗</p>
 
+Rajwadi Poshak is an online fashion store specializing in ethnic and traditional wear. The platform provides users with a seamless shopping experience, offering a variety of premium-quality outfits, including kurta sets, silk suits, and handcrafted clothing.
 
-# Admin Panel for Fashion E-commerce
+## ✨ Features
+- 🛍️ User authentication (Signup/Login)
+- 👗 Product listing with categories & filters
+- 🛒 Shopping cart & wishlist
+- 💳 Secure checkout & payment integration
+- 📦 Order tracking & management
+- 🏢 Admin dashboard for product and order management
+- 📱 Mobile-responsive design
 
-## Overview
-The admin panel is designed to manage and oversee the operations of the fashion e-commerce platform. It provides various functionalities to ensure smooth management of products, orders, users, and other essential aspects of the platform.
+## 🛠 Technology Stack
 
-Admin Panel Starting
-	Chart
-    Card
-		title: Total (sale,order,payments,customers,product,revenue)
-		count: 320
-		
-		title: Total (sale,order,payments,customers,product,revenue)
-		count: 220
+### Frontend:
+- <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind"/>
 
+### Backend:
+- <img src="https://skillicons.dev/icons?i=nodejs,express"/>
+- MongoDB for database
+- JWT authentication for security
 
-    Pi chart
-        Cat.
-            Dress
-            Saree
-            Longue wear
+### Additional Tools:
+- <img src="https://skillicons.dev/icons?i=cloudinary,vercel,stripe"/>
 
+## 🚀 Installation & Setup
 
-## Features
+### Prerequisites
+- Node.js installed
+- MongoDB setup (local or cloud)
 
-### 1. Dashboard
-- Overview of key metrics (total sales, total orders, total users, etc.)
-- Quick links to important sections
+### Steps to Run the Project Locally
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/rajwadi-poshak.git
+cd rajwadi-poshak
 
-### 2. Product Management
-- Add new products
-- Edit existing products
-- Delete products
-- Manage product categories(filter)
-- Inventory management
-- Chart (month-wise)
+# Install dependencies
+npm install
 
-### 3. Order Management
-- View all orders
-- Update order status (pending, shipped, delivered, etc.)
-- Process returns and refunds
-- Generate invoices
+# Create a .env file and configure required environment variables
 
-### 4. User Management
-- View all users
-- Edit user information
-- Handle user queries and support tickets(meesage reply)
+# Run the development server
+npm run dev
+```
+The application will be available at `http://localhost:3000/`.
 
-### 5. Reports and Analytics
-- Sales reports(month wise)
-- User activity reports
-- Inventory reports
-- Customizable date range for reports
+## 📡 API Endpoints
+### Authentication
+- `POST /api/auth/register` - Register a new user
+- `POST /api/auth/login` - Login user
 
-### 6. Payment
-- Payment details
-- Payment gateway settings
-- Payment refund data
+### Products
+- `GET /api/products` - Fetch all products
+- `GET /api/products/:id` - Get a specific product
+- `POST /api/products` - Add a new product (Admin only)
+- `PUT /api/products/:id` - Update product (Admin only)
+- `DELETE /api/products/:id` - Remove a product (Admin only)
 
-## Getting Started
-1. **Login**: Access the admin panel using your admin credentials.
-2. **Navigation**: Use the sidebar to navigate through different sections.
-3. **Perform Actions**: Utilize the features listed above to manage the e-commerce platform effectively.
+### Orders
+- `POST /api/orders` - Create a new order
+- `GET /api/orders/:userId` - Get user orders
+- `GET /api/orders` - Get all orders (Admin only)
 
-## Technologies Used
-- Frontend: [Specify frontend framework/library]
-- Backend: [Specify backend framework/library]
-- Database: [Specify database]
-- Authentication: [Specify authentication method]
+## 🌍 Deployment
+- Frontend: Deployed on [Vercel](https://rajwadiposhak.vercel.app/)
+- Backend: Hosted on a cloud-based service
 
-## Contributing
-If you wish to contribute to the development of the admin panel, please follow the guidelines in the `CONTRIBUTING.md` file.
+## 🤝 Contributing
+Contributions are welcome! To contribute:
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature-branch`)
+3. Commit changes (`git commit -m 'Add new feature'`)
+4. Push to the branch (`git push origin feature-branch`)
+5. Open a Pull Request
 
-## License
-This project is licensed under the [Specify License].
+## 📜 License
+This project is licensed under the MIT License.
 
-## Contact
-For any queries or support, please contact [Your Contact Information].
+## 📞 Contact
+For any inquiries or support, reach out to:
+- **Email**: contact@rajwadiposhak.com
+- **Phone**: +91 8849251028
 
+### 📫 Connect with Us:
+<a href="https://www.linkedin.com/company/rajwadi-poshak" target="_blank">
+    <img src="https://skillicons.dev/icons?i=linkedin" alt="LinkedIn"/>
+</a>
+<a href="https://www.instagram.com/rajwadi_poshak" target="_blank">
+    <img src="https://skillicons.dev/icons?i=instagram" alt="Instagram"/>
+</a>
+<a href="https://twitter.com/rajwadi_poshak" target="_blank">
+    <img src="https://skillicons.dev/icons?i=twitter" alt="Twitter"/>
+</a>
 
-Add two buttons
-Changes done in route.ts
+Let's bring elegance and tradition together! 👗✨
+
