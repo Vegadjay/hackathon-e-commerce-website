@@ -97,7 +97,8 @@ function FileUploadDemo() {
         try {
             const formData = new FormData()
             formData.append("file", uploadedFiles[0])
-            const python_url = process.env.NEXT_PUBLIC_PYTHON_URL
+            // const python_url = process.env.NEXT_PUBLIC_PYTHON_URL
+            const python_url = "http://103.91.220.195:5000"
             const response = await fetch(`${python_url}/recommend`, {
                 method: "POST",
                 body: formData,
