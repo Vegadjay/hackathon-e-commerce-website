@@ -90,17 +90,20 @@ Rajwadi Poshak brings the richness of Indian traditional wear to the digital age
 ### 📱 Mobile View
 <p align="center">
 <img src="/screenshots/mobile1.png" alt="Mobile Home Interface" />
+  <br />
 <em>Responsive mobile homepage with quick navigation</em>
 </p>
 
 <p align="center">
 <img src="/screenshots/mobile2.png" alt="Mobile Category Browse" />
-<em>Smooth category browsing experience</em>
+<br />
+  <em>Smooth category browsing experience</em>
 </p>
 
 <p align="center">
 <img src="/screenshots/mobile3.png" alt="Mobile Product View" />
-<em>Optimized product viewing for mobile devices</em>
+<br />
+  <em>Optimized product viewing for mobile devices</em>
 </p>
 
 
