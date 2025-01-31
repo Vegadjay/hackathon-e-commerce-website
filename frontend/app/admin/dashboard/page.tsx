@@ -48,10 +48,12 @@ const DashboardStats = () => {
     }, []);
 
     const handleChnagePage = () => {
+        setIsLoading(true);
         router.push("/admin/dashboard/orders")
     }
 
     const handleCheckUser = () => {
+        setIsLoading(true);
         router.push("/admin/dashboard/users")
     }
 

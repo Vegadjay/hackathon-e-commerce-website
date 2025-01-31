@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useParams, usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import {
     LineChart,
     Line,
@@ -10,12 +10,7 @@ import {
     CartesianGrid,
     Tooltip,
     Legend,
-    ResponsiveContainer,
-    PieChart,
-    Pie,
-    Cell,
-    BarChart,
-    Bar
+    ResponsiveContainer
 } from 'recharts';
 import { products } from '@/lib/data';
 import Image from 'next/image';
@@ -24,7 +19,6 @@ import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
@@ -34,7 +28,6 @@ import {
     AlertTitle,
 } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
-import { useSearchParams } from 'next/navigation'
 import {
     Card,
     CardContent,
@@ -43,6 +36,7 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import Link from 'next/link';
+import ProductDetail from '@/components/products/pieChartAdmin';
 
 interface Product {
     id: number;
@@ -51,8 +45,7 @@ interface Product {
     price: number;
     rating: number;
     reviews: number;
-    answers: number;
-    inStock: boolean;
+    inStock: number;
     delivery: string;
     deliveryDate: string;
     seller: string;
@@ -75,10 +68,7 @@ interface ChartData {
     revenue: number;
 }
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8'];
-
 const AdminCategoryDashboard = () => {
-    const params = useParams();
     const pathname = usePathname();
     const [categoryProducts, setCategoryProducts] = useState<Product[]>([]);
     const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
@@ -90,16 +80,29 @@ const AdminCategoryDashboard = () => {
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
     const [showLowStock, setShowLowStock] = useState(false);
     const [selectedStatus, setSelectedStatus] = useState<string>('all');
-    const searchParams = useSearchParams();
+    const [currentPage, setCurrentPage] = useState(1);
+    const [productsPerPage] = useState(9);
 
     const getCategoryFromPath = () => {
         const segments = pathname?.split('/') || [];
         return segments[segments.length - 1] || '';
     };
 
+    const sizeCount: Record<string, number> = {};
 
-    const id = searchParams.get('id');
-    const category = searchParams.get('category');
+    filteredProducts.forEach((product: any) => {
+        if (product.size) {
+            product.size.forEach((size: any) => {
+                    sizeCount[size] = (sizeCount[size] || 0) + product.inStock;
+            });
+        }
+    });
+
+
+    const chartData = Object.entries(sizeCount).map(([size, count]) => ({
+        name: size,
+        value: count
+    }));
 
     useEffect(() => {
         const categoryFromUrl = getCategoryFromPath();
@@ -123,6 +126,10 @@ const AdminCategoryDashboard = () => {
         setFilteredProducts(filtered);
         calculateStatistics(filtered);
     }, [pathname]);
+
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [filteredProducts]);
 
     const calculateStatistics = (products: Product[]) => {
         const sales = products.reduce((acc, product) => acc + product.reviews, 0);
@@ -154,6 +161,8 @@ const AdminCategoryDashboard = () => {
         setMonthlySales(sortedMonthlyData);
     };
 
+    const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#D72638", "#8A2BE2"];
+
     const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
         const term = event.target.value.toLowerCase();
         setSearchTerm(term);
@@ -164,7 +173,7 @@ const AdminCategoryDashboard = () => {
         );
 
         if (showLowStock) {
-            filtered = filtered.filter(product => product.stock < 10);
+            filtered = filtered.filter(product => product.inStock < 10);
         }
 
         if (selectedStatus !== 'all') {
@@ -196,7 +205,7 @@ const AdminCategoryDashboard = () => {
                     product.id,
                     `"${product.name}"`,
                     product.price,
-                    product.stock,
+                    product.inStock,
                     product.rating,
                     product.status,
                     product.lastUpdated
@@ -217,24 +226,37 @@ const AdminCategoryDashboard = () => {
             .join(' ');
     };
 
+    // Calculate pagination
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+    const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+
     return (
         <div className="min-h-screen bg-gray-50 py-8">
             <div className="max-w-7xl mx-auto px-4">
-                <div className="flex justify-between items-center mb-8">
-                    <div>
-                        <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8">
+                    {/* Title Section */}
+                    <div className="text-center sm:text-left w-full sm:w-auto">
+                        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1 sm:mb-2">
                             {formatCategoryName(getCategoryFromPath())}
                         </h1>
-                        <p className="text-gray-600">
+                        <p className="text-gray-600 text-sm sm:text-base">
                             Managing {categoryProducts.length} products
                         </p>
                     </div>
-                    <div className="flex gap-4">
-                        <Button onClick={exportData} variant="outline">
+
+                    {/* Buttons Section */}
+                    <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 w-full sm:w-auto mt-4 sm:mt-0">
+                        <Button
+                            onClick={exportData}
+                            variant="outline"
+                            className="text-black hover:text-white w-full sm:w-auto"
+                        >
                             <Download className="mr-2 h-4 w-4" />
                             Export Data
                         </Button>
-                        <Button>
+                        <Button className="text-white w-full sm:w-auto">
                             Add New Product
                         </Button>
                     </div>
@@ -289,7 +311,6 @@ const AdminCategoryDashboard = () => {
                     </Card>
                 </div>
 
-
                 <div className="bg-white rounded-lg shadow p-6 mb-8">
                     <div className="flex flex-col md:flex-row gap-4 items-center justify-between mb-4">
                         <div className="flex-1">
@@ -310,10 +331,10 @@ const AdminCategoryDashboard = () => {
                                     </Button>
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent>
-                                    <DropdownMenuItem onClick={() => handleSort('price')}>
+                                    <DropdownMenuItem onClick={() => handleSort('price')} className='bg-white text-black hover:text-white'>
                                         Price {sortBy === 'price' && (sortOrder === 'asc' ? '↑' : '↓')}
                                     </DropdownMenuItem>
-                                    <DropdownMenuItem onClick={() => handleSort('rating')}>
+                                    <DropdownMenuItem onClick={() => handleSort('rating')} className='bg-white text-black hover:text-white'>
                                         Rating {sortBy === 'rating' && (sortOrder === 'asc' ? '↑' : '↓')}
                                     </DropdownMenuItem>
                                 </DropdownMenuContent>
@@ -323,14 +344,14 @@ const AdminCategoryDashboard = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {filteredProducts.map((product) => (
+                    {currentProducts.map((product, index: number) => (
                         <>
                             <Link href={`/admin/dashboard/category/${product.category}/product/${product.id}`}>
-                                <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden">
+                                <div key={`product-${product.id}-${index}`} className="bg-white rounded-lg shadow-md overflow-hidden">
                                     <div className="relative aspect-w-16 aspect-h-9">
                                         <div className="w-full h-96 relative">
                                             <Image
-                                                src={product.images[0]}
+                                                src={product.images[0] || "/placeholder.svg"}
                                                 alt={product.name}
                                                 fill
                                                 className="object-contain"
@@ -344,17 +365,17 @@ const AdminCategoryDashboard = () => {
                                             </h3>
                                             <DropdownMenu>
                                                 <DropdownMenuTrigger asChild>
-                                                    <Button variant="ghost" size="icon">
-                                                        <MoreVertical className="h-4 w-4" />
+                                                    <Button variant="ghost" size="icon" className='text-black hover:text-white'>
+                                                        <MoreVertical className="h-4 w-4 " />
                                                     </Button>
                                                 </DropdownMenuTrigger>
                                                 <DropdownMenuContent align="end">
-                                                    <DropdownMenuItem>
+                                                    <DropdownMenuItem className='text-black hover:text-white'>
                                                         <Edit className="mr-2 h-4 w-4" />
                                                         Edit
                                                     </DropdownMenuItem>
                                                     <DropdownMenuSeparator />
-                                                    <DropdownMenuItem className="text-red-600">
+                                                    <DropdownMenuItem className="text-red-600 bg-white hover:bg-red-600 hover:text-white">
                                                         <Trash2 className="mr-2 h-4 w-4" />
                                                         Delete
                                                     </DropdownMenuItem>
@@ -368,8 +389,8 @@ const AdminCategoryDashboard = () => {
                                             </div>
                                             <div>
                                                 <p className="text-sm text-gray-500">Stock</p>
-                                                <p className={`text-lg font-semibold ${product.stock < 10 ? 'text-red-600' : 'text-green-600'}`}>
-                                                    {product.stock}
+                                                <p className={`text-lg font-semibold ${product.inStock < 10 ? 'text-red-600' : 'text-green-600'}`}>
+                                                    {product.inStock}
                                                 </p>
                                             </div>
                                             <div>
@@ -377,9 +398,9 @@ const AdminCategoryDashboard = () => {
                                                 <p className="text-lg font-semibold">{product.rating.toFixed(1)}</p>
                                             </div>
                                         </div>
-                                        <div className="text-sm text-gray-500">
+                                        {/* <div className="text-sm text-gray-500">
                                             Last updated: {product.lastUpdated}
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </Link>
@@ -417,30 +438,26 @@ const AdminCategoryDashboard = () => {
                         </CardContent>
                     </Card>
 
-                    <Card>
+                    {/* <Card>
                         <CardHeader>
-                            <CardTitle>Product Status Distribution</CardTitle>
-                            <CardDescription>Overview of product statuses</CardDescription>
+                            <CardTitle>Product Size Distribution</CardTitle>
+                            <CardDescription>Overview of product sizes</CardDescription>
                         </CardHeader>
                         <CardContent>
                             <div className="h-[400px]">
-                                <ResponsiveContainer width="100%" height="100%">
+                                <ResponsiveContainer width="100%" height={300}>
                                     <PieChart>
                                         <Pie
-                                            data={[
-                                                { name: 'Active', value: categoryProducts.filter(p => p.status === 'active').length },
-                                                { name: 'Inactive', value: categoryProducts.filter(p => p.status === 'inactive').length },
-                                                { name: 'Out of Stock', value: categoryProducts.filter(p => p.status === 'out_of_stock').length }
-                                            ]}
+                                            data={chartData}
                                             cx="50%"
                                             cy="50%"
-                                            innerRadius={60}
-                                            outerRadius={80}
+                                            labelLine={false}
+                                            outerRadius={100}
                                             fill="#8884d8"
-                                            paddingAngle={5}
                                             dataKey="value"
+                                            label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
                                         >
-                                            {categoryProducts.map((_, index) => (
+                                            {chartData.map((_, index) => (
                                                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                                             ))}
                                         </Pie>
@@ -450,7 +467,8 @@ const AdminCategoryDashboard = () => {
                                 </ResponsiveContainer>
                             </div>
                         </CardContent>
-                    </Card>
+                    </Card> */}
+                    <ProductDetail products={filteredProducts}/>
                 </div>
 
                 {/* Low Stock Alert */}
@@ -468,15 +486,34 @@ const AdminCategoryDashboard = () => {
                 {/* Pagination */}
                 <div className="mt-8 flex justify-center">
                     <div className="flex gap-2">
-                        <Button variant="outline" disabled>Previous</Button>
-                        <Button variant="outline">1</Button>
-                        <Button variant="outline">2</Button>
-                        <Button variant="outline">3</Button>
-                        <Button variant="outline">Next</Button>
+                        <Button
+                            variant="outline"
+                            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                            disabled={currentPage === 1}
+                        >
+                            Previous
+                        </Button>
+                        {[...Array(totalPages)].map((_, i) => (
+                            <Button
+                                key={i}
+                                variant={currentPage === i + 1 ? "default" : "outline"}
+                                onClick={() => setCurrentPage(i + 1)}
+                                className='text-black hover:text-white'
+                            >
+                                {i + 1}
+                            </Button>
+                        ))}
+                        <Button
+                            variant="outline"
+                            onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                            disabled={currentPage === totalPages}
+                        >
+                            Next
+                        </Button>
                     </div>
                 </div>
             </div>
-        </div >
+        </div>
     );
 };
 

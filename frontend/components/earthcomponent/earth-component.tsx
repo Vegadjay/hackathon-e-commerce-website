@@ -34,7 +34,7 @@ const Earthcomponent = () => {
                     </motion.div>
 
                     <motion.div
-                        className="relative h-[600px] w-full rounded-2xl overflow-hidden bg-transparent"
+                        className="relative h-[620px] w-full rounded-2xl overflow-hidden bg-transparent"
                         whileHover={{ scale: 1.02 }}
                         transition={{ duration: 0.3 }}
                     >

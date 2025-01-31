@@ -282,7 +282,7 @@ const Product: React.FC<ProductProps> = ({ product }) => {
 
               <div className="space-y-2">
                 <label className="block text-sm font-medium text-gray-700">Size</label>
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-wrap">
                   {product.size?.map((size: any) => {
                     const available = isSizeAvailable(size);
                     return (

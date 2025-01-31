@@ -8,16 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { products } from '@/lib/data';
-import { Edit2, Save, X, User, ShoppingBag, Calendar } from 'lucide-react';
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Edit2, Save, Trash, X } from 'lucide-react';
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 // Mock customer data
 const recentCustomers = [
@@ -36,7 +28,7 @@ interface PageProps {
 export default function ProductDetails({ params }: PageProps) {
     const [product, setProduct] = useState(products.find(p => p.id.toString() === params.id));
     const [isEditing, setIsEditing] = useState(false);
-    const [editedProduct, setEditedProduct] = useState(product);
+    const [editedProduct, setEditedProduct] = useState<any>(product);
 
     if (!product) {
         return (
@@ -92,11 +84,15 @@ export default function ProductDetails({ params }: PageProps) {
                                 </Button>
                             </>
                         ) : (
-                            <Button onClick={handleEdit} className="flex items-center">
+                            <Button onClick={handleEdit} className="flex items-center text-white">
                                 <Edit2 className="w-4 h-4 mr-2" />
                                 Edit Product
                             </Button>
                         )}
+                        {/* <Button onClick={handleEdit} className="flex items-center bg-red-600 text-white hover:text-red-600 hover:bg-white border-0 hover:border-2 border-gray-700">
+                            <Trash className="w-4 h-4 mr-2" />
+                            Delete
+                        </Button> */}
                     </div>
                 </div>
             </div>
