@@ -85,7 +85,6 @@ Rajwadi Poshak brings the richness of Indian traditional wear to the digital age
 
 <p align="center">
 <img src="./screenshots/compare.gif" alt="AI Recommendations" />
-  <br />
 <em>Smart product recommendations powered by AI</em>
 </p>
 
@@ -298,3 +297,9 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 ---
 
 <p align="center">👗 Elevating Traditional Fashion with Modern Technology ✨</p>
+
+<p align="center">
+<a href="https://vercel.com?utm_source=rajwadi-poshak">
+  <img src="/api/placeholder/150/50" alt="Powered by Vercel" />
+</a>
+</p>
