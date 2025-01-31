@@ -11,6 +11,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Package, Truck, CreditCard, Calendar, MapPin, AlertTriangle, ExternalLink } from 'lucide-react'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'
+import Loader from '@/components/Loader'
 
 interface Product {
 	id: {
@@ -91,7 +92,7 @@ export default function EnhancedOrdersPage() {
 	}
 
 	if (loading) {
-		return <div className="flex justify-center items-center h-screen">Loading...</div>
+		return <div className="flex justify-center items-center h-screen"><Loader/></div>
 	}
 
 	if (error) {

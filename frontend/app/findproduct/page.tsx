@@ -101,14 +101,12 @@ function FileUploadDemo() {
             const response = await fetch(`${python_url}/recommend`, {
                 method: "POST",
                 body: formData,
-                headers: { 'Content-Type': 'application/json' },
             })
 
             if (response.ok) {
                 const data = await response.json()
-                console.log
                 const paths = data.recommendations.map((path: string) => {
-                    const cleanPath = path.replace("converted\\", "")
+                    const cleanPath = path.replace("dataset\\", "")
                     return cleanPath
                 })
                 setProductImagePaths(paths)
@@ -127,7 +125,7 @@ function FileUploadDemo() {
     const findProducts = async (files: any) => {
         setLoading(true)
         const updatedFiles = files.recommendations.map((file: any) =>
-            file.replace("converted\\", "")
+            file.replace("dataset\\", "")
         )
         setRecommendedProducts([])
 
@@ -264,14 +262,14 @@ function FileUploadDemo() {
                                                 className="transition-transform duration-300 hover:scale-110"
                                             />
                                         </div>
-                                    <div className="p-4 flex-grow flex flex-col justify-between">
-                                        <h3 className="cursor-pointer text-lg font-medium text-gray-900 dark:text-gray-100 mb-2 line-clamp-2 hover:text-red-600 dark:hover:text-red-300 transition-colors duration-300">
-                                            {product.name}
-                                        </h3>
-                                        <p className="text-xl cursor-pointer font-bold text-red-600 dark:text-red-300">
-                                            ₹{parseFloat(product.price.toString()).toFixed(2)}
-                                        </p>
-                                    </div>
+                                        <div className="p-4 flex-grow flex flex-col justify-between">
+                                            <h3 className="cursor-pointer text-lg font-medium text-gray-900 dark:text-gray-100 mb-2 line-clamp-2 hover:text-red-600 dark:hover:text-red-300 transition-colors duration-300">
+                                                {product.name}
+                                            </h3>
+                                            <p className="text-xl cursor-pointer font-bold text-red-600 dark:text-red-300">
+                                                ₹{parseFloat(product.price.toString()).toFixed(2)}
+                                            </p>
+                                        </div>
                                     </Link>
                                 </motion.div>
                             ))}

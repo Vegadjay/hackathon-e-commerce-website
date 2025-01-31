@@ -177,7 +177,7 @@ export default function AnimatedCheckout() {
                 },
                 body: JSON.stringify(
                     {
-                        amount: 1000
+                        amount: parseFloat((products.totalPrice + 99 + parseFloat(((products.totalPrice) * 0.18).toString()) - couponValue + (urgent ? 100 : 0)).toFixed(2))
                     }
                 )
             }).then((res) => res.json());

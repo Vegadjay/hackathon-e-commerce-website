@@ -196,7 +196,7 @@ const sendEmail = async (orderDetails: any, email: string) => {
               ${productRows}
             </tbody>
           </table>
-          <p><strong>Total Price:</strong> $${orderDetails.totalPrice}</p>
+          <p><strong>Total Price:</strong> ₹${orderDetails.totalPrice}</p>
           <p><strong>Shipping Address:</strong></p>
           <p>
             ${orderDetails.shippingAddress.street}<br>
