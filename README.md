@@ -18,7 +18,7 @@
 </div>
 
 <p align="center">
-  <img src="/api/placeholder/800/400" alt="Rajwadi Poshak Banner" />
+  <img src="./screenshots/banner.webp" alt="Rajwadi Poshak Banner" />
 </p>
 
 <p align="center">🛍️ Your Premier Destination for Elegant Ethnic & Traditional Wear 🎀</p>
