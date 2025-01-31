@@ -83,6 +83,11 @@ Rajwadi Poshak brings the richness of Indian traditional wear to the digital age
 <em>Smart product recommendations powered by AI</em>
 </p>
 
+<p align="center">
+<img src="./screenshots/compare.gif" alt="AI Recommendations" />
+<em>Smart product recommendations powered by AI</em>
+</p>
+
 ### 📱 Mobile View
 <p align="center">
 <img src="/screenshots/mobile1.png" alt="Mobile Home Interface" />
