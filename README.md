@@ -12,8 +12,8 @@
 [![Vercel](https://img.shields.io/badge/vercel-deployed-success)](https://rajwadiposhak.vercel.app)
 
 [Demo](https://rajwadiposhak.vercel.app) •
-[Report Bug](https://github.com/yourusername/rajwadi-poshak/issues) •
-[Request Feature](https://github.com/yourusername/rajwadi-poshak/issues)
+[Report Bug](https://github.com/Hemang-patel-9/hackathon-fashion-ecommerce/issues) •
+[Request Feature](https://github.com/Hemang-patel-9/hackathon-fashion-ecommerce/issues)
 
 </div>
 
