@@ -106,7 +106,7 @@ function FileUploadDemo() {
             if (response.ok) {
                 const data = await response.json()
                 const paths = data.recommendations.map((path: string) => {
-                    const cleanPath = path.replace("dataset\\", "")
+                    const cleanPath = path.replace("converted\\", "")
                     return cleanPath
                 })
                 setProductImagePaths(paths)
@@ -125,7 +125,7 @@ function FileUploadDemo() {
     const findProducts = async (files: any) => {
         setLoading(true)
         const updatedFiles = files.recommendations.map((file: any) =>
-            file.replace("dataset\\", "")
+            file.replace("converted\\", "")
         )
         setRecommendedProducts([])
 
