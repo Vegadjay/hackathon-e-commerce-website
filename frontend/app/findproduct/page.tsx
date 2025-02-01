@@ -97,11 +97,14 @@ function FileUploadDemo() {
         try {
             const formData = new FormData()
             formData.append("file", uploadedFiles[0])
-            const python_url = process.env.NEXT_PUBLIC_PYTHON_URL
-            const response = await fetch(`${python_url}/recommend`, {
+            const response = await fetch(`/api/recommend`, {
                 method: "POST",
                 body: formData,
             })
+            // const response = await fetch(`${python_url}/recommend`, {
+            //     method: "POST",
+            //     body: formData,
+            // })
 
             if (response.ok) {
                 const data = await response.json()

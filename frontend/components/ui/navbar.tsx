@@ -247,7 +247,7 @@ export function Navbar() {
             className="flex items-center space-x-2 rounded-full bg-gray-100 px-4 py-2 text-gray-600 hover:bg-gray-200"
           >
             <User className="h-5 w-5" />
-            <span className="hidden sm:inline capitalize">{username}</span>
+            <span className="hidden sm:inline capitalize truncate max-w-[100px]">{username}</span>
           </button>
 
           <AnimatePresence>
