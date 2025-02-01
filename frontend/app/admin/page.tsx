@@ -92,7 +92,6 @@ export default function Login() {
 			const result = await response.json();
 
 			if (response.ok && result.success) {
-				toast.success('Logged in successfully!');
 				setFormData({ email: '', password: '' });
 
 				if (result.token) {
@@ -102,11 +101,16 @@ export default function Login() {
 						httpOnly: false
 					});
 				}
-				if (admins && admins.includes(result.user.email)) {
-					Cookies.set("role", "webadmin"); // use webadmin to prevent the bruteforce guesses
+				if (result.user.role == "admin") {
+					toast.success('Login successfully!');
+					Cookies.set("role", "webadmin");
 					router.push('/admin/dashboard');
 				}
-			} else {
+				else {
+					toast.error(result.message || 'Login failed, you are not admin.');
+				}
+			}
+			else{
 				toast.error(result.message || 'Login failed, please try again.');
 			}
 		} catch (error) {
