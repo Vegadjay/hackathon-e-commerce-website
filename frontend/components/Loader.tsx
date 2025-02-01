@@ -183,7 +183,7 @@ const Loader = () => {
 					}}
 				>
 					<p className="text-lg text-red-600 font-medium tracking-wide">
-						Loading Collections
+						Loading
 					</p>
 					<div className="flex justify-center items-center space-x-2">
 						{[...Array(3)].map((_, i) => (

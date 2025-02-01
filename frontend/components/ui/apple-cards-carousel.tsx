@@ -15,6 +15,7 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import Image, { ImageProps } from "next/image";
 import { useOutsideClick } from "@/hooks/use-outside-click";
+import toast,{Toaster} from "react-hot-toast";
 
 interface CarouselProps {
     items: JSX.Element[];
@@ -91,6 +92,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
         <CarouselContext.Provider
             value={{ onCardClose: handleCardClose, currentIndex }}
         >
+            <Toaster position="top-right" />
             <div className="relative w-full">
                 <div
                     className="flex w-full overflow-x-scroll overscroll-x-auto py-10 md:py-20 scroll-smooth [scrollbar-width:none]"
@@ -204,8 +206,8 @@ export const Card = ({
     const handleMouseEnter = () => {
         setIsHovering(true);
         if (videoRef.current && card.videoSrc) {
-            videoRef.current.play().catch(error => {
-                console.log("Video play failed:", error);
+            videoRef.current.play().catch((error:any) => {
+                toast.error("Failed to play video")
             });
         }
     };

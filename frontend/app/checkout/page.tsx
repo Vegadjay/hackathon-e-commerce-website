@@ -18,6 +18,7 @@ import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import Loader from '@/components/Loader'
 import EnhancedInvoiceComponent from '@/components/invoice';
+import toast, { Toaster } from 'react-hot-toast';
 
 const tabVariants = {
     hidden: { opacity: 0, y: 10 },
@@ -90,13 +91,14 @@ export default function AnimatedCheckout() {
             }).then((res) => res.json());
             if (response.success) {
                 setOpenInvoice(true);
+                toast.error("order placed successfully!")
             }
             else {
-                console.error(response.error);
+                toast.error("failed to place order!")
             }
         }
         catch (error) {
-            console.error(error);
+            toast.error("we are having issue to perform this task!")
         }
         finally {
             setSpinner("");
@@ -120,7 +122,7 @@ export default function AnimatedCheckout() {
                 setProducts(response);
             }
             else {
-                console.error(response.error);
+                toast.error("Failed to fetch data. Please try again later.")
                 setIsLoading(false);
             }
             //fetch address
@@ -131,7 +133,7 @@ export default function AnimatedCheckout() {
             }
         }
         catch (error) {
-            console.error(error);
+            toast.error("Failed to fetch data. Please try again later.")
         }
         finally {
             setIsLoading(false);
@@ -186,7 +188,7 @@ export default function AnimatedCheckout() {
                 initPayment(response.data);
             }
         } catch (error) {
-            console.error(error);
+            toast.error("Sorry! Error while doing payment!")
         }
         finally {
             setSpinner("");
@@ -203,7 +205,7 @@ export default function AnimatedCheckout() {
             image: "R",
             modal: {
                 ondismiss: function () {
-                    console.log('Transaction was not completed, window closed.');
+                    toast.error("Payment was dismissed!")
                 }
             },
             order_id: data.id,
@@ -219,19 +221,20 @@ export default function AnimatedCheckout() {
                     }).then((res) => res.json());
 
                     if (resp.success) {
-                        alert("payment successfull.")
                         setPaymentStatus("completed")
                         setPaymentMethod("bank_transfer");
+                        toast.success("Payment successfully!")
                         return true;
                     }
                     else {
                         setPaymentStatus("failed")
-                        alert("payment failed!");
+                        toast.error("Payment failed!")
                         return false;
                     }
 
                 } catch (error) {
                     setPaymentStatus("failed")
+                    toast.error("Payment failed!")
                     return false;
                 }
             },
@@ -261,6 +264,7 @@ export default function AnimatedCheckout() {
             transition={{ duration: 0.5 }}
             className="max-w-6xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden"
         >
+            <Toaster position="top-right" />
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
                 <TabsList className="grid w-full grid-cols-3 bg-red-100">
                     <TabsTrigger value="products" className="data-[state=active]:bg-red-200">
@@ -412,10 +416,10 @@ export default function AnimatedCheckout() {
                                                 transition={{ duration: 0.3 }}
                                             >
                                                 <Button onClick={generateOrder} className='text-white'>
-                                                    {spinner=="payment" ? 
-                                                        <LucideLoader className="w-4 h-4 animate-spin" /> : "Pay Online"    
-                                                }
-                                                </Button>   
+                                                    {spinner == "payment" ?
+                                                        <LucideLoader className="w-4 h-4 animate-spin" /> : "Pay Online"
+                                                    }
+                                                </Button>
                                             </motion.div>
                                         )}
 
@@ -519,11 +523,11 @@ export default function AnimatedCheckout() {
                             </Button>
                         ) : (
                             <Button onClick={handlePlaceOrder} className="ml-auto bg-green-700 hover:bg-green-800 text-white">
-                                    {spinner == "order" ?
-                                        <LucideLoader className="w-4 h-4 animate-spin" /> : <>
-                                            Place Order <Check className="w-4 h-4 ml-2" />
-                                        </>
-                                    }
+                                {spinner == "order" ?
+                                    <LucideLoader className="w-4 h-4 animate-spin" /> : <>
+                                        Place Order <Check className="w-4 h-4 ml-2" />
+                                    </>
+                                }
                             </Button>
                         )}
                     </div>

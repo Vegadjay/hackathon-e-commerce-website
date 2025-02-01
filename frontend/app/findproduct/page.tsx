@@ -5,9 +5,8 @@ import { FileUpload } from "@/components/ui/file-upload"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
-import Loader from "@/components/Loader"
 import { Button } from "@/components/ui/button"
-import { Camera, X, Upload, Sparkles } from 'lucide-react'
+import { Camera, X, Sparkles } from 'lucide-react'
 import { toast, Toaster } from 'react-hot-toast'
 
 const containerVariants = {
@@ -57,7 +56,6 @@ function FileUploadDemo() {
                 videoRef.current.srcObject = stream
             }
         } catch (err) {
-            console.error("Error accessing camera:", err)
             toast.error("Failed to access camera")
         }
     }
@@ -116,11 +114,9 @@ function FileUploadDemo() {
                 findProducts(data)
                 toast.success("AI model successfully processed your image!")
             } else {
-                console.error("Error response:", await response.text())
                 toast.error("Failed to process image")
             }
         } catch (error) {
-            console.error("Fetch error:", error)
             toast.error("An error occurred while processing your request")
         }
     }
@@ -150,7 +146,6 @@ function FileUploadDemo() {
             setRecommendedProducts(validProducts)
             setLoading(false)
         } catch (err) {
-            console.log(err)
             toast.error("Failed to fetch product recommendations")
         }
     }
@@ -242,6 +237,11 @@ function FileUploadDemo() {
                     className="w-full bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg"
                 >
                     <h2 className="text-2xl font-semibold mb-6 text-red-700 dark:text-red-300">AI-Recommended Products</h2>
+                    <div className="bg-red-100 dark:bg-red-900 p-4 rounded-lg mb-4">
+                        <p className="text-black dark:text-white text-base">
+                            <span className="text-red-600 dark:text-red-300 text-lg font-semibold">Note:</span> If the uploaded image is not a clothing item, our AI might still suggest products based on similar features or patterns. Please note that our AI model is continuously learning and may occasionally make mistakes. We appreciate your understanding and encourage you to try uploading a different image for better results.
+                        </p>
+                    </div>
                     {loading ? (
                         <div className="flex justify-center items-center h-40">
                             Finding a best recommendation for you...

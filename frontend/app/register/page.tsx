@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast, Toaster } from 'react-hot-toast'
 import 'react-toastify/dist/ReactToastify.css';
 import { useRenderContext } from '@/contexts/RenderContext';
 import { CheckCircle2, XCircle, Send } from 'lucide-react';
@@ -129,7 +129,6 @@ export default function Register() {
   const [isOtpVerified, setIsOtpVerified] = useState(false);
   const [isVerifyingOtp, setIsVerifyingOtp] = useState(false);
   const [isSendingOtp, setIsSendingOtp] = useState(false);
-  const router = useRouter();
 
   const validateEmail = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -324,6 +323,7 @@ export default function Register() {
 
   return (
     <div className="min-h-screen py-12 px-4 bg-gradient-to-br from-red-50 to-red-100">
+      <Toaster position="top-right" />
       <motion.div
         initial="hidden"
         animate="visible"
@@ -545,7 +545,6 @@ export default function Register() {
           </div>
         </div>
       </motion.div>
-      <ToastContainer position="bottom-right" autoClose={3000} />
     </div>
   );
 }

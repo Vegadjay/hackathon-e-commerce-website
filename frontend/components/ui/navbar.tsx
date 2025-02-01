@@ -17,6 +17,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useRenderContext } from "@/contexts/RenderContext";
 import Cookies from "js-cookie";
+import { toast, Toaster } from 'react-hot-toast'
 
 const collections = {
   "New Arrivals": {
@@ -74,6 +75,7 @@ const collections = {
 
 export function MainMenu({ isMobile = false, onLinkClick = () => { } }) {
   const [openCategory, setOpenCategory] = useState(null);
+  const { triggerRender } = useRenderContext();
   const router = useRouter();
 
   const handleCategoryClick = (category: any) => {
@@ -83,6 +85,7 @@ export function MainMenu({ isMobile = false, onLinkClick = () => { } }) {
   };
 
   const handleLinkClick = (basePath: any, category: any) => {
+    triggerRender();
     router.push(`${basePath}?category=${category}`);
     onLinkClick();
   };
@@ -202,13 +205,13 @@ export function Navbar() {
               setUsername(session?.user?.name || session?.user?.email?.split('@')[0] || "User");
             }
           } catch (error) {
-            console.error("Failed to fetch username:", error);
+            toast.error("Failed to fetch username!");
             setUsername(session?.user?.name || session?.user?.email?.split('@')[0] || "User");
           }
         }
         setIsAuthChecked(true);
       } catch (error) {
-        console.error("Auth check failed:", error);
+        toast.error("Authentication failed!");
         setIsAuthenticated(false);
         setIsAuthChecked(true);
       }
@@ -224,15 +227,19 @@ export function Navbar() {
   }, []);
 
   const handleLogout = async () => {
+    triggerRender();
     try {
       await signOut({ redirect: false });
       Object.keys(Cookies.get()).forEach(cookie => Cookies.remove(cookie));
       setIsAuthenticated(false);
       setIsDropdownOpen(false);
       triggerRender();
-      router.push("/");
+      toast.success("logout successfully!");
+      setTimeout(()=>{
+        router.push("/");
+      },1000);
     } catch (error) {
-      console.error("Logout failed:", error);
+      toast.error("logout failed!")
     }
   };
 
@@ -268,6 +275,7 @@ export function Navbar() {
                   </div>
                   <button
                     onClick={() => {
+                      triggerRender();
                       router.push("/whishlist");
                       setIsDropdownOpen(false);
                     }}
@@ -286,6 +294,7 @@ export function Navbar() {
                   </button>
                   <button
                     onClick={() => {
+                      triggerRender();
                       router.push("/updateprofile");
                       setIsDropdownOpen(false);
                     }}
@@ -295,6 +304,7 @@ export function Navbar() {
                   </button>
                   <button
                     onClick={() => {
+                      triggerRender();
                       router.push("/findproduct");
                       setIsDropdownOpen(false);
                     }}
@@ -304,6 +314,7 @@ export function Navbar() {
                   </button>
                   <button
                     onClick={() => {
+                      triggerRender();
                       router.push("/cart");
                       setIsDropdownOpen(false);
                     }}
@@ -354,6 +365,7 @@ export function Navbar() {
       animate={{ y: 0 }}
       className="sticky top-0 z-50 bg-white shadow-sm"
     >
+      <Toaster position="top-right"/>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">

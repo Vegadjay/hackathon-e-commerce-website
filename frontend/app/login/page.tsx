@@ -4,8 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast, Toaster } from 'react-hot-toast'
 import { signIn, useSession } from 'next-auth/react';
 import { useRenderContext } from "@/contexts/RenderContext";
 import Cookies from 'js-cookie';
@@ -139,6 +138,9 @@ export default function Login() {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-red-50 via-red-100 to-red-200">
+      <Toaster
+        position="top-right"
+      />
       <div className="absolute inset-0 -z-10">
         <motion.div
           animate={{
@@ -258,12 +260,6 @@ export default function Login() {
           </div>
         </motion.div>
       </div>
-
-      <ToastContainer
-        position="bottom-right"
-        autoClose={3000}
-        theme="light"
-      />
     </div>
   );
 }

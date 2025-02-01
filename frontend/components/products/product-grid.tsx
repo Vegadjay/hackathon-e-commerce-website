@@ -96,7 +96,7 @@ function MainComponent() {
 
   return (
     <motion.div
-      className="mx-auto max-w-[1800px] px-4 sm:px-6 lg:px-8"
+      className="mx-auto w-screen px-4 sm:px-6 lg:px-8"
       initial="hidden"
       animate="visible"
       variants={pageTransition}
