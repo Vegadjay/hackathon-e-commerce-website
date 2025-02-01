@@ -12,8 +12,8 @@
 [![Vercel](https://img.shields.io/badge/vercel-deployed-success)](https://rajwadiposhak.vercel.app)
 
 [Demo](https://rajwadiposhak.vercel.app) •
-[Report Bug](https://github.com/Vegadjay/hackathon-e-commerce-website/issues) •
-[Request Feature](https://github.com/Vegadjay/hackathon-e-commerce-website/issues)
+[Report Bug](https://github.com/Vegadjay/Rajwadi-Poshak-Ecommerce/issues) •
+[Request Feature](https://github.com/Vegadjay/Rajwadi-Poshak-Ecommerce/issues)
 
 </div>
 
@@ -215,8 +215,8 @@ Python >= 3.11 (for AI server)
 ### 🔧 Development Setup
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/rajwadi-poshak.git
-cd rajwadi-poshak
+git clone https://github.com/yourusername/Rajwadi-Poshak-Ecommerce.git
+cd Rajwadi-Poshak-Ecommerce
 
 # Install dependencies
 npm install
@@ -291,9 +291,3 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 ---
 
 <p align="center">👗 Elevating Traditional Fashion with Modern Technology ✨</p>
-
-<p align="center">
-<a href="https://vercel.com?utm_source=rajwadi-poshak">
-  <img src="/api/placeholder/150/50" alt="Powered by Vercel" />
-</a>
-</p>
