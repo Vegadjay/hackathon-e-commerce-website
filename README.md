@@ -273,7 +273,7 @@ npm run dev
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
 ## 🤝 Contributing
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTE.md) for details.
 
 ### 📋 Development Process
 1. Fork the repository
