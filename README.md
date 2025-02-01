@@ -226,13 +226,6 @@ cp .env.example .env
 
 # Run development server
 npm run dev
-
-# For AI server (in separate terminal)
-cd ai-server
-python -m venv venv
-source venv/bin/activate  # or `venv\Scripts\activate` on Windows
-pip install -r requirements.txt
-python app.py
 ```
 
 ## 📈 Performance Metrics
