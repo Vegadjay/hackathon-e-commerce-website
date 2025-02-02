@@ -38,6 +38,7 @@ const categories = [
 const basePath = '/customer';
 const information = [
   { title: 'About Us', href: '/aboutus' },
+  { title: 'Admin ', href: '/admin' },
   { title: 'Exchange/Return Policy', href: `${basePath}/returnpolicy` },
   { title: 'Track Your Order', href: `/trackyourorder` },
   { title: 'Privacy Policy', href: `${basePath}/privacypolicy` },

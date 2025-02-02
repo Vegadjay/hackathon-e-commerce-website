@@ -45,7 +45,7 @@ const Loader = () => {
 	};
 
 	return (
-		<div className="flex items-center justify-center h-screen w-screen bg-gradient-to-b from-white to-red-100">
+		<div className="flex items-center justify-center h-screen w-[99vw] bg-gradient-to-b from-white to-red-100">
 			<div className="relative">
 				{/* Decorative circles in background */}
 				<div className="absolute inset-0 -m-8">

@@ -11,7 +11,7 @@ const AdminLayout = ({ children }: { children: ReactNode }) => {
 		const role = Cookies.get("role");
 
 		if (role !== "webadmin") {
-			router.replace("/");
+			router.replace("/admin");
 		} else {
 			setIsAuthorized(true);
 		}
