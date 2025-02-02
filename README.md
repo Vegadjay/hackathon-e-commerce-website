@@ -235,6 +235,42 @@ pip install -r requirements.txt
 python app.py
 ```
 
+## 🧠 AI server setup
+```bash
+# change the current directory to "backend"
+cd backend
+
+# installing required dependancy
+pip install -r requirements.txt
+
+# start the server on port 5000
+python webapp.py
+
+```
+## Note: Custom AI Model Training
+
+If you wish to train the AI model with your own dataset, please follow these steps:
+
+1. **Prepare Your Dataset:**  
+   - Navigate to the `dataset` folder.  
+   - Add your images to this folder.
+
+2. **Train the Model:**  
+   - Open the `aimodel.ipynb` notebook.  
+   - Run all cells to train the model.  
+   - You may rename the generated `.pkl` files as needed.
+
+3. **Update the Server Configuration:**  
+   - Modify the file paths for your `.pkl` files in `webapp.py` to match your new filenames.
+
+4. **Restart the AI Server:**  
+   - Run the command:  
+     ```bash
+     python webapp.py
+     ```  
+
+This will deploy your custom-trained AI model. Enjoy tailoring your AI experience!
+
 ## 📈 Performance Metrics
 
 ### ⚡ Core Web Vitals
