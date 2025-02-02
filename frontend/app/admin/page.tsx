@@ -1,11 +1,10 @@
 'use client'
 
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast, Toaster } from 'react-hot-toast';
 import 'react-toastify/dist/ReactToastify.css';
-import { useRenderContext } from "@/contexts/RenderContext";
 import Cookies from 'js-cookie';
 import { User, Lock, Mail, ArrowRight } from 'lucide-react';
 
@@ -72,8 +71,6 @@ export default function Login() {
 	});
 	const [isLoading, setIsLoading] = useState(false);
 	const router = useRouter();
-	const { triggerRender } = useRenderContext();
-	const admins = (process.env.NEXT_PUBLIC_ADMINS)?.split(",");
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
@@ -110,7 +107,7 @@ export default function Login() {
 					toast.error(result.message || 'Login failed, you are not admin.');
 				}
 			}
-			else{
+			else {
 				toast.error(result.message || 'Login failed, please try again.');
 			}
 		} catch (error) {
@@ -129,8 +126,16 @@ export default function Login() {
 		}));
 	};
 
+	useEffect(()=>{
+		const role = Cookies.get("role");
+		if(role == "webadmin"){
+			router.push("/admin/dashboard");
+		}
+	},[]);
+
 	return (
 		<div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-red-50 via-red-100 to-red-200">
+			<Toaster position="bottom-right" />
 			<div className="absolute inset-0 -z-10">
 				<motion.div
 					animate={{
@@ -228,12 +233,6 @@ export default function Login() {
 					</div>
 				</motion.div>
 			</div>
-
-			<ToastContainer
-				position="bottom-right"
-				autoClose={3000}
-				theme="light"
-			/>
 		</div>
 	);
 }

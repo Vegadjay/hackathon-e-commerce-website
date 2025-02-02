@@ -29,7 +29,7 @@ export default function AnimatedCheckout() {
     const [openInvoice, setOpenInvoice] = useState(false);
     const [activeTab, setActiveTab] = useState<string>('products')
     const [paymentMethod, setPaymentMethod] = useState<string>('cod');
-    const [couponValue, setCouponValue] = useState<number>(100)
+    const [couponValue, setCouponValue] = useState<number>(0)
     const [orderNotes, setOrderNotes] = useState('')
     const [urgent, setUrgent] = useState<boolean>(false)
     const [spinner, setSpinner] = useState<string>("");
@@ -91,7 +91,7 @@ export default function AnimatedCheckout() {
             }).then((res) => res.json());
             if (response.success) {
                 setOpenInvoice(true);
-                toast.error("order placed successfully!")
+                toast.success("order placed successfully!")
             }
             else {
                 toast.error("failed to place order!")
@@ -246,6 +246,58 @@ export default function AnimatedCheckout() {
         rzp1.open();
     };
 
+    const handleApplyCoupon = async () => {
+        setSpinner("coupon")
+        if (!couponCode) {
+            toast.error("Please enter the coupon code first!");
+            setSpinner("")
+            return;
+        }
+
+        try {
+            const response = await fetch(`/api/coupon/${couponCode}`);
+            const data = await response.json();
+
+            if (response.ok && data.success) {
+                const coupon = data.data;
+                const initialTotalPrice = products.totalPrice;
+
+                let discountAmount = 0;
+
+                if (coupon.discountType === 'percentage') {
+                    discountAmount = (initialTotalPrice * coupon.discountValue) / 100;
+                    // Apply max discount amount if specified
+                    if (coupon.maxDiscountAmount && discountAmount > coupon.maxDiscountAmount) {
+                        discountAmount = coupon.maxDiscountAmount;
+                    }
+                } else if (coupon.discountType === 'fixed') {
+                    discountAmount = coupon.discountValue;
+                }
+
+                // Ensure discount doesn't exceed the initial total price
+                if (discountAmount > initialTotalPrice) {
+                    discountAmount = initialTotalPrice;
+                }
+
+                // Calculate the final payable amount after applying the discount
+                const finalPayableAmount = discountAmount;
+
+                // Update the state with the discounted price
+                setCouponValue(finalPayableAmount);
+                toast.success("Coupon applied successfully!");
+            } else {
+                toast.error(data.error || "Failed to apply coupon code.");
+            }
+        } catch (error) {
+            console.error("Error applying coupon:", error);
+            toast.error("An unexpected error occurred. Please try again later.");
+        }
+        finally {
+            setSpinner("");
+        }
+    };
+
+
     useEffect(() => {
 
         fetchAllRequiredData();
@@ -389,6 +441,7 @@ export default function AnimatedCheckout() {
                                                     checked={paymentMethod === 'bank_transfer'}
                                                     onChange={() => setPaymentMethod('bank_transfer')}
                                                     className="form-radio text-red-600"
+                                                    disabled={paymentStatus === 'completed'}
                                                 />
                                                 <span>Razorpay</span>
                                             </label>
@@ -400,6 +453,7 @@ export default function AnimatedCheckout() {
                                                     checked={paymentMethod === 'cod'}
                                                     onChange={() => setPaymentMethod('cod')}
                                                     className="form-radio text-red-600"
+                                                    disabled={paymentStatus === 'completed'}
                                                 />
                                                 <span>Cash on Delivery</span>
                                             </label>
@@ -415,10 +469,13 @@ export default function AnimatedCheckout() {
                                                 exit={{ opacity: 0, height: 0 }}
                                                 transition={{ duration: 0.3 }}
                                             >
-                                                <Button onClick={generateOrder} className='text-white'>
-                                                    {spinner == "payment" ?
-                                                        <LucideLoader className="w-4 h-4 animate-spin" /> : "Pay Online"
-                                                    }
+                                                <Button onClick={generateOrder} className='text-white'
+                                                    disabled={paymentStatus === "completed"}>
+                                                    {spinner == "payment" ? (
+                                                        <LucideLoader className="w-4 h-4 animate-spin" />
+                                                    ) : (
+                                                        paymentStatus === "completed" ? "Paid" : "Pay Online"
+                                                    )}
                                                 </Button>
                                             </motion.div>
                                         )}
@@ -444,11 +501,13 @@ export default function AnimatedCheckout() {
                                             checked={urgent}
                                             onChange={(e) => setUrgent(e.target.checked)}
                                             className="form-checkbox text-red-600"
+                                            disabled={paymentStatus=="completed"}
                                         />
                                         <Label htmlFor="urgent" className="ml-2">Urgent Delivery (Additional charges may apply)</Label>
                                     </div>
                                     <div>
                                         <Label htmlFor="couponCode">Coupon Code</Label>
+                                        <p className="text-xs text-red-600 mt-2 ml-1 font-semibold">Try DEAL25</p>
                                         <div className="flex mt-1">
                                             <Input
                                                 id="couponCode"
@@ -456,8 +515,15 @@ export default function AnimatedCheckout() {
                                                 onChange={(e) => setCouponCode(e.target.value)}
                                                 placeholder="Enter coupon code"
                                                 className="flex-grow"
+                                                disabled={couponValue > 0 ? true : false}
                                             />
-                                            <Button variant="outline" className="ml-2">Apply</Button>
+                                            <Button variant="outline" className="ml-2 text-black hover:text-white" onClick={handleApplyCoupon} disabled={couponValue > 0 ? true : false}>
+                                                {spinner == "coupon" ?
+                                                    <LucideLoader className="w-4 h-4 animate-spin" /> : <>
+                                                        Apply
+                                                    </>
+                                                }
+                                            </Button>
                                         </div>
                                     </div>
                                     <div className="bg-red-100 p-4 rounded-md">
@@ -470,10 +536,11 @@ export default function AnimatedCheckout() {
                                             <span>Shipping:</span>
                                             <span>+ ₹99</span>
                                         </div>
-                                        <div className="flex justify-between mt-2">
-                                            <span>Coupon:</span>
-                                            <span>- ₹{couponValue}</span>
-                                        </div>
+                                        {couponValue > 0 &&
+                                            <div className="flex justify-between mt-2">
+                                                <span>Coupon:</span>
+                                                <span>- ₹{couponValue}</span>
+                                            </div>}
                                         <div className="flex justify-between mt-2">
                                             <span>CGST (9%):</span>
                                             <span>+ ₹{((products.totalPrice) * 0.09).toFixed(2)}</span>
