@@ -49,7 +49,7 @@ export const Compare = ({
             const percentage = progress <= 1 ? progress * 100 : (2 - progress) * 100;
 
             setSliderXPercent(percentage);
-            autoplayRef.current = setTimeout(animate, 16); // ~60fps
+            autoplayRef.current = setTimeout(animate, 16);
         };
 
         animate();
@@ -150,10 +150,11 @@ export const Compare = ({
     return (
         <div
             ref={sliderRef}
-            className={cn("w-[400px] h-[400px] overflow-hidden", className)}
+            className={cn("w-full h-screen max-h-[1200px] ", className)}
             style={{
                 position: "relative",
                 cursor: slideMode === "drag" ? "grab" : "col-resize",
+                objectFit: "cover",
             }}
             onMouseMove={handleMouseMove}
             onMouseLeave={mouseLeaveHandler}
@@ -203,6 +204,7 @@ export const Compare = ({
                             )}
                             style={{
                                 clipPath: `inset(0 ${100 - sliderXPercent}% 0 0)`,
+                                objectFit: "cover",
                             }}
                             transition={{ duration: 0 }}
                         >
@@ -210,7 +212,7 @@ export const Compare = ({
                                 alt="first image"
                                 src={firstImage}
                                 className={cn(
-                                    "absolute inset-0  z-20 rounded-2xl flex-shrink-0 w-full h-full select-none",
+                                    "absolute inset-0 z-20 rounded-2xl flex-shrink-0 w-full h-full select-none object-cover",
                                     firstImageClassName
                                 )}
                                 draggable={false}
@@ -224,7 +226,7 @@ export const Compare = ({
                 {secondImage ? (
                     <motion.img
                         className={cn(
-                            "absolute top-0 left-0 z-[19]  rounded-2xl w-full h-full select-none",
+                            "absolute top-0 left-0 z-[19] rounded-2xl w-full h-full select-none object-cover",
                             secondImageClassname
                         )}
                         alt="second image"

@@ -57,6 +57,11 @@ const DashboardStats = () => {
         router.push("/admin/dashboard/users")
     }
 
+    const handleChangeProduct = () => {
+        setIsLoading(true);
+        router.push('/admin/dashboard/changeproduct')
+    }
+
     const stats = orderStats ? [
         {
             title: 'Today Order',
@@ -132,7 +137,7 @@ const DashboardStats = () => {
 
     if (isLoading) {
         return (
-            <Loader/>
+            <Loader />
         );
     }
 
@@ -183,19 +188,26 @@ const DashboardStats = () => {
                     <h3 className="text-lg font-semibold">Last Year Sales Overview (2024)</h3>
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-5">
                         <button
-                            className="p-4 bg-blue-300 border border-black rounded-full h-10 w-full sm:w-56 flex items-center justify-center"
+                            className="p-4 bg-orange-300 border border-black rounded-full h-10 w-full sm:w-56 flex items-center justify-center"
                             onClick={handleCheckUser}
                         >
-                            Check All Users
+                            Check All Customers
                         </button>
                         <button
-                            className="p-4 bg-red-300 border border-black rounded-full h-10 w-full sm:w-56 flex items-center justify-center"
+                            className="p-4 bg-white border border-black rounded-full h-10 w-full sm:w-56 flex items-center justify-center"
                             onClick={handleChnagePage}
                         >
                             Check All Orders
                         </button>
+                        <button
+                            className="p-4 bg-green-300 border border-black rounded-full h-10 w-full sm:w-56 flex items-center justify-center"
+                            onClick={handleChangeProduct}
+                        >
+                            Add Hero Product
+                        </button>
                     </div>
                 </div>
+                
                 <ResponsiveContainer width="100%" height={400}>
                     <LineChart
                         data={product[0].chartData}

@@ -1,7 +1,4 @@
 "use client";
-
-
-//  todo: Add sizing in this code
 import { useState, useCallback, useEffect } from "react";
 import { products } from "@/lib/data";
 import { Slider } from "@/components/ui/slider";
@@ -17,7 +14,6 @@ import {
 import { PlaceholdersAndVanishInput } from "@/components/ui/placeholders-and-vanish-input";
 import { AnimatePresence, motion } from "framer-motion";
 
-// Custom debounce hook
 const useDebounce = (callback: Function, delay: number) => {
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
 
@@ -46,6 +42,8 @@ interface ProductFiltersProps {
   onSearchChange: (value: string) => void;
   priceRange: number[];
   onPriceRangeChange: (range: number[]) => void;
+  selectedColors: string[];
+  onColorChange: (colors: string[]) => void;
   selectedSizes: string[];
   onSizesChange: (size: string[]) => void;
   className?: string;
@@ -60,6 +58,8 @@ export function ProductFilters({
   onSearchChange,
   priceRange,
   onPriceRangeChange,
+  selectedColors,
+  onColorChange,
   selectedSizes,
   onSizesChange,
   className = "",
@@ -73,6 +73,7 @@ export function ProductFilters({
 
   const uniqueCategories = ["All", ...Array.from(new Set(products.map((p) => p.category)))];
   const uniqueSizes = Array.from(new Set(products.flatMap((p) => p.size || [])));
+  const uniqueColors = Array.from(new Set(products.flatMap((p) => p.color || ["red"])));
 
   const minPrice = Math.min(...products.map(p => p.price));
   const maxPrice = Math.max(...products.map(p => p.price));
@@ -135,6 +136,14 @@ export function ProductFilters({
       : [...selectedSizes, size];
     onSizesChange(updatedSizes);
     filterProducts(selectedCategory, searchTerm, localPriceRange, updatedSizes);
+  };
+
+  const handleColorToggle = (color: string) => {
+    const updatedColors = selectedColors.includes(color)
+      ? selectedColors.filter(c => c !== color)
+      : [...selectedColors, color];
+    onColorChange(updatedColors); // Use onColorChange instead of onSizesChange
+    filterProducts(selectedCategory, searchTerm, localPriceRange, selectedSizes);
   };
 
   const filterProducts = (
@@ -271,6 +280,7 @@ export function ProductFilters({
         </div>
       </div>
 
+
       {uniqueSizes.length > 0 && (
         <div className="space-y-2">
           <h3 className="text-sm font-medium">Sizes</h3>
@@ -294,7 +304,32 @@ export function ProductFilters({
         </div>
       )}
 
-      {/* Sort By */}
+
+      {/* {uniqueColors.length > 0 && (
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium">Colors</h3>
+          <div className="space-y-2">
+            {uniqueColors.map((color) => (
+              <div key={color} className="flex items-center space-x-2">
+                <Checkbox
+                  id={`color-${color}`}
+                  checked={selectedColors?.includes(color) ?? false}
+                  onCheckedChange={() => handleColorToggle(color)}
+                />
+                <label
+                  htmlFor={`color-${color}`}
+                  className="text-sm text-neutral-600"
+                >
+                  {color}
+                </label>
+              </div>
+            ))}
+          </div>
+        </div>
+      )} */}
+
+
+
       <div className="space-y-2">
         <h3 className="text-sm font-medium">Sort By</h3>
         <Select value={sortBy} onValueChange={handleSortChange}>

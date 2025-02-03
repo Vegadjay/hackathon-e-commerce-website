@@ -126,12 +126,12 @@ export default function Login() {
 		}));
 	};
 
-	useEffect(()=>{
+	useEffect(() => {
 		const role = Cookies.get("role");
-		if(role == "webadmin"){
+		if (role == "webadmin") {
 			router.push("/admin/dashboard");
 		}
-	},[]);
+	}, []);
 
 	return (
 		<div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-red-50 via-red-100 to-red-200">

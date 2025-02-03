@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import { useRouter } from "next/navigation";
-import { Star, Heart, Share2, Check, AlertCircle, Facebook, Twitter, Plus, Minus, Linkedin } from "lucide-react";
+import { Star, Heart, Share2, Check, AlertCircle, Facebook, Twitter, Plus, Minus, Linkedin, GitCompare } from "lucide-react";
 import { FaWhatsapp } from 'react-icons/fa';
 import Link from 'next/link';
 import { motion, AnimatePresence } from "framer-motion";
@@ -20,9 +20,10 @@ const Product: React.FC<ProductProps> = ({ product }) => {
   const router = useRouter();
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState(product.size ? product.size[0] : '5 meter');
+  const [selectedColor, setSelectedColor] = useState(product.color ? product.color[0] : 'Red Color');
   const [isSaved, setIsSaved] = useState(false);
   const [showShareMenu, setShowShareMenu] = useState(false);
-  const [simmilarProducts,setSimmilarProducts] = useState<any>([]);
+  const [simmilarProducts, setSimmilarProducts] = useState<any>([]);
 
   useEffect(() => {
     const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
@@ -34,8 +35,8 @@ const Product: React.FC<ProductProps> = ({ product }) => {
   }, [product._id]);
 
   const fetchMoreLikeThis = async () => {
-    const res = await fetch(`/api/product/category/${product.category}`).then((res)=>res.json());
-    if(res.success){
+    const res = await fetch(`/api/product/category/${product.category}`).then((res) => res.json());
+    if (res.success) {
       setSimmilarProducts(res.data);
     }
   }
@@ -216,14 +217,14 @@ const Product: React.FC<ProductProps> = ({ product }) => {
                   {isSaved ? 'Saved' : 'Save'}
                 </motion.button>
 
-                <Link href="/product/compare">
+                <Link href={`/product/compare/${product.name}`}>
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 text-gray-600 hover:text-blue-500"
+                    className="flex items-center gap-2 text-gray-600 hover:text-yellow-500"
                   >
-                    <Compare className="w-5 h-5" />
-                    Compare
+                    <GitCompare />
+                    Compare Products
                   </motion.button>
                 </Link>
               </div>
@@ -313,6 +314,36 @@ const Product: React.FC<ProductProps> = ({ product }) => {
                   {product.size == undefined ? <h1>5 meter</h1> : null}
                 </div>
               </div>
+
+              <div className="space-y-2">
+                <label className="block text-sm font-medium text-gray-700">Colors <span className='text-red-400'>(* This is optional field Colors are not right)</span></label>
+                <div className="flex gap-2 flex-wrap">
+                  {product.color && product.color.length > 0 && (
+                    <div className="space-y-2 mt-4">
+                      <div className="flex gap-2 flex-wrap">
+                        {product.color.map((color: string) => (
+                          <motion.button
+                            key={color}
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                            onClick={() => setSelectedColor(color)}
+                            className={`
+                          w-8 h-8 rounded-full border-2 
+                          ${selectedColor === color
+                                ? 'ring-2 ring-offset-2 ring-red-500'
+                                : 'hover:ring-1 hover:ring-gray-300'}
+                        `}
+                            style={{ backgroundColor: color }}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {product.color == undefined ? <h1>Red Color</h1> : null}
+                </div>
+              </div>
+
+
 
               <div className="space-y-2">
                 <label className="block text-sm font-medium text-gray-700">Quantity</label>

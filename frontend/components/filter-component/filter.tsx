@@ -16,6 +16,7 @@ const Filtercomponent = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [priceRange, setPriceRange] = useState([0, 10000]);
     const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
+    const [selectedColors, setSelectedColors] = useState<string[]>([]);
     const [isScrolled, setIsScrolled] = useState(false);
     const [showFilters, setShowFilters] = useState(true);
 
@@ -49,7 +50,7 @@ const Filtercomponent = () => {
         }, 500);
 
         return () => clearTimeout(timer);
-    }, [selectedCategory, sortBy, searchQuery, priceRange, selectedSizes]);
+    }, [selectedCategory, sortBy, searchQuery, priceRange, selectedSizes, selectedColors]); // Added selectedColors
 
     const getFilteredProducts = () => {
         return products.filter(product => {
@@ -72,6 +73,12 @@ const Filtercomponent = () => {
 
             if (selectedSizes.length > 0) {
                 if (!product.size?.some(size => selectedSizes.includes(size))) {
+                    return false;
+                }
+            }
+
+            if (selectedColors.length > 0) {
+                if (!product.color?.some(color => selectedColors.includes(color))) {
                     return false;
                 }
             }
@@ -99,6 +106,7 @@ const Filtercomponent = () => {
         setSearchQuery("");
         setPriceRange([0, 10000]);
         setSelectedSizes([]);
+        setSelectedColors([]); // Reset colors
     };
 
     const filteredAndSortedProducts = getFilteredProducts();
@@ -161,7 +169,9 @@ const Filtercomponent = () => {
                         onPriceRangeChange={setPriceRange}
                         selectedSizes={selectedSizes}
                         onSizesChange={setSelectedSizes}
+                        selectedColors={selectedColors}
                         // @ts-ignore
+                        onColorsChange={setSelectedColors}
                         onReset={resetFilters}
                     />
                 </div>
