@@ -64,21 +64,21 @@ export default function ProductDetails({ params }: PageProps) {
                             <Input
                                 value={editedProduct?.name}
                                 onChange={(e) => setEditedProduct({ ...editedProduct, name: e.target.value })}
-                                className="text-3xl font-bold"
+                                className="text-3xl font-bold w-[95%]"
                             />
                         ) : (
                             <h1 className="text-3xl font-bold text-gray-900">{product.name}</h1>
                         )}
                         <p className="text-gray-500 mt-2">Model: {product.model}</p>
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex gap-1 -mt-7">
                         {isEditing ? (
                             <>
-                                <Button onClick={handleSave} className="flex items-center">
+                                <Button onClick={handleSave} className="flex items-center text-white">
                                     <Save className="w-4 h-4 mr-2" />
                                     Save
                                 </Button>
-                                <Button onClick={handleCancel} variant="outline" className="flex items-center">
+                                <Button onClick={handleCancel} variant="outline" className="flex items-center text-black hover:text-white">
                                     <X className="w-4 h-4 mr-2" />
                                     Cancel
                                 </Button>
@@ -139,7 +139,7 @@ export default function ProductDetails({ params }: PageProps) {
                         ) : (
                             <div className="flex items-center gap-2">
                                 <div className="text-2xl font-bold">{product.inStock}</div>
-                                <Badge variant={product.inStock ? "default" : "destructive"}>
+                                <Badge variant={product.inStock ? "default" : "destructive"} className='text-white'>
                                     {product.inStock ? 'In Stock' : 'Out of Stock'}
                                 </Badge>
                             </div>
