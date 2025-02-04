@@ -56,6 +56,10 @@ const DashboardStats = () => {
         setIsLoading(true);
         router.push("/admin/dashboard/users")
     }
+    const handleAddNewProduct = () => {
+        setIsLoading(true);
+        router.push("/admin/dashboard/manageproducts")
+    }
 
     const handleChangeProduct = () => {
         setIsLoading(true);
@@ -188,6 +192,12 @@ const DashboardStats = () => {
                     <h3 className="text-lg font-semibold">Last Year Sales Overview (2024)</h3>
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-5">
                         <button
+                            className="p-4 bg-blue-300 border border-black rounded-full h-10 w-full sm:w-56 flex items-center justify-center"
+                            onClick={handleAddNewProduct}
+                        >
+                            Manage Products
+                        </button>
+                        <button
                             className="p-4 bg-orange-300 border border-black rounded-full h-10 w-full sm:w-56 flex items-center justify-center"
                             onClick={handleCheckUser}
                         >
@@ -207,7 +217,7 @@ const DashboardStats = () => {
                         </button>
                     </div>
                 </div>
-                
+
                 <ResponsiveContainer width="100%" height={400}>
                     <LineChart
                         data={product[0].chartData}

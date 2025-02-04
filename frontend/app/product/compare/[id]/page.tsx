@@ -110,7 +110,6 @@ export function ProductSearchCompare() {
 
         return (
             <div className="grid grid-cols-2 gap-8 mt-8 bg-white rounded-2xl shadow-lg p-8">
-                {/* Comparison Grid */}
                 <div className="space-y-6">
                     <h3 className="text-xl font-bold text-red-800 border-b pb-2">Product Details</h3>
                     <div className="grid grid-cols-2 gap-4">
@@ -135,7 +134,6 @@ export function ProductSearchCompare() {
                     </div>
                 </div>
 
-                {/* Specification Comparison */}
                 <div className="space-y-6">
                     <h3 className="text-xl font-bold text-red-800 border-b pb-2">Specifications Comparison</h3>
                     <table className="w-full">
@@ -182,7 +180,6 @@ export function ProductSearchCompare() {
                 </p>
             </motion.div>
 
-            {/* Search Inputs */}
             <motion.div
                 className="grid grid-cols-1 md:grid-cols-2 gap-16"
                 initial={{ opacity: 0, y: 20 }}
@@ -259,7 +256,6 @@ export function ProductSearchCompare() {
                 ))}
             </motion.div>
 
-            {/* Selected Products Preview */}
             <motion.div
                 className="flex justify-center items-center gap-16 mt-12 mb-12"
                 initial={{ opacity: 0 }}
@@ -310,7 +306,6 @@ export function ProductSearchCompare() {
                 ))}
             </motion.div>
 
-            {/* Visual and Detailed Comparison */}
             <AnimatePresence>
                 {selectedProducts[0] && selectedProducts[1] && (
                     <motion.div
@@ -318,7 +313,6 @@ export function ProductSearchCompare() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                     >
-                        {/* Visual Comparison */}
                         <div className="flex items-center justify-center mb-6">
                             <Layers className="w-6 h-6 text-red-600 mr-2" />
                             <h2 className="text-2xl fontbold text-red-800">Visual Comparison</h2>

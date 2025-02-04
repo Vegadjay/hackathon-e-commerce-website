@@ -9,8 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@hookform/resolvers": "^3.9.0",
     "@intercom/messenger-js-sdk": "^0.0.14",
+    "@mui/material": "^6.4.2",
+    "@mui/x-date-pickers": "^7.25.0",
     "@next/swc-wasm-nodejs": "13.5.1",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
@@ -61,6 +65,7 @@
     "cookies": "^0.9.1",
     "crypto": "^1.0.1",
     "date-fns": "^3.6.0",
+    "dayjs": "^1.11.13",
     "embla-carousel-react": "^8.3.0",
     "encoding": "^0.1.13",
     "eslint": "8.49.0",
