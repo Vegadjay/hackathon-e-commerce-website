@@ -9,9 +9,19 @@ import {
     Save,
     X,
     ChevronDown,
-    Calendar,
     Truck
 } from 'lucide-react';
+import { format } from "date-fns"
+import { CalendarIcon } from "lucide-react"
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import { Calendar } from "@/components/ui/calendar"
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+} from "@/components/ui/popover"
+
 
 const SIZE_OPTIONS = [
     'XS', 'S', 'M', 'L', 'XL',
@@ -67,6 +77,7 @@ const ProductCreationForm: React.FC = () => {
 
     const [newColor, setNewColor] = useState('');
     const [newFeature, setNewFeature] = useState('');
+    const [date, setDate] = React.useState<Date>()
     const [newChartData, setNewChartData] = useState({ month: '', revenue: 0 });
     const [imageFiles, setImageFiles] = useState<File[]>([]);
     const [imageError, setImageError] = useState('');
@@ -287,15 +298,28 @@ const ProductCreationForm: React.FC = () => {
                         <Truck className="absolute left-3 top-1/2 transform -translate-y-1/2 text-red-500" />
                     </div>
                     <div className="relative">
-                        <input
-                            type="date"
-                            name="deliveryDate"
-                            value={productData.deliveryDate}
-                            onChange={handleInputChange}
-                            className="w-full p-3 pl-10 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-300
-                text-gray-600 appearance-none"
-                        />
-                        <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-red-500" />
+                        <Popover>
+                            <PopoverTrigger asChild>
+                                <Button
+                                    variant={"outline"}
+                                    className={cn(
+                                        "w-[280px] gap-5 justify-start text-left font-normal",
+                                        !date && "text-muted-foreground hover:bg-red-500 h-12 w-full"
+                                    )}
+                                >
+                                    <CalendarIcon />
+                                    {date ? format(date, "PPP") : <span>Pick a date</span>}
+                                </Button>
+                            </PopoverTrigger>
+                            <PopoverContent className="w-auto p-0">
+                                <Calendar
+                                    mode="single"
+                                    selected={date}
+                                    onSelect={setDate}
+                                    initialFocus
+                                />
+                            </PopoverContent>
+                        </Popover>
                     </div>
                 </div>
 

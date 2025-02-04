@@ -35,7 +35,7 @@ const ProductDashboard: React.FC = () => {
             icon: Edit,
             color: 'bg-blue-500',
             hoverColor: 'hover:bg-blue-600',
-            path: '/admin/dashboard/manageproducts/updateproducts',
+            path: '/admin/dashboard/manageproducts/searchproduct',
             delay: 0.1
         },
         {
