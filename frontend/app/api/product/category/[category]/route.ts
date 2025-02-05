@@ -5,7 +5,6 @@ import Product from '@/models/Product';
 export async function GET(req: Request,
 	{ params }: { params: { category: string } }
 ) {
-	//get by category
 	const { category } = params;
 
 	if (!category) {
@@ -21,9 +20,11 @@ export async function GET(req: Request,
 			return NextResponse.json({ success: false, error: 'Products not found' }, { status: 404 });
 		}
 
-		if(products.length === 0){
-			return NextResponse.json({ success: false, error: 'No products found' }, { status:
-				404 });
+		if (products.length === 0) {
+			return NextResponse.json({ success: false, error: 'No products found' }, {
+				status:
+					404
+			});
 		}
 
 		return NextResponse.json({ success: true, data: products }, { status: 200 });

@@ -17,7 +17,6 @@ export async function GET(req: Request,
 
 	try {
 		await dbConnect();
-		// Find the product containing the file name in the images array
 		const product = await Product.findOne({ images: `/detailphotos/${url}` });
 		if (!product) {
 			const newUrl = url.replace("jpg", "webp");
