@@ -24,10 +24,15 @@ const SIZE_OPTIONS = [
 const COLOR_OPTIONS = [
     'Red', 'Blue', 'Green', 'Black', 'White',
     'Navy Blue', 'Gray', 'Maroon', 'Purple',
-    'Yellow', 'Pink', 'Orange'
+    'Yellow', 'Pink', 'Orange', 'Cyan', 'Magenta',
+    'Turquoise', 'Lime Green', 'Teal', 'Brown',
+    'Beige', 'Coral', 'Lavender', 'Gold', 'Silver',
+    'Olive', 'Mint Green', 'Peach', 'Burgundy',
+    'Charcoal', 'Sky Blue'
 ];
 
 interface ProductData {
+    _id?: string;
     name: string;
     price: number;
     rating: number;
@@ -46,9 +51,9 @@ interface ProductData {
 }
 
 const ProductUpdateForm: React.FC = () => {
-    const params = useParams();
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(true);
+    const [isSaving, setIsSaving] = useState(false);
     const [productData, setProductData] = useState<ProductData>({
         name: '',
         price: 0,
@@ -67,16 +72,12 @@ const ProductUpdateForm: React.FC = () => {
         chartData: []
     });
 
-    const [newColor, setNewColor] = useState('');
-    const [newFeature, setNewFeature] = useState('');
-    const [newChartData, setNewChartData] = useState({ month: '', revenue: 0 });
     const [isSizeDropdownOpen, setIsSizeDropdownOpen] = useState(false);
     const [isColorDropdownOpen, setIsColorDropdownOpen] = useState(false);
 
     useEffect(() => {
         const fetchProductData = async () => {
             try {
-                // Extract the product ID from the URL pathname
                 const pathname = window.location.pathname;
                 const productId = pathname.split('/').pop();
 
@@ -89,12 +90,25 @@ const ProductUpdateForm: React.FC = () => {
                     throw new Error('Failed to fetch product data');
                 }
 
-                const data = await response.json();
-                setProductData(data.data);
+                const result = await response.json();
+                console.log('Fetched product data:', result); // Debug log
+
+                if (result.success && result.data) {
+                    const formattedData = {
+                        ...result.data,
+                        color: Array.isArray(result.data.color) ? result.data.color : [],
+                        size: Array.isArray(result.data.size) ? result.data.size : [],
+                        features: Array.isArray(result.data.features) ? result.data.features : [],
+                    };
+                    console.log('Formatted data:', formattedData); // Debug log
+                    setProductData(formattedData);
+                } else {
+                    throw new Error(result.error || 'Failed to load product data');
+                }
             } catch (error) {
                 console.error('Error fetching product:', error);
-                alert('Failed to load product data');
-                router.push('/admin/dashboard/manageproduct');
+                toast.error('Failed to load product data');
+                router.push('/admin/dashboard/manageproducts');
             } finally {
                 setIsLoading(false);
             }
@@ -105,55 +119,98 @@ const ProductUpdateForm: React.FC = () => {
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
+        let parsedValue = value;
+
+        // Handle numeric fields
+        if (name === 'price' || name === 'inStock') {
+            parsedValue = (parseFloat(value) || 0).toString();
+        }
+
         setProductData(prev => ({
             ...prev,
-            [name]: value
+            [name]: parsedValue
         }));
     };
 
     const toggleSize = (size: string) => {
-        setProductData(prev => ({
-            ...prev,
-            size: prev.size.includes(size)
+        console.log('Before size toggle:', productData.size);
+        setProductData(prev => {
+            const newSizes = prev.size.includes(size)
                 ? prev.size.filter(s => s !== size)
-                : [...prev.size, size]
-        }));
+                : [...prev.size, size];
+            console.log('After size toggle:', newSizes);
+            return {
+                ...prev,
+                size: newSizes
+            };
+        });
     };
 
-    const toggleColor = (color: string) => {
-        setProductData(prev => ({
-            ...prev,
-            color: prev.color.includes(color)
+    const handleColorToggle = (color: string) => {
+        console.log('Before color toggle:', productData.color);
+        setProductData(prev => {
+            const newColors = prev.color.includes(color)
                 ? prev.color.filter(c => c !== color)
-                : [...prev.color, color]
-        }));
+                : [...prev.color, color];
+            console.log('After color toggle:', newColors);
+            return {
+                ...prev,
+                color: newColors
+            };
+        });
     };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
-        const pathname = window.location.pathname;
-        const productId = pathname.split('/').pop();
+        setIsSaving(true);
 
         try {
+            const pathname = window.location.pathname;
+            const productId = pathname.split('/').pop();
+
+            if (!productId) {
+                throw new Error('Product ID not found');
+            }
+
+            const dataToSend = {
+                ...productData,
+                price: Number(productData.price),
+                inStock: Number(productData.inStock),
+                rating: Number(productData.rating),
+                reviews: Number(productData.reviews),
+                // Explicitly ensure arrays are included
+                color: Array.isArray(productData.color) ? productData.color : [],
+                size: Array.isArray(productData.size) ? productData.size : [],
+                features: Array.isArray(productData.features) ? productData.features : []
+            };
+
+            // Log the data being sent
+            console.log('Sending update data:', dataToSend);
+
             const response = await fetch(`/api/product/${productId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(productData)
+                body: JSON.stringify(dataToSend)
             });
 
+            const result = await response.json();
+
+            // Log the response
+            console.log('Update response:', result);
+
             if (!response.ok) {
-                const error = await response.json();
-                throw new Error(error.message);
+                throw new Error(result.error || 'Failed to update product');
             }
 
             toast.success('Product Updated Successfully');
             router.push('/admin/dashboard/manageproducts');
         } catch (error) {
             console.error('Product update failed:', error);
-            toast.error('Some error occur');
+            toast.error(error instanceof Error ? error.message : 'Failed to update product');
+        } finally {
+            setIsSaving(false);
         }
     };
 
@@ -181,6 +238,7 @@ const ProductUpdateForm: React.FC = () => {
                 Update Product
             </h1>
 
+            {/* Basic Information */}
             <div className="grid md:grid-cols-2 gap-4">
                 <div className="relative">
                     <input
@@ -208,12 +266,12 @@ const ProductUpdateForm: React.FC = () => {
                 </div>
             </div>
 
+            {/* Size Selection */}
             <div className="relative">
                 <button
                     type="button"
                     onClick={() => setIsSizeDropdownOpen(!isSizeDropdownOpen)}
-                    className="w-full p-3 border rounded-lg flex items-center justify-between 
-                    focus:outline-none focus:ring-2 focus:ring-red-300"
+                    className="w-full p-3 border rounded-lg flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-red-300"
                 >
                     <span>
                         {productData.size?.length > 0
@@ -239,15 +297,15 @@ const ProductUpdateForm: React.FC = () => {
                 )}
             </div>
 
+            {/* Color Selection */}
             <div className="relative">
                 <button
                     type="button"
                     onClick={() => setIsColorDropdownOpen(!isColorDropdownOpen)}
-                    className="w-full p-3 border rounded-lg flex items-center justify-between 
-                    focus:outline-none focus:ring-2 focus:ring-red-300"
+                    className="w-full p-3 border rounded-lg flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-red-300"
                 >
                     <span>
-                        {productData.color.length > 0
+                        {productData.color?.length > 0
                             ? productData.color.join(', ')
                             : 'Select Colors'}
                     </span>
@@ -259,7 +317,7 @@ const ProductUpdateForm: React.FC = () => {
                         {COLOR_OPTIONS.map((color) => (
                             <div
                                 key={color}
-                                onClick={() => toggleColor(color)}
+                                onClick={() => handleColorToggle(color)}
                                 className={`p-2 cursor-pointer hover:bg-red-50 
                                 ${productData.color.includes(color) ? 'bg-red-100' : ''}`}
                             >
@@ -270,6 +328,7 @@ const ProductUpdateForm: React.FC = () => {
                 )}
             </div>
 
+            {/* Delivery and Date */}
             <div className="grid md:grid-cols-2 gap-4">
                 <div className="relative">
                     <input
@@ -295,6 +354,7 @@ const ProductUpdateForm: React.FC = () => {
                 </div>
             </div>
 
+            {/* Description */}
             <div className="relative">
                 <textarea
                     name="description"
@@ -306,6 +366,7 @@ const ProductUpdateForm: React.FC = () => {
                 <Plus className="absolute left-3 top-4 text-red-500" />
             </div>
 
+            {/* Stock and Category */}
             <div className="grid md:grid-cols-2 gap-4">
                 <div className="relative">
                     <input
@@ -331,6 +392,7 @@ const ProductUpdateForm: React.FC = () => {
                 </div>
             </div>
 
+            {/* Model and Seller */}
             <div className="grid md:grid-cols-2 gap-4">
                 <div className="relative">
                     <input
@@ -356,14 +418,56 @@ const ProductUpdateForm: React.FC = () => {
                 </div>
             </div>
 
-            <div className="flex space-x-4">
+            {/* Rating and Reviews */}
+            <div className="grid md:grid-cols-2 gap-4">
+                <div className="relative">
+                    <input
+                        type="number"
+                        name="rating"
+                        value={productData.rating}
+                        onChange={handleInputChange}
+                        placeholder="Rating (0-5)"
+                        min="0"
+                        max="5"
+                        step="0.1"
+                        className="w-full p-3 pl-10 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-300"
+                    />
+                    <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-red-500">★</span>
+                </div>
+                <div className="relative">
+                    <input
+                        type="number"
+                        name="reviews"
+                        value={productData.reviews}
+                        onChange={handleInputChange}
+                        placeholder="Number of Reviews"
+                        min="0"
+                        className="w-full p-3 pl-10 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-300"
+                    />
+                    <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-red-500">#</span>
+                </div>
+            </div>
+
+            {/* Submit and Cancel Buttons */}
+            <div className="flex space-x-4 pt-6">
                 <motion.button
                     type="submit"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex-1 flex items-center justify-center bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors"
+                    className="flex-1 flex items-center justify-center bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors disabled:bg-red-400"
+                    disabled={isSaving}
                 >
-                    <Save className="mr-2" /> Update Product
+                    {isSaving ? (
+                        <>
+                            <Loader2 className="animate-spin mr-2" />
+                            Updating...
+                        </>
+                    ) : (
+                        <>
+                            <Save className="mr-2" />
+                            Update Product
+                        </>
+                    )}
                 </motion.button>
 
                 <motion.button
@@ -372,10 +476,23 @@ const ProductUpdateForm: React.FC = () => {
                     whileTap={{ scale: 0.95 }}
                     onClick={() => router.push('/admin/dashboard/manageproducts')}
                     className="flex items-center justify-center bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors"
+                    disabled={isSaving}
                 >
-                    <X className="mr-2" /> Cancel
+                    <X className="mr-2" />
+                    Cancel
                 </motion.button>
             </div>
+
+            {/* Click Outside Handlers */}
+            {(isSizeDropdownOpen || isColorDropdownOpen) && (
+                <div
+                    className="fixed inset-0 z-0"
+                    onClick={() => {
+                        setIsSizeDropdownOpen(false);
+                        setIsColorDropdownOpen(false);
+                    }}
+                />
+            )}
         </motion.form>
     );
 };
