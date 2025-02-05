@@ -51,11 +51,12 @@ export async function PUT(req: any, { params }: any) {
 	try {
 		await connectToDatabase();
 		const productData = await req.json();
-		const updatedProduct = await Product.findByIdAndUpdate(productId, productData, { new: true, runValidators: true });
-
+		console.log(productData);
+		const updatedProduct = await Product.findByIdAndUpdate(productId, productData);
 		if (!updatedProduct) {
 			return NextResponse.json({ success: false, error: 'Product not found' }, { status: 404 });
 		}
+		// console.log(updatedProduct);
 
 		return NextResponse.json({ success: true, data: updatedProduct }, { status: 200 });
 	} catch (error) {

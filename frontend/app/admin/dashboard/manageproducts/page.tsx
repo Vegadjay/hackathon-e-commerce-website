@@ -73,6 +73,7 @@ const ManageProducts = () => {
     };
 
     const handleEditProduct = (productId: string) => {
+        setIsLoading(true);
         router.push(`/admin/dashboard/manageproducts/updateproducts/${productId}`);
     };
 

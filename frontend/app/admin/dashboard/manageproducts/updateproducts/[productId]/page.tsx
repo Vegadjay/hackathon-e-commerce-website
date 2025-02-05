@@ -7,12 +7,12 @@ import {
     X,
     ChevronDown,
     Calendar,
-    Truck,
-    Loader2
+    Truck
 } from 'lucide-react';
-import { useParams, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { toast, Toaster } from 'react-hot-toast';
 import 'react-toastify/dist/ReactToastify.css';
+import Loader from '@/components/Loader';
 
 const SIZE_OPTIONS = [
     'XS', 'S', 'M', 'L', 'XL',
@@ -46,7 +46,7 @@ interface ProductData {
 }
 
 const ProductUpdateForm: React.FC = () => {
-    const params = useParams();
+
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(true);
     const [productData, setProductData] = useState<ProductData>({
@@ -67,9 +67,6 @@ const ProductUpdateForm: React.FC = () => {
         chartData: []
     });
 
-    const [newColor, setNewColor] = useState('');
-    const [newFeature, setNewFeature] = useState('');
-    const [newChartData, setNewChartData] = useState({ month: '', revenue: 0 });
     const [isSizeDropdownOpen, setIsSizeDropdownOpen] = useState(false);
     const [isColorDropdownOpen, setIsColorDropdownOpen] = useState(false);
 
@@ -114,9 +111,9 @@ const ProductUpdateForm: React.FC = () => {
     const toggleSize = (size: string) => {
         setProductData(prev => ({
             ...prev,
-            size: prev.size.includes(size)
-                ? prev.size.filter(s => s !== size)
-                : [...prev.size, size]
+            size: (prev.size || []).includes(size)
+                ? (prev.size || []).filter(s => s !== size)
+                : [...(prev.size || []), size]
         }));
     };
 
@@ -143,7 +140,7 @@ const ProductUpdateForm: React.FC = () => {
                 },
                 body: JSON.stringify(productData)
             });
-
+            console.log(response);
             if (!response.ok) {
                 const error = await response.json();
                 throw new Error(error.message);
@@ -159,12 +156,7 @@ const ProductUpdateForm: React.FC = () => {
 
     if (isLoading) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-red-50 to-red-100">
-                <div className="flex items-center space-x-2">
-                    <Loader2 className="animate-spin text-red-600" />
-                    <span className="text-red-600 font-medium">Loading product data...</span>
-                </div>
-            </div>
+            <Loader/>
         );
     }
 
@@ -230,7 +222,7 @@ const ProductUpdateForm: React.FC = () => {
                                 key={size}
                                 onClick={() => toggleSize(size)}
                                 className={`p-2 cursor-pointer hover:bg-red-50 
-                                ${productData.size.includes(size) ? 'bg-red-100' : ''}`}
+                                ${productData.size?.includes(size) ? 'bg-red-100' : ''}`}
                             >
                                 {size}
                             </div>
