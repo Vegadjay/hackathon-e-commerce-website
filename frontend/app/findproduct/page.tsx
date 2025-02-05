@@ -99,7 +99,7 @@ function FileUploadDemo() {
                 method: "POST",
                 body: formData,
             })
-            // const response = await fetch(`${python_url}/recommend`, {
+            // const response = await fetch(`http://localhost:5000/recommend`, {
             //     method: "POST",
             //     body: formData,
             // })

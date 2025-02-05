@@ -6,6 +6,7 @@ import { PieChart, Pie, Tooltip, Legend, ResponsiveContainer, Cell, BarChart, Ba
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Slider } from "@/components/ui/slider"
 import { Badge } from "@/components/ui/badge"
+import Link from 'next/link';
 
 interface Product {
 	id: number
@@ -229,7 +230,7 @@ const ProductDetail = ({ products }: { products: Product[] }) => {
 					<ul className="list-disc pl-5">
 						{filteredProducts.slice(0, 5).map((product) => (
 							<li key={product.id} className="text-sm text-gray-600">
-								{product.name} - ₹{product.price} - Rating: {product.rating}
+								<Link href={`/admin/dashboard/category/${product.category}/${product.id}`}>{product.name} - ₹{product.price} - Rating: {product.rating}</Link>
 							</li>
 						))}
 						{filteredProducts.length > 5 && (

@@ -65,7 +65,7 @@ export default function Footer() {
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-[#f8f3ed]/70" />
+        <div className="absolute inset-0 bg-[#f8f3ed]/80" />
       </div>
 
       <motion.div

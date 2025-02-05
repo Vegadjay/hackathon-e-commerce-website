@@ -32,13 +32,13 @@ export function ProductCard({ _id, name, price, description, category, images }:
             height={400}
             className="h-[30rem] w-[30rem] -mt-5 object-cover transition-all duration-500 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          {/* <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
             <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full transition-transform duration-300 group-hover:translate-y-0">
               <p className="text-sm line-clamp-2">
                 {description || "Explore this amazing product and discover its features."}
               </p>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="flex flex-col justify-between p-4 h-full">
