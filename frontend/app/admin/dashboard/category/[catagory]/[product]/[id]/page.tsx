@@ -97,10 +97,14 @@ export default function ProductDetails({ params }: PageProps) {
 
     const handleEdit = async () => {
         setLoading(true);
+        console.log(product);
         try {
             const data = await fetch(`/api/product/name/${product.name}-${product.price}-${product.category}`).then((res) => res.json());
             if (data.success) {
                 router.push(`/admin/dashboard/manageproducts/updateproducts/${data.data._id}`)
+            }
+            else {
+                throw new Error("Failed to fetch product details");
             }
         }
         catch (err) {
