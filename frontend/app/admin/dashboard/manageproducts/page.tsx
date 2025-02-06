@@ -1,12 +1,15 @@
 'use client'
-import React, { useEffect, useState } from 'react';
-import { Package, Plus, Search, Edit, Trash2, AlertCircle, ImageOff, SlidersHorizontal } from 'lucide-react';
+
+import React, { useEffect, useState, useCallback } from 'react';
+import { Package, Plus, Search, Edit, Trash2, AlertCircle, ImageOff, SlidersHorizontal, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Loader from '@/components/Loader';
 import { toast, Toaster } from 'react-hot-toast';
-import 'react-toastify/dist/ReactToastify.css';
+import { motion, AnimatePresence } from 'framer-motion';
+import debounce from 'lodash/debounce';
+import Pagination from './Pagination';
 
 interface Product {
     _id: string;
@@ -16,9 +19,12 @@ interface Product {
     stock: number;
     images: string[];
     description: string;
+    status?: string;
 }
 
 type PriceFilterOption = 'all' | 'low' | 'medium' | 'high';
+
+const ITEMS_PER_PAGE = 12;
 
 const ManageProducts = () => {
     const [products, setProducts] = useState<Product[]>([]);
@@ -32,11 +38,29 @@ const ManageProducts = () => {
         medium: 0,
         high: 0
     });
+    const [currentPage, setCurrentPage] = useState(1);
     const router = useRouter();
+
+    const fetchProducts = useCallback(async () => {
+        try {
+            const response = await fetch('/api/product');
+            if (!response.ok) throw new Error('Failed to fetch products');
+            const result = await response.json();
+            if (result.success && result.data) {
+                setProducts(result.data);
+            } else {
+                throw new Error('Invalid response format');
+            }
+        } catch (err: any) {
+            setError(err.message || 'Failed to load products');
+        } finally {
+            setIsLoading(false);
+        }
+    }, []);
 
     useEffect(() => {
         fetchProducts();
-    }, []);
+    }, [fetchProducts]);
 
     useEffect(() => {
         if (products.length > 0) {
@@ -50,26 +74,9 @@ const ManageProducts = () => {
         }
     }, [products]);
 
-    const fetchProducts = async () => {
-        try {
-            const response = await fetch('/api/product');
-            if (!response.ok) throw new Error('Failed to fetch products');
-            const result = await response.json();
-            if (result.success && result.data) {
-                setProducts(result.data);
-            } else {
-                throw new Error('Invalid response format');
-            }
-        } catch (err: any) {
-            console.error('Error fetching products:', err);
-            setError(err.message || 'Failed to load products');
-        } finally {
-            setIsLoading(false);
-        }
-    };
-
     const handleAddProduct = () => {
-        router.push('/admin/dashboard/products/add');
+        setIsLoading(true);
+        router.push('/admin/dashboard/manageproducts/addproducts');
     };
 
     const handleEditProduct = (productId: string) => {
@@ -87,12 +94,11 @@ const ManageProducts = () => {
                 const result = await response.json();
                 if (result.success) {
                     setProducts(products.filter(product => product._id !== productId));
-                    toast.success('Product Deleted successfully!');
+                    toast.success('Product deleted successfully!');
                 }
             } catch (err: any) {
-                console.error('Error deleting product:', err);
                 setError(err.message || 'Failed to delete product');
-                toast.error('Some error is occur');
+                toast.error('An error occurred');
             }
         }
     };
@@ -113,6 +119,7 @@ const ManageProducts = () => {
     const resetFilters = () => {
         setSelectedPriceRange('all');
         setSearchQuery('');
+        setCurrentPage(1);
     };
 
     const filterProductsByPrice = (product: Product) => {
@@ -128,27 +135,49 @@ const ManageProducts = () => {
         }
     };
 
-    const filteredProducts = products.filter(product => {
+    const debouncedSearch = debounce((query: string) => {
+        setSearchQuery(query);
+        setCurrentPage(1);
+    }, 300);
+
+    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        debouncedSearch(e.target.value);
+    };
+
+    const filteredProducts = products.filter((product) => {
         const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
             product.category.toLowerCase().includes(searchQuery.toLowerCase());
         const matchesPrice = filterProductsByPrice(product);
         return matchesSearch && matchesPrice;
     });
 
+    const pageCount = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
+    const paginatedProducts = filteredProducts.slice(
+        (currentPage - 1) * ITEMS_PER_PAGE,
+        currentPage * ITEMS_PER_PAGE
+    );
+
     if (isLoading) return <Loader />;
 
     return (
-        <div className="max-w-7xl mx-auto px-4 py-6 space-y-6">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="max-w-7xl mx-auto px-4 py-6 space-y-6"
+        >
             <Toaster position="top-right" />
             <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-                <h1 className="text-2xl font-bold text-gray-900">Manage Products</h1>
-                <button
+                <h1 className="text-3xl font-bold text-gray-900">Manage Products</h1>
+                <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={handleAddProduct}
                     className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
                 >
                     <Plus className="w-4 h-4" />
                     <span>Add Product</span>
-                </button>
+                </motion.button>
             </div>
 
             <Card className="bg-white shadow-sm">
@@ -160,76 +189,65 @@ const ManageProducts = () => {
                                 type="text"
                                 placeholder="Search products..."
                                 className="w-full pl-9 pr-4 py-2 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
+                                onChange={handleSearchChange}
                             />
                         </div>
 
-                        <button
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
                             onClick={() => setShowFilters(!showFilters)}
                             className="flex items-center space-x-2 px-4 py-2 text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
                         >
                             <SlidersHorizontal className="w-4 h-4" />
                             <span className="text-sm">Filters</span>
-                        </button>
+                        </motion.button>
                     </div>
 
-                    {showFilters && (
-                        <div className="pt-4 border-t border-gray-100">
-                            <div className="space-y-4">
-                                <div>
-                                    <h3 className="text-sm font-medium text-gray-700 mb-2">Price Range</h3>
-                                    <div className="flex flex-wrap gap-2">
-                                        <button
-                                            onClick={() => setSelectedPriceRange('all')}
-                                            className={`px-4 py-2 rounded-md text-sm ${selectedPriceRange === 'all'
-                                                ? 'bg-blue-600 text-white'
-                                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                                                }`}
+                    <AnimatePresence>
+                        {showFilters && (
+                            <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto' }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.3 }}
+                                className="pt-4 border-t border-gray-100"
+                            >
+                                <div className="space-y-4">
+                                    <div>
+                                        <h3 className="text-sm font-medium text-gray-700 mb-2">Price Range</h3>
+                                        <div className="flex flex-wrap gap-2">
+                                            {['all', 'low', 'medium', 'high'].map((range) => (
+                                                <motion.button
+                                                    key={range}
+                                                    whileHover={{ scale: 1.05 }}
+                                                    whileTap={{ scale: 0.95 }}
+                                                    onClick={() => setSelectedPriceRange(range as PriceFilterOption)}
+                                                    className={`px-4 py-2 rounded-md text-sm ${selectedPriceRange === range
+                                                            ? 'bg-blue-600 text-white'
+                                                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                                                        }`}
+                                                >
+                                                    {range === 'all' ? 'All Prices' : `${range.charAt(0).toUpperCase() + range.slice(1)}`}
+                                                </motion.button>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-end">
+                                        <motion.button
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.95 }}
+                                            onClick={resetFilters}
+                                            className="text-sm text-blue-600 hover:text-blue-700"
                                         >
-                                            All Prices
-                                        </button>
-                                        <button
-                                            onClick={() => setSelectedPriceRange('low')}
-                                            className={`px-4 py-2 rounded-md text-sm ${selectedPriceRange === 'low'
-                                                ? 'bg-blue-600 text-white'
-                                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                                                }`}
-                                        >
-                                            Low (₹0 - ₹{priceRanges.low.toLocaleString('en-IN')})
-                                        </button>
-                                        <button
-                                            onClick={() => setSelectedPriceRange('medium')}
-                                            className={`px-4 py-2 rounded-md text-sm ${selectedPriceRange === 'medium'
-                                                ? 'bg-blue-600 text-white'
-                                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                                                }`}
-                                        >
-                                            Medium (₹{(priceRanges.low + 1).toLocaleString('en-IN')} - ₹{priceRanges.medium.toLocaleString('en-IN')})
-                                        </button>
-                                        <button
-                                            onClick={() => setSelectedPriceRange('high')}
-                                            className={`px-4 py-2 rounded-md text-sm ${selectedPriceRange === 'high'
-                                                ? 'bg-blue-600 text-white'
-                                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                                                }`}
-                                        >
-                                            High ({'>'}₹{priceRanges.medium.toLocaleString('en-IN')})
-                                        </button>
+                                            Reset Filters
+                                        </motion.button>
                                     </div>
                                 </div>
-
-                                <div className="flex justify-end">
-                                    <button
-                                        onClick={resetFilters}
-                                        className="text-sm text-blue-600 hover:text-blue-700"
-                                    >
-                                        Reset Filters
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    )}
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </CardContent>
             </Card>
 
@@ -243,60 +261,72 @@ const ManageProducts = () => {
             )}
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {filteredProducts.map((product) => (
-                    <Card key={product._id} className="flex flex-col bg-white overflow-hidden hover:shadow-lg transition-shadow duration-200">
-                        <div className="relative w-full pt-[75%] bg-gray-100">
-                            {product.images && product.images[0] ? (
-                                <Image
-                                    src={product.images[0]}
-                                    alt={product.name}
-                                    fill
-                                    className="absolute inset-0 object-cover"
-                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                />
-                            ) : (
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <ImageOff className="w-8 h-8 text-gray-400" />
+                <AnimatePresence>
+                    {paginatedProducts.map((product) => (
+                        <motion.div
+                            key={product._id}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.3 }}
+                        >
+                            <Card className="flex flex-col bg-white overflow-hidden hover:shadow-lg transition-shadow duration-200">
+                                <div className="relative w-full pt-[90%] bg-gray-100 overflow-hidden">
+                                    {product.images && product.images[0] ? (
+                                        <Image
+                                            src={product.images[0] || "/placeholder.svg"}
+                                            alt={product.name}
+                                            width={500}
+                                            height={500}
+                                            className="absolute inset-0 object-cover hover:scale-110 transition-all duration-200"
+                                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                        />
+                                    ) : (
+                                        <div className="absolute inset-0 flex items-center justify-center">
+                                            <ImageOff className="w-8 h-8 text-gray-400" />
+                                        </div>
+                                    )}
                                 </div>
-                            )}
-                        </div>
-                        <CardContent className="flex-1 p-4 space-y-3">
-                            <div>
-                                <div className="flex items-start justify-between gap-2">
-                                    <h3 className="text-sm font-semibold text-gray-900 line-clamp-1">{product.name}</h3>
-                                    {/* @ts-ignore */}
-                                    <span className={`shrink-0 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${getStatusStyle(product.status)}`}>
-                                        {/* @ts-ignore */}
-                                        {product.status}
-                                    </span>
-                                </div>
-                                <p className="text-xs text-gray-600 mt-1">{product.category}</p>
-                            </div>
+                                <CardContent className="flex-1 p-4 space-y-3">
+                                    <div>
+                                        <div className="flex items-start justify-between gap-2">
+                                            <h3 className="text-sm font-semibold text-gray-900 line-clamp-1">{product.name}</h3>
+                                            <span className={`shrink-0 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${getStatusStyle(product.status || '')}`}>
+                                                {product.status}
+                                            </span>
+                                        </div>
+                                        <p className="text-xs text-gray-600 mt-1">{product.category}</p>
+                                    </div>
 
+                                    {product.description && (
+                                        <p className="text-xs text-gray-600 line-clamp-2">{product.description}</p>
+                                    )}
 
-                            {product.description && (
-                                <p className="text-xs text-gray-600 line-clamp-2">{product.description}</p>
-                            )}
-
-                            <div className="flex justify-end items-center space-x-2 pt-2 border-t border-gray-100">
-                                <button
-                                    onClick={() => handleEditProduct(product._id)}
-                                    className="p-1.5 text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
-                                    title="Edit product"
-                                >
-                                    <Edit className="w-4 h-4" />
-                                </button>
-                                <button
-                                    onClick={() => handleDeleteProduct(product._id)}
-                                    className="p-1.5 text-red-600 hover:bg-red-50 rounded-md transition-colors"
-                                    title="Delete product"
-                                >
-                                    <Trash2 className="w-4 h-4" />
-                                </button>
-                            </div>
-                        </CardContent>
-                    </Card>
-                ))}
+                                    <div className="flex justify-end items-center space-x-2 pt-2 border-t border-gray-100">
+                                        <motion.button
+                                            whileHover={{ scale: 1.1 }}
+                                            whileTap={{ scale: 0.9 }}
+                                            onClick={() => handleEditProduct(product._id)}
+                                            className="p-1.5 text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
+                                            title="Edit product"
+                                        >
+                                            <Edit className="w-4 h-4" />
+                                        </motion.button>
+                                        <motion.button
+                                            whileHover={{ scale: 1.1 }}
+                                            whileTap={{ scale: 0.9 }}
+                                            onClick={() => handleDeleteProduct(product._id)}
+                                            className="p-1.5 text-red-600 hover:bg-red-50 rounded-md transition-colors"
+                                            title="Delete product"
+                                        >
+                                            <Trash2 className="w-4 h-4" />
+                                        </motion.button>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </motion.div>
+                    ))}
+                </AnimatePresence>
             </div>
 
             {filteredProducts.length === 0 && (
@@ -312,7 +342,43 @@ const ManageProducts = () => {
                     </CardContent>
                 </Card>
             )}
-        </div>
+
+            {/* {pageCount > 1 && (
+                <div className="flex justify-center mt-8">
+                    <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                        <button
+                            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                            disabled={currentPage === 1}
+                            className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                        >
+                            <span className="sr-only">Previous</span>
+                            <ChevronLeft className="h-5 w-5" aria-hidden="true" />
+                        </button>
+                        {[...Array(pageCount)].map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setCurrentPage(index + 1)}
+                                className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${currentPage === index + 1
+                                        ? 'z-10 bg-blue-50 border-blue-500 text-blue-600'
+                                        : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'
+                                    }`}
+                            >
+                                {index + 1}
+                            </button>
+                        ))}
+                        <button
+                            onClick={() => setCurrentPage(prev => Math.min(prev + 1, pageCount))}
+                            disabled={currentPage === pageCount}
+                            className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                        >
+                            <span className="sr-only">Next</span>
+                            <ChevronRight className="h-5 w-5" aria-hidden="true" />
+                        </button>
+                    </nav>
+                </div>
+            )} */}
+            <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} pageCount={pageCount}/>
+        </motion.div>
     );
 };
 

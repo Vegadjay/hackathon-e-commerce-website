@@ -2,26 +2,17 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { toast, Toaster } from 'react-hot-toast';
 import {
     Plus,
-    ImagePlus,
-    Trash2,
     Save,
-    X,
     ChevronDown,
-    Truck
+    Truck,
+    Box,
+    Logs,
+    Shirt
 } from 'lucide-react';
-import { format } from "date-fns"
-import { CalendarIcon } from "lucide-react"
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { Calendar } from "@/components/ui/calendar"
-import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-} from "@/components/ui/popover"
-
+import FileUploadInProductAdd from '@/components/FileUploadInProductAdd';
 
 const SIZE_OPTIONS = [
     'XS', 'S', 'M', 'L', 'XL',
@@ -47,7 +38,7 @@ interface ProductData {
     seller: string;
     color: string[];
     category: string;
-    model: string;
+    productModel: string;
     size: string[];
     images: string[];
     features: string[];
@@ -63,24 +54,17 @@ const ProductCreationForm: React.FC = () => {
         reviews: 0,
         inStock: 0,
         delivery: '',
-        deliveryDate: '',
-        seller: '',
+        deliveryDate: '5 To 6 Working days',
+        seller: 'Rajwadi Poshak Co.',
         color: [],
         category: '',
-        model: '',
+        productModel: '',
         size: [],
         images: [],
         features: [],
         description: '',
         chartData: []
     });
-
-    const [newColor, setNewColor] = useState('');
-    const [newFeature, setNewFeature] = useState('');
-    const [date, setDate] = React.useState<Date>()
-    const [newChartData, setNewChartData] = useState({ month: '', revenue: 0 });
-    const [imageFiles, setImageFiles] = useState<File[]>([]);
-    const [imageError, setImageError] = useState('');
 
     const [isSizeDropdownOpen, setIsSizeDropdownOpen] = useState(false);
     const [isColorDropdownOpen, setIsColorDropdownOpen] = useState(false);
@@ -113,78 +97,34 @@ const ProductCreationForm: React.FC = () => {
         });
     };
 
-    const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const files = Array.from(e.target.files || []);
-
-        const totalImages = productData.images.length + files.length;
-
-        if (totalImages > 4) {
-            setImageError('You can upload a maximum of 4 images');
-            return;
-        }
-
-        setImageError('');
-
-        setImageFiles(prev => [...prev, ...files]);
-
-        const imageUrls = files.map(file => URL.createObjectURL(file));
-        setProductData(prev => ({
-            ...prev,
-            images: [...prev.images, ...imageUrls]
-        }));
-    };
-
-    const removeImage = (imageToRemove: string) => {
-        setProductData(prev => ({
-            ...prev,
-            images: prev.images.filter(image => image !== imageToRemove)
-        }));
-        setImageFiles(prev =>
-            prev.filter(file => URL.createObjectURL(file) !== imageToRemove)
-        );
-        setImageError('');
-    };
-
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        const formData = new FormData();
-
-        Object.keys(productData).forEach(key => {
-            const value = productData[key as keyof ProductData];
-
-            if (key === 'chartData' || key === 'color' || key === 'size' || key === 'features') {
-                formData.append(key, JSON.stringify(value));
-            } else if (value !== null && value !== undefined) {
-                formData.append(key, String(value));
-            }
-        });
-
-        imageFiles.forEach((file) => {
-            formData.append(`images`, file);
-        });
-
+        productData.inStock = parseInt(productData.inStock.toString(), 10);
         try {
-            const response = await fetch('/api/products', {
+            const response = await fetch('/api/product', {
                 method: 'POST',
-                body: formData
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(productData)
             });
 
             if (response.ok) {
                 const result = await response.json();
-                alert('Product created successfully!');
+                toast.success('Product created successfully!');
             } else {
                 const error = await response.json();
-                alert(`Error: ${error.message}`);
+                toast.error(`Error: ${error.message}`);
             }
         } catch (error) {
-            console.error('Product creation failed:', error);
-            alert('Failed to create product');
+            toast.error('Failed to create product');
         }
     };
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-red-50 to-red-100 p-4 md:p-10">
+            <Toaster position='top-right' />
             <motion.form
                 onSubmit={handleSubmit}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -227,8 +167,7 @@ const ProductCreationForm: React.FC = () => {
                     <button
                         type="button"
                         onClick={() => setIsSizeDropdownOpen(!isSizeDropdownOpen)}
-                        className="w-full p-3 border rounded-lg flex items-center justify-between 
-              focus:outline-none focus:ring-2 focus:ring-red-300"
+                        className="w-full p-3 border rounded-lg flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-red-300"
                     >
                         <span>
                             {productData.size.length > 0
@@ -298,87 +237,43 @@ const ProductCreationForm: React.FC = () => {
                         <Truck className="absolute left-3 top-1/2 transform -translate-y-1/2 text-red-500" />
                     </div>
                     <div className="relative">
-                        <Popover>
-                            <PopoverTrigger asChild>
-                                <Button
-                                    variant={"outline"}
-                                    className={cn(
-                                        "w-[280px] gap-5 justify-start text-left font-normal",
-                                        !date && "text-muted-foreground hover:bg-red-500 h-12 w-full"
-                                    )}
-                                >
-                                    <CalendarIcon />
-                                    {date ? format(date, "PPP") : <span>Pick a date</span>}
-                                </Button>
-                            </PopoverTrigger>
-                            <PopoverContent className="w-auto p-0">
-                                <Calendar
-                                    mode="single"
-                                    selected={date}
-                                    onSelect={setDate}
-                                    initialFocus
-                                />
-                            </PopoverContent>
-                        </Popover>
-                    </div>
-                </div>
-
-                <div>
-                    <label className="block mb-2 text-red-800 font-semibold">
-                        Product Images (Max 4)
-                    </label>
-
-                    {imageError && (
-                        <div className="text-red-600 mb-2 flex items-center">
-                            <X className="mr-2 text-red-600" />
-                            {imageError}
-                        </div>
-                    )}
-
-                    <div className="flex items-center space-x-2 mb-2">
                         <input
-                            type="file"
-                            multiple
-                            accept="image/*"
-                            onChange={handleImageUpload}
-                            className="hidden"
-                            id="image-upload"
-                            disabled={productData.images.length >= 4}
+                            type="text"
+                            name="category"
+                            value={productData.category}
+                            onChange={handleInputChange}
+                            placeholder="Category"
+                            className="w-full p-3 pl-10 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-300"
                         />
-                        <label
-                            htmlFor="image-upload"
-                            className={`flex items-center p-3 rounded-lg cursor-pointer transition-colors ${productData.images.length >= 4
-                                ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                                : 'bg-red-500 text-white hover:bg-red-600'
-                                }`}
-                        >
-                            <ImagePlus className="mr-2" />
-                            {productData.images.length >= 4 ? 'Max Images Reached' : 'Upload Images'}
-                        </label>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2">
-                        {productData.images.map((image) => (
-                            <div
-                                key={image}
-                                className="relative w-24 h-24 rounded-lg overflow-hidden shadow-md"
-                            >
-                                <img
-                                    src={image}
-                                    alt="Product"
-                                    className="w-full h-full object-cover"
-                                />
-                                <button
-                                    type="button"
-                                    onClick={() => removeImage(image)}
-                                    className="absolute top-1 right-1 bg-red-500 text-white rounded-full p-1"
-                                >
-                                    <Trash2 size={16} />
-                                </button>
-                            </div>
-                        ))}
+                        <Logs className="absolute left-3 top-1/2 transform -translate-y-1/2 text-red-500" />
                     </div>
                 </div>
+                <div className="grid md:grid-cols-2 gap-4">
+                    <div className="relative">
+                        <input
+                            type="number"
+                            name="inStock"
+                            value={productData.inStock}
+                            onChange={handleInputChange}
+                            placeholder="Stock"
+                            className="w-full p-3 pl-10 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-300"
+                        />
+                        <Box className="absolute left-3 top-1/2 transform -translate-y-1/2 text-red-500" />
+                    </div>
+                    <div className="relative">
+                        <input
+                            type="text"
+                            name="productModel"
+                            value={productData.productModel}
+                            onChange={handleInputChange}
+                            placeholder="Product Model"
+                            className="w-full p-3 pl-10 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-300"
+                        />
+                        <Shirt className="absolute left-3 top-1/2 transform -translate-y-1/2 text-red-500" />
+                    </div>
+                </div>
+
+                <FileUploadInProductAdd products={productData} setProductData={setProductData} />
 
                 <div className="relative">
                     <textarea
@@ -396,9 +291,10 @@ const ProductCreationForm: React.FC = () => {
                         type="submit"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="flex items-center bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors"
+                        className="px-6 py-2 bg-red-500 text-white rounded-lg flex items-center"
                     >
-                        <Save className="mr-2" /> Create Product
+                        <Save className="mr-2" />
+                        Save Product
                     </motion.button>
                 </div>
             </motion.form>

@@ -8,7 +8,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import ImageSwapper from "@/components/image/page";
 import { AddToCartModal, BuyNowButton } from "@/app/product/component/button-component";
 import RevenueChart from '@/app/product/component/price-chart';
-import { Compare } from '@/components/ui/compare';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 
