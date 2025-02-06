@@ -314,7 +314,7 @@ export default function AnimatedCheckout() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="max-w-6xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden"
+            className="max-w-6xl mx-auto z-30 mt-7 bg-white rounded-lg shadow-xl overflow-hidden"
         >
             <Toaster position="top-right" />
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
@@ -359,7 +359,7 @@ export default function AnimatedCheckout() {
                                                     alt={item.name}
                                                     width={100}
                                                     height={100}
-                                                    className="w-full h-full object-cover"
+                                                    className="w-full h-full object-cover object-top aspect-[3/4]"
                                                 />
                                             </div>
                                             <div className="flex-grow">

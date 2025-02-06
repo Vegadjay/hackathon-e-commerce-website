@@ -209,12 +209,12 @@ const DashboardStats = () => {
                         >
                             Check All Orders
                         </button>
-                        <button
+                        {/* <button
                             className="p-4 bg-green-300 border border-black rounded-full h-10 w-full sm:w-56 flex items-center justify-center"
                             onClick={handleChangeProduct}
                         >
                             Add Hero Product
-                        </button>
+                        </button> */}
                     </div>
                 </div>
 

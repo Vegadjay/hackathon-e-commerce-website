@@ -56,7 +56,6 @@ interface ProductData {
 }
 
 const ProductUpdateForm: React.FC = () => {
-    const params = useParams();
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(true);
     const [isSaving, setIsSaving] = useState(false);
@@ -200,7 +199,7 @@ const ProductUpdateForm: React.FC = () => {
             }
 
             toast.success('Product Updated Successfully');
-            router.push('/admin/dashboard/manageproducts');
+            router.refresh();
         } catch (error) {
             console.error('Product update failed:', error);
             toast.error(error instanceof Error ? error.message : 'Failed to update product');
@@ -221,7 +220,7 @@ const ProductUpdateForm: React.FC = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="max-w-4xl mx-auto bg-white shadow-2xl rounded-2xl p-8 space-y-6"
+            className="max-w-5xl mx-auto mt-10 bg-white shadow-2xl rounded-2xl p-8 space-y-6"
         >
             <Toaster position="top-right" />
             <h1 className="text-3xl font-bold text-red-800 mb-6 text-center">
@@ -459,7 +458,7 @@ const ProductUpdateForm: React.FC = () => {
             <div className="flex space-x-4 pt-6">
                 <motion.button
                     type="submit"
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.95 }}
                     className="flex-1 flex items-center justify-center bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors disabled:bg-red-400"
                     disabled={isSaving}

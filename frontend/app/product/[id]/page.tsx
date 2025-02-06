@@ -315,7 +315,7 @@ const Product: React.FC<ProductProps> = ({ product }) => {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-gray-700">Colors <span className='text-red-400'>(* This is optional field Colors are not right)</span></label>
+                <label className="block text-sm font-medium text-gray-700">Colors</label>
                 <div className="flex gap-2 flex-wrap">
                   {product.color && product.color.length > 0 && (
                     <div className="space-y-2 mt-4">
@@ -341,8 +341,6 @@ const Product: React.FC<ProductProps> = ({ product }) => {
                   {product.color == undefined ? <h1>Red Color</h1> : null}
                 </div>
               </div>
-
-
 
               <div className="space-y-2">
                 <label className="block text-sm font-medium text-gray-700">Quantity</label>
@@ -463,12 +461,13 @@ const Product: React.FC<ProductProps> = ({ product }) => {
                     className="group relative flex flex-col overflow-hidden rounded-xl bg-white shadow-md hover:shadow-lg transition-all duration-300"
                   >
                     <Link href={`/product/${product._id}`}>
-                      <div className="relative w-full h-56">
+                      <div className="relative w-full overflow-hidden">
                         <Image
                           src={product.images[0]}
                           alt={product.name}
-                          fill
-                          className="object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                          width={500}
+                          height={500}
+                          className="object-cover object-top aspect-square transition-transform duration-500 group-hover:scale-110"
                         />
                       </div>
                     </Link>

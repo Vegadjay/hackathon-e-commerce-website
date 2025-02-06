@@ -193,7 +193,7 @@ export default function OptimizedCoolCartPage() {
     >
       <div className="px-4 py-5 sm:p-6">
         <h1 className="text-3xl font-extrabold text-gray-900 flex items-center mb-8">
-          <ShoppingBag className="w-8 h-8 mr-2 text-purple-600" />
+          <ShoppingBag className="w-8 h-8 mr-2 text-red-600" />
           Your Stylish Cart
         </h1>
 
@@ -215,14 +215,14 @@ export default function OptimizedCoolCartPage() {
                       alt={item.name}
                       width={100}
                       height={100}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-top aspect-[3/4]"
                     />
                   </div>
                 </Link>
                 <div className="flex-grow">
                   <h3 className="text-lg font-medium text-gray-900">{item.name}</h3>
                   <p className="text-gray-500">Size: {item.size}</p>
-                  <p className="text-purple-600 font-semibold">₹{item.price}</p>
+                  <p className="text-red-600 font-semibold">₹{item.price}</p>
                   <div className="flex items-center mt-2">
                     <Button
                       onClick={() => {
@@ -291,35 +291,12 @@ export default function OptimizedCoolCartPage() {
         <div className="mt-8">
           <div className="flex justify-between items-center mb-4">
             <span className="text-lg font-medium text-gray-900">Subtotal</span>
-            <span className="text-2xl font-bold text-purple-600">₹{parseFloat(cartData?.totalPrice?.toString() || '0').toFixed(2)}</span>
+            <span className="text-2xl font-bold text-red-600">₹{parseFloat(cartData?.totalPrice?.toString() || '0').toFixed(2)}</span>
           </div>
 
           <div className="space-y-4">
-            {/* <div>
-              <Label htmlFor="coupon" className="block text-sm font-medium text-gray-700">
-                Coupon Code
-              </Label>
-              <div className="mt-1 flex rounded-md shadow-sm">
-                <Input
-                  type="text"
-                  name="coupon"
-                  id="coupon"
-                  value={couponCode}
-                  onChange={(e) => setCouponCode(e.target.value)}
-                  className="flex-1 min-w-0 block w-full px-3 py-2 rounded-md focus:ring-purple-500 focus:border-purple-500 sm:text-sm border-gray-300"
-                  placeholder="Enter coupon code"
-                />
-                <Button
-                  onClick={handleApplyCoupon}
-                  className="ml-2 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
-                >
-                  Apply
-                </Button>
-              </div>
-            </div> */}
-
             <Button
-              className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center"
+              className="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center"
               onClick={() => {
                 setIsLoading(true);
                 router.push('/checkout')

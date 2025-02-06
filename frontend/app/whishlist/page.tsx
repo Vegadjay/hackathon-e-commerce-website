@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Heart, Trash2 } from "lucide-react";
 import Cookies from "js-cookie";
 import { toast } from "sonner";
+import Image from "next/image";
 
 interface Product {
 	_id: string;
@@ -107,10 +108,12 @@ export default function WishlistPage() {
 							>
 								<Link href={`/product/${product._id}`} className="block relative">
 									<div className="aspect-w-3 aspect-h-4">
-										<img
+										<Image
 											src={product?.image || "/detailphotos/1.1.webp"}
 											alt={product.name}
-											className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-200"
+											width={400}
+											height={400}
+											className="object-cover object-top aspect-[3/4] w-full h-full group-hover:scale-105 transition-transform duration-200"
 										/>
 									</div>
 								</Link>

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import {
     LineChart,
     Line,
@@ -82,6 +82,7 @@ const AdminCategoryDashboard = () => {
     const [selectedStatus, setSelectedStatus] = useState<string>('all');
     const [currentPage, setCurrentPage] = useState(1);
     const [productsPerPage] = useState(9);
+    const router = useRouter();
 
     const getCategoryFromPath = () => {
         const segments = pathname?.split('/') || [];
@@ -93,7 +94,7 @@ const AdminCategoryDashboard = () => {
     filteredProducts.forEach((product: any) => {
         if (product.size) {
             product.size.forEach((size: any) => {
-                    sizeCount[size] = (sizeCount[size] || 0) + product.inStock;
+                sizeCount[size] = (sizeCount[size] || 0) + product.inStock;
             });
         }
     });
@@ -256,7 +257,9 @@ const AdminCategoryDashboard = () => {
                             <Download className="mr-2 h-4 w-4" />
                             Export Data
                         </Button>
-                        <Button className="text-white w-full sm:w-auto">
+                        <Button onClick={() => {
+                            router.push("/admin/dashboard/manageproducts/addproducts")
+                        }} className="text-white w-full sm:w-auto">
                             Add New Product
                         </Button>
                     </div>
@@ -374,11 +377,6 @@ const AdminCategoryDashboard = () => {
                                                         <Edit className="mr-2 h-4 w-4" />
                                                         Edit
                                                     </DropdownMenuItem>
-                                                    <DropdownMenuSeparator />
-                                                    <DropdownMenuItem className="text-red-600 bg-white hover:bg-red-600 hover:text-white">
-                                                        <Trash2 className="mr-2 h-4 w-4" />
-                                                        Delete
-                                                    </DropdownMenuItem>
                                                 </DropdownMenuContent>
                                             </DropdownMenu>
                                         </div>
@@ -398,9 +396,6 @@ const AdminCategoryDashboard = () => {
                                                 <p className="text-lg font-semibold">{product.rating.toFixed(1)}</p>
                                             </div>
                                         </div>
-                                        {/* <div className="text-sm text-gray-500">
-                                            Last updated: {product.lastUpdated}
-                                        </div> */}
                                     </div>
                                 </div>
                             </Link>
@@ -437,38 +432,7 @@ const AdminCategoryDashboard = () => {
                             </div>
                         </CardContent>
                     </Card>
-
-                    {/* <Card>
-                        <CardHeader>
-                            <CardTitle>Product Size Distribution</CardTitle>
-                            <CardDescription>Overview of product sizes</CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <div className="h-[400px]">
-                                <ResponsiveContainer width="100%" height={300}>
-                                    <PieChart>
-                                        <Pie
-                                            data={chartData}
-                                            cx="50%"
-                                            cy="50%"
-                                            labelLine={false}
-                                            outerRadius={100}
-                                            fill="#8884d8"
-                                            dataKey="value"
-                                            label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-                                        >
-                                            {chartData.map((_, index) => (
-                                                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                                            ))}
-                                        </Pie>
-                                        <Tooltip />
-                                        <Legend />
-                                    </PieChart>
-                                </ResponsiveContainer>
-                            </div>
-                        </CardContent>
-                    </Card> */}
-                    <ProductDetail products={filteredProducts}/>
+                    <ProductDetail products={filteredProducts} />
                 </div>
 
                 {/* Low Stock Alert */}

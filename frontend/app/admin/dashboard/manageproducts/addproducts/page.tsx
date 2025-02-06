@@ -123,14 +123,14 @@ const ProductCreationForm: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-red-50 to-red-100 p-4 md:p-10">
+        <div className="min-h-screen p-4 md:p-10">
             <Toaster position='top-right' />
             <motion.form
                 onSubmit={handleSubmit}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
-                className="max-w-4xl mx-auto bg-white shadow-2xl rounded-2xl p-8 space-y-6"
+                className="max-w-5xl mx-auto bg-white shadow-2xl rounded-2xl p-8 space-y-6"
             >
                 <h1 className="text-3xl font-bold text-red-800 mb-6 text-center">
                     Create New Product
