@@ -38,7 +38,7 @@ interface ProductData {
     seller: string;
     color: string[];
     category: string;
-    productModel: string;
+    model: string;
     size: string[];
     images: string[];
     features: string[];
@@ -58,7 +58,7 @@ const ProductCreationForm: React.FC = () => {
         seller: 'Rajwadi Poshak Co.',
         color: [],
         category: '',
-        productModel: '',
+        model: '',
         size: [],
         images: [],
         features: [],
@@ -197,8 +197,7 @@ const ProductCreationForm: React.FC = () => {
                     <button
                         type="button"
                         onClick={() => setIsColorDropdownOpen(!isColorDropdownOpen)}
-                        className="w-full p-3 border rounded-lg flex items-center justify-between 
-              focus:outline-none focus:ring-2 focus:ring-red-300"
+                        className="w-full p-3 border rounded-lg flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-red-300"
                     >
                         <span>
                             {productData.color.length > 0
@@ -263,8 +262,8 @@ const ProductCreationForm: React.FC = () => {
                     <div className="relative">
                         <input
                             type="text"
-                            name="productModel"
-                            value={productData.productModel}
+                            name="model"
+                            value={productData.model}
                             onChange={handleInputChange}
                             placeholder="Product Model"
                             className="w-full p-3 pl-10 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-300"

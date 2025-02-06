@@ -12,7 +12,7 @@ export async function POST(req: Request) {
 			return NextResponse.json({ success: false, message: "No files uploaded" }, { status: 400 });
 		}
 
-		const uploadDir = path.join(process.cwd(), 'public', 'detailphotos');
+		const uploadDir = path.join(process.cwd(), 'public', 'detailphotos2');
 
 		await fs.mkdir(uploadDir, { recursive: true });
 
@@ -24,7 +24,7 @@ export async function POST(req: Request) {
 				const buffer = Buffer.from(await file.arrayBuffer());
 
 				await fs.writeFile(filePath, buffer);
-				return `/detailphotos/${fileName}`;
+				return `/detailphotos2/${fileName}`;
 			})
 		);
 
