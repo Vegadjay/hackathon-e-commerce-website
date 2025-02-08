@@ -25,8 +25,15 @@
 
 Rajwadi Poshak brings the richness of Indian traditional wear to the digital age. Our platform combines centuries-old craftsmanship with modern e-commerce convenience, offering an extensive collection of premium ethnic wear. From handcrafted kurtas to designer silk suits, we bring elegance to your doorstep. 🪡
 
-## 📦 Version Information
+## 📋 Project Credits
 
+### 🎨 Frontend Development
+**Jay Vegad** ([@Vegadjay](https://github.com/Vegadjay))
+
+### 💻 Backend Development
+**Hemang Patel** ([@hemang-patel-9](https://github.com/hemang-patel-9))
+
+## 📦 Version Information
 ```json
 {
   "name": "rajwadi-poshak",
@@ -64,7 +71,6 @@ Rajwadi Poshak brings the richness of Indian traditional wear to the digital age
 <img src="./screenshots/productdis.png" alt="Product Details" />
 <em>Detailed product view with size charts and fabric information</em>
 </p>
-
 
 ### 🛒 Shopping Experience
 <p align="center">
@@ -107,7 +113,6 @@ Rajwadi Poshak brings the richness of Indian traditional wear to the digital age
 <br />
   <em>Optimized product viewing for mobile devices</em>
 </p>
-
 
 ### 👑 Admin Dashboard
 <p align="center">
@@ -287,6 +292,9 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTE.md
 - 🤝 Open source community
 - 👥 Our amazing contributors
 - 🏆 Featured on Product Hunt
+- 💻 Special thanks to our core developers:
+  - Frontend Development: [Jay Vegad](https://github.com/Vegadjay)
+  - Backend Development: [Hemang Patel](https://github.com/hemang-patel-9)
 
 ---
 
