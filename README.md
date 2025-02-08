@@ -12,8 +12,8 @@
 [![Vercel](https://img.shields.io/badge/vercel-deployed-success)](https://rajwadiposhak.vercel.app)
 
 [Demo](https://rajwadiposhak.vercel.app) •
-[Report Bug](https://github.com/Hemang-patel-9/hackathon-fashion-ecommerce/issues) •
-[Request Feature](https://github.com/Hemang-patel-9/hackathon-fashion-ecommerce/issues)
+[Report Bug](https://github.com/Vegadjay/Rajwadi-Poshak-Ecommerce/issues) •
+[Request Feature](https://github.com/Vegadjay/Rajwadi-Poshak-Ecommerce/issues)
 
 </div>
 
@@ -215,8 +215,8 @@ Python >= 3.11 (for AI server)
 ### 🔧 Development Setup
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/rajwadi-poshak.git
-cd rajwadi-poshak
+git clone https://github.com/yourusername/Rajwadi-Poshak-Ecommerce.git
+cd Rajwadi-Poshak-Ecommerce
 
 # Install dependencies
 npm install
@@ -226,50 +226,7 @@ cp .env.example .env
 
 # Run development server
 npm run dev
-
-# For AI server (in separate terminal)
-cd ai-server
-python -m venv venv
-source venv/bin/activate  # or `venv\Scripts\activate` on Windows
-pip install -r requirements.txt
-python app.py
 ```
-
-## 🧠 AI server setup
-```bash
-# change the current directory to "backend"
-cd backend
-
-# installing required dependancy
-pip install -r requirements.txt
-
-# start the server on port 5000
-python webapp.py
-
-```
-## Note: Custom AI Model Training
-
-If you wish to train the AI model with your own dataset, please follow these steps:
-
-1. **Prepare Your Dataset:**  
-   - Navigate to the `dataset` folder.  
-   - Add your images to this folder.
-
-2. **Train the Model:**  
-   - Open the `aimodel.ipynb` notebook.  
-   - Run all cells to train the model.  
-   - You may rename the generated `.pkl` files as needed.
-
-3. **Update the Server Configuration:**  
-   - Modify the file paths for your `.pkl` files in `webapp.py` to match your new filenames.
-
-4. **Restart the AI Server:**  
-   - Run the command:  
-     ```bash
-     python webapp.py
-     ```  
-
-This will deploy your custom-trained AI model. Enjoy tailoring your AI experience!
 
 ## 📈 Performance Metrics
 
@@ -316,7 +273,7 @@ This will deploy your custom-trained AI model. Enjoy tailoring your AI experienc
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
 ## 🤝 Contributing
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTE.md) for details.
 
 ### 📋 Development Process
 1. Fork the repository
